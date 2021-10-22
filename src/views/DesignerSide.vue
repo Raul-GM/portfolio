@@ -1,5 +1,5 @@
 <template>
-  <h1>HELLO WORLD</h1>
+  <H1>Designer Side</H1>
 </template>
 
 <script>
