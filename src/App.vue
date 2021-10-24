@@ -1,11 +1,11 @@
 <template>
-  <!-- <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div> -->
   <router-view/>
 </template>
 
 <style lang="scss">
 @import './assets/styles/reset';
+@import './assets/styles/fonts';
+@import './assets/styles/variables';
+@import './assets/styles/colors';
+@import './assets/styles/main';
 </style>

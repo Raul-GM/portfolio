@@ -1,13 +1,30 @@
 <template>
-  <H1>Developer Side</H1>
+    <Navbar />
+    <div class="main-container">
+        <AboutMe />
+        <Portfolio />
+    </div>
+    <Footer />
 </template>
 
 <script>
-export default {
+import Navbar from '@/components/Navbar.vue';
+import Footer from '@/components/Footer.vue';
+import AboutMe from '@/components/developer/AboutMe.vue';
+import Portfolio from '@/components/developer/Portfolio.vue';
 
+export default {
+    components: {
+        Navbar,
+        Footer,
+        AboutMe,
+        Portfolio
+    }
 }
 </script>
 
-<style>
-
+<style lang="scss">
+.main-container {
+    padding: 0 3rem;
+}
 </style>

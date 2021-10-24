@@ -15,22 +15,15 @@
 </template>
 
 <script>
-// @ is an alias to /src
-// import HelloWorld from '@/components/HelloWorld.vue'
-
 export default {
   name: 'Home',
   components: {
-    //HelloWorld
   }
 }
 </script>
 <style lang="scss">
 :root {
   --main-border: 3px solid black;
-}
-body {
-  height: 100vh;
 }
 .title {
   position: absolute;
