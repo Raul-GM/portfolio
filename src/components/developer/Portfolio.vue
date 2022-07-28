@@ -1,10 +1,10 @@
 <template>
     <div class="portfolio-container">
-        <h1 class="portfolio-container__title section-title">PORTFOLIO</h1>
+        <h1 class="portfolio-container__title section-title">Portfolio</h1>
         <span class="portfolio-container__text">
-            Vis id minim dicant sensibus. Pri aliquip conclusionemque ad, ad malis evertitur torquatos his. Has ei solum harum reprimique, id illum saperet tractatos his. Ei omnis soleat antiopam quo. Ad augue inani postulant mel, mel ea qualisque forensibus.
+            La mayoría de mis proyectos son para las empresas para las que he estado trabajando o son proyectos sencillos para aprender algo en concreto o practicar alguna tecnología. No obstante me gustaría mostraros un par de proyectos más "acabados" en los que he estado (estoy) trabajando
         </span>
-        <div class="portfolio-container__project">Proyecto 1</div>
+        <div class="portfolio-container__project">Skulls N' Ravens</div>
         <div class="portfolio-container__project">Proyecto 2</div>
     </div>
 </template>
@@ -25,13 +25,14 @@ export default {
     grid-auto-rows: min-content;
     align-items: center;
     min-height: 400px;
-    padding: 2rem 0;
+    padding: 1rem 0;
     &__title {
         grid-area: title;
         justify-self: center;
     }
     &__text {
         grid-area: text;
+        padding-bottom: 2rem;
     }
     &__project {
         justify-self: center;
@@ -43,4 +44,5 @@ export default {
         }
     }
 }
+
 </style>

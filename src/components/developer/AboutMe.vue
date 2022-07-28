@@ -5,7 +5,12 @@
           IMAGEN
       </div>
       <div class="aboutme-container__part">
-            <p>Expetenda tincidunt in sed, ex partem placerat sea, porro commodo ex eam. His putant aeterno interesset at. Usu ea mundi tincidunt, omnium virtute aliquando ius ex. Ea aperiri sententiae duo. Usu nullam dolorum quaestio ei, sit vidit facilisis ea. Per ne impedit iracundia neglegentur. Consetetur neglegentur eum ut, vis animal legimus inimicus id. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. His audiam deserunt in, eum ubique voluptatibus te. In reque dicta usu. Ne rebum dissentiet eam, vim omnis deseruisse id. Ullum deleniti vituperata at quo, insolens complectitur te eos, ea pri dico munere propriae. </p>
+            <p>
+                Me llamo Raúl García, residente en España, y soy Front-end developer desde el año 2004. Con más de 15 años de experiencia en empresas de diferentes sectores, he podido trabajar en diferentes ambientes con distintas herramientas.
+            </p>
+            <p>
+                Me interesa acercarme a la experiencia de usuario, por lo que intento aprender todo lo que puedo de mis compañeros y compañeras diseñadores. Para ello procuro darle todo el mimo posible a la maquetación e intentar que la experiencia de usuario sea la mejor.
+            </p>
             <Link
                 class="aboutme-container__full"
                 label="Más sobre mí"
@@ -33,7 +38,7 @@ export default {
     align-items: center;
     justify-items: center;
     min-height: calc(100vh - var(--navbar-height) - var(--footer-height) - 200px);
-    padding: 2rem 0;
+    padding: 1rem 0;
     &__title {
         grid-column: 1/3;
     }
@@ -42,6 +47,9 @@ export default {
         display: flex;
         flex-direction: column;
         padding: 1rem 0;
+        p {
+            padding-bottom: 2rem;
+        }
     }
 }
 </style>

@@ -22,4 +22,14 @@ h6 {
 }
 .section-title {
     font-family: var(--font-title);
+    margin: 1rem 0;
+}
+
+.main-container {
+    padding: 0 3rem;
+    min-height: calc(100vh - var(--navbar-height) - var(--footer-height));
+}
+
+.text-paragraph {
+    padding-bottom: 1rem;
 }

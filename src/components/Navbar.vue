@@ -30,6 +30,8 @@ export default {
     grid-template-columns: 1fr auto;
     grid-auto-flow: dense;
     align-items: center;
+    position: sticky;
+    top: 0;
     &__menu {
         display: flex;
         flex-direction: row;
