@@ -47,9 +47,6 @@ export default {
         display: flex;
         flex-direction: column;
         padding: 1rem 0;
-        p {
-            padding-bottom: 2rem;
-        }
     }
 }
 </style>

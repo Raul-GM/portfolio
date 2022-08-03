@@ -19,6 +19,14 @@ const routes = [
     path: '/designer-side',
     name: 'DesignerSide',
     component: () => import('../views/DesignerSide.vue')
+  }, {
+    path: '/portfolio',
+    name: 'Portfolio',
+    component: () => import('../views/portfolio/Portfolio.vue')
+  }, {
+    path: '/portfolio/skulls-n-ravens',
+    name: 'PortfolioSkulls',
+    component: () => import('../views/portfolio/SkullsNRavens.vue')
   }
 ]
 

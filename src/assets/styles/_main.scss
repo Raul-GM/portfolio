@@ -20,9 +20,12 @@ h5 {
 h6 {
     font-size: .6rem;
 }
+p {
+    padding-bottom: 1rem;
+}
 .section-title {
     font-family: var(--font-title);
-    margin: 1rem 0;
+    padding: 1rem 0;
 }
 
 .main-container {
@@ -30,6 +33,11 @@ h6 {
     min-height: calc(100vh - var(--navbar-height) - var(--footer-height));
 }
 
-.text-paragraph {
-    padding-bottom: 1rem;
+.simple_link {
+    text-decoration: underline;
+    color: inherit;
+    transition: 1s color;
+    &:hover {
+        color: var(--alternative-color);
+    }
 }
