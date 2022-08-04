@@ -41,3 +41,18 @@ p {
         color: var(--alternative-color);
     }
 }
+
+.portfolio-project-container {
+    display: flex;
+    &__images {
+        display: flex;
+        justify-items: center;
+        flex-direction: column;
+        max-width: 350px;
+        padding-left: 1rem;
+        img {
+            max-width: 300px;
+            padding-bottom: 1rem;
+        }
+    }
+}

@@ -38,7 +38,7 @@ export default {
     align-items: center;
     justify-items: center;
     min-height: calc(100vh - var(--navbar-height) - var(--footer-height) - 200px);
-    padding: 1rem 0;
+    padding: 0;
     &__title {
         grid-column: 1/3;
     }

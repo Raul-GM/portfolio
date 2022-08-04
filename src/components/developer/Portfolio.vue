@@ -15,20 +15,30 @@
         </router-link>
         <router-link
         class="portfolio-container__project"
-            to="/portfolio/skulls-n-ravens"
+            to="/portfolio/RTC"
         >
-            <h4 class="portfolio-container__project__title">Portfolio 2</h4>
+            <h4 class="portfolio-container__project__title">Rock This Concert</h4>
             <Image
                 class="portfolio-container__project__image" 
                 file="portfolio/SkullsNRavens01.png"/>
         </router-link>
     </div>
+    <div class="portfolio-more-projects-button">
+        <Link
+            class="aboutme-container__full"
+            label="Más proyectos"
+            href="/portfolio"
+        />
+    </div>
+    
 </template>
 
 <script>
 import Image from '../Image.vue';
+import Link from '@/components/Link.vue';
+
 export default {
-    components: { Image }
+    components: { Image, Link }
 }
 </script>
 
@@ -42,7 +52,7 @@ export default {
     grid-auto-rows: min-content;
     align-items: center;
     min-height: 400px;
-    padding: 1rem 0;
+    padding-bottom: 1rem;
     &__title {
         grid-area: title;
         justify-self: center;
@@ -72,5 +82,10 @@ export default {
             width: 300px;
         }
     }
+}
+.portfolio-more-projects-button {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 2rem;
 }
 </style>

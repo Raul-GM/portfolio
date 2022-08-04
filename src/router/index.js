@@ -10,7 +10,7 @@ const routes = [
   {
     path: '/about-me',
     name: 'About',
-    component: () => import('../views/About.vue')
+    component: () => import('../views/developerSide/About.vue')
   },{
     path: '/developer-side',
     name: 'DeveloperSide',
@@ -22,11 +22,23 @@ const routes = [
   }, {
     path: '/portfolio',
     name: 'Portfolio',
-    component: () => import('../views/portfolio/Portfolio.vue')
+    component: () => import('../views/developerSide/portfolio/Portfolio.vue')
   }, {
     path: '/portfolio/skulls-n-ravens',
     name: 'PortfolioSkulls',
-    component: () => import('../views/portfolio/SkullsNRavens.vue')
+    component: () => import('../views/developerSide/portfolio/SkullsNRavens.vue')
+  }, {
+    path: '/portfolio/RTC',
+    name: 'Rock This Concert',
+    component: () => import('../views/developerSide/portfolio/RTC.vue')
+  }, {
+    path: '/blog',
+    name: 'Blog',
+    component: () => import('../views/common/Blog.vue')
+  }, {
+    path: '/contact',
+    name: 'Contact',
+    component: () => import('../views/common/Contact.vue')
   }
 ]
 

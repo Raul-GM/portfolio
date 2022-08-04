@@ -2,7 +2,7 @@
     <Navbar />
     <div class="main-container">
         <h2 class="section-title">Proyecto: Skulls'n Ravens</h2>
-        <div class="portfolio-container">
+        <div class="portfolio-project-container">
             <div>
                 <h3 class="section-title">¿Qué es Skulls'n Ravens?</h3>
                 <p>Skulls'n Ravens es un blog en el que hablo de música orientada al Rock y al Metal. La idea nació a raíz de dos necesidades, en primer lugar, como apasionado de la música y de los conciertos, quería un sitio donde guardara mis experiencias y mis fotos para volver a ellas cada vez que quisiera recordar la experiencia. Por otro lado, quería probar a hacer algo que no había hecho nunca, construir un blog con Vue, Nuxt y lenguaje Markdown, que conocía a raíz de haber asistido a una conferencia en uno de los múltiples eventos que se organizan</p>
@@ -18,7 +18,7 @@
                 <p>Realizar el contenido en Markdown, ha sido una experiencia muy divertida, ver cómo usar componentes y mejorarlos para que la experiencia de introducción de contenido sea rápida y sencilla. Crear la posibilidad de elegir dos idiomas para leer la web y además intentar mantener el contenido en ambos idiomas ha sido un reto que me ha dado más soltura y seguridad a la hora de escribir en inglés.</p>
                 <p>Me gustaría mejorar la web, introducirle más animaciones, ahora mismo queda bastante estática. Además querría crear un buscador para buscar por tags aprovechando la creación de estos tags en cada uno de los markdowns de los posts</p>
             </div>
-            <div class="portfolio-container__images">
+            <div class="portfolio-project-container__images">
                 <Image file="portfolio/SkullsNRavens02.png"/>
                 <Image file="portfolio/SkullsNRavens03.png"/>
                 <Image file="portfolio/SkullsNRavens04.png"/>
@@ -41,18 +41,4 @@ export default {
 }
 </script>
 <style lang="scss">
-.portfolio-container {
-    display: flex;
-    &__images {
-        display: flex;
-        justify-items: center;
-        flex-direction: column;
-        max-width: 350px;
-        padding-left: 1rem;
-        img {
-            max-width: 300px;
-            padding-bottom: 1rem;
-        }
-    }
-}
 </style>
