@@ -1,10 +1,25 @@
 <template>
-  <H1>Designer Side</H1>
+    <Navbar sideType="designer" />
+    <div class="main-container">
+        <AboutMe />
+        <Portfolio />
+    </div>
+    <Footer />
 </template>
 
 <script>
-export default {
+import Navbar from '@/components/Navbar.vue';
+import Footer from '@/components/Footer.vue';
+import AboutMe from '@/components/designer/AboutMe.vue';
+import Portfolio from '@/components/designer/Portfolio.vue';
 
+export default {
+  components: {
+    Navbar,
+    Footer,
+    AboutMe,
+    Portfolio
+  }
 }
 </script>
 

@@ -10,7 +10,7 @@
                     <div class="project-container__info__image-container">
                         <Image
                             file="portfolio/SkullsNRavens01.png" />
-                        <Link label="Más información" href="/developer-side/portfolio/skulls-n-ravens" />
+                        <Link label="Más información" href="/portfolio/skulls-n-ravens" />
                     </div>
                 </div>
             </div>
@@ -22,7 +22,7 @@
                         <div class="project-container__info__image-container">
                             <Image
                                 file="portfolio/SkullsNRavens01.png" />
-                            <Link label="Más información" href="/developer-side/portfolio/RTC" />
+                            <Link label="Más información" href="/portfolio/RTC" />
                         </div>
                     </div>
                 </div>

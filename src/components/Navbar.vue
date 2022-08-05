@@ -1,9 +1,9 @@
 <template>
   <nav class="nav">
-        <span><router-link to="/">Inicio</router-link></span>
+        <span><router-link to="/">Inicio {{sideType}}</router-link></span>
         <ul class="nav__menu">
-            <li class="nav__menu__option"><router-link to="/about-me">Sobre mí</router-link></li>
-            <li class="nav__menu__option"><router-link to="/portfolio">Portfolio</router-link></li>
+            <li class="nav__menu__option"><router-link :to="`/${sideType}-side/about-me`">Sobre mí</router-link></li>
+            <li class="nav__menu__option"><router-link :to="`/${sideType}-side/portfolio`">Portfolio</router-link></li>
             <li class="nav__menu__option"><router-link to="/blog">Blog</router-link></li>
             <li class="nav__menu__option"><router-link to="/contact">Contacto</router-link></li>
         </ul>
@@ -12,6 +12,12 @@
 
 <script>
 export default {
+    props: {
+        sideType: {
+            type: String,
+            default: 'developer',
+        }
+    }
 
 }
 </script>

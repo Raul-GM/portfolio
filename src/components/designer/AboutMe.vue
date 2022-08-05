@@ -6,15 +6,15 @@
       </div>
       <div class="aboutme-container__part">
             <p>
-                Me llamo Raúl García, residente en España, y soy Front-end developer desde el año 2004. Con más de 15 años de experiencia en empresas de diferentes sectores, he podido trabajar en diferentes ambientes con distintas herramientas.
+                ¡Hola! Soy Raúl García. Desarrollador web de profesión (puedes ver más en el Developer Side) y estudiante de un Grado de Diseño Digital por la Universidad Internacional de La Rioja (UNIR). 
             </p>
             <p>
-                Me interesa acercarme a la experiencia de usuario, por lo que intento aprender todo lo que puedo de mis compañeros y compañeras diseñadores. Para ello procuro darle todo el mimo posible a la maquetación e intentar que la experiencia de usuario sea la mejor.
+                Compagino mis estudios con el trabajo y la familia, por lo que estoy cogiéndome unas pocas asignaturas cada año. Actualmente estoy cursando parte de segundo y hasta la fecha tengo una media de sobresaliente.
             </p>
             <Link
                 class="aboutme-container__full"
                 label="Más sobre mí"
-                href="/developer-side/about-me"
+                href="/designer-side/about-me"
             />
       </div>
   </div>

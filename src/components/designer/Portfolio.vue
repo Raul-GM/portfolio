@@ -2,22 +2,22 @@
     <div class="portfolio-container">
         <h1 class="portfolio-container__title section-title">Portfolio</h1>
         <span class="portfolio-container__text">
-            La mayoría de mis proyectos son para las empresas para las que he estado trabajando o son proyectos sencillos para aprender algo en concreto o practicar alguna tecnología. No obstante me gustaría mostraros un par de proyectos más "acabados" en los que he estado (estoy) trabajando
+            A día de hoy no tengo ningún trabajo profesional que mostrar así que voy a compartir los mejores trabajos, los más cercanos al producto final que he hecho hasta la fecha en la carrera. Además, compartiré también otros trabajos artísticos que a priori no estén relacionados con el diseño.
         </span>
         <router-link
         class="portfolio-container__project"
-            to="/developer-side/portfolio/skulls-n-ravens"
+            to="/designer-side/portfolio/skulls-n-ravens"
         >
-            <h4 class="portfolio-container__project__title">Skulls N' Ravens</h4>
+            <h4 class="portfolio-container__project__title">Helado Crush</h4>
             <Image
                 class="portfolio-container__project__image" 
                 file="portfolio/SkullsNRavens01.png"/>
         </router-link>
         <router-link
         class="portfolio-container__project"
-            to="/developer-side/portfolio/RTC"
+            to="/designer-side/portfolio/RTC"
         >
-            <h4 class="portfolio-container__project__title">Rock This Concert</h4>
+            <h4 class="portfolio-container__project__title">Gráfica para "Malas Mujeres" de María Hesse</h4>
             <Image
                 class="portfolio-container__project__image" 
                 file="portfolio/SkullsNRavens01.png"/>
@@ -27,7 +27,7 @@
         <Link
             class="aboutme-container__full"
             label="Más proyectos"
-            href="/developer-side/portfolio"
+            href="/designer-side/portfolio"
         />
     </div>
     
