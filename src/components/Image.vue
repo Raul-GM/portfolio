@@ -1,7 +1,8 @@
 <template>
     <img
         class="image"
-        :src="getImageSource" />
+        :src="getImageSource"
+        :alt="altTitle" />
 </template>
 <script>
 export default {
@@ -9,6 +10,10 @@ export default {
         file: {
             type: String,
             default: ''
+        },
+        altTitle: {
+            type: String,
+            default: 'Imagen'
         }
     },
     computed: {

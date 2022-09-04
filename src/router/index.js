@@ -35,6 +35,10 @@ const routes = [
     name: 'DesignerSideAbout',
     component: () => import('../views/designerSide/About.vue')
   }, {
+    path: '/designer-side/portfolio',
+    name: 'DesignerSidePortfolio',
+    component: () => import('../views/designerSide/portfolio/Portfolio')
+  }, {
     path: '/blog',
     name: 'Blog',
     component: () => import('../views/common/Blog.vue')
