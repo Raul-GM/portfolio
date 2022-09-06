@@ -38,6 +38,7 @@ export default {
     align-items: center;
     position: sticky;
     top: 0;
+    z-index: 10;
     &__menu {
         display: flex;
         flex-direction: row;

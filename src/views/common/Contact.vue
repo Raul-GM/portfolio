@@ -250,7 +250,7 @@ export default {
     }
   }
   .counter {
-    background-color: #ecf0f1;
+    background-color:#ecf0f1;
     position: absolute;
     right: 2px;
     bottom: .7rem;

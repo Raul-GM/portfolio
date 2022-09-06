@@ -11,16 +11,16 @@
             <h4 class="portfolio-container__project__title">Helado Crush</h4>
             <Image
                 class="portfolio-container__project__image" 
-                file="portfolio/SkullsNRavens01.png"/>
+                file="portfolio/Crush/CRUSH_Street_Billboard.png"/>
         </router-link>
         <router-link
         class="portfolio-container__project"
             to="/designer-side/portfolio/RTC"
         >
-            <h4 class="portfolio-container__project__title">Gráfica para "Malas Mujeres" de María Hesse</h4>
+            <h4 class="portfolio-container__project__title">Gráfica para "Malas Mujeres"</h4>
             <Image
                 class="portfolio-container__project__image" 
-                file="portfolio/SkullsNRavens01.png"/>
+                file="portfolio/MalasMujeres/Malas_Mujeres_Poster_2.png"/>
         </router-link>
     </div>
     <div class="portfolio-more-projects-button">
@@ -79,7 +79,7 @@ export default {
             margin-bottom: 1rem;
         }
         .image {
-            width: 300px;
+            max-height: 200px;
         }
     }
 }

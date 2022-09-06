@@ -3,30 +3,27 @@
     <div class="main-container">
         <h1 class="section-title">Portfolio</h1>
         <div class="portfolio">
-            <div class="project-container">
-                <h2 class="section-title">Proyecto: Skulls'n Ravens</h2>
-                <div class="project-container__info">
-                    <span>Skulls'n Ravens es un blog en el que hablo de música orientada al Rock y al Metal. La idea nació a raíz de dos necesidades, en primer lugar, como apasionado de la música y de los conciertos, quería un sitio donde guardara mis experiencias y mis fotos para volver a ellas cada vez que quisiera recordar la experiencia. Por otro lado, quería probar a hacer...</span>
-                    <div class="project-container__info__image-container">
-                        <Image
-                            file="portfolio/SkullsNRavens01.png" />
-                        <Link label="Más información" href="/portfolio/skulls-n-ravens" />
-                    </div>
-                </div>
-            </div>
-            <div class="project-container">
-                <div class="project-container">
-                    <h2 class="section-title">Proyecto: Rock This Concert</h2>
-                    <div class="project-container__info">
-                        <span>Rock This Concert nace de una necesidad que tuve hace ya bastantes años. Soy una persona que le encanta la música, y sobretodo la música en directo. El estilo de música que me gusta es (o era) minoritario por lo que no hay demasiados medios que tuvieran esa información completa y actualizada. Fue entonces cuando se me ocurrió la idea de...</span>
-                        <div class="project-container__info__image-container">
-                            <Image
-                                file="portfolio/SkullsNRavens01.png" />
-                            <Link label="Más información" href="/portfolio/RTC" />
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <ProjectCard 
+                title="CRUSH Helados"
+                imgSrc="portfolio/Crush/CRUSH_Street_Billboard.png"
+                resume="Resultado del examen final de la asignatura de Diseño Gráfico. Teníamos que representar una gráfica promocionando un helado..."
+                projectSrc="/designer-side/portfolio/crush" />
+            <ProjectCard 
+                title="Gráfica Malas Mujeres"
+                imgSrc="portfolio/MalasMujeres/Malas_Mujeres_Poster_2.png"
+                resume="Gráfica publicitaria / Póster del libro de María Hesse, 'Malas Mujeres'. Trabajo para la asignatura de diseño gráfico consistente..."
+                projectSrc="/portfolio/designer-side/crush" />
+            <ProjectCard 
+                title="Portadas de discos"
+                imgSrc="portfolio/DiscosLeyendasMetal/DioCD.png"
+                resume="Portadas de discos para colección de música para proyecto para la universidad. La premisa era realizar cinco portadas de una serie..."
+                projectSrc="/portfolio/crush" />
+            <ProjectCard 
+                title="Villalbaria Inmobiliaria"
+                imgSrc="portfolio/VillalbariaInmobiliaria/Valla_Publicitaria.png"
+                resume="Vaya publicitaria y roll-up para inmobiliaria ficticia llamada Villalbaria. El logotipo fue creado en equipo. A partir de los colores..."
+                projectSrc="/portfolio/crush" />
+            
         </div>
     </div>
     <Footer />
@@ -34,16 +31,13 @@
 <script>
 import Navbar from '@/components/Navbar.vue';
 import Footer from '@/components/Footer.vue';
-import Link from '@/components/Link.vue';
-
-import Image from '@/components/Image.vue';
+import ProjectCard from '@/components/ProjectCard.vue';
 
 export default {
     components: {
         Navbar,
         Footer,
-        Link,
-        Image
+        ProjectCard,
     }
 }
 </script>
@@ -51,9 +45,11 @@ export default {
 
 .main-container .portfolio {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
     grid-gap: 2rem;
     grid-auto-rows: min-content;
+    padding-bottom: 2rem;
+    justify-content: space-between;
 
 }
 .project-container {
