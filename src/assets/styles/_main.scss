@@ -44,15 +44,22 @@ p {
 
 .portfolio-project-container {
     display: flex;
+    flex-direction: column;
     &__images {
         display: flex;
-        justify-items: center;
+        align-items: center;
         flex-direction: column;
         max-width: 350px;
         padding-left: 1rem;
         img {
             max-width: 300px;
             padding-bottom: 1rem;
+        }
+        &.full {
+            max-width: 100%;
+            img {
+                max-width: 800px;
+            }
         }
     }
 }

@@ -43,6 +43,18 @@ const routes = [
     name: 'CrushIceCreams',
     component: () => import('../views/designerSide/portfolio/Crush.vue')
   }, {
+    path: '/designer-side/portfolio/malas-mujeres',
+    name: 'MalasMujeres',
+    component: () => import('../views/designerSide/portfolio/MalasMujeres.vue')
+  }, {
+    path: '/designer-side/portfolio/portadas-discos',
+    name: 'PortadasDiscos',
+    component: () => import('../views/designerSide/portfolio/PortadasDiscos.vue')
+  }, {
+    path: '/designer-side/portfolio/villalbaria',
+    name: 'Villalbaria',
+    component: () => import('../views/designerSide/portfolio/Villalbaria.vue')
+  }, {
     path: '/blog',
     name: 'Blog',
     component: () => import('../views/common/Blog.vue')

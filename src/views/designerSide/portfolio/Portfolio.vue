@@ -1,5 +1,5 @@
 <template>
-    <Navbar />
+    <Navbar sideType="designer" />
     <div class="main-container">
         <h1 class="section-title">Portfolio</h1>
         <div class="portfolio">
@@ -12,17 +12,17 @@
                 title="Gráfica Malas Mujeres"
                 imgSrc="portfolio/MalasMujeres/Malas_Mujeres_Poster_2.png"
                 resume="Gráfica publicitaria / Póster del libro de María Hesse, 'Malas Mujeres'. Trabajo para la asignatura de diseño gráfico consistente..."
-                projectSrc="/portfolio/designer-side/crush" />
+                projectSrc="/designer-side/portfolio/malas-mujeres" />
             <ProjectCard 
                 title="Portadas de discos"
                 imgSrc="portfolio/DiscosLeyendasMetal/DioCD.png"
                 resume="Portadas de discos para colección de música para proyecto para la universidad. La premisa era realizar cinco portadas de una serie..."
-                projectSrc="/portfolio/crush" />
+                projectSrc="/designer-side/portfolio/portadas-discos" />
             <ProjectCard 
                 title="Villalbaria Inmobiliaria"
                 imgSrc="portfolio/VillalbariaInmobiliaria/Valla_Publicitaria.png"
                 resume="Vaya publicitaria y roll-up para inmobiliaria ficticia llamada Villalbaria. El logotipo fue creado en equipo. A partir de los colores..."
-                projectSrc="/portfolio/crush" />
+                projectSrc="/designer-side/portfolio/villalbaria" />
             
         </div>
     </div>
