@@ -11,7 +11,7 @@
             <h4 class="portfolio-container__project__title">Skulls N' Ravens</h4>
             <Image
                 class="portfolio-container__project__image" 
-                file="portfolio/SkullsNRavens01.png"/>
+                file="portfolio/SkullsAndRavens/SkullsNRavens01.png"/>
         </router-link>
         <router-link
         class="portfolio-container__project"
@@ -20,7 +20,7 @@
             <h4 class="portfolio-container__project__title">Rock This Concert</h4>
             <Image
                 class="portfolio-container__project__image" 
-                file="portfolio/SkullsNRavens01.png"/>
+                file="portfolio/SkullsAndRavens/SkullsNRavens01.png"/>
         </router-link>
     </div>
     <div class="portfolio-more-projects-button">

@@ -6,7 +6,7 @@
         </span>
         <router-link
         class="portfolio-container__project"
-            to="/designer-side/portfolio/skulls-n-ravens"
+            to="/designer-side/portfolio/crush"
         >
             <h4 class="portfolio-container__project__title">Helado Crush</h4>
             <Image
@@ -14,8 +14,8 @@
                 file="portfolio/Crush/CRUSH_Street_Billboard.png"/>
         </router-link>
         <router-link
-        class="portfolio-container__project"
-            to="/designer-side/portfolio/RTC"
+            class="portfolio-container__project"
+            to="/designer-side/portfolio/malas-mujeres"
         >
             <h4 class="portfolio-container__project__title">Gráfica para "Malas Mujeres"</h4>
             <Image
