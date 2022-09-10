@@ -48,10 +48,10 @@ export default {
     height: 460px;
     border-radius: 1rem;
     overflow: hidden;
-    box-shadow: 0 0 .4rem var(--footer-background-color);
+    box-shadow: 0 0 .4rem var(--darkest-color);
     transition: box-shadow .3s ease-in-out;
     &:hover {
-        box-shadow: 0 0 1rem var(--footer-background-color);
+        box-shadow: 0 0 1rem var(--darkest-color);
         .project-card--background {
             background: center top no-repeat;
             background-size: 600px;

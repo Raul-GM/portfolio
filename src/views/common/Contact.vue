@@ -4,7 +4,7 @@
       <h1 class="aboutme-container__title section-title">Contacto</h1>
       <div class="contact">
         <div class="social">
-          <p>Puedes encontrarmeen las siguientes redes sociales </p>
+          <p>Puedes encontrarme en las siguientes plataformas o redes sociales </p>
           <ul class="social--list">
             <li>
               <a href="www.linkedin.com/in/raúl-garcia-martin-2106897b"
@@ -45,9 +45,6 @@
           </ul>
         </div>
         <form @submit.prevent="onSubmit" class="form">
-          <div class="error-message">
-            <p v-show="!email.isValid">Vaya! Este no es un email válido.</p>
-          </div>
           <h3>Si quieres, envíame un mensaje</h3>
           <div class="field-group">
             <label class="form--label" for="name">Nombre</label>
@@ -73,6 +70,9 @@
               :class="{ email, error: !email.isValid }"
             />
           </div>
+          <div class="error-message">
+            <p v-show="!email.isValid">Ups! Este mail no es válido.</p>
+          </div>
           <div class="field-group">
             <label class="form--label" for="textarea">Mensaje</label>
             <textarea
@@ -83,7 +83,7 @@
               v-model="message.text"
               :maxlength="message.maxlength"
             ></textarea>
-            <span class="counter">{{ message.text.length}} / {{ message.maxlength }}</span>
+            <span class="counter">{{ message.text.length }} / {{ message.maxlength }}</span>
           </div>
           <div>
             <input type="submit" class="form--submit" value="Enviar mensaje" />
@@ -151,6 +151,9 @@ export default {
 }
 </script>
 <style lang="scss">
+:root {
+  --error-color: #e94b35;
+}
 .main-container {
   padding-top: 1rem;
 }
@@ -159,7 +162,6 @@ export default {
   grid-gap: 2rem;
   grid-template-columns: repeat(auto-fill, 2rem);
   &--link {
-    border: 1px solid;
     padding: .5rem;
     border-radius: 50%;
     display: flex;
@@ -167,7 +169,11 @@ export default {
     align-items: center;
     width: 40px;
     height: 40px;
-    background: var(--main-color);
+    background-color: var(--darkest-color);
+    transition: background-color .4s ease-in-out;
+    &:hover {
+      background-color: var(--secondary-color);
+    }
     img {
       width: 20px;
       height: 20px;
@@ -198,12 +204,12 @@ export default {
     width: 100%;
     appearance: none;
     padding: .5rem;
-    border: 1px solid var(--footer-background-color);
+    border: 1px solid var(--darkest-color);
     border-radius: .25rem;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.08);
     &:focus {
       outline: none;
-      border-color: var(--alternative-color);
+      border-color: var(--primary-color);
       box-shadow: 0 0 5px rgba(44, 151, 222, 0.2);
     }
     &.message {
@@ -212,26 +218,29 @@ export default {
       overflow: auto;
     }
     &.error {
-      border-color: #e94b35;
+      border-color: var(--error-color);
     }
   }
   &--submit {
     border: none;
-    background: #2c3e50;
+    background-color: var(--primary-color);
     border-radius: 0.25em;
+    box-shadow: 0 1px 2px 1px var(--dark-color);
     padding: 12px 20px;
-    color: #ffffff;
+    margin-bottom: 1rem;
+    color: var(--darkest-color);
     font-weight: bold;
     cursor: pointer;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     appearance: none;
+    transition: all .2s ease-in-out;
     &:hover {
-      background: #42a2e1;
+      box-shadow: 0 2px 4px 1px var(--dark-color);
     }
     &:focus {
       outline: none;
-      background: #2b3e51;
+      box-shadow: 0 2px 4px 1px var(--dark-color);
     }
     &:active {
       transform: scale(0.97);
@@ -240,17 +249,19 @@ export default {
   .error-message {
     margin: 0;
     p {
-      background: #e94b35;
-      font-size: 1.4rem;
+      background: var(--error-color);
+      color: var(--lightest-color);
+      font-size: 1rem;
       text-align: center;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       border-radius: 0.25em;
-      padding: 1rem;
+      padding: .5rem;
     }
   }
   .counter {
-    background-color:#ecf0f1;
+    background-color: var(--light-color);
+    border-radius: 5px;
     position: absolute;
     right: 2px;
     bottom: .7rem;

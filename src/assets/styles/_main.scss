@@ -1,6 +1,8 @@
 body {
     height: 100vh;
     font-family: var(--font-text);
+    background-color: var(--lightest-color);
+    color: var(--main-text-color);
 }
 h1 {
     font-size: 1.8rem;
@@ -36,9 +38,10 @@ p {
 .simple_link {
     text-decoration: underline;
     color: inherit;
-    transition: 1s color;
+    transition: .6s color;
+    font-weight: bold;
     &:hover {
-        color: var(--alternative-color);
+        color: var(--secondary-color);
     }
 }
 
@@ -62,4 +65,54 @@ p {
             }
         }
     }
+}
+
+.portfolio-container {
+    display: grid;
+    grid-template-areas: 'title title title title'
+                         'text text text text'
+                         '. project1 project2 .';
+    grid-template-columns: .3fr 1fr 1fr .3fr;
+    grid-auto-rows: min-content;
+    grid-gap: 1rem;
+    align-items: center;
+    min-height: 400px;
+    padding-bottom: 1rem;
+    &__title {
+        grid-area: title;
+        justify-self: center;
+    }
+    &__text {
+        grid-area: text;
+        padding-bottom: 2rem;
+    }
+    &__project {
+        display: flex;
+        flex-direction: column;
+        justify-self: center;
+        align-items: center;
+        transition: .6s color;
+        max-width: 300px;
+        overflow: hidden;
+        &:hover {
+            color: var(--secondary-color);
+        }
+        &:first-of-type {
+            grid-area: project1;
+        }
+        &:last-of-type {
+            grid-area: project2;
+        }
+        &__title {
+            margin-bottom: 1rem;
+        }
+        .image {
+            height: 240px;
+        }
+    }
+}
+.portfolio-more-projects-button {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 2rem;
 }

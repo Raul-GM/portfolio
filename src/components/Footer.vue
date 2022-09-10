@@ -16,7 +16,7 @@ export default {
 
 <style lang="scss">
 .footer {
-    background-color: var(--footer-background-color);
+    background-color: var(--darkest-color);
     color: var(--secondary-text-color);
     display: flex;
     justify-content: center;

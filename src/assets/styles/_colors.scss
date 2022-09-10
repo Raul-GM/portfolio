@@ -1,8 +1,11 @@
 :root {
-    --main-color: #000000;
-    --secondary-color: #ffffff;
-    --alternative-color: pink;
-    --main-text-color: #000000;
-    --secondary-text-color: #ffffff;
-    --footer-background-color: #333333;
+    --primary-color: #CAEBF2;
+    --secondary-color: #FF3B3F;
+    --dark-color: #A9A9A9;
+    --light-color: #EFEFEF;
+    --darkest-color: #696969;
+    --lightest-color: #FCFCFC;
+
+    --main-text-color: #080808;
+    --secondary-text-color: var(--lightest-color);
 }

@@ -25,7 +25,7 @@ export default {
 <style>
 .link {
   display: inline-block;
-  background-color: var(--alternative-color);
+  background-color: var(--secondary-color);
   color: var(--secondary-text-color);
   font-family: var(--font-text-bold);
   margin-top: 1rem;
