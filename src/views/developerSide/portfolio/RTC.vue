@@ -1,7 +1,7 @@
 <template>
     <Navbar />
     <div class="main-container">
-        <h2 class="section-title">Proyecto: Rock This Concert</h2>
+        <h2 class="section-title">Rock This Concert</h2>
         <div class="portfolio-project-container">
             <div>
                 <h3 class="section-title">¿Qué es Rock This Concert?</h3>

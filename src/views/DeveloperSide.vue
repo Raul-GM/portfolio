@@ -24,7 +24,4 @@ export default {
 </script>
 
 <style lang="scss">
-.main-container {
-    padding: 0 3rem;
-}
 </style>

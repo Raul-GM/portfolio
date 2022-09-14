@@ -1,7 +1,7 @@
 <template>
   <div class="aboutme-container">
       <h1 class="aboutme-container__title section-title">Sobre mí</h1>
-      <div class="aboutme-container__part">
+      <div class="aboutme-container__part image">
           IMAGEN
       </div>
       <div class="aboutme-container__part">
@@ -31,22 +31,4 @@ export default {
 </script>
 
 <style lang="scss">
-.aboutme-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, min-content);
-    align-items: center;
-    justify-items: center;
-    min-height: calc(100vh - var(--navbar-height) - var(--footer-height) - 200px);
-    padding: 0;
-    &__title {
-        grid-column: 1/3;
-    }
-    &__part {
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-        padding: 1rem 0;
-    }
-}
 </style>

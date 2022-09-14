@@ -1,3 +1,5 @@
+@import './_media-variables.scss';
+
 body {
     height: 100vh;
     font-family: var(--font-text);
@@ -25,6 +27,10 @@ h6 {
 p {
     padding-bottom: 1rem;
 }
+.app-container {
+    position: relative;
+    display: block;
+}
 .section-title {
     font-family: var(--font-title);
     padding: 1rem 0;
@@ -33,6 +39,9 @@ p {
 .main-container {
     padding: 0 5rem;
     min-height: calc(100vh - var(--navbar-height) - var(--footer-height));
+    @media (max-width: $media-mobile) {
+        padding: 0 1rem;
+    }
 }
 
 .simple_link {
@@ -52,8 +61,6 @@ p {
         display: flex;
         align-items: center;
         flex-direction: column;
-        
-        padding-left: 1rem;
         img {
             max-width: 300px;
             padding-bottom: 1rem;
@@ -62,8 +69,39 @@ p {
             max-width: 100%;
             img {
                 max-width: 800px;
+                @media (max-width: $media-mobile) {
+                    max-width: unset;
+                    width: 100%;
+                }
             }
         }
+    }
+}
+
+.aboutme-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, min-content);
+    align-items: center;
+    justify-items: center;
+    padding: 0;
+    &__title {
+        grid-column: 1/3;
+    }
+    &__part {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        padding: 1rem 0;
+        @media (max-width: $media-mobile) {
+            &.image {
+                display: none;
+            }
+        }
+    }
+
+    @media (max-width: $media-mobile) {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -110,9 +148,17 @@ p {
             height: 240px;
         }
     }
+    @media (max-width: $media-mobile) {
+        grid-template-areas: 'title'
+                            'text'
+                            'project1'
+                            'project2';
+        grid-template-columns: 1fr;
+    }
 }
 .portfolio-more-projects-button {
     display: flex;
     justify-content: center;
     padding-bottom: 2rem;
 }
+

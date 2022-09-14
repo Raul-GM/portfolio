@@ -1,6 +1,20 @@
 <template>
-  <nav class="nav">
-        <span>
+    <span class="menu--icon" v-on:click="onMenuIconClick">
+    <Image
+        class="menu--icon--image"
+        file="icons/menu.svg"
+        altTitle="Menu icon"
+        v-if="!isOpened">
+    </Image>
+    <Image
+        class="menu--icon--image"
+        file="icons/cross.svg"
+        altTitle="Close cross icon"
+        v-if="isOpened">
+    </Image>
+  </span>
+  <nav class="nav" :class="{ 'nav--mobile': isMobile(), opened: isOpened }">
+        <span class="nav--home">
             <router-link to="/" class="simple_link nav--side">{{sideType}} Side</router-link>
         </span>
         <ul class="nav__menu">
@@ -10,17 +24,33 @@
             <li class="nav__menu__option"><router-link to="/contact">Contacto</router-link></li>
             <li class="nav__menu__option" v-if="sideType === 'developer'"><router-link to="/designer-side">Designer Side</router-link></li>
             <li class="nav__menu__option" v-if="sideType === 'designer'"><router-link to="/developer-side">Developer Side</router-link></li>
-
         </ul>
   </nav>
+  
 </template>
 
 <script>
+import Image from '@/components/Image';
+
 export default {
+    components: { Image },
     props: {
         sideType: {
             type: String,
             default: 'developer',
+        }
+    },
+    data() {
+        return {
+            isOpened: false
+        }
+    },
+    methods: {
+        isMobile() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        },
+        onMenuIconClick() {
+            this.isOpened = !this.isOpened;
         }
     }
 
@@ -28,6 +58,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import './../assets/styles/media-variables';
+
 :root {
     --nav-border-color: var(--dark-color);
 }
@@ -45,6 +77,14 @@ export default {
     position: sticky;
     top: 0;
     z-index: 10;
+    &--mobile {
+        display: none;
+        visibility: hidden;
+        &.opened {
+            display: inherit;
+            visibility: visible;
+        }
+    }
     &__menu {
         display: flex;
         flex-direction: row;
@@ -82,6 +122,58 @@ export default {
         text-decoration: none;
         font-size: 1.2rem;
         font-weight: bold;
+    }
+    @media (max-width: $media-mobile) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        &--home {
+            display: none
+        }
+        &__menu {
+            flex-direction: column;
+            height: unset;
+            padding-top: 3rem;
+            width: 100vw;
+            position: fixed;
+            &__option {
+                height: 3rem;
+                width: 100%;
+                max-width: unset;
+                a {
+                    text-align: center;
+                    width: 100%;
+                    padding: 0;
+                    justify-content: center;
+                }
+            }
+        }
+    }
+}
+
+.menu--icon {
+    display: none;
+    @media (max-width: $media-mobile) {
+        background-color: var(--lightest-color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        border-radius: 50%;
+        box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.3);
+        right: 1rem;
+        top: 1rem;
+        z-index: 15;
+        &--image {
+            width: 40px;
+            height: 40px;
+            padding: .5rem;
+        }
     }
 }
 </style>

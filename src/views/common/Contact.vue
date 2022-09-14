@@ -151,6 +151,8 @@ export default {
 }
 </script>
 <style lang="scss">
+@import './../../assets/styles/_media-variables.scss';
+
 :root {
   --error-color: #e94b35;
 }
@@ -184,10 +186,16 @@ export default {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 1rem;
+  @media (max-width: $media-mobile) {
+    grid-template-columns: 1fr;
+  }
 }
 .form {
   min-width: 30vw;
   max-width: 50vw;
+  @media (max-width: $media-mobile) {
+    max-width: unset;
+  }
   h3,
   &--label {
     margin-bottom: .5rem;
@@ -227,7 +235,7 @@ export default {
     border-radius: 0.25em;
     box-shadow: 0 1px 2px 1px var(--dark-color);
     padding: 12px 20px;
-    margin-bottom: 1rem;
+    margin: .5rem 0 1rem;
     color: var(--darkest-color);
     font-weight: bold;
     cursor: pointer;
@@ -235,6 +243,10 @@ export default {
     -moz-osx-font-smoothing: grayscale;
     appearance: none;
     transition: all .2s ease-in-out;
+    
+    @media (max-width: $media-mobile) {
+      width: 100%;
+    }
     &:hover {
       box-shadow: 0 2px 4px 1px var(--dark-color);
     }
