@@ -32,7 +32,7 @@
           />
         </router-link>
       </div>
-      <h1>HOLIIIII</h1>
+      
     </section>
 </template>
 
@@ -56,7 +56,6 @@ export default {
 .main {
   height: 100vh;
   width: 100%;
-  background: pink;
   overflow: hidden;
   &__background,
   &__options {
@@ -79,7 +78,7 @@ export default {
   &__options {
     img {
       opacity: 0%;
-      transition: 0.5s opacity ease-in;
+      transition: .5s opacity ease-in;
       &:hover {
         opacity: 100%;
       }
