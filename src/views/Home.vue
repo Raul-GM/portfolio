@@ -56,6 +56,7 @@ export default {
 .main {
   height: 100vh;
   width: 100%;
+  background: pink;
   overflow: hidden;
   &__background,
   &__options {
@@ -80,7 +81,7 @@ export default {
       opacity: 0%;
       transition: .5s opacity ease-in;
       &:hover {
-        opacity: 100%;
+        opacity: 1;
       }
     }
   }
