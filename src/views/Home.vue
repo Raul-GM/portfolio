@@ -81,7 +81,7 @@ export default {
       opacity: 0%;
       transition: .5s opacity ease-in;
       &:hover {
-        opacity: 100%;
+        opacity: 99.9%;
       }
     }
   }
