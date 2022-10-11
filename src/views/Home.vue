@@ -79,9 +79,9 @@ export default {
   &__options {
     img {
       opacity: 0%;
-      transition: .5s opacity ease-in;
+      transition: 0.5s opacity ease-in;
       &:hover {
-        opacity: 99.9%;
+        opacity: 100%;
       }
     }
   }
