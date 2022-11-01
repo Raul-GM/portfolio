@@ -82,7 +82,7 @@ export default {
     }
     img {
       width: auto;
-      height: 100vh;
+      height: 99vh;
     }
   }
   &__options {
