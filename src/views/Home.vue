@@ -56,7 +56,7 @@ export default {
 .main {
   height: 100vh;
   width: 100%;
-  background: pink;
+  background: #591B50;
   overflow: hidden;
   &__background,
   &__options {

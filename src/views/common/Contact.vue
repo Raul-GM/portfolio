@@ -236,7 +236,7 @@ export default {
     box-shadow: 0 1px 2px 1px var(--dark-color);
     padding: 12px 20px;
     margin: .5rem 0 1rem;
-    color: var(--darkest-color);
+    color: var(--lightest-color);
     font-weight: bold;
     cursor: pointer;
     -webkit-font-smoothing: antialiased;
