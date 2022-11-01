@@ -32,7 +32,16 @@
           />
         </router-link>
       </div>
-      
+      <Image
+        class="main__developer__title developer"
+        file="portfolio/DeveloperSide.svg"
+        altTitle="Developer Side"
+      />
+      <Image
+        class="main__developer__title designer"
+        file="portfolio/DesignerSide.svg"
+        altTitle="Designer Side"
+      />
     </section>
 </template>
 
@@ -83,6 +92,19 @@ export default {
       &:hover {
         opacity: 1;
       }
+    }
+  }
+  &__developer__title {
+    position: absolute;
+    width: 20vw;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    &.developer {
+      left: 1rem;
+    }
+    &.designer {
+      right: 1rem;
     }
   }
 }
