@@ -1,21 +1,42 @@
 <template>
     <section class="main">
       <div class="main__background">
-        <div>
+        <router-link class="side left" to="/developer-side">
+          <Image
+            class="main__developer__title developer"
+            file="portfolio/DeveloperSide.svg"
+            altTitle="Developer Side"
+          />
           <Image
             class="main__option__image"
             file="portfolio/Raul/DeveloperSideDefault.png"
             altTitle="Raúl Developer side por defecto"
           />
-        </div>
-        <div>
+          <Image
+            class="main__option__hover__image"
+            file="portfolio/Raul/DeveloperSideHover.png"
+            altTitle="Raúl Developer side por defecto"
+          />
+        </router-link>
+        <router-link to="/designer-side" class="side right">
           <Image
             class="main__option__image"
             file="portfolio/Raul/DesignerSideDefault.png"
             altTitle="Raúl Designer side por defecto"
           />
-        </div>
+          <Image
+            class="main__developer__title designer"
+            file="portfolio/DesignerSide.svg"
+            altTitle="Designer Side"
+          />
+          <Image
+            class="main__option__hover__image"
+            file="portfolio/Raul/DesignerSideHover.png"
+            altTitle="Raúl Designer side por defecto"
+          />
+        </router-link>
       </div>
+      <!--
       <div class="main__options">
         <router-link to="/developer-side">
           <Image
@@ -32,16 +53,12 @@
           />
         </router-link>
       </div>
-      <Image
-        class="main__developer__title developer"
-        file="portfolio/DeveloperSide.svg"
-        altTitle="Developer Side"
-      />
-      <Image
-        class="main__developer__title designer"
-        file="portfolio/DesignerSide.svg"
-        altTitle="Designer Side"
-      />
+    -->
+    <Image
+            class="main__option__image"
+            file="portfolio/Raul/DesignerSideHover.png"
+            altTitle="Raúl Designer side por defecto"
+          />
     </section>
 </template>
 
@@ -74,28 +91,65 @@ export default {
     display: grid;
     width: 100%;
     top: 0;
-    position: absolute;
     grid-template-columns: 1fr 1fr;
     align-items: center;
     @media (max-width: $media-mobile) {
       align-items: flex-start;
     }
-    div:first-child,
-    a:first-child {
-      justify-self: flex-end;
-    }
     img {
       width: auto;
       height: 99vh;
-      @media (max-width: $media-mobile) {
-        height: 44vh;
-        max-height:380px;
+      @media (max-width: $media-mid-screen) {
+        height: 70vh;
       }
+      @media (max-width: $media-mobile) {
+        height: 50vh;
+      }
+      @media (max-width: $media-small-mobile) {
+        height: 30vh;
+      }
+    }
+  }
+  .side {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    position: relative;
+    &.left {
+      justify-content: flex-end;
+      .main__developer__title {
+        margin-left: 2rem;
+      }
+      .main__option__hover__image {
+        right: 0;
+      }
+    }
+    &.right {
+      .main__developer__title {
+        margin-right: 2rem;
+      }
+      .main__option__hover__image {
+        left: 0;
+      }
+    }
+    &:hover {
+      .main__option__hover__image {
+        opacity: 1;
+      }
+    }
+  }
+  .main__option__hover__image {
+    position: absolute;
+    
+    opacity: 0;
+    transition: .5s opacity ease-in;
+    @media (max-width: $media-mobile) {
+      opacity: 1;
     }
   }
   &__options {
     img {
-      opacity: 0;
+      opacity: 1;
       transition: .5s opacity ease-in;
       @media (max-width: $media-mobile) {
         opacity: 1;
@@ -106,32 +160,7 @@ export default {
     }
   }
   &__developer__title {
-    position: absolute;
-    width: 20vw;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    &.developer {
-      left: 1rem;
-    }
-    &.designer {
-      right: 1rem;
-    }
-    @media (max-width: $media-mobile) {
-      bottom: unset;
-      width: 14vw;
-            
-      &.developer {
-        left: -7rem;
-        right: 0;
-        top: 240px;
-      }
-      &.designer {
-        right: -5rem;
-        left: 0;
-        top: 264px;
-      }
-    }
+    max-width: 10vw;
   }
 }
 </style>
