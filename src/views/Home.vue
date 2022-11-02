@@ -56,6 +56,7 @@ export default {
 }
 </script>
 <style lang="scss">
+@import './../assets/styles/media-variables';
 :root {
   --main-border: 3px solid black;
 }
@@ -76,6 +77,9 @@ export default {
     position: absolute;
     grid-template-columns: 1fr 1fr;
     align-items: center;
+    @media (max-width: $media-mobile) {
+      align-items: flex-start;
+    }
     div:first-child,
     a:first-child {
       justify-self: flex-end;
@@ -83,12 +87,19 @@ export default {
     img {
       width: auto;
       height: 99vh;
+      @media (max-width: $media-mobile) {
+        height: 44vh;
+        max-height:380px;
+      }
     }
   }
   &__options {
     img {
-      opacity: 0%;
+      opacity: 0;
       transition: .5s opacity ease-in;
+      @media (max-width: $media-mobile) {
+        opacity: 1;
+      }
       &:hover {
         opacity: 1;
       }
@@ -105,6 +116,21 @@ export default {
     }
     &.designer {
       right: 1rem;
+    }
+    @media (max-width: $media-mobile) {
+      bottom: unset;
+      width: 14vw;
+            
+      &.developer {
+        left: -7rem;
+        right: 0;
+        top: 240px;
+      }
+      &.designer {
+        right: -5rem;
+        left: 0;
+        top: 264px;
+      }
     }
   }
 }
