@@ -1,21 +1,21 @@
 @font-face {
-    font-family: "Gotham";
-    font-style: normal;
-    font-display: swap;
-	font-weight: 400;
-    src: url("assets/fonts/GOTHAMLIGHT.TTF") format("truetype");
-}
-@font-face {
-    font-family: "GothamBold";
+    font-family: "alternative";
     font-style: normal;
     font-display: swap;
 	font-weight: 800;
-    src: url("assets/fonts/GOTHAMBOLD.TTF") format("truetype");
+    src: url("assets/fonts/TradeGothicLTStd-Bold.otf") format("truetype");
 }
 @font-face {
-    font-family: "Grotesque";
+    font-family: "main";
     font-style: normal;
-    font-display: swap;
-	font-weight: 400;
-    src: url("assets/fonts/Body-Grotesque-Fit-Bold-trial.ttf") format("truetype");
+    font-display: auto;
+	font-weight: 100;
+    src: url("assets/fonts/SabonLTStd-Roman.otf") format("truetype");
+}
+@font-face {
+    font-family: "mainBold";
+    font-style: normal;
+    font-display: auto;
+	font-weight: 800;
+    src: url("assets/fonts/SabonLTStd-Bold.otf") format("truetype");
 }
