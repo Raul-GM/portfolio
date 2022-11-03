@@ -18,7 +18,13 @@
             <router-link to="/" class="simple_link nav--side">{{sideType}} Side</router-link>
         </span>
         <ul class="nav__menu">
-            <li class="nav__menu__option"><router-link :to="`/${sideType}-side/about-me`">Sobre mí</router-link></li>
+            <li class="nav__menu__option">
+                <router-link :to="`/${sideType}-side/about-me`">
+                    <span>
+                        Sobre mí
+                    </span>
+                </router-link>
+            </li>
             <li class="nav__menu__option"><router-link :to="`/${sideType}-side/portfolio`">Portfolio</router-link></li>
             <!-- TODO: <li class="nav__menu__option"><router-link to="/blog">Blog</router-link></li> -->
             <li class="nav__menu__option"><router-link to="/contact">Contacto</router-link></li>
