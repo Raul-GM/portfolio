@@ -36,29 +36,6 @@
           />
         </router-link>
       </div>
-      <!--
-      <div class="main__options">
-        <router-link to="/developer-side">
-          <Image
-            class="main__option__image"
-            file="portfolio/Raul/DeveloperSideHover.png"
-            altTitle="Raúl Developer side por defecto"
-          />
-        </router-link>
-        <router-link to="/designer-side">
-          <Image
-            class="main__option__image"
-            file="portfolio/Raul/DesignerSideHover.png"
-            altTitle="Raúl Designer side por defecto"
-          />
-        </router-link>
-      </div>
-    -->
-    <Image
-            class="main__option__image"
-            file="portfolio/Raul/DesignerSideHover.png"
-            altTitle="Raúl Designer side por defecto"
-          />
     </section>
 </template>
 
