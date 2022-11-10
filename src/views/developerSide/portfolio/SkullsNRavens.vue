@@ -20,7 +20,7 @@
             </div>
             <div class="portfolio-project-container__images">
                 <Image file="portfolio/SkullsAndRavens/SkullsNRavens02.png"/>
-                <Image file="portfolio/SkullsAndRavens/SkullsNRavens03.png"/>
+                <Image class="vertical" file="portfolio/SkullsAndRavens/SkullsNRavens03.png"/>
                 <Image file="portfolio/SkullsAndRavens/SkullsNRavens04.png"/>
             </div>
         </div>

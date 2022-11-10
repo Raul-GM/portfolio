@@ -20,7 +20,7 @@
             <h4 class="portfolio-container__project__title">Rock This Concert</h4>
             <Image
                 class="portfolio-container__project__image" 
-                file="portfolio/SkullsAndRavens/SkullsNRavens01.png"/>
+                file="portfolio/RockThisConcert/ListDesktop.png"/>
         </router-link>
     </div>
     <div class="portfolio-more-projects-button">

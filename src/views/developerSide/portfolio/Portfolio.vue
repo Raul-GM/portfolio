@@ -10,7 +10,7 @@
                 projectSrc="/developer-side/portfolio/skulls-n-ravens" />
             <ProjectCard 
                 title="Rock This Concert"
-                imgSrc="portfolio/SkullsAndRavens/SkullsNRavens01.png"
+                imgSrc="portfolio/RockThisConcert/ListDesktop.png"
                 resume="Rock This Concert nace de una necesidad que tuve hace ya bastantes años. Soy una persona que le encanta la música, y sobretodo la música en directo. El estilo de música que me gusta es..."
                 projectSrc="/developer-side/portfolio/RTC" />
         </div>

@@ -23,7 +23,10 @@
                 <p>La decisión de introducir PostCSS también fue un reto. Después de haber escuchado varias charlas, haber leído por internet sobre ello y haber hecho un par de pruebas, decidí meterlo en mi proyecto para usarlo también en un entorno cercano al real.</p>
             </div>
             <div class="portfolio-project-container__images">
-                
+                <Image file="portfolio/RockThisConcert/ListDesktop.png"/>
+                <Image class="vertical" file="portfolio/RockThisConcert/ListMobile.png"/>
+                <Image file="portfolio/RockThisConcert/DetailDesktop.png"/>
+                <Image class="vertical" file="portfolio/RockThisConcert/DetailMobile.png"/>
             </div>
         </div>
     </div>
@@ -32,11 +35,13 @@
 <script>
 import Navbar from '@/components/Navbar.vue';
 import Footer from '@/components/Footer.vue';
+import Image from '@/components/Image.vue';
 
 export default {
     components: {
         Navbar,
-        Footer
+        Footer,
+        Image
     }
 }
 </script>
