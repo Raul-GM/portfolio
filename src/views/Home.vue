@@ -36,6 +36,11 @@
           />
         </router-link>
       </div>
+      <Image
+        class="main__logo"
+        file="portfolio/Ra.png"
+        altTitle="Ra logo"
+      />
     </section>
 </template>
 
@@ -60,7 +65,7 @@ export default {
 .main {
   height: 100vh;
   width: 100%;
-  background: #591B50;
+  background-color: var(--primary-color);
   overflow: hidden;
   &__background,
   &__options {
@@ -69,7 +74,8 @@ export default {
     width: 100%;
     top: 0;
     grid-template-columns: 1fr 1fr;
-    align-items: center;
+    justify-content: center;
+    align-content: center;
     @media (max-width: $media-mobile) {
       align-items: flex-start;
     }
@@ -83,7 +89,7 @@ export default {
         height: 50vh;
       }
       @media (max-width: $media-small-mobile) {
-        height: 30vh;
+        height: 50vh;
       }
     }
   }
@@ -92,10 +98,20 @@ export default {
     display: grid;
     grid-template-columns: 1fr auto;
     position: relative;
+    @media (max-width: $media-small-mobile) {
+      grid-template-columns: 1fr;
+      height: 50vh;
+      .main__option__image {
+        display: none;
+      }
+    }
     &.left {
       justify-content: flex-end;
       .main__developer__title {
         margin-left: 2rem;
+        @media (max-width: $media-small-mobile) {
+          display: none;
+        }
       }
       .main__option__hover__image {
         right: 0;
@@ -104,6 +120,9 @@ export default {
     &.right {
       .main__developer__title {
         margin-right: 2rem;
+        @media (max-width: $media-small-mobile) {
+          display: none;
+        }
       }
       .main__option__hover__image {
         left: 0;
@@ -138,6 +157,23 @@ export default {
   }
   &__developer__title {
     max-width: 10vw;
+  }
+  &__logo {
+    position: absolute;
+    bottom: 1rem;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: 180px;
+    pointer-events: none;
+    @media (max-width: $media-mid-screen) {
+      height: 120px;
+      bottom: 15vh;
+    }
+    @media (max-width: $media-mobile) {
+      bottom: 20vh;
+      height: 100px;
+    }
   }
 }
 </style>

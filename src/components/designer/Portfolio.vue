@@ -11,7 +11,7 @@
             <h4 class="portfolio-container__project__title">Helado Crush</h4>
             <Image
                 class="portfolio-container__project__image" 
-                file="portfolio/Crush/CRUSH_Street_Billboard.png"/>
+                file="portfolio/Crush/main.png"/>
         </router-link>
         <router-link
             class="portfolio-container__project"
@@ -20,7 +20,7 @@
             <h4 class="portfolio-container__project__title">Gráfica para "Malas Mujeres"</h4>
             <Image
                 class="portfolio-container__project__image" 
-                file="portfolio/MalasMujeres/Malas_Mujeres_Poster_2.png"/>
+                file="portfolio/MalasMujeres/main.png"/>
         </router-link>
     </div>
     <div class="portfolio-more-projects-button">

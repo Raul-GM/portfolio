@@ -2,7 +2,7 @@
   <div class="aboutme-container">
       <h1 class="aboutme-container__title section-title">Sobre mí</h1>
       <div class="aboutme-container__part image">
-          IMAGEN
+        <Image file="aboutMe/developer.png"/>
       </div>
       <div class="aboutme-container__part">
             <p>
@@ -22,10 +22,12 @@
 
 <script>
 import Link from '@/components/Link.vue';
+import Image from '@/components/Image.vue';
 
 export default {
     components: {
         Link,
+        Image
     }
 }
 </script>

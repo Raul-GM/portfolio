@@ -84,9 +84,8 @@ p {
 
 .aboutme-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 220px 1fr;
     grid-template-rows: repeat(2, min-content);
-    align-items: center;
     justify-items: center;
     padding: 0;
     &__title {
@@ -97,6 +96,11 @@ p {
         display: flex;
         flex-direction: column;
         padding: 1rem 0;
+        &.image .image{
+            max-width: 220px;
+            height: auto;
+            padding-right: 2rem;
+        }
         @media (max-width: $media-mobile) {
             &.image {
                 display: none;
@@ -149,7 +153,8 @@ p {
             margin-bottom: 1rem;
         }
         .image {
-            height: 240px;
+            width: 100%;
+            height: auto;
         }
     }
     @media (max-width: $media-mobile) {
@@ -164,5 +169,22 @@ p {
     display: flex;
     justify-content: center;
     padding-bottom: 2rem;
+}
+
+.about-me-detail-container {
+    display: grid;
+    grid-template-columns: minmax(100px, 300px) auto;
+    grid-gap: 2rem;
+    padding-bottom: 2rem;
+    .image {
+        width: 100%;
+    }
+    @media (max-width: $media-mobile) {
+        grid-template-columns: 1fr;
+        .image {
+            display: none;
+        }
+    }
+    
 }
 

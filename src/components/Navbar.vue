@@ -15,7 +15,14 @@
   </span>
   <nav class="nav" :class="{ 'nav--mobile': isMobile(), opened: isOpened }">
         <span class="nav--home">
-            <router-link to="/" class="simple_link nav--side">{{sideType}} Side</router-link>
+            <router-link to="/" class="simple_link nav--side">
+                <Image
+                    class="menu--ra--icon"
+                    file="icons/Ra.svg"
+                    altTitle="Ra icon"
+                    v-if="!isOpened">
+                </Image>
+            </router-link>
         </span>
         <ul class="nav__menu">
             <li class="nav__menu__option">
@@ -124,12 +131,6 @@ export default {
             }
         }
     }
-    &--side {
-        text-transform: capitalize;
-        text-decoration: none;
-        font-size: 1.2rem;
-        font-weight: bold;
-    }
     @media (max-width: $media-mobile) {
         position: absolute;
         top: 0;
@@ -161,6 +162,14 @@ export default {
             }
         }
     }
+}
+
+.menu--ra--icon {
+    height: calc(var(--navbar-height) - 15px);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
 }
 
 .menu--icon {

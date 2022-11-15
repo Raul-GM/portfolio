@@ -19,6 +19,7 @@
                 <p>Me gustaría mejorar la web, introducirle más animaciones, ahora mismo queda bastante estática. Además querría crear un buscador para buscar por tags aprovechando la creación de estos tags en cada uno de los markdowns de los posts</p>
             </div>
             <div class="portfolio-project-container__images">
+                <Image file="portfolio/SkullsAndRavens/SkullsNRavens01.png"/>
                 <Image file="portfolio/SkullsAndRavens/SkullsNRavens02.png"/>
                 <Image class="vertical" file="portfolio/SkullsAndRavens/SkullsNRavens03.png"/>
                 <Image file="portfolio/SkullsAndRavens/SkullsNRavens04.png"/>
