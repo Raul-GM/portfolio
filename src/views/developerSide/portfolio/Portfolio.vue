@@ -39,7 +39,7 @@ export default {
     grid-auto-rows: min-content;
     padding-bottom: 2rem;
     justify-content: space-between;
-
+    justify-items: center;
 }
 .project-container {
     &__info {
