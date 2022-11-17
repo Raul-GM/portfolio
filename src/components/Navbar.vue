@@ -26,17 +26,18 @@
         </span>
         <ul class="nav__menu">
             <li class="nav__menu__option">
-                <router-link :to="`/${sideType}-side/about-me`">
+                <router-link :to="`/${currentRouteName()}-side/about-me`">
                     <span>
                         Sobre mí
                     </span>
                 </router-link>
             </li>
-            <li class="nav__menu__option"><router-link :to="`/${sideType}-side/portfolio`">Portfolio</router-link></li>
+            <li class="nav__menu__option"><router-link :to="`/${currentRouteName()}-side/portfolio`">Portfolio</router-link></li>
             <!-- TODO: <li class="nav__menu__option"><router-link to="/blog">Blog</router-link></li> -->
-            <li class="nav__menu__option"><router-link to="/contact">Contacto</router-link></li>
-            <li class="nav__menu__option" v-if="sideType === 'developer'"><router-link to="/designer-side">Designer Side</router-link></li>
-            <li class="nav__menu__option" v-if="sideType === 'designer'"><router-link to="/developer-side">Developer Side</router-link></li>
+            <!-- <li class="nav__menu__option"><router-link :to="`/${currentRouteName()}-side/contact`">Contacto</router-link></li> -->
+            <li class="nav__menu__option"><router-link :to="`/${currentRouteName()}-side/contact`">Contacto</router-link></li>
+            <li class="nav__menu__option" v-if="currentRouteName() === 'developer'"><router-link to="/designer-side">Designer Side</router-link></li>
+            <li class="nav__menu__option" v-if="currentRouteName() === 'designer'"><router-link to="/developer-side">Developer Side</router-link></li>
         </ul>
   </nav>
   
@@ -64,8 +65,14 @@ export default {
         },
         onMenuIconClick() {
             this.isOpened = !this.isOpened;
+        }, currentRouteName() {
+            console.log('-----', this.$route.name);
+            if (this.$route.name.includes('Designer')) {
+                return 'designer';
+            }
+            return 'developer';
         }
-    }
+    },
 
 }
 </script>

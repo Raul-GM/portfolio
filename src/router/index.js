@@ -27,6 +27,10 @@ const routes = [
     name: 'Rock This Concert',
     component: () => import('../views/developerSide/portfolio/RTC.vue')
   }, {
+    path: '/developer-side/contact',
+    name: 'DeveloperSideContact',
+    component: () => import('../views/common/Contact.vue')
+  }, {
     path: '/designer-side',
     name: 'DesignerSide',
     component: () => import('../views/DesignerSide.vue')
@@ -55,13 +59,13 @@ const routes = [
     name: 'Villalbaria',
     component: () => import('../views/designerSide/portfolio/Villalbaria.vue')
   }, {
+    path: '/designer-side/contact',
+    name: 'DesignerSideContact',
+    component: () => import('../views/common/Contact.vue')
+  }, {
     path: '/blog',
     name: 'Blog',
     component: () => import('../views/common/Blog.vue')
-  }, {
-    path: '/contact',
-    name: 'Contact',
-    component: () => import('../views/common/Contact.vue')
   }
 ]
 

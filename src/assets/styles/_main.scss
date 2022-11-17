@@ -6,6 +6,11 @@ body {
     background-color: var(--lightest-color);
     color: var(--main-text-color);
 }
+input,
+textarea {
+    font-family: var(--font-text);
+    font-size: .9rem;
+}
 h1 {
     font-size: 1.8rem;
 }

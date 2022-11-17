@@ -35,7 +35,7 @@
               </a>
             </li>
             <li>
-              <a href="https://codepen.io/your-work"
+              <a href="https://codepen.io/RaulGM"
                 target="_blank"
                 class="social--list--link">
                 <Image file="icons/codepen.svg" altTitle="Logo Codepen"></Image>
