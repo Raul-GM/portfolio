@@ -66,7 +66,6 @@ export default {
         onMenuIconClick() {
             this.isOpened = !this.isOpened;
         }, currentRouteName() {
-            console.log('-----', this.$route.name);
             if (this.$route.name.includes('Designer')) {
                 return 'designer';
             }

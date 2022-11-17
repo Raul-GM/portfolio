@@ -20,11 +20,11 @@ const routes = [
     component: () => import('../views/developerSide/portfolio/Portfolio.vue')
   }, {
     path: '/developer-side/portfolio/skulls-n-ravens',
-    name: 'PortfolioSkulls',
+    name: 'DeveloperPortfolioSkulls',
     component: () => import('../views/developerSide/portfolio/SkullsNRavens.vue')
   }, {
     path: '/developer-side/portfolio/RTC',
-    name: 'Rock This Concert',
+    name: 'DeveloperRockThisConcert',
     component: () => import('../views/developerSide/portfolio/RTC.vue')
   }, {
     path: '/developer-side/contact',
@@ -44,19 +44,19 @@ const routes = [
     component: () => import('../views/designerSide/portfolio/Portfolio')
   }, {
     path: '/designer-side/portfolio/crush',
-    name: 'CrushIceCreams',
+    name: 'DesignerCrushIceCreams',
     component: () => import('../views/designerSide/portfolio/Crush.vue')
   }, {
     path: '/designer-side/portfolio/malas-mujeres',
-    name: 'MalasMujeres',
+    name: 'DesignerMalasMujeres',
     component: () => import('../views/designerSide/portfolio/MalasMujeres.vue')
   }, {
     path: '/designer-side/portfolio/portadas-discos',
-    name: 'PortadasDiscos',
+    name: 'DesignerPortadasDiscos',
     component: () => import('../views/designerSide/portfolio/PortadasDiscos.vue')
   }, {
     path: '/designer-side/portfolio/villalbaria',
-    name: 'Villalbaria',
+    name: 'DesignerVillalbaria',
     component: () => import('../views/designerSide/portfolio/Villalbaria.vue')
   }, {
     path: '/designer-side/contact',
@@ -67,11 +67,14 @@ const routes = [
     name: 'Blog',
     component: () => import('../views/common/Blog.vue')
   }
-]
+];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
+  routes,
+  scrollBehavior() {
+    window.scrollTo(0,0);
+  }
 })
 
 export default router
