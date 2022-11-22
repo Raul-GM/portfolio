@@ -42,6 +42,7 @@ export default {
 }
 </script>
 <style lang="scss">
+@import '@/assets/styles/media-variables';
 
 .main-container .portfolio {
     display: grid;
@@ -51,6 +52,9 @@ export default {
     padding-bottom: 2rem;
     justify-content: space-between;
     justify-items: center;
+    @media (max-width: $media-mobile) {
+        grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    }
 }
 .project-container {
     &__info {

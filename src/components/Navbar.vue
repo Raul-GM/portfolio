@@ -14,6 +14,7 @@
     </Image>
   </span>
   <nav class="nav" :class="{ 'nav--mobile': isMobile(), opened: isOpened }">
+    <div class="nav--container">
         <span class="nav--home">
             <router-link to="/" class="simple_link nav--side">
                 <Image
@@ -39,6 +40,7 @@
             <li class="nav__menu__option" v-if="currentRouteName() === 'developer'"><router-link to="/designer-side">Designer Side</router-link></li>
             <li class="nav__menu__option" v-if="currentRouteName() === 'designer'"><router-link to="/developer-side">Developer Side</router-link></li>
         </ul>
+    </div>
   </nav>
   
 </template>
@@ -83,25 +85,37 @@ export default {
     --nav-border-color: var(--dark-color);
 }
 .nav {
-    background-color: var(--lightest-color);
+    background-color: var(--primary-color);
+    color: var(--light-color);
     border-bottom: 1px solid var(--nav-border-color);
     font-size: 1.1rem;
     height: var(--navbar-height);
-    padding: 0 2rem;
-    display: grid;
-    grid-template-rows: auto;
-    grid-template-columns: 1fr auto;
-    grid-auto-flow: dense;
-    align-items: center;
     position: sticky;
     top: 0;
     z-index: 10;
+    &--container {
+        display: grid;
+        grid-template-rows: auto;
+        grid-template-columns: 1fr auto;
+        grid-auto-flow: dense;
+        align-items: center;
+        max-width: 1024px;
+        height: 100%;
+        left: 0;
+        right: 0;
+        margin: auto;
+        padding: 0 5rem;
+    }
     @media (max-width: $media-mobile) {
         display: none;
         visibility: hidden;
         &.opened {
             display: inherit;
             visibility: visible;
+        }
+        &--container {
+            padding: 0;
+            height: 100vh;
         }
     }
     

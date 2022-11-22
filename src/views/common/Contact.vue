@@ -7,7 +7,7 @@
           <p>Puedes encontrarme en las siguientes plataformas o redes sociales </p>
           <ul class="social--list">
             <li>
-              <a href="www.linkedin.com/in/raúl-garcia-martin-2106897b"
+              <a href="https://www.linkedin.com/in/raúl-garcia-martin-2106897b"
                 target="_blank"
                 class="social--list--link">
                 <Image file="icons/linkedin2.svg" altTitle="Logo Linkedin"></Image>
