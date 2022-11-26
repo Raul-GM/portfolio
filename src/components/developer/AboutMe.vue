@@ -6,10 +6,10 @@
       </div>
       <div class="aboutme-container__part">
             <p>
-                Me llamo Raúl García, residente en España, y soy Front-end developer desde el año 2004. Con más de 15 años de experiencia en empresas de diferentes sectores, he podido trabajar en diferentes ambientes con distintas herramientas.
+                ¡Hola! Me llamo Raúl, aunque me puedes llamar simplemente <b>Ra</b>, y soy Front-end developer desde el año 2004. Con más de 15 años de experiencia en empresas de diferentes sectores, he podido trabajar en diferentes ambientes multidisciplinares y multiculurales con distintas herramientas y frameworks.
             </p>
             <p>
-                Me interesa acercarme a la experiencia de usuario, por lo que intento aprender todo lo que puedo de mis compañeros y compañeras diseñadores. Para ello procuro darle todo el mimo posible a la maquetación e intentar que la experiencia de usuario sea la mejor.
+                Siempre he estado  interesado en acercarme a la experiencia de usuario, por lo que intento aprender todo lo que puedo de mis compañeros y compañeras diseñadores. Para ello procuro darle todo el mimo posible a la maquetación e intentar que la experiencia de usuario sea la mejor en todos mis trabajos.
             </p>
             <Link
                 class="aboutme-container__full"

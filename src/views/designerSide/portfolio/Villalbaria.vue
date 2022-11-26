@@ -4,7 +4,7 @@
         <h2 class="section-title">Villalbaria: Valla publicitaria y roll-up</h2>
         <div class="portfolio-project-container">
             <div>
-                <p>Vaya publicitaria y roll-up para inmobiliaria ficticia llamada Villalbaria. El logotipo fue creado en equipo. A partir de los colores del imagotipo trabajé para crear una valla publicitaria y un roll-up que promocionase la venta de una serie de viviendas en las que destacara sus virtudes.</p>
+                <p>Valla publicitaria y roll-up para inmobiliaria ficticia llamada Villalbaria. El logotipo fue creado en equipo. A partir de los colores del imagotipo trabajé para crear una valla publicitaria y un roll-up que promocionase la venta de una serie de viviendas en las que destacara sus virtudes.</p>
             </div>
             <div class="portfolio-project-container__images full">
                 <Image file="portfolio/VillalbariaInmobiliaria/Valla_Publicitaria.png" altTitle="Valla publicitaria de Villalbaria" />

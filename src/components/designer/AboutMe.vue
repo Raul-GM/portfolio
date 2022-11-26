@@ -6,7 +6,7 @@
       </div>
       <div class="aboutme-container__part">
             <p>
-                ¡Hola! Soy Raúl García. Desarrollador front de profesión (puedes ver más en el Developer Side) y estudiante de un Grado de Diseño Digital por la Universidad Internacional de La Rioja (UNIR). 
+                ¡Hola! Soy Raúl, aunque me puedes llamar <b>Ra</b>. Desarrollador front de profesión (puedes ver más en el <a class="simple_link"><router-link to="/developer-side">Developer Side</router-link></a>) y estudiante de un Grado de Diseño Digital por la Universidad Internacional de La Rioja (UNIR). 
             </p>
             <p>
                 Compagino mis estudios con el trabajo y la familia, por lo que estoy cogiéndome unas pocas asignaturas cada año. Actualmente estoy cursando parte de segundo y hasta la fecha tengo una media de sobresaliente.

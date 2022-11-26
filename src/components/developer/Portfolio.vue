@@ -2,7 +2,7 @@
     <div class="portfolio-container">
         <h1 class="portfolio-container__title section-title">Portfolio</h1>
         <span class="portfolio-container__text">
-            La mayoría de mis proyectos son para las empresas para las que he estado trabajando o son proyectos sencillos para aprender algo en concreto o practicar alguna tecnología. No obstante me gustaría mostraros un par de proyectos más "acabados" en los que he estado (estoy) trabajando
+            La mayoría de mis proyectos son para las empresas para las que he estado trabajando o son proyectos sencillos para aprender algo en concreto o practicar alguna tecnología. No obstante me gustaría mostraros un par de proyectos más "acabados" en los que he estado (y estoy) trabajando
         </span>
         <router-link
             class="portfolio-container__project"

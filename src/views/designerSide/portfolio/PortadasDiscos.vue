@@ -4,7 +4,7 @@
         <h2 class="section-title">Portadas collección de discos</h2>
         <div class="portfolio-project-container">
             <div>
-                <p>Portadas de discos para colección de música para proyecto para la universidad. La premisa era realizar cinco portadas de una serie de discos que pertenecieran a una misma colección (inventada). Dicha colección debería compartir atributos de tal forma que se distinguiera a simple vista que los cinco volúmenes forman parte de un todo.</p>
+                <p>Portadas de discos de colección de música para proyecto de la universidad. La premisa era realizar cinco portadas de una serie de discos que pertenecieran a una misma colección (inventada). Dicha colección debería compartir atributos de tal forma que se distinguiera a simple vista que los cinco volúmenes forman parte de un todo.</p>
             </div>
             <div class="portfolio-project-container__images full">
                 <Image file="portfolio/DiscosLeyendasMetal/DioCD.png" altTitle="Portada CD Ronnie James Dio" />

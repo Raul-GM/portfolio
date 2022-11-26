@@ -6,7 +6,7 @@
             <ProjectCard 
                 title="Skulls N' Ravens"
                 imgSrc="portfolio/SkullsAndRavens/SkullsNRavens01.png"
-                resume="Skulls N'Ravens es un blog en el que hablo de música orientada al Rock y al Metal. La idea nació a raíz de dos necesidades, en primer lugar, como apasionado de la música y de los conciertos..."
+                resume="Skulls N' Ravens es un blog en el que hablo de música orientada al Rock y al Metal. La idea nació a raíz de dos necesidades, en primer lugar, como apasionado de la música y de los conciertos..."
                 projectSrc="/developer-side/portfolio/skulls-n-ravens" />
             <ProjectCard 
                 title="Rock This Concert"
