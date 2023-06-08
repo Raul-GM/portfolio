@@ -3,7 +3,7 @@
     <div class="main-container">
         <h1 class="portfolio-container__title section-title">Sobre mí</h1>
         <div class="about-me-detail-container">
-          <Image file="aboutMe/developer.png"/>
+          <Image file="aboutMe/developer.jpeg"/>
           <div>
             <p>¡Hola! Me llamo Raúl, aunque me puedes llamar simplemente <b>Ra</b>, y soy desarrollador Front-end. Desde que era pequeño, mostré interés por los ordenadores y lo que podían ofrecer. Empecé siendo autodidacta y aprendí lo justo de HTML, CSS y Javascript para hacer varias páginas webs con amigos y diversos proyectos personales sólo por diversión.</p>
             <p>En 2004 conseguí el título de Técnico Superior de Desarrollo de Aplicaciones Informáticas con una nota de Sobresaliente y pudiendo haber optado a una beca por mi examen en bases de datos relacionales. Pero mi camino se dirigía más al mundo front. </p>

@@ -5,12 +5,12 @@
         <div class="portfolio">
             <ProjectCard 
                 title="Skulls N' Ravens"
-                imgSrc="portfolio/SkullsAndRavens/SkullsNRavens01.png"
+                imgSrc="portfolio/SkullsAndRavens/SkullsNRavens01_640.jpeg"
                 resume="Skulls N' Ravens es un blog en el que hablo de música orientada al Rock y al Metal. La idea nació a raíz de dos necesidades, en primer lugar, como apasionado de la música y de los conciertos..."
                 projectSrc="/developer-side/portfolio/skulls-n-ravens" />
             <ProjectCard 
                 title="Rock This Concert"
-                imgSrc="portfolio/RockThisConcert/ListDesktop.png"
+                imgSrc="portfolio/RockThisConcert/ListDesktop_640.jpeg"
                 resume="Rock This Concert nace de una necesidad que tuve hace ya bastantes años. Soy una persona que le encanta la música, y sobretodo la música en directo. El estilo de música que me gusta es..."
                 projectSrc="/developer-side/portfolio/RTC" />
         </div>

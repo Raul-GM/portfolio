@@ -2,7 +2,7 @@
   <div class="aboutme-container">
       <h1 class="aboutme-container__title section-title">Sobre mí</h1>
       <div class="aboutme-container__part image">
-        <Image file="aboutMe/designer.png"/>
+        <Image file="aboutMe/designer.jpeg"/>
       </div>
       <div class="aboutme-container__part">
             <p>

@@ -9,8 +9,8 @@
             <div class="portfolio-project-container__images full">
                 <OptimizedImage image="portfolio/MalasMujeres/Malas_Mujeres"
                     altTitle="Gráfica final de Malas Mujeres" />
-                <Image file="portfolio/MalasMujeres/Malas_Mujeres_Poster_2.png" altTitle="Póster de la gráfica en marco apoyado en la pared" />
-                <Image file="portfolio/MalasMujeres/Malas_Mujeres_Poster.png" altTitle="Póster de la gráfica colgado en la pared" />
+                <OptimizedImage image="portfolio/MalasMujeres/Malas_Mujeres_Poster_2" altTitle="Póster de la gráfica en marco apoyado en la pared" />
+                <OptimizedImage image="portfolio/MalasMujeres/Malas_Mujeres_Poster" altTitle="Póster de la gráfica colgado en la pared" />
             </div>
         </div>
     </div>
@@ -19,13 +19,11 @@
 <script>
 import Navbar from '@/components/Navbar.vue';
 import Footer from '@/components/Footer.vue';
-import Image from '@/components/Image.vue';
 import OptimizedImage from '@/components/OptimizedImage.vue';
 export default {
     components: {
         Navbar,
         Footer,
-        Image,
         OptimizedImage
     }
 }

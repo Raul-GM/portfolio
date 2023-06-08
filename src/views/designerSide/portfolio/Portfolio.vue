@@ -5,22 +5,22 @@
         <div class="portfolio">
             <ProjectCard 
                 title="CRUSH Helados"
-                imgSrc="portfolio/Crush/CRUSH_Street_Billboard.png"
+                imgSrc="portfolio/Crush/CRUSH_Street_Billboard_640.jpeg"
                 resume="Resultado del examen final de la asignatura de Diseño Gráfico. Teníamos que representar una gráfica promocionando un helado..."
                 projectSrc="/designer-side/portfolio/crush" />
             <ProjectCard 
                 title="Gráfica Malas Mujeres"
-                imgSrc="portfolio/MalasMujeres/Malas_Mujeres_Poster_2.png"
+                imgSrc="portfolio/MalasMujeres/Malas_Mujeres_Poster_2_640.jpeg"
                 resume="Gráfica publicitaria / Póster del libro de María Hesse, 'Malas Mujeres'. Trabajo para la asignatura de diseño gráfico consistente..."
                 projectSrc="/designer-side/portfolio/malas-mujeres" />
             <ProjectCard 
                 title="Portadas de discos"
-                imgSrc="portfolio/DiscosLeyendasMetal/DioCD.png"
+                imgSrc="portfolio/DiscosLeyendasMetal/DioCD_640.jpeg"
                 resume="Portadas de discos para colección de música para proyecto para la universidad. La premisa era realizar cinco portadas de una serie..."
                 projectSrc="/designer-side/portfolio/portadas-discos" />
             <ProjectCard 
                 title="Villalbaria Inmobiliaria"
-                imgSrc="portfolio/VillalbariaInmobiliaria/Valla_Publicitaria.png"
+                imgSrc="portfolio/VillalbariaInmobiliaria/Valla_Publicitaria_640.jpeg"
                 resume="Vaya publicitaria y roll-up para inmobiliaria ficticia llamada Villalbaria. El logotipo fue creado en equipo. A partir de los colores..."
                 projectSrc="/designer-side/portfolio/villalbaria" />
             

@@ -3,7 +3,7 @@
     <div class="main-container">
         <h1 class="portfolio-container__title section-title">Sobre mí</h1>
         <div class="about-me-detail-container">
-          <Image file="aboutMe/designer.png"/>
+          <Image file="aboutMe/designer.jpeg"/>
           <div>
             <p>¡Hola! Soy Raúl, pero puedes llamarme <b>Ra</b>. Soy desarrollador front y estudiante de un grado de Diseño Digital en la Universidad Internacional de La Rioja (UNIR).</p>
             <p>Siempre he sentido interés por el diseño y el mundo más "artístico" pero nunca me había animado a estudiar nada al respecto ya que estaba trabajando como programador. Desde hace años, trabajo codo con codo con compañeros y compañeras de diseño (UI/UX designers) y siempre he intentado entender el porqué de sus decisiones. Cada vez que aprendía más de ellos, más investigaba por mi cuenta sobre el tema y más me interesaba este mundo.</p>
