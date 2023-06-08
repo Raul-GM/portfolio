@@ -34,6 +34,7 @@
                 </router-link>
             </li>
             <li class="nav__menu__option"><router-link :to="`/${currentRouteName()}-side/portfolio`">Portfolio</router-link></li>
+            <li class="nav__menu__option" v-if="currentRouteName() === 'designer'"><router-link to="/designer-side/illustrations">Ilustraciones</router-link></li>
             <!-- TODO: <li class="nav__menu__option"><router-link to="/blog">Blog</router-link></li> -->
             <!-- <li class="nav__menu__option"><router-link :to="`/${currentRouteName()}-side/contact`">Contacto</router-link></li> -->
             <li class="nav__menu__option"><router-link :to="`/${currentRouteName()}-side/contact`">Contacto</router-link></li>
