@@ -3,19 +3,33 @@
     font-style: normal;
     font-display: swap;
 	font-weight: 800;
-    src: url("assets/fonts/TradeGothicLTStd-Bold.otf") format("truetype");
+    src: url("assets/fonts/AbrilFatface-Regular.ttf") format("truetype");
 }
 @font-face {
     font-family: "main";
     font-style: normal;
     font-display: auto;
 	font-weight: 100;
-    src: url("assets/fonts/FilosofiaOT-Regular.otf") format("truetype");
+    src: url("assets/fonts/Roboto-Regular.ttf") format("truetype");
 }
 @font-face {
     font-family: "mainBold";
     font-style: normal;
     font-display: auto;
 	font-weight: 800;
-    src: url("assets/fonts/FilosofiaOT-Bold.otf") format("truetype");
+    src: url("assets/fonts/Roboto-Bold.ttf") format("truetype");
+}
+@font-face {
+    font-family: "mainItalic";
+    font-style: italic;
+    font-display: auto;
+	font-weight: 100;
+    src: url("assets/fonts/Roboto-Italic.ttf") format("truetype");
+}
+@font-face {
+    font-family: "mainLight";
+    font-style: normal;
+    font-display: auto;
+	font-weight: lighter;
+    src: url("assets/fonts/Roboto-Light.ttf") format("truetype");
 }
