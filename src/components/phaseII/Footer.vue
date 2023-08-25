@@ -4,16 +4,34 @@
             <span>
                 &copy; {{ getYear() }} Raúl García Martín
             </span>
-            <span>
-                Redes sociales
+            <span class="footer-container__rrss">
+                <a href="https://www.instagram.com/raulgarcia.design/"
+                    target="_blank"
+                    class="social-icon">
+                    <Image file="icons/instagram.svg" altTitle="Logo Instagram"></Image>
+                </a>
+                <a href="https://www.behance.net/raulgm2/projects"
+                    target="_blank"
+                    class="social-icon">
+                    <Image file="icons/behance.svg" altTitle="Logo Behance"></Image>
+                </a>
+                <a href="https://www.linkedin.com/in/raúl-garcia-martin-2106897b"
+                    target="_blank"
+                    class="social-icon">
+                    <Image file="icons/linkedin2.svg" altTitle="Logo Linkedin"></Image>
+                </a>
             </span>
         </div>
     </footer>
 </template>
 
 <script>
+import Image from '@/components/Image';
+
 export default {
-    methods: {
+        components: {
+        Image
+    }, methods: {
         getYear() {
             return new Date().getFullYear()
         }
@@ -35,6 +53,18 @@ export default {
         max-width: 1024px;
         padding: 0 5rem;
         margin: auto;
+        &__rrss {
+            display: flex;
+            gap: .7rem;
+            .social-icon {
+                width: 24px;
+                height: 24px;
+                img {
+                    width: 24px;
+                    height: 24px;
+                }
+            }
+        }
     }
 }
 </style>
