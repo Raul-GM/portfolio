@@ -23,10 +23,17 @@ export const portfolioItems = [
         category: Categories.DESIGN
     },
     {
-        title: 'Villalbaria Inmobiliaria',
+        title: 'Inmobiliaria',
         imgSrc: 'portfolio/VillalbariaInmobiliaria/Valla_Publicitaria_640.jpeg',
         resume: "Vaya publicitaria y roll-up para inmobiliaria ficticia llamada Villalbaria. El logotipo fue creado en equipo. A partir de los colores...",
         projectSrc: '/portfolio/villalbaria',
         category: Categories.DESIGN
     },
+    {
+      title: 'Metal Portraits',
+      imgSrc: 'portfolio/VillalbariaInmobiliaria/Valla_Publicitaria_640.jpeg',
+      resume: "Serie de retratos realizados en digital sobre artistas del rock y del metal",
+      projectSrc: '/portfolio/villalbaria',
+      category: Categories.ILLUSTRATION
+  },
 ]

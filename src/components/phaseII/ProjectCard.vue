@@ -2,8 +2,8 @@
     <router-link class="project-card" :to="projectSrc">
         <div class="project-card--background" :style="inlineStyle"></div>
         <div class="project-card--info">
-            <h3 class="section-title">{{ title }}</h3>
-            <p>{{ resume }}</p>
+            <h4 class="section-title">{{ title }}</h4>
+            <p>{{ category }}</p>
         </div>
     </router-link>
 </template>
@@ -27,6 +27,10 @@ export default {
         projectSrc: {
             type: String,
             default: ''
+        },
+        category: {
+          type: String,
+          default: ''
         }
     }, computed: {
         backgroundImage() {
@@ -44,33 +48,30 @@ export default {
 .project-card {
     position: relative;
     display: block;
-    max-width: 500px;
-    height: 460px;
-    border-radius: 1rem;
+    max-width: 400px;
+    height: 400px;
     overflow: hidden;
-    box-shadow: 0 0 .4rem var(--dark-color);
     transition: box-shadow .3s ease-in-out;
-    background-color: white;
+    border: 2px solid var(--primary-color);
     &:hover {
-        box-shadow: 0 0 1rem var(--dark-color);
         .project-card--background {
             background: center top no-repeat;
             background-size: 600px;
         }
         .project-card--info {
-            margin-top: -4rem;
+            margin-top: -2rem;
         }
     }
     &--background {
         width: 100%;
-        height: 270px;
+        height: 80%;
         background: center center no-repeat;
         background-size: 500px;
         transition: background .5s ease-in-out;
     }
     &--info {
-        padding: 3rem 1rem 1rem 1rem;
-        margin-top: -2rem;
+        padding: 0 .5rem;
+        margin-top: -1rem;
         position: relative;
         transition: margin-top .5s ease-in-out;
         background: rgb(255,255,255);

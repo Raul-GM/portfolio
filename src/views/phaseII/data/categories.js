@@ -1,5 +1,5 @@
 export const Categories = {
-    DESIGN: 'Design',
-    ILLUSTRATION: 'Illustration',
-    VIDEO: 'Video',
+    DESIGN: 'Diseño',
+    ILLUSTRATION: 'Ilustración',
+    VIDEO: 'Vídeo',
 };

@@ -1,28 +1,28 @@
 <template>
     <span class="menu--icon" v-on:click="onMenuIconClick">
-    <Image
+    <ImageComponent
         class="menu--icon--image"
         file="icons/menu.svg"
         altTitle="Menu icon"
         v-if="!isOpened">
-    </Image>
-    <Image
+    </ImageComponent>
+    <ImageComponent
         class="menu--icon--image"
         file="icons/cross.svg"
         altTitle="Close cross icon"
         v-if="isOpened">
-    </Image>
+    </ImageComponent>
   </span>
   <nav class="nav" :class="{ 'nav--mobile': isMobile(), opened: isOpened }">
     <div class="nav--container">
         <span class="nav--home">
             <router-link to="/" class="simple_link nav--side">
-                <Image
+                <ImageComponent
                     class="menu--ra--icon"
                     file="icons/Ra.svg"
                     altTitle="Ra icon"
                     v-if="!isOpened">
-                </Image>
+                </ImageComponent>
             </router-link>
         </span>
         <ul class="nav__menu">
@@ -46,10 +46,10 @@
 </template>
 
 <script>
-import Image from '@/components/Image';
+import ImageComponent from '@/components/phaseII/ImageComponent';
 
 export default {
-    components: { Image },
+    components: { ImageComponent },
     props: {
         sideType: {
             type: String,
@@ -99,7 +99,6 @@ export default {
         grid-template-columns: 1fr auto;
         grid-auto-flow: dense;
         align-items: center;
-        max-width: 1024px;
         height: 100%;
         left: 0;
         right: 0;
@@ -128,7 +127,6 @@ export default {
             height: 100%;
             display: flex;
             align-items: center;
-            max-width: 170px;
             min-width: 100px;
             transition: .6s color;
             a {
@@ -172,7 +170,6 @@ export default {
             &__option {
                 height: 3rem;
                 width: 100%;
-                max-width: unset;
                 a {
                     text-align: center;
                     width: 100%;

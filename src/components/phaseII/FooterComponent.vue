@@ -8,17 +8,17 @@
                 <a href="https://www.instagram.com/raulgarcia.design/"
                     target="_blank"
                     class="social-icon">
-                    <Image file="icons/instagram.svg" altTitle="Logo Instagram"></Image>
+                    <ImageComponent file="icons/instagram.svg" altTitle="Logo Instagram"></ImageComponent>
                 </a>
                 <a href="https://www.behance.net/raulgm2/projects"
                     target="_blank"
                     class="social-icon">
-                    <Image file="icons/behance.svg" altTitle="Logo Behance"></Image>
+                    <ImageComponent file="icons/behance.svg" altTitle="Logo Behance"></ImageComponent>
                 </a>
                 <a href="https://www.linkedin.com/in/raúl-garcia-martin-2106897b"
                     target="_blank"
                     class="social-icon">
-                    <Image file="icons/linkedin2.svg" altTitle="Logo Linkedin"></Image>
+                    <ImageComponent file="icons/linkedin2.svg" altTitle="Logo Linkedin"></ImageComponent>
                 </a>
             </span>
         </div>
@@ -26,11 +26,11 @@
 </template>
 
 <script>
-import Image from '@/components/Image';
+import ImageComponent from '@/components/phaseII/ImageComponent';
 
 export default {
         components: {
-        Image
+          ImageComponent
     }, methods: {
         getYear() {
             return new Date().getFullYear()
@@ -50,7 +50,6 @@ export default {
         justify-content: space-between;
         align-items: center;
         height: 100%;
-        max-width: 1024px;
         padding: 0 5rem;
         margin: auto;
         &__rrss {
