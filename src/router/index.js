@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeComponent from '../views/phaseII/HomeComponent.vue'
+import HomeComponent from '../views/HomeComponent.vue'
 
 const routes = [
   {
@@ -7,38 +7,45 @@ const routes = [
     name: 'Home',
     component: HomeComponent
   }, {
+    path: '/portfolio',
+    name: 'Portfolio',
+    component: HomeComponent
+  }, {
     path: '/about-me',
-    name: 'DeveloperSideAboutMe',
-    component: () => import('../views/developerSide/About.vue')
+    name: 'AboutMe',
+    component: () => import('../views/AboutMeComponent.vue')
   }, {
     path: '/contact',
-    name: 'DeveloperSideContact',
-    component: () => import('../views/common/Contact.vue')
+    name: 'Contact',
+    component: () => import('../views/ContactComponent.vue')
   }, {
     path: '/portfolio/crush',
     name: 'DesignerCrushIceCreams',
-    component: () => import('../views/phaseII/portfolio/CrushComponent.vue')
+    component: () => import('../views/portfolio/CrushComponent.vue')
   }, {
     path: '/portfolio/malas-mujeres',
     name: 'DesignerMalasMujeres',
-    component: () => import('../views/phaseII/portfolio/MalasMujeresComponent.vue')
+    component: () => import('../views/portfolio/MalasMujeresComponent.vue')
   }, {
     path: '/portfolio/portadas-discos',
     name: 'DesignerPortadasDiscos',
-    component: () => import('../views/phaseII/portfolio/PortadasDiscosComponent.vue')
+    component: () => import('../views/portfolio/PortadasDiscosComponent.vue')
   }, {
     path: '/portfolio/villalbaria',
     name: 'DesignerVillalbaria',
-    component: () => import('../views/phaseII/portfolio/VillalbariaComponent.vue')
+    component: () => import('../views/portfolio/VillalbariaComponent.vue')
   }, {
     path: '/portfolio/metal-portraits',
     name: 'MetalPortraits',
-    component: () => import('../views/phaseII/portfolio/MetalPortraitsComponent.vue')
+    component: () => import('../views/portfolio/MetalPortraitsComponent.vue')
   }, {
     path: '/portfolio/harley-quinn',
     name: 'HarleyQuinn',
-    component: () => import('../views/phaseII/portfolio/HarleyQuinnComponent.vue')
-  }
+    component: () => import('../views/portfolio/HarleyQuinnComponent.vue')
+  }, {
+    path: '/:pathMatch(.*)',
+    redirect: '/',
+  },
 ];
 
 const router = createRouter({
