@@ -27,41 +27,44 @@ h5 {
     font-size: .8rem;
 }
 h6 {
-    font-size: .6rem;
+  font-size: .6rem;
 }
 p {
-    padding-bottom: 1rem;
+  padding-bottom: 1rem;
 }
 .app-container {
-    position: relative;
-    display: block;
+  position: relative;
+  display: block;
 }
 .section-title {
-    font-family: var(--font-title);
-    padding: 1rem 0;
+  font-family: var(--font-title);
+  padding-bottom: 1rem;
 }
 
 .main-container {
-    min-height: calc(100vh - var(--navbar-height) - var(--footer-height));
-    padding: 2rem var(--main-padding);
-    @media (max-width: $media-mobile) {
-        padding: 0 1rem;
-    }
+  min-height: calc(100vh - var(--navbar-height) - var(--footer-height));
+  padding: 2rem var(--main-padding);
+  @media (max-width: $media-mobile) {
+    padding: 0 1rem;
+  }
 }
 
 .simple_link {
-    text-decoration: underline;
-    color: inherit;
-    transition: .6s color;
-    font-weight: bold;
-    &:hover {
-        color: var(--secondary-color);
-    }
+  text-decoration: underline;
+  color: inherit;
+  transition: .6s color;
+  font-weight: bold;
+  &:hover {
+    color: var(--secondary-color);
+  }
 }
 
 .portfolio-project-container {
     display: flex;
     flex-direction: column;
+    p {
+      padding-bottom: 2rem;
+    }
     &__images {
         display: flex;
         align-items: center;

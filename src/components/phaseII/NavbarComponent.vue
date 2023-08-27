@@ -27,7 +27,7 @@
         </span>
         <ul class="nav__menu">
             <li class="nav__menu__option">
-                <router-link :to="'/portfolio'">Portfolio</router-link>
+                <router-link :to="'/'">Portfolio</router-link>
             </li>
             <li class="nav__menu__option">
                 <router-link :to="'/about-me'">
@@ -145,7 +145,7 @@ export default {
             .router-link-active  {
                 font-weight: bold;
                 color: var(--lightest-color);
-                background-color: var(--secondary-color);
+                background-color: var(--dark-color);
             }
         }
     }

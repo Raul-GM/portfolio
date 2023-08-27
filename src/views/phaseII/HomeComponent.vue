@@ -38,18 +38,14 @@ export default {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   grid-auto-rows: 400px;
-  grid-gap: 2rem;
+  grid-gap: 1rem;
   &_card {
-    /*
-    width: 200px;
     &:first-child,
-    &:nth-child(6n) {
+    &:nth-child(7n) {
       grid-column: span 2;
-      grid-row: span 0;
-      width: 400px;
-      height: 400px;
+      width: 100%;
     }
-    
+    /*    
     &:nth-child(3n) {
       grid-column: span 2;
     }

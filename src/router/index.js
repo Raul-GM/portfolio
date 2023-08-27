@@ -6,70 +6,38 @@ const routes = [
     path: '/',
     name: 'Home',
     component: HomeComponent
-  },{
-    path: '/developer-side',
-    name: 'DeveloperSide',
-    component: () => import('../views/DeveloperSide.vue')
   }, {
-    path: '/developer-side/about-me',
+    path: '/about-me',
     name: 'DeveloperSideAboutMe',
     component: () => import('../views/developerSide/About.vue')
   }, {
-    path: '/developer-side/portfolio',
-    name: 'DeveloperSidePortfolio',
-    component: () => import('../views/developerSide/portfolio/Portfolio.vue')
-  }, {
-    path: '/developer-side/portfolio/skulls-n-ravens',
-    name: 'DeveloperPortfolioSkulls',
-    component: () => import('../views/developerSide/portfolio/SkullsNRavens.vue')
-  }, {
-    path: '/developer-side/portfolio/RTC',
-    name: 'DeveloperRockThisConcert',
-    component: () => import('../views/developerSide/portfolio/RTC.vue')
-  }, {
-    path: '/developer-side/contact',
+    path: '/contact',
     name: 'DeveloperSideContact',
     component: () => import('../views/common/Contact.vue')
   }, {
-    path: '/designer-side',
-    name: 'DesignerSide',
-    component: () => import('../views/DesignerSide.vue')
-  }, {
-    path: '/designer-side/about-me',
-    name: 'DesignerSideAbout',
-    component: () => import('../views/designerSide/About.vue')
-  }, {
-    path: '/designer-side/portfolio',
-    name: 'DesignerSidePortfolio',
-    component: () => import('../views/designerSide/portfolio/Portfolio')
-  }, {
-    path: '/designer-side/illustrations',
-    name: 'DesignerSideIllustrations',
-    component: () => import('../views/designerSide/Illustrations')
-  }, {
-    path: '/designer-side/portfolio/crush',
+    path: '/portfolio/crush',
     name: 'DesignerCrushIceCreams',
-    component: () => import('../views/designerSide/portfolio/Crush.vue')
+    component: () => import('../views/phaseII/portfolio/CrushComponent.vue')
   }, {
-    path: '/designer-side/portfolio/malas-mujeres',
+    path: '/portfolio/malas-mujeres',
     name: 'DesignerMalasMujeres',
-    component: () => import('../views/designerSide/portfolio/MalasMujeres.vue')
+    component: () => import('../views/phaseII/portfolio/MalasMujeresComponent.vue')
   }, {
-    path: '/designer-side/portfolio/portadas-discos',
+    path: '/portfolio/portadas-discos',
     name: 'DesignerPortadasDiscos',
-    component: () => import('../views/designerSide/portfolio/PortadasDiscos.vue')
+    component: () => import('../views/phaseII/portfolio/PortadasDiscosComponent.vue')
   }, {
-    path: '/designer-side/portfolio/villalbaria',
+    path: '/portfolio/villalbaria',
     name: 'DesignerVillalbaria',
-    component: () => import('../views/designerSide/portfolio/Villalbaria.vue')
+    component: () => import('../views/phaseII/portfolio/VillalbariaComponent.vue')
   }, {
-    path: '/designer-side/contact',
-    name: 'DesignerSideContact',
-    component: () => import('../views/common/Contact.vue')
+    path: '/portfolio/metal-portraits',
+    name: 'MetalPortraits',
+    component: () => import('../views/phaseII/portfolio/MetalPortraitsComponent.vue')
   }, {
-    path: '/blog',
-    name: 'Blog',
-    component: () => import('../views/common/Blog.vue')
+    path: '/portfolio/harley-quinn',
+    name: 'HarleyQuinn',
+    component: () => import('../views/phaseII/portfolio/HarleyQuinnComponent.vue')
   }
 ];
 
