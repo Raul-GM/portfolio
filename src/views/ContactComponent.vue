@@ -106,10 +106,10 @@ export default {
   },  methods: {
     onSubmit(e) {
       emailjs.sendForm(
-        'service_mhctxgf',
-        'template_49wkdaf',
+        process.env.VUE_APP_EMAILJS_SERVICE_ID,
+        process.env.VUE_APP_EMAILJS_TEMPLATE_ID,
         e.target,
-        'IEiGOBeWtpHqZKUoc',
+        process.env.VUE_APP_EMAILJS_USER_ID,
         {
           name: this.name,
           email: this.email.value,
@@ -217,10 +217,8 @@ export default {
     }
   }
   &--submit {
-    border: none;
+    border: 1px solid var(--secondary-color);
     background-color: var(--primary-color);
-    border-radius: 0.25em;
-    box-shadow: 0 1px 2px 1px var(--dark-color);
     padding: 12px 20px;
     margin: .5rem 0 1rem;
     color: var(--lightest-color);
@@ -234,12 +232,13 @@ export default {
     @media (max-width: $media-mobile) {
       width: 100%;
     }
-    &:hover {
-      box-shadow: 0 2px 4px 1px var(--dark-color);
+    &:hover,
+    &:focus {
+      border: 1px solid var(--primary-color);
+      background-color: var(--secondary-color);
     }
     &:focus {
       outline: none;
-      box-shadow: 0 2px 4px 1px var(--dark-color);
     }
     &:active {
       transform: scale(0.97);

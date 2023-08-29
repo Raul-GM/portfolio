@@ -45,7 +45,7 @@ p {
   min-height: calc(100vh - var(--navbar-height) - var(--footer-height));
   padding: 2rem var(--main-padding);
   @media (max-width: $media-mobile) {
-    padding: 0 1rem;
+    padding: 0 1rem 1rem 1rem;
   }
 }
 

@@ -40,6 +40,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import './../assets/styles/media-variables';
+
 .footer {
   background-color: var(--darkest-color);
   color: var(--secondary-text-color);
@@ -58,12 +60,23 @@ export default {
       .social-icon {
         width: 24px;
         height: 24px;
+        &:hover img{
+          filter: brightness(1.5) sepia(100%) hue-rotate(235deg);
+        }
         img {
           width: 24px;
           height: 24px;
         }
       }
     }
+  }
+  @media (max-width: $media-mobile) {
+    height: var(--footer-height-mobile);
+    &-container {
+      flex-direction: column;
+      justify-content: space-evenly;
+    }
+  
   }
 }
 </style>

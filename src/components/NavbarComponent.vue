@@ -1,18 +1,4 @@
 <template>
-  <span class="menu--icon" v-on:click="onMenuIconClick">
-    <ImageComponent
-      class="menu--icon--image"
-      file="icons/menu.svg"
-      altTitle="Menu icon"
-      v-if="!isOpened">
-    </ImageComponent>
-    <ImageComponent
-      class="menu--icon--image"
-      file="icons/cross.svg"
-      altTitle="Close cross icon"
-      v-if="isOpened">
-    </ImageComponent>
-  </span>
   <header class="mobile-header">
     <router-link to="/" class="simple_link">
       <ImageComponent
@@ -22,6 +8,20 @@
         v-if="!isOpened">
       </ImageComponent>
     </router-link>
+    <span class="menu--icon" v-on:click="onMenuIconClick">
+      <ImageComponent
+        class="menu--icon--image"
+        file="icons/menu.svg"
+        altTitle="Menu icon"
+        v-if="!isOpened">
+      </ImageComponent>
+      <ImageComponent
+        class="menu--icon--image"
+        file="icons/cross.svg"
+        altTitle="Close cross icon"
+        v-if="isOpened">
+      </ImageComponent>
+    </span>
   </header>
   <nav class="nav" :class="{ 'nav--mobile': isMobile(), opened: isOpened }">
     <div class="nav--container">
@@ -98,14 +98,10 @@ export default {
     justify-content: center;
     align-items: center;
   }
-  .simple_link {
-
-  }
   .menu--ra--icon--mobile {
     height: calc(var(--navbar-height) - 15px);
   }
 }
-
 
 .nav {
   background-color: var(--lightest-color);
@@ -121,12 +117,16 @@ export default {
       grid-template-rows: auto;
       grid-template-columns: 1fr auto;
       grid-auto-flow: dense;
-      align-items: center;
       height: 100%;
       left: 0;
       right: 0;
       margin: auto;
       padding: 0 5rem;
+      @media (max-width: $media-mobile) {
+        .nav__menu {
+          padding-top: 1rem;
+        }
+      }
   }
   @media (max-width: $media-mobile) {
       display: none;
@@ -174,7 +174,7 @@ export default {
   }
   @media (max-width: $media-mobile) {
       position: absolute;
-      top: 0;
+      top: 60px;
       left: 0;
       right: 0;
       height: 100%;
@@ -219,11 +219,9 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: fixed;
-    border-radius: 50%;
-    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.3);
+    position: absolute;
     right: 1rem;
-    top: 1rem;
+    top: .6rem;
     z-index: 15;
     &--image {
       width: 40px;
