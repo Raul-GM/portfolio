@@ -9,6 +9,20 @@ export const portfolioItems = [
     category: Categories.ILLUSTRATION
   },
   {
+    title: 'Mad Rock Fest',
+    imgSrc: 'portfolio/MadRockFest/MadRockFest02_640.jpeg',
+    resume: "Cartel de un festival ficticio de Rock",
+    projectSrc: '/portfolio/madrock-fest',
+    category: Categories.DESIGN
+  },
+  {
+    title: 'Logo Grupo Scout',
+    imgSrc: 'portfolio/Kenya225/Scouts05_640.jpeg',
+    resume: "Creación de logo para el 50 aniversario de un grupo scout",
+    projectSrc: '/portfolio/kenya225',
+    category: Categories.DESIGN
+  },
+  {
     title: 'Crush Helados',
     imgSrc: 'portfolio/Crush/CRUSH_Street_Billboard_640.jpeg',
     resume: 'Resultado del examen final de la asignatura de Diseño Gráfico. Teníamos que representar una gráfica promocionando un helado...',
@@ -36,6 +50,7 @@ export const portfolioItems = [
     projectSrc: '/portfolio/portadas-discos',
     category: Categories.DESIGN
   },
+  /*
   {
     title: 'Inmobiliaria',
     imgSrc: 'portfolio/VillalbariaInmobiliaria/Valla_Publicitaria_640.jpeg',
@@ -43,4 +58,5 @@ export const portfolioItems = [
     projectSrc: '/portfolio/villalbaria',
     category: Categories.DESIGN
   },
+  */
 ]

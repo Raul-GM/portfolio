@@ -128,17 +128,4 @@ p {
   padding-bottom: 2rem;
 }
 
-.about-me-detail-container {
-  display: grid;
-  grid-template-columns: minmax(100px, 300px) auto;
-  grid-gap: 2rem;
-  .image {
-    width: 100%;
-  }
-  @media (max-width: $media-mobile) {
-    grid-template-columns: 1fr;
-    .image {
-      display: none;
-    }
-  }
-}
+

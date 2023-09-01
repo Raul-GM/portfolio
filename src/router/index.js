@@ -43,6 +43,14 @@ const routes = [
     name: 'HarleyQuinn',
     component: () => import('../views/portfolio/HarleyQuinnComponent.vue')
   }, {
+    path: '/portfolio/madrock-fest',
+    name: 'MadRockFest',
+    component: () => import('../views/portfolio/MadRockFestComponent.vue')
+  }, {
+    path: '/portfolio/kenya225',
+    name: 'Kenya225Logo',
+    component: () => import('../views/portfolio/Kenya225Component.vue')
+  }, {
     path: '/:pathMatch(.*)',
     redirect: '/',
   },
