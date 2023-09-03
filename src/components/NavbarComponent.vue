@@ -1,9 +1,9 @@
 <template>
   <header class="mobile-header">
-    <router-link to="/" class="simple_link">
+    <router-link to="/" class="simple_link menu--ra--link--mobile">
       <ImageComponent
         class="menu--ra--icon--mobile"
-        file="icons/Ra.svg"
+        file="RaulGarciaRowLogo.png"
         altTitle="Ra icon"
         v-if="!isOpened">
       </ImageComponent>
@@ -29,14 +29,14 @@
         <router-link to="/" class="simple_link nav--side">
           <ImageComponent
             class="menu--ra--icon"
-            file="icons/Ra.svg"
+            file="RaulGarciaRowLogo.png"
             altTitle="Ra icon"
             v-if="!isOpened">
           </ImageComponent>
         </router-link>
       </span>
       <ul class="nav__menu">
-        <li class="nav__menu__option">
+        <li class="nav__menu__option" :class="{ 'option-active': isPortfolioRoute }">
           <router-link :to="'/'">Portfolio</router-link>
         </li>
         <li class="nav__menu__option">
@@ -77,6 +77,11 @@ export default {
       this.isOpened = !this.isOpened;
     }
   },
+  computed: {
+    isPortfolioRoute() {
+      return this.$route.path.includes('portfolio');
+    }
+  }
 }
 </script>
 
@@ -90,7 +95,7 @@ export default {
   display: none;
   @media (max-width: $media-mobile) {
     display: flex;
-    height: 60px;
+    height: var(--navbar-height);
     width: 100%;
     position: relative;
     border-bottom: 1px solid var(--dark-color);
@@ -98,7 +103,8 @@ export default {
     justify-content: center;
     align-items: center;
   }
-  .menu--ra--icon--mobile {
+  .menu--ra--icon--mobile,
+  .menu--ra--link--mobile {
     height: calc(var(--navbar-height) - 15px);
   }
 }
@@ -165,7 +171,8 @@ export default {
           &.--active {
               color: var(--secondary-color);
           }
-          .router-link-active  {
+          .router-link-active,
+          &.option-active a {
               font-weight: bold;
               color: var(--lightest-color);
               background-color: var(--dark-color);
@@ -221,7 +228,7 @@ export default {
     align-items: center;
     position: absolute;
     right: 1rem;
-    top: .6rem;
+    top: .9rem;
     z-index: 15;
     &--image {
       width: 40px;

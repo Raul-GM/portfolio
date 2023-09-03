@@ -34,25 +34,21 @@ export default {
 </script>
 
 <style lang="scss">
+@import './../assets/styles/_media-variables.scss';
+
 .portfolio-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   grid-auto-rows: 400px;
   grid-gap: 1rem;
-  &_card {
-    &:first-child,
-    &:nth-child(7n) {
-      grid-column: span 2;
-      width: 100%;
-    }
-    /*    
-    &:nth-child(3n) {
-      grid-column: span 2;
-    }
-    &:nth-child(5n) {
-      grid-row: span 3;
-    }
-    */
+  @media (min-width: $media-small-mobile) {
+    &_card {
+      &:first-child,
+      &:nth-child(6n) {
+        grid-column: span 2;
+        width: 100%;
+      }
+    }  
   }
 }
 </style>
