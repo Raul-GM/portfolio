@@ -2,6 +2,12 @@ import { Categories } from './categories';
 
 export const portfolioItems = [
   {
+    title: 'Poster para grupo de música',
+    imgSrc: 'portfolio/InfectedRainPoster/Poster03_640.jpeg',
+    resume: "Diseño de poster para grupo de música",
+    projectSrc: '/portfolio/infected-rain-poster',
+    category: Categories.DESIGN
+  }, {
     title: 'Metal Portraits',
     imgSrc: 'illustrations/MetalPortraits/Enrik_640.jpeg',
     resume: "Serie de retratos realizados en digital sobre artistas del rock y del metal",

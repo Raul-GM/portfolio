@@ -28,6 +28,13 @@
                 <ImageComponent file="icons/linkedin2.svg" altTitle="Logo Linkedin"></ImageComponent>
               </a>
             </li>
+            <li>
+              <a href="https://youtube.com/@raulgarcia.design?si=vtGtOh9aZKiw1Kkk"
+                  target="_blank"
+                  class="social--list--link">
+                  <ImageComponent file="icons/youtube.svg" altTitle="Logo youtube"></ImageComponent>
+              </a>
+            </li>
           </ul>
         </div>
         <form @submit.prevent="onSubmit" class="form">

@@ -51,6 +51,10 @@ const routes = [
     name: 'Kenya225Logo',
     component: () => import('../views/portfolio/Kenya225Component.vue')
   }, {
+    path: '/portfolio/infected-rain-poster',
+    name: 'InfectedRainPoster',
+    component: () => import('../views/portfolio/InfectedRainPosterComponent.vue')
+  }, {
     path: '/:pathMatch(.*)',
     redirect: '/',
   },
