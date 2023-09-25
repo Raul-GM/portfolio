@@ -1,7 +1,7 @@
 <template>
     <NavbarComponent sideType="designer" />
     <div class="main-container">
-        <h2 class="section-title">Metal Portraits</h2>
+        <h2 class="section-title">Póster de grupo de músico</h2>
         <div class="portfolio-project-container">
             <div>
                 <p>Póster creado para la banda de heavy metal Moldava, Infected Rain, celebrando el paso de su gira por España</p>
