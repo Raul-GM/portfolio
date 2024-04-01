@@ -55,6 +55,10 @@ const routes = [
     name: 'InfectedRainPoster',
     component: () => import('../views/portfolio/InfectedRainPosterComponent.vue')
   }, {
+    path: '/portfolio/videoclip-nebula',
+    name: 'VideoclipNebula',
+    component: () => import('../views/portfolio/VideoclipNebula.vue')
+  }, {
     path: '/:pathMatch(.*)',
     redirect: '/',
   },

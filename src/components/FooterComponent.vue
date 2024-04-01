@@ -80,6 +80,7 @@ export default {
     &-container {
       flex-direction: column;
       justify-content: space-evenly;
+      padding: 1rem;
     }
   
   }

@@ -2,17 +2,24 @@ import { Categories } from './categories';
 
 export const portfolioItems = [
   {
+    title: 'Videoclip Nebula',
+    imgSrc: 'portfolio/VideoclipNebula/Reloj_640.jpeg',
+    resume: "Videoclip usando la canción Nebula",
+    projectSrc: '/portfolio/videoclip-nebula',
+    category: Categories.VIDEO
+  },
+  {
     title: 'Poster para grupo de música',
     imgSrc: 'portfolio/InfectedRainPoster/Poster03_640.jpeg',
     resume: "Diseño de poster para grupo de música",
     projectSrc: '/portfolio/infected-rain-poster',
     category: Categories.DESIGN
   }, {
-    title: 'Metal Portraits',
+    title: 'Music Portraits',
     imgSrc: 'illustrations/MetalPortraits/Enrik_640.jpeg',
     resume: "Serie de retratos realizados en digital sobre artistas del rock y del metal",
     projectSrc: '/portfolio/metal-portraits',
-    category: Categories.ILLUSTRATION
+    category: `${Categories.ILLUSTRATION}/${Categories.DESIGN}`
   },
   {
     title: 'Mad Rock Fest',

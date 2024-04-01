@@ -2,12 +2,47 @@
     <NavbarComponent sideType="designer"/>
     <div class="main-container">
         <div class="about-me-detail-container">
-          <ImageComponent file="portfolio/Raul/Vectorizado-assets/Vectorizado.png"/>
+          <ImageComponent file="aboutMe/Bio 1.png"/>
           <div>
             <p><b>¡Hola!</b> Soy Raúl García, estudiante de Grado de Diseño Digital en la Universidad Internacional de La Rioja (UNIR) y desarrollador front.</p>
-            <p>Aunque mi carrera profesional comenzó como programador, siempre he tenido esa chispa artística y creativa latente. Trabajar en estrecha colaboración con talentosos diseñadores de UI/UX a lo largo de los años me inspiró a entender más profundamente las decisiones detrás de sus diseños. Cada vez que adquiría conocimientos de sus perspectivas, mi curiosidad crecía y me sumergía en la exploración de este fascinante mundo del diseño.</p>
-            <p>En el inusual año de 2020, en medio de la agitación de la pandemia, tomé una decisión arriesgada: dar rienda suelta a mi pasión y sumergirme en el Grado de Diseño Digital. Desde entonces, he estado disfrutando cada momento como nunca antes. Aprendo nuevas habilidades y no puedo evitar aplicarlas cada vez que surge una oportunidad.</p>
-            <p>Por otro lado, decidí desempolvar también mis viejos lápices y empezar a dibujar de nuevo, una afición que había dejado a un lado desde la infancia. Aunque no es una habilidad fundamental para el diseño digital, descubrí que complementa maravillosamente mi enfoque creativo. Más que eso, es una vía para liberar mi mente y encontrar relajación en un mundo cada vez más vertiginoso.</p>
+            <p>Aunque mi carrera profesional comenzó como programador, siempre he tenido esa chispa artística y creativa latente. Trabajar en estrecha colaboración con grandes diseñadoras y diseñadores de UI/UX a lo largo de los años me inspiró a entender más profundamente las decisiones detrás de sus diseños. Cada vez que adquiría conocimientos desde sus perspectivas, mi curiosidad crecía y me sumergía en la exploración de este fascinante mundo del diseño.</p>
+            <p>En 2020, en medio la turbulenta pandemia, tomé una decisión arriesgada: dar rienda suelta a mi pasión y apuntarme en el Grado de Diseño Digital. Desde entonces, he estado disfrutando cada momento como nunca antes. Cada día aprendo nuevas habilidades que no puedo evitar aplicarlas cada vez que surge una oportunidad.</p>
+            <p>Por otro lado, decidí desempolvar también mis viejos lápices y empezar a dibujar de nuevo, una afición que había dejado a un lado desde la infancia. Aunque no es una habilidad fundamental para el diseño digital, descubrí que complementa maravillosamente mi enfoque creativo. Además, es una vía para liberar mi mente y encontrar un momento de relax.</p>
+            <div class="social">
+              <p>Si quieres contactar conmigo para realizarme algún encargo o propuesta, o si simplemente te apetece conversar o saber algo más 
+                de mí, puedes enviarme un correo a <a class="simple_link" href="mailto:raulgm83.art@gmail.com">raulgm83.art@gmail.com</a>.</p>
+              <p>También me puedes encontrar en redes sociales en los siguientes enlaces:</p>
+              <ul class="social--list">
+                <li>
+                  <a href="https://www.instagram.com/raugart/"
+                    target="_blank"
+                    class="social--list--link">
+                    <ImageComponent file="icons/instagram.svg" altTitle="Logo Instagram"></ImageComponent>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.behance.net/raulgm2/projects"
+                    target="_blank"
+                    class="social--list--link">
+                    <ImageComponent file="icons/behance.svg" altTitle="Logo Behance"></ImageComponent>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.linkedin.com/in/raúl-garcia-martin-2106897b"
+                    target="_blank"
+                    class="social--list--link">
+                    <ImageComponent file="icons/linkedin2.svg" altTitle="Logo Linkedin"></ImageComponent>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://youtube.com/@raulgarcia.design?si=vtGtOh9aZKiw1Kkk"
+                      target="_blank"
+                      class="social--list--link">
+                      <ImageComponent file="icons/youtube.svg" altTitle="Logo youtube"></ImageComponent>
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
     </div>
