@@ -105,7 +105,7 @@ export default {
   }
   .menu--ra--icon--mobile,
   .menu--ra--link--mobile {
-    height: calc(var(--navbar-height) - 15px);
+    height: calc(var(--navbar-height) - 30px);
   }
 }
 
@@ -217,6 +217,9 @@ export default {
   top: 0;
   bottom: 0;
   margin: auto;
+  @media (max-width: 820px) {
+    height: calc(var(--navbar-height) - 30px);
+  }
 }
 
 .menu--icon {
