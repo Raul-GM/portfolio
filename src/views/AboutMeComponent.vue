@@ -14,7 +14,7 @@
               <p>También me puedes encontrar en redes sociales en los siguientes enlaces:</p>
               <ul class="social--list">
                 <li>
-                  <a href="https://www.instagram.com/raugart/"
+                  <a href="https://www.instagram.com/raulgarcia.design/"
                     target="_blank"
                     class="social--list--link">
                     <ImageComponent file="icons/instagram.svg" altTitle="Logo Instagram"></ImageComponent>
@@ -75,6 +75,29 @@ export default {
   @media (max-width: $media-mobile) {
     grid-template-columns: 1fr;
     
+  }
+  .social--list {
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: repeat(auto-fill, 2rem);
+    &--link {
+      padding: .5rem;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      background-color: var(--darkest-color);
+      transition: background-color .4s ease-in-out;
+      &:hover {
+        background-color: var(--secondary-color);
+      }
+      img {
+        width: 20px;
+        height: 20px;
+      }
+    }
   }
 }
 </style>

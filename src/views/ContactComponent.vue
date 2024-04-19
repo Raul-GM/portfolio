@@ -8,7 +8,7 @@
             de mí, puedes escribirme en el formulario o enviarme un correo a <a class="simple_link" href="mailto:raulgm83.art@gmail.com">raulgm83.art@gmail.com</a>.</p>
           <ul class="social--list">
             <li>
-              <a href="https://www.instagram.com/raugart/"
+              <a href="https://www.instagram.com/raulgarcia.design/"
                 target="_blank"
                 class="social--list--link">
                 <ImageComponent file="icons/instagram.svg" altTitle="Logo Instagram"></ImageComponent>
