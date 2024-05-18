@@ -17,7 +17,7 @@ const routes = [
   }, {
     path: '/shop',
     name: 'Shop',
-    component: () => import('../views/ShopComponent.vue')
+    component: () => import('../views/shop/ShopComponent.vue')
   }, {
     path: '/contact',
     name: 'Contact',
@@ -62,6 +62,10 @@ const routes = [
     path: '/portfolio/videoclip-nebula',
     name: 'VideoclipNebula',
     component: () => import('../views/portfolio/VideoclipNebula.vue')
+  }, {
+    path: '/shop/:product',
+    name: 'Shop Product',
+    component: () => import('../views/shop/ShopProductComponent.vue')
   }, {
     path: '/:pathMatch(.*)',
     redirect: '/',

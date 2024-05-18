@@ -1,0 +1,68 @@
+<template>
+    <NavbarComponent />
+    <div class="main-container">
+      <h1 class="aboutme-container__title section-title">Tienda</h1>
+      <div class="shop-container">
+        <div v-for="(shopItem) in shopData" :key="shopItem.id"
+          class="shop-card">
+          <router-link :to="`/shop/${shopItem.id}`">
+            <div class="shop-card-info">
+              <div class="shop-card-info-image">
+                <ImageComponent :file="`shop/${shopItem.imgName}_320.jpg`" altTitle="Ilustración de Harley Quinn" format="jpg"/>
+              </div>
+              <div class="shop-card-info-data">
+                <h3 class="shop-card-info-data-title">{{ shopItem.name }}</h3>
+                <span>{{ shopItem.price }}</span>
+              </div>
+            </div>
+          </router-link>
+        </div>
+      </div>
+    </div>
+    <FooterComponent />
+</template>
+<script>
+import NavbarComponent from '@/components/NavbarComponent.vue';
+import FooterComponent from '@/components/FooterComponent.vue';
+import ImageComponent from '@/components/ImageComponent.vue';
+import { shopData } from './../data/shop';
+export default {
+  components: {
+    NavbarComponent,
+    FooterComponent,
+    ImageComponent
+  }, data() {
+    return {
+      shopData
+    }
+  }
+}
+</script>
+<style lang="scss">
+.shop-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.shop-card-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .5rem;
+  &-image {
+    width: 320px;
+    height: 320px;
+    overflow: hidden;
+  }
+  &-data {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .3rem;
+    &-title {
+      font-family: var(--font-title);
+    }
+  }
+}
+</style>
