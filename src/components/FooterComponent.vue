@@ -15,11 +15,13 @@
                     class="social-icon">
                     <ImageComponent file="icons/behance.svg" altTitle="Logo Behance"></ImageComponent>
                 </a>
+                <!--
                 <a href="https://www.linkedin.com/in/raúl-garcia-martin-2106897b"
                     target="_blank"
                     class="social-icon">
                     <ImageComponent file="icons/linkedin2.svg" altTitle="Logo Linkedin"></ImageComponent>
                 </a>
+                -->
                 <a href="https://youtube.com/@raulgarcia.design?si=vtGtOh9aZKiw1Kkk"
                     target="_blank"
                     class="social-icon">

@@ -6,7 +6,7 @@
   </picture>
 </template>
   
-  <script>
+<script>
   export default {
   props: {
     image: {
@@ -15,17 +15,21 @@
     altTitle: {
       type: String,
       default: 'Image'
+    },
+    format: {
+      type: String,
+      default: 'jpeg'
     }
   },
   computed: {
     getLargeImage() {
-      return require(`../assets/images/${this.image}_1024.jpeg`)
+      return require(`../assets/images/${this.image}_1280.${this.format}`)
     },
     getMediumImage() {
-      return require(`../assets/images/${this.image}_640.jpeg`)
+      return require(`../assets/images/${this.image}_640.${this.format}`)
     },
     getSmallImage() {
-      return require(`../assets/images/${this.image}_320.jpeg`)
+      return require(`../assets/images/${this.image}_320.${this.format}`)
     }
   }
   }

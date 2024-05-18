@@ -21,6 +21,7 @@
                 <ImageComponent file="icons/behance.svg" altTitle="Logo Behance"></ImageComponent>
               </a>
             </li>
+            <!--
             <li>
               <a href="https://www.linkedin.com/in/raúl-garcia-martin-2106897b"
                 target="_blank"
@@ -28,6 +29,7 @@
                 <ImageComponent file="icons/linkedin2.svg" altTitle="Logo Linkedin"></ImageComponent>
               </a>
             </li>
+            -->
             <li>
               <a href="https://youtube.com/@raulgarcia.design?si=vtGtOh9aZKiw1Kkk"
                   target="_blank"
