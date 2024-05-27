@@ -39,8 +39,8 @@ export default {
 </script>
 <style lang="scss">
 .shop-container {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 1rem;
 }
 .shop-card-info {

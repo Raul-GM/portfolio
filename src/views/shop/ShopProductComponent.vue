@@ -71,6 +71,9 @@ export default {
   display: grid;
   grid-template-columns: 50% 50%;
   gap: 2rem;
+  @media (max-width: $media-mobile) {
+    grid-template-columns: 1fr;
+  }
   &-image {
     width: 100%;
   }
@@ -88,98 +91,6 @@ export default {
       padding: 1rem;
       border-radius: 6px;
     }
-  }
-}
-.form {
-  min-width: 30vw;
-  max-width: 50vw;
-  @media (max-width: $media-mobile) {
-    max-width: unset;
-  }
-  .field-group:first-child {
-    padding-top: 0;
-  }
-  &--label {
-    margin-bottom: .5rem;
-    display: block
-  }
-  div {
-    position: relative;
-    &.field-group {
-      padding: .5rem 0;
-    }
-  }
-  &--field {
-    display: block;
-    width: 100%;
-    appearance: none;
-    padding: .5rem;
-    border: 1px solid var(--darkest-color);
-    border-radius: .25rem;
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.08);
-    &:focus {
-      outline: none;
-      border-color: var(--primary-color);
-      box-shadow: 0 0 5px rgba(44, 151, 222, 0.2);
-    }
-    &.message {
-      min-height: 120px;
-      resize: none;
-      overflow: auto;
-    }
-    &.error {
-      border-color: var(--error-color);
-    }
-  }
-  &--submit {
-    border: 1px solid var(--secondary-color);
-    background-color: var(--primary-color);
-    padding: 12px 20px;
-    margin: .5rem 0 1rem;
-    color: var(--lightest-color);
-    font-weight: bold;
-    cursor: pointer;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    appearance: none;
-    transition: all .2s ease-in-out;
-    
-    @media (max-width: $media-mobile) {
-      width: 100%;
-    }
-    &:hover,
-    &:focus {
-      border: 1px solid var(--primary-color);
-      background-color: var(--secondary-color);
-    }
-    &:focus {
-      outline: none;
-    }
-    &:active {
-      transform: scale(0.97);
-    }
-  }
-  .error-message {
-    margin: 0;
-    p {
-      background: var(--error-color);
-      color: var(--lightest-color);
-      font-size: 1rem;
-      text-align: center;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      border-radius: 0.25em;
-      padding: .5rem;
-    }
-  }
-  .counter {
-    background-color: var(--light-color);
-    border-radius: 5px;
-    position: absolute;
-    right: 2px;
-    bottom: .7rem;
-    font-size: 10px;
-    padding: 4px;
   }
 }
 </style>
