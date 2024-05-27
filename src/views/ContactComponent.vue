@@ -1,11 +1,10 @@
 <template>
     <NavbarComponent />
     <div class="main-container">
-      <h1 class="aboutme-container__title section-title">Contacto</h1>
       <div class="contact">
         <div class="social">
           <p>Si quieres contactar conmigo para realizarme algún encargo o propuesta, o si simplemente te apetece conversar o saber algo más 
-            de mí, puedes escribirme en el formulario o enviarme un correo a <a class="simple_link" href="mailto:raulgm83.art@gmail.com">raulgm83.art@gmail.com</a>.</p>
+            de mí, puedes escribirme un mensaje directo en <a class="simple_link" target="_blank" href="https://www.instagram.com/direct/t/104585227603393/">Instagram</a> o enviarme un correo a <a class="simple_link" href="mailto:raulgm83.art@gmail.com">raulgm83.art@gmail.com</a>.</p>
           <ul class="social--list">
             <li>
               <a href="https://www.instagram.com/raulgarcia.design/"
@@ -39,6 +38,7 @@
             </li>
           </ul>
         </div>
+        <!--
         <form @submit.prevent="onSubmit" class="form">
           <div class="field-group">
             <label class="form--label" for="name">Nombre</label>
@@ -83,6 +83,7 @@
             <input type="submit" class="form--submit" value="Enviar mensaje" />
           </div>
         </form>
+        -->
       </div>
     </div>
     

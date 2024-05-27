@@ -44,7 +44,7 @@
             <span>Sobre mí</span>
           </router-link>
         </li>
-        <li class="nav__menu__option">
+        <li class="nav__menu__option" :class="{ 'option-active': isShopActive }">
           <router-link :to="'/shop'">
             <span>Tienda</span>
           </router-link>
@@ -85,6 +85,9 @@ export default {
   computed: {
     isPortfolioRoute() {
       return this.$route.path.includes('portfolio');
+    },
+    isShopActive() {
+      return this.$route.path.includes('shop');
     }
   }
 }
@@ -160,8 +163,7 @@ export default {
       &__option {
           height: 100%;
           display: flex;
-          align-items: center;
-          min-width: 100px;
+          align-items: center;          
           transition: .6s color;
           a {
               padding: 0 .8rem;
@@ -222,7 +224,7 @@ export default {
   top: 0;
   bottom: 0;
   margin: auto;
-  @media (max-width: 820px) {
+  @media (max-width: 860px) {
     height: calc(var(--navbar-height) - 30px);
   }
 }

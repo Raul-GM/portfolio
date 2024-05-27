@@ -1,18 +1,17 @@
 <template>
     <NavbarComponent />
     <div class="main-container">
-      <h1 class="aboutme-container__title section-title">Tienda</h1>
       <div class="shop-container">
         <div v-for="(shopItem) in shopData" :key="shopItem.id"
           class="shop-card">
           <router-link :to="`/shop/${shopItem.id}`">
             <div class="shop-card-info">
               <div class="shop-card-info-image">
-                <ImageComponent :file="`shop/${shopItem.imgName}_320.jpg`" altTitle="Ilustración de Harley Quinn" format="jpg"/>
+                <ImageComponent :file="`shop/${shopItem.imgName}_320.jpg`" :altTitle="shopItem.altImage" format="jpg"/>
               </div>
               <div class="shop-card-info-data">
                 <h3 class="shop-card-info-data-title">{{ shopItem.name }}</h3>
-                <span>{{ shopItem.price }}</span>
+                <span class="shop-card-info-data-price">{{ shopItem.price }}</span>
               </div>
             </div>
           </router-link>
@@ -61,6 +60,10 @@ export default {
     align-items: center;
     gap: .3rem;
     &-title {
+      font-family: var(--font-title);
+    }
+    &-price {
+      font-size: 1.1rem;
       font-family: var(--font-title);
     }
   }

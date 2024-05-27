@@ -8,7 +8,7 @@ export const shopData = [
         quantity: 5,
         left: 5,
         price: '14€',
-        moreInfo: 'Impresión digital en A3 en papel Couché de 250gr. Sin marco.'
+        moreInfo: 'Impresión digital en A3 (29,7cm x 42cm) en papel Couché de 250gr. Sin marco.'
     },
     {
         id: 'diosa',
@@ -19,6 +19,6 @@ export const shopData = [
         quantity: 1,
         left: 1,
         price: '10€',
-        moreInfo: 'Impresión digital en A3 en papel Offfset de 100gr. Sin marco.'
+        moreInfo: 'Impresión digital en A3 (29,7cm x 42cm) en papel Offfset de 100gr. Sin marco.'
     },
 ]
