@@ -17,6 +17,11 @@
           </router-link>
         </div>
       </div>
+      <div class="shop-info">
+        <p><b>¿Te gusta lo que ves?</b> Aquí te muestro algunas de mis obras disponibles para llevarte a casa hoy mismo. Si por el contrario estás interesado o interesada en otras de mis obras, coméntamelo y lo arreglamos. Pero esto no es todo...</p>
+        <p><b>¿Sueñas con algo más especial?</b> ¡No hay problema! También puedo crear obras personalizadas a tu gusto. Contacta conmigo y hablemos de tus ideas.</p>
+    
+      </div>
     </div>
     <FooterComponent />
 </template>
@@ -42,6 +47,7 @@ export default {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 1rem;
+  padding-bottom: 2rem;;
 }
 .shop-card-info {
   display: flex;
