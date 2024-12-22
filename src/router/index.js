@@ -63,6 +63,14 @@ const routes = [
     name: 'VideoclipNebula',
     component: () => import('../views/portfolio/VideoclipNebula.vue')
   }, {
+    path: '/portfolio/commission-nighty-summer-vibes',
+    name: 'ComisionNightySummerVibes',
+    component: () => import('../views/portfolio/ComisionNightySummerVibes.vue')
+  }, {
+    path: '/portfolio/commission-queen-elizabeth-ii',
+    name: 'ComisionQueenElizabethII',
+    component: () => import('../views/portfolio/ComisionQueenElizabethII.vue')
+  }, {
     path: '/shop/:product',
     name: 'Shop Product',
     component: () => import('../views/shop/ShopProductComponent.vue')

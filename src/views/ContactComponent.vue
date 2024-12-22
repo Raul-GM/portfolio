@@ -2,44 +2,8 @@
     <NavbarComponent />
     <div class="main-container">
       <div class="contact">
-        <div class="social">
-          <p>Si quieres contactar conmigo para realizarme algún encargo o propuesta, o si simplemente te apetece conversar o saber algo más 
-            de mí, puedes escribirme un mensaje directo en <a class="simple_link" target="_blank" href="https://www.instagram.com/direct/t/104585227603393/">Instagram</a> o enviarme un correo a <a class="simple_link" href="mailto:raulgm83.art@gmail.com">raulgm83.art@gmail.com</a>.</p>
-          <ul class="social--list">
-            <li>
-              <a href="https://www.instagram.com/raulgarcia.design/"
-                target="_blank"
-                class="social--list--link">
-                <ImageComponent file="icons/instagram.svg" altTitle="Logo Instagram"></ImageComponent>
-              </a>
-            </li>
-            <li>
-              <a href="https://www.behance.net/raulgm2/projects"
-                target="_blank"
-                class="social--list--link">
-                <ImageComponent file="icons/behance.svg" altTitle="Logo Behance"></ImageComponent>
-              </a>
-            </li>
-            <!--
-            <li>
-              <a href="https://www.linkedin.com/in/raúl-garcia-martin-2106897b"
-                target="_blank"
-                class="social--list--link">
-                <ImageComponent file="icons/linkedin2.svg" altTitle="Logo Linkedin"></ImageComponent>
-              </a>
-            </li>
-            -->
-            <li>
-              <a href="https://youtube.com/@raulgarcia.design?si=vtGtOh9aZKiw1Kkk"
-                  target="_blank"
-                  class="social--list--link">
-                  <ImageComponent file="icons/youtube.svg" altTitle="Logo youtube"></ImageComponent>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <!--
-        <form @submit.prevent="onSubmit" class="form">
+        <form action="https://formspree.io/f/xqaazjwd"
+              @submit.prevent="onSubmit" class="form">
           <div class="field-group">
             <label class="form--label" for="name">Nombre</label>
             <input
@@ -83,7 +47,33 @@
             <input type="submit" class="form--submit" value="Enviar mensaje" />
           </div>
         </form>
-        -->
+        <div class="social">
+          <p>Si quieres contactar conmigo para realizarme algún encargo o propuesta, o si simplemente te apetece conversar o saber algo más 
+            de mí, puedes escribirme un mensaje directo en <a class="simple_link" target="_blank" href="https://www.instagram.com/direct/t/104585227603393/">Instagram</a> o rellenando el formulario que se encuentra en esta misma página. Me pondré en contacto contigo lo antes posible.</p>
+          <ul class="social--list">
+            <li>
+              <a href="https://www.instagram.com/raulgarcia.design/"
+                target="_blank"
+                class="social--list--link">
+                <ImageComponent file="icons/instagram.svg" altTitle="Logo Instagram"></ImageComponent>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.behance.net/raulgm2/projects"
+                target="_blank"
+                class="social--list--link">
+                <ImageComponent file="icons/behance.svg" altTitle="Logo Behance"></ImageComponent>
+              </a>
+            </li>
+            <li>
+              <a href="https://youtube.com/@raulgarcia.design?si=vtGtOh9aZKiw1Kkk"
+                  target="_blank"
+                  class="social--list--link">
+                  <ImageComponent file="icons/youtube.svg" altTitle="Logo youtube"></ImageComponent>
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
     
@@ -94,7 +84,6 @@
 import NavbarComponent from '@/components/NavbarComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
 import ImageComponent from '@/components/ImageComponent.vue';
-import emailjs from 'emailjs-com';
 const emailRegExp = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 export default {
   components: {
@@ -114,20 +103,32 @@ export default {
       },
     }
   },  methods: {
-    onSubmit(e) {
-      emailjs.sendForm(
-        process.env.VUE_APP_EMAILJS_SERVICE_ID,
-        process.env.VUE_APP_EMAILJS_TEMPLATE_ID,
-        e.target,
-        process.env.VUE_APP_EMAILJS_USER_ID,
-        {
-          name: this.name,
-          email: this.email.value,
-          message: this.message.text,
-        }
-      );
+    async onSubmit() {
+      const formData = {
+        name: this.name,
+        email: this.email.value,
+        message: this.message.text,
+      };
 
-      this.resetForm();
+      try {
+        const response = await fetch("https://formspree.io/f/xqaazjwd", {
+          method: "POST",
+          headers: {
+            "Accept": "application/json"
+          },
+          body: JSON.stringify(formData)
+        });
+        if (response.ok) {
+          this.formStatus = 'Correo enviado correctamente.';
+          this.formStatusClass = 'success';
+          this.resetForm();
+        } else {
+          throw new Error('Error en el envío del correo.');
+        }
+      } catch (error) {
+        this.formStatus = 'Hubo un problema al enviar el correo. Inténtalo de nuevo.';
+        this.formStatusClass = 'error';
+      }
     },
     resetForm() {
       this.name = '';

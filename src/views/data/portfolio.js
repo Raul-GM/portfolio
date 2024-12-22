@@ -2,6 +2,20 @@ import { Categories } from './categories';
 
 export const portfolioItems = [
   {
+    title: 'Ilustración de la Reina Isabel II de Inglaterra',
+    imgSrc: 'portfolio/ComisionQueenElizabethII/mockup1_640.jpg',
+    resume: "Comisión .....................................................",
+    projectSrc: '/portfolio/commission-queen-elizabeth-ii',
+    category: Categories.COMISION
+  },
+  {
+    title: 'Nighty summer vibes',
+    imgSrc: 'portfolio/ComisiónNightySummerVibes/mockup1_640.jpg',
+    resume: "Comisión .....................................................",
+    projectSrc: '/portfolio/commission-nighty-summer-vibes',
+    category: Categories.COMISION
+  },
+  {
     title: 'Videoclip Nebula',
     imgSrc: 'portfolio/VideoclipNebula/Reloj_640.jpeg',
     resume: "Videoclip usando la canción Nebula",
