@@ -2,6 +2,13 @@ import { Categories } from './categories';
 
 export const portfolioItems = [
   {
+    title: 'Retratos personalizados',
+    imgSrc: 'portfolio/Portraits/comision2_640.png',
+    resume: "Comisión .....................................................",
+    projectSrc: '/portfolio/commision-retratos-personalizados',
+    category: Categories.COMISION
+  },
+  {
     title: 'Ilustración de la Reina Isabel II de Inglaterra',
     imgSrc: 'portfolio/ComisionQueenElizabethII/mockup1_640.jpg',
     resume: "Comisión .....................................................",
@@ -29,7 +36,7 @@ export const portfolioItems = [
     projectSrc: '/portfolio/infected-rain-poster',
     category: Categories.DESIGN
   }, {
-    title: 'Music Portraits',
+    title: 'Retratos de música',
     imgSrc: 'illustrations/MetalPortraits/Enrik_640.jpeg',
     resume: "Serie de retratos realizados en digital sobre artistas del rock y del metal",
     projectSrc: '/portfolio/metal-portraits',
@@ -56,6 +63,7 @@ export const portfolioItems = [
     projectSrc: '/portfolio/crush',
     category: Categories.DESIGN
   },
+  /*
   {
     title: 'Harley Quinn',
     imgSrc: 'illustrations/HarleyQuinn/Harley_Quinn_640.jpeg',
@@ -63,6 +71,7 @@ export const portfolioItems = [
     projectSrc: '/portfolio/harley-quinn',
     category: Categories.ILLUSTRATION
   },
+  */
   {
     title: 'Malas Mujeres',
     imgSrc: 'portfolio/MalasMujeres/Malas_Mujeres_Poster_2_640.jpeg',

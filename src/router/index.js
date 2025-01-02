@@ -71,6 +71,10 @@ const routes = [
     name: 'ComisionQueenElizabethII',
     component: () => import('../views/portfolio/ComisionQueenElizabethII.vue')
   }, {
+    path: '/portfolio/commision-retratos-personalizados',
+    name: 'RetratosPersonalizados',
+    component: () => import('../views/portfolio/ComisionRetratosPersonalizados.vue')
+  }, {
     path: '/shop/:product',
     name: 'Shop Product',
     component: () => import('../views/shop/ShopProductComponent.vue')

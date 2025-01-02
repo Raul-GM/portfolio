@@ -1,7 +1,7 @@
 <template>
     <NavbarComponent sideType="designer" />
     <div class="main-container">
-        <h2 class="section-title">Music Portraits</h2>
+        <h2 class="section-title">Retratos de música</h2>
         <div class="portfolio-project-container">
             <div>
                 <p>Serie de retratos realizados en digital sobre artistas del rock y del metal.</p>
