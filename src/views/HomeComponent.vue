@@ -1,7 +1,10 @@
 <template>
     <NavbarComponent sideType="designer" />
+    <CategoryFilter
+      @update-filter="filterProjects"
+    />
     <div class="main-container portfolio-container">
-        <div v-for="(project, index) in portfolioItems" :key="index"
+        <div v-for="(project, index) in filteredPortfolioItems" :key="index"
         class="portfolio-container_card">
           <ProjectCard 
                 :title="project.title"
@@ -18,17 +21,30 @@
 import NavbarComponent from '@/components/NavbarComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
 import ProjectCard from '@/components/ProjectCard.vue';
-
+import CategoryFilter from '@/components/CategoryFilter.vue';
 import { portfolioItems } from './data/portfolio';
 export default {
   components: {
     NavbarComponent,
     FooterComponent,
     ProjectCard,
+    CategoryFilter
   }, data() {
     return {
       portfolioItems: portfolioItems,
+      filteredPortfolioItems: portfolioItems
     };
+  },
+  methods: {
+    filterProjects(selectedCategories) {
+      if (selectedCategories.includes('Todos')) {
+        this.filteredPortfolioItems = this.portfolioItems;
+      } else {
+        this.filteredPortfolioItems = this.portfolioItems.filter(project =>
+          selectedCategories.includes(project.category)
+        );
+      }
+    },
   },
 }
 </script>

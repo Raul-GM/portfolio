@@ -63,7 +63,6 @@ export const portfolioItems = [
     projectSrc: '/portfolio/crush',
     category: Categories.DESIGN
   },
-  /*
   {
     title: 'Harley Quinn',
     imgSrc: 'illustrations/HarleyQuinn/Harley_Quinn_640.jpeg',
@@ -71,7 +70,6 @@ export const portfolioItems = [
     projectSrc: '/portfolio/harley-quinn',
     category: Categories.ILLUSTRATION
   },
-  */
   {
     title: 'Malas Mujeres',
     imgSrc: 'portfolio/MalasMujeres/Malas_Mujeres_Poster_2_640.jpeg',
