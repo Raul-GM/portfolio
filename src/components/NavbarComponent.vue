@@ -4,52 +4,61 @@
       <ImageComponent
         class="menu--ra--icon--mobile"
         file="RaulGarciaRowLogo.png"
-        altTitle="Ra icon"
+        altTitle="Logo de Raul García ilustración y diseño gráfico"
         v-if="!isOpened">
       </ImageComponent>
     </router-link>
-    <span class="menu--icon" v-on:click="onMenuIconClick">
+    <button class="menu--icon"
+            v-on:click="onMenuIconClick"
+            aria-expanded="isOpened"
+            aria-label="Abrir menú">
       <ImageComponent
         class="menu--icon--image"
         file="icons/menu.svg"
-        altTitle="Menu icon"
+        altTitle="Icono de menú"
         v-if="!isOpened">
       </ImageComponent>
       <ImageComponent
         class="menu--icon--image"
         file="icons/cross.svg"
-        altTitle="Close cross icon"
+        altTitle="Icono cerrar menú"
         v-if="isOpened">
       </ImageComponent>
-    </span>
+    </button>
   </header>
-  <nav class="nav" :class="{ 'nav--mobile': isMobile(), opened: isOpened }">
+  <nav class="nav" :class="{ 'nav--mobile': isMobile(), opened: isOpened }" aria-label="Navegación principal">
     <div class="nav--container">
       <span class="nav--home">
-        <router-link to="/" class="simple_link nav--side">
+        <router-link to="/"
+            class="simple_link nav--side"
+            aria-label="Ir al portafolio">
           <ImageComponent
             class="menu--ra--icon"
             file="RaulGarciaRowLogo.png"
-            altTitle="Ra icon"
+            altTitle="Logo de Raul García ilustración y diseño gráfico"
             v-if="!isOpened">
           </ImageComponent>
         </router-link>
       </span>
       <ul class="nav__menu">
         <li class="nav__menu__option" :class="{ 'option-active': isPortfolioRoute }">
-          <router-link :to="'/'">Portfolio</router-link>
+          <router-link :to="'/'"
+              aria-label="Ir al portafolio">
+            Portfolio
+          </router-link>
         </li>
         <li class="nav__menu__option">
-          <router-link :to="'/about-me'">
+          <router-link :to="'/about-me'"
+              aria-label="Ir a la sección Sobre mí">
             <span>Sobre mí</span>
           </router-link>
         </li>
         <li class="nav__menu__option" :class="{ 'option-active': isShopActive }">
-          <router-link :to="'/shop'">
+          <router-link :to="'/shop'" aria-label="Ir a la sección Tienda">
             <span>Tienda</span>
           </router-link>
         </li>
-        <li class="nav__menu__option">
+        <li class="nav__menu__option" aria-label="Ir a la sección contacto">
           <router-link :to="'/contact'">Contacto</router-link>
         </li>
       </ul>
@@ -71,7 +80,9 @@ export default {
   },
   data() {
     return {
-      isOpened: false
+      isOpened: false,
+      PORTFOLIO_PATH: 'portfolio',
+      SHOP_PATH: 'shop'
     }
   },
   methods: {
@@ -84,10 +95,10 @@ export default {
   },
   computed: {
     isPortfolioRoute() {
-      return this.$route.path.includes('portfolio');
+      return this.$route.path.includes(this.PORTFOLIO_PATH);
     },
     isShopActive() {
-      return this.$route.path.includes('shop');
+      return this.$route.path.includes(this.SHOP_PATH);
     }
   }
 }

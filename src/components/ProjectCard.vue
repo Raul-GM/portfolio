@@ -1,8 +1,8 @@
 <template>
-    <router-link class="project-card" :to="projectSrc">
-        <div class="project-card--background" :style="inlineStyle"></div>
+    <router-link class="project-card" :to="projectSrc" :aria-label="`Ir al proyecto ${title}`">
+        <div div class="project-card--background" :style="inlineStyle" :alt="`Imagen de proyecto: ${title}`"></div>
         <div class="project-card--info">
-            <h4 class="section-title">{{ title }}</h4>
+            <h3 class="section-title">{{ title }}</h3>
             <p>{{ category }}</p>
         </div>
     </router-link>
@@ -82,6 +82,7 @@ export default {
   }
   .section-title {
       padding: 1rem 0 .4rem 0;
+      font-size: 1.2rem;
   }
 }
 </style>

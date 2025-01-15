@@ -1,8 +1,8 @@
 <template>
-    <NavbarComponent sideType="designer"/>
-    <div class="main-container">
-        <div class="about-me-detail-container">
-          <ImageComponent file="aboutMe/Bio 1.png"/>
+    <NavbarComponent/>
+    <main class="main-container">
+        <section class="about-me-detail-container">
+          <ImageComponent file="aboutMe/Bio 1.png" alt="Raúl García - Foto de perfil"/>
           <div>
             <p><b>¡Hola!</b> Soy Raúl García, estudiante de Grado de Diseño Digital en la Universidad Internacional de La Rioja (UNIR) y desarrollador front.</p>
             <p>Aunque mi carrera profesional comenzó como programador, siempre he tenido esa chispa artística y creativa latente. Trabajar en estrecha colaboración con grandes diseñadoras y diseñadores de UI/UX a lo largo de los años me inspiró a entender más profundamente las decisiones detrás de sus diseños. Cada vez que adquiría conocimientos desde sus perspectivas, mi curiosidad crecía y me sumergía en la exploración de este fascinante mundo del diseño.</p>
@@ -16,38 +16,32 @@
                 <li>
                   <a href="https://www.instagram.com/raulgarcia.design/"
                     target="_blank"
-                    class="social--list--link">
+                    class="social--list--link"
+                    aria-label="Instagram de Raúl García">
                     <ImageComponent file="icons/instagram.svg" altTitle="Logo Instagram"></ImageComponent>
                   </a>
                 </li>
                 <li>
                   <a href="https://www.behance.net/raulgm2/projects"
                     target="_blank"
-                    class="social--list--link">
+                    class="social--list--link"
+                    aria-label="Página de Behance de Raúl García">
                     <ImageComponent file="icons/behance.svg" altTitle="Logo Behance"></ImageComponent>
                   </a>
                 </li>
-                <!--
-                <li>
-                  <a href="https://www.linkedin.com/in/raúl-garcia-martin-2106897b"
-                    target="_blank"
-                    class="social--list--link">
-                    <ImageComponent file="icons/linkedin2.svg" altTitle="Logo Linkedin"></ImageComponent>
-                  </a>
-                </li>
-                -->
                 <li>
                   <a href="https://youtube.com/@raulgarcia.design?si=vtGtOh9aZKiw1Kkk"
                       target="_blank"
-                      class="social--list--link">
+                      class="social--list--link"
+                      aria-label="Canal de Youtube de Raúl García">
                       <ImageComponent file="icons/youtube.svg" altTitle="Logo youtube"></ImageComponent>
                   </a>
                 </li>
               </ul>
             </div>
           </div>
-        </div>
-    </div>
+        </section>
+    </main>
     <FooterComponent />
 </template>
 

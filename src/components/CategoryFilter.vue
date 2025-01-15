@@ -1,15 +1,17 @@
 <template>
-    <div class="category-filter">
+    <section class="category-filter" aria-labelledby="category-filter-title">
       <button
         class="category-filter_button"
         v-for="category in allCategories"
         :key="category"
         :class="{ active: selectedCategories.includes(category) }"
         @click="toggleCategory(category)"
+        :aria-pressed="selectedCategories.includes(category)"
+        :aria-label="'Filtrar por categoría ' + category"
       >
         {{ category }}
       </button>
-    </div>
+    </section>
   </template>
   
   <script>
@@ -21,9 +23,15 @@
         selectedCategories: ['Todos'],
       };
     },
+    props: {
+      categories: {
+        type: Array,
+        default: () => Object.values(Categories)
+      }
+    },
     computed: {
       allCategories() {
-        return [this.ALL_CATEGORIES, ...Object.values(Categories)];
+        return [this.ALL_CATEGORIES, ...this.categories];
       },
     },
     methods: {

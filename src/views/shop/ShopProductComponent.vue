@@ -1,9 +1,10 @@
 <template>
   <NavbarComponent />
-  <div class="main-container">
-    
-    <div class="shop-product-container">
-      <div>
+  <main class="main-container">
+    <article class="shop-product-container"
+      role="region"
+      aria-label="Detalles del producto">
+      <div >
         <ImageComponent
           class="shop-product-container-image"
           :file="`shop/${shopItem.imgName}_640.jpg`"
@@ -19,12 +20,12 @@
         <p v-if="shopItem.quantity === 1"><span>Queda </span>{{ shopItem.quantity }} copia</p>
         <p v-if="shopItem.quantity <= 0"><span>No existe stock de momento. Ponte en contacto conmigo si estás interesado y lo gestionamos.</span></p>
         <p>{{ shopItem.moreInfo }}</p>
-        <div class="shop-product-container-info-disclaimer">
-          Si quieres algún print, puedes contactar conmigo por mensaje directo en <a class="simple_link" target="_blank" href="https://www.instagram.com/direct/t/104585227603393/">Instagram</a> o por correo electrónico (<a class="simple_link" href="mailto:raulgm83.art@gmail.com">raulgm83.art@gmail.com</a>) indicando el nombre de la obra que quieres y la cantidad de prints y te informaré de todo el proceso. Asímismo, si tienes alguna duda, no dudes en contactar conmigo también y estaré encantado de responderte.
-        </div>
+        <section class="shop-product-container-info-disclaimer">
+          Si quieres algún print, puedes contactar conmigo por mensaje directo en <a class="simple_link" target="_blank" aria-label="Mensaje directo en Instagram" href="https://www.instagram.com/direct/t/104585227603393/">Instagram</a> o por correo electrónico (<a class="simple_link" aria-label="Enviar correo a Raúl García" href="mailto:raulgm83.art@gmail.com">raulgm83.art@gmail.com</a>) indicando el nombre de la obra que quieres y la cantidad de prints y te informaré de todo el proceso. Asímismo, si tienes alguna duda, no dudes en contactar conmigo también y estaré encantado de responderte.
+        </section>
       </div>
-    </div>
-  </div>
+    </article>
+  </main>
   <FooterComponent />
 </template>
 <script>

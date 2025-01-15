@@ -1,9 +1,10 @@
 <template>
-    <NavbarComponent sideType="designer" />
+    <NavbarComponent/>
     <CategoryFilter
       @update-filter="filterProjects"
+      aria-label="Filtrar proyectos"
     />
-    <div class="main-container portfolio-container">
+    <main class="main-container portfolio-container">
         <div v-for="(project, index) in filteredPortfolioItems" :key="index"
         class="portfolio-container_card">
           <ProjectCard 
@@ -11,9 +12,10 @@
                 :imgSrc="project.imgSrc"
                 :resume="project.resume"
                 :projectSrc="project.projectSrc"
-                :category="project.category" />
+                :category="project.category"
+                :aria-label="project.title + ' - ' + project.category" />
         </div>
-    </div>
+    </main>
     <FooterComponent />
 </template>
 

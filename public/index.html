@@ -1,15 +1,27 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="es">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <meta name="description" content="Portafolio profesional de Raul García. Ilustrador y diseñador gráfico, aparte de desarrollador front, con proyectos destacados.">
+    <meta name="keywords" content="Raul Garcia, ilustrador, diseñador gráfico, diseño gráfico, logos, branding, photoshop, illustrator, indesign, portafolio, portfolio">
+    <meta name="author" content="Raul Garcia">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="Raul Garcia | Ilustración y diseño gráfico">
+    <meta property="og:description" content="Portafolio profesional de Raul García con proyectos destacados.">
+    <meta property="og:image" content="<%= BASE_URL %>og-image.jpg">
+    <meta property="og:url" content="https://raulgarcia.me">
+    <meta property="og:type" content="website">
+     <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico" type="image/x-icon">
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
   
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FJ40W0JE24"></script>
+  <script async rel="preconnect" src="https://www.googletagmanager.com/gtag/js?id=G-FJ40W0JE24"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -20,7 +32,7 @@
 
   <body>
     <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+      <strong>Este sitio requiere JavaScript para funcionar correctamente. Por favor, actívalo para continuar.</strong>
     </noscript>
     <div id="app" class="app-container"></div>
     <!-- built files will be auto injected -->

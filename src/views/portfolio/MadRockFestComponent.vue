@@ -1,18 +1,20 @@
 <template>
   <NavbarComponent sideType="designer" />
-  <div class="main-container">
-    <h2 class="section-title">Mad Rock Fest</h2>
-    <div class="portfolio-project-container">
-      <div>
-        <p>Cartel para concurso basado en un festival de rock ficticio realizado en Madrid.</p>
+  <main class="main-container">
+    <section>
+      <h2 class="section-title">Mad Rock Fest</h2>
+      <div class="portfolio-project-container">
+        <article>
+          <p>Cartel para concurso basado en un festival de rock ficticio realizado en Madrid.</p>
+        </article>
+        <section class="portfolio-project-container__images full" aria-label="Imágenes del poster del Mad Rock Fest">
+          <OptimizedImageComponent image="portfolio/MadRockFest/MadRockFest02" altTitle="Cartel en parada de autobús" />
+          <OptimizedImageComponent image="portfolio/MadRockFest/MadRockFest03" altTitle="Camiseta de hombre con el logo del festival" />
+          <OptimizedImageComponent image="portfolio/MadRockFest/MadRockFest01" altTitle="Pegatina del festival en entorno urbano" />
+        </section>
       </div>
-      <div class="portfolio-project-container__images full">
-        <OptimizedImageComponent image="portfolio/MadRockFest/MadRockFest02" altTitle="Cartel en parada de autobús" />
-        <OptimizedImageComponent image="portfolio/MadRockFest/MadRockFest03" altTitle="Camiseta de hombre con el logo del festival" />
-        <OptimizedImageComponent image="portfolio/MadRockFest/MadRockFest01" altTitle="Pegatina del festival en entorno urbano" />
-      </div>
-    </div>
-  </div>
+    </section>
+  </main>
   <FooterComponent />
 </template>
 <script>

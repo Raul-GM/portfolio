@@ -1,5 +1,5 @@
 <template>
-    <footer class="footer">
+    <footer class="footer" role="contentinfo" aria-label="Pie de página">
         <div class="footer-container">
             <span>
                 &copy; {{ getYear() }} Raúl García Martín
@@ -7,25 +7,24 @@
             <span class="footer-container__rrss">
                 <a href="https://www.instagram.com/raulgarcia.design/"
                     target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Ir a Instagram de Raúl García"
                     class="social-icon">
                     <ImageComponent file="icons/instagram.svg" altTitle="Logo Instagram"></ImageComponent>
                 </a>
                 <a href="https://www.behance.net/raulgm2/projects"
                     target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Ir a Behance de Raúl García"
                     class="social-icon">
                     <ImageComponent file="icons/behance.svg" altTitle="Logo Behance"></ImageComponent>
                 </a>
-                <!--
-                <a href="https://www.linkedin.com/in/raúl-garcia-martin-2106897b"
-                    target="_blank"
-                    class="social-icon">
-                    <ImageComponent file="icons/linkedin2.svg" altTitle="Logo Linkedin"></ImageComponent>
-                </a>
-                -->
                 <a href="https://youtube.com/@raulgarcia.design?si=vtGtOh9aZKiw1Kkk"
                     target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Ir a canal de Youtube de Raúl García"
                     class="social-icon">
-                    <ImageComponent file="icons/youtube.svg" altTitle="Logo youtube"></ImageComponent>
+                    <ImageComponent file="icons/youtube.svg" altTitle="Logo Youtube"></ImageComponent>
                 </a>
             </span>
         </div>

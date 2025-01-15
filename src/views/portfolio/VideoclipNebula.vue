@@ -1,21 +1,23 @@
 <template>
   <NavbarComponent sideType="designer" />
-  <div class="main-container">
-    <h2 class="section-title">Videoclip Nebula</h2>
-    <div class="portfolio-project-container">
-      <div>
-        <p>Videoclip creado para la canción Nebula del grupo Ankor. Este videoclip ha sido realizado con clips grabados por mi y clips libres de derechos que se pueden encontrar en bibliotecas online.</p>
-      </div>      
-      <div class="portfolio-project-container__images full video">
-        <iframe width="640" height="360" src="https://www.youtube.com/embed/Fb4N0MDjgyc?si=jeV084QD6GuZUbOQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <main class="main-container">
+    <section>
+      <h2 class="section-title">Videoclip Nebula</h2>
+      <div class="portfolio-project-container">
+        <article>
+          <p>Videoclip creado para la canción Nebula del grupo Ankor. Este videoclip ha sido realizado con clips grabados por mi y clips libres de derechos que se pueden encontrar en bibliotecas online.</p>
+        </article>      
+        <section class="portfolio-project-container__images full video" aria-label="Vídeo de Nebula">
+          <iframe width="640" height="360" src="https://www.youtube.com/embed/Fb4N0MDjgyc?si=jeV084QD6GuZUbOQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </section>
+        <section class="portfolio-project-container__images full" aria-label="Fotogramas del vídeo de Nebula">
+          <OptimizedImageComponent image="portfolio/VideoclipNebula/Reloj" altTitle="El reloj no perdona a nadie" />
+          <OptimizedImageComponent image="portfolio/VideoclipNebula/Padre" altTitle="El padre" />
+          <OptimizedImageComponent image="portfolio/VideoclipNebula/Hija" altTitle="La hija" />
+        </section>
       </div>
-      <div class="portfolio-project-container__images full">
-        <OptimizedImageComponent image="portfolio/VideoclipNebula/Reloj" altTitle="El reloj no perdona a nadie" />
-        <OptimizedImageComponent image="portfolio/VideoclipNebula/Padre" altTitle="El padre" />
-        <OptimizedImageComponent image="portfolio/VideoclipNebula/Hija" altTitle="La hija" />
-      </div>
-    </div>
-  </div>
+    </section>
+  </main>
   <FooterComponent />
 </template>
 <script>

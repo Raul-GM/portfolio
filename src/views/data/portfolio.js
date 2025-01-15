@@ -40,7 +40,7 @@ export const portfolioItems = [
     imgSrc: 'illustrations/MetalPortraits/Enrik_640.jpeg',
     resume: "Serie de retratos realizados en digital sobre artistas del rock y del metal",
     projectSrc: '/portfolio/metal-portraits',
-    category: `${Categories.ILLUSTRATION}/${Categories.DESIGN}`
+    category: `${Categories.ILLUSTRATION}`
   },
   {
     title: 'Mad Rock Fest',

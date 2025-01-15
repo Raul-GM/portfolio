@@ -1,9 +1,12 @@
 <template>
     <NavbarComponent />
-    <div class="main-container">
+    <main class="main-container">
       <div class="contact">
         <form action="https://formspree.io/f/xqaazjwd"
-              @submit.prevent="onSubmit" class="form">
+              @submit.prevent="onSubmit"
+              class="form"
+              aria-labelledby="contactForm">
+          <h2 id="contactForm">Contáctame</h2>
           <div class="field-group">
             <label class="form--label" for="name">Nombre</label>
             <input
@@ -11,7 +14,7 @@
               type="text"
               name="name"
               id="name"
-              required=""
+              required aria-required="true"
               class="form--field"
             />
           </div>
@@ -23,7 +26,7 @@
               type="email"
               name="email"
               id="email"
-              required=""
+              required aria-required="true"
               class="form--field"
               :class="{ email, error: !email.isValid }"
             />
@@ -37,7 +40,7 @@
               class="form--field message"
               name="textarea"
               id="textarea"
-              required=""
+              required aria-required="true"
               v-model="message.text"
               :maxlength="message.maxlength"
             ></textarea>
@@ -54,28 +57,31 @@
             <li>
               <a href="https://www.instagram.com/raulgarcia.design/"
                 target="_blank"
-                class="social--list--link">
+                class="social--list--link"
+                aria-label="Visita mi Instagram">
                 <ImageComponent file="icons/instagram.svg" altTitle="Logo Instagram"></ImageComponent>
               </a>
             </li>
             <li>
               <a href="https://www.behance.net/raulgm2/projects"
                 target="_blank"
-                class="social--list--link">
+                class="social--list--link"
+                aria-label="Visita mi página de Begance">
                 <ImageComponent file="icons/behance.svg" altTitle="Logo Behance"></ImageComponent>
               </a>
             </li>
             <li>
               <a href="https://youtube.com/@raulgarcia.design?si=vtGtOh9aZKiw1Kkk"
                   target="_blank"
-                  class="social--list--link">
+                  class="social--list--link"
+                  aria-label="Visita mi canal de Youtube">
                   <ImageComponent file="icons/youtube.svg" altTitle="Logo youtube"></ImageComponent>
               </a>
             </li>
           </ul>
         </div>
       </div>
-    </div>
+    </main>
     
     <FooterComponent />
 </template>
