@@ -21,12 +21,28 @@
 import NavbarComponent from '@/components/NavbarComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
 import OptimizedImageComponent from '@/components/OptimizedImageComponent.vue';
+import { useSeoMeta, getSchemaCreativeWork } from '@/composables/useSeoMeta';
 
 export default {
   components: {
     NavbarComponent,
     FooterComponent,
     OptimizedImageComponent
+  },
+  setup() {
+    useSeoMeta({
+      title: 'CRUSH Helados | Diseño Gráfico - Raúl García',
+      description: 'Proyecto de diseño gráfico: campaña publicitaria integral de CRUSH Helados. Incluye logo, naming y materiales de promoción.',
+      ogImage: 'portfolio/Crush/CRUSH_Street_Billboard_640.jpeg',
+      ogUrl: 'https://raulgarcia.me/portfolio/crush',
+      schema: getSchemaCreativeWork({
+        title: 'CRUSH Helados',
+        description: 'Resultado del examen final de la asignatura de Diseño Gráfico. Campaña publicitaria integral para marca de helados.',
+        image: 'https://raulgarcia.me/portfolio/Crush/CRUSH_Street_Billboard_640.jpeg',
+        dateCreated: '2022-06-01',
+        url: 'https://raulgarcia.me/portfolio/crush'
+      })
+    });
   }
 }
 </script>

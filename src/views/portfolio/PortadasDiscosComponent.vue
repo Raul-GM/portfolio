@@ -23,12 +23,28 @@
 import NavbarComponent from '@/components/NavbarComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
 import OptimizedImageComponent from '@/components/OptimizedImageComponent.vue';
+import { useSeoMeta, getSchemaCreativeWork } from '@/composables/useSeoMeta';
 
 export default {
   components: {
     NavbarComponent,
     FooterComponent,
     OptimizedImageComponent
+  },
+  setup() {
+    useSeoMeta({
+      title: 'Portadas de Discos | Leyendas del Metal - Raúl García',
+      description: 'Colección de 5 portadas de discos con identidad visual coherente. Proyecto universitario basado en leyendas del metal clásico.',
+      ogImage: 'portfolio/DiscosLeyendasMetal/DioCD_640.jpeg',
+      ogUrl: 'https://raulgarcia.me/portfolio/portadas-discos',
+      schema: getSchemaCreativeWork({
+        title: 'Portadas para colección de discos',
+        description: 'Cinco portadas de discos que forman una colección visual coherente. Proyecto universitario sobre leyendas del metal.',
+        image: 'https://raulgarcia.me/portfolio/DiscosLeyendasMetal/DioCD_640.jpeg',
+        dateCreated: '2023-03-01',
+        url: 'https://raulgarcia.me/portfolio/portadas-discos'
+      })
+    });
   }
 }
 </script>

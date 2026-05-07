@@ -24,12 +24,28 @@
 import NavbarComponent from '@/components/NavbarComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
 import OptimizedImageComponent from '@/components/OptimizedImageComponent.vue';
+import { useSeoMeta, getSchemaCreativeWork } from '@/composables/useSeoMeta';
 
 export default {
   components: {
     NavbarComponent,
     FooterComponent,
     OptimizedImageComponent
+  },
+  setup() {
+    useSeoMeta({
+      title: 'Videoclip Nebula | Ankor - Raúl García',
+      description: 'Videoclip creado para la canción "Nebula" del grupo Ankor. Mezcla de clips propios y material de libre acceso.',
+      ogImage: 'portfolio/VideoclipNebula/Reloj_640.jpeg',
+      ogUrl: 'https://raulgarcia.me/portfolio/videoclip-nebula',
+      schema: getSchemaCreativeWork({
+        title: 'Videoclip Nebula',
+        description: 'Videoclip creado para la canción Nebula del grupo Ankor con clips grabados y material libre de derechos.',
+        image: 'https://raulgarcia.me/portfolio/VideoclipNebula/Reloj_640.jpeg',
+        dateCreated: '2023-07-01',
+        url: 'https://raulgarcia.me/portfolio/videoclip-nebula'
+      })
+    });
   }
 }
 </script>

@@ -21,12 +21,28 @@
 import NavbarComponent from '@/components/NavbarComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
 import OptimizedImageComponent from '@/components/OptimizedImageComponent.vue';
+import { useSeoMeta, getSchemaCreativeWork } from '@/composables/useSeoMeta';
 
 export default {
   components: {
     NavbarComponent,
     FooterComponent,
     OptimizedImageComponent
+  },
+  setup() {
+    useSeoMeta({
+      title: 'Mad Rock Fest | Cartel Festival de Rock - Raúl García',
+      description: 'Cartel para festival de rock ficticio en Madrid. Incluye diseño de póster, camiseta y pegatina.',
+      ogImage: 'portfolio/MadRockFest/MadRockFest02_640.jpeg',
+      ogUrl: 'https://raulgarcia.me/portfolio/madrock-fest',
+      schema: getSchemaCreativeWork({
+        title: 'Mad Rock Fest',
+        description: 'Cartel para concurso basado en un festival de rock ficticio realizado en Madrid.',
+        image: 'https://raulgarcia.me/portfolio/MadRockFest/MadRockFest02_640.jpeg',
+        dateCreated: '2023-02-01',
+        url: 'https://raulgarcia.me/portfolio/madrock-fest'
+      })
+    });
   }
 }
 </script>

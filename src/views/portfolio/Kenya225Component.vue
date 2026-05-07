@@ -23,12 +23,28 @@
 import NavbarComponent from '@/components/NavbarComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
 import OptimizedImageComponent from '@/components/OptimizedImageComponent.vue';
+import { useSeoMeta, getSchemaCreativeWork } from '@/composables/useSeoMeta';
 
 export default {
   components: {
     NavbarComponent,
     FooterComponent,
     OptimizedImageComponent
+  },
+  setup() {
+    useSeoMeta({
+      title: 'Logo 50 Aniversario | Grupo Scout - Raúl García',
+      description: 'Logo especial para celebrar el 50 aniversario de un grupo scout. Aplicado en sudaderas, camisetas y accesorios.',
+      ogImage: 'portfolio/Kenya225/Scouts05_640.jpeg',
+      ogUrl: 'https://raulgarcia.me/portfolio/kenya225',
+      schema: getSchemaCreativeWork({
+        title: 'Logo 50 Aniversario Grupo Scout',
+        description: 'Logo especial para el 50 aniversario de grupo scout con aplicaciones en diferentes prendas.',
+        image: 'https://raulgarcia.me/portfolio/Kenya225/Scouts05_640.jpeg',
+        dateCreated: '2023-05-01',
+        url: 'https://raulgarcia.me/portfolio/kenya225'
+      })
+    });
   }
 }
 </script>

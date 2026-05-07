@@ -20,12 +20,28 @@
 import NavbarComponent from '@/components/NavbarComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
 import OptimizedImageComponent from '@/components/OptimizedImageComponent.vue';
+import { useSeoMeta, getSchemaCreativeWork } from '@/composables/useSeoMeta';
 
 export default {
   components: {
     NavbarComponent,
     FooterComponent,
     OptimizedImageComponent
+  },
+  setup() {
+    useSeoMeta({
+      title: 'Malas Mujeres | Póster Publicitario - Raúl García',
+      description: 'Gráfica publicitaria del libro "Malas Mujeres" de María Hesse. Diseño realizado con materiales físicos sin retoques digitales.',
+      ogImage: 'portfolio/MalasMujeres/Malas_Mujeres_Poster_2_640.jpeg',
+      ogUrl: 'https://raulgarcia.me/portfolio/malas-mujeres',
+      schema: getSchemaCreativeWork({
+        title: 'Gráfica Malas Mujeres',
+        description: 'Gráfica publicitaria / Póster del libro de María Hesse. Trabajo creado con componentes físicos sin retoques vía Photoshop.',
+        image: 'https://raulgarcia.me/portfolio/MalasMujeres/Malas_Mujeres_Poster_2_640.jpeg',
+        dateCreated: '2022-12-01',
+        url: 'https://raulgarcia.me/portfolio/malas-mujeres'
+      })
+    });
   }
 }
 </script>

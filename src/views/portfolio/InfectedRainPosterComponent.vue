@@ -21,12 +21,28 @@
 import NavbarComponent from '@/components/NavbarComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
 import OptimizedImageComponent from '@/components/OptimizedImageComponent.vue';
+import { useSeoMeta, getSchemaCreativeWork } from '@/composables/useSeoMeta';
 
 export default {
   components: {
     NavbarComponent,
     FooterComponent,
     OptimizedImageComponent
+  },
+  setup() {
+    useSeoMeta({
+      title: 'Infected Rain | Póster Banda Heavy Metal - Raúl García',
+      description: 'Póster diseñado para la banda de heavy metal Infected Rain celebrando su gira por España.',
+      ogImage: 'portfolio/InfectedRainPoster/Poster03_640.jpeg',
+      ogUrl: 'https://raulgarcia.me/portfolio/infected-rain-poster',
+      schema: getSchemaCreativeWork({
+        title: 'Póster de grupo de música',
+        description: 'Póster creado para la banda de heavy metal Infected Rain, celebrando el paso de su gira por España.',
+        image: 'https://raulgarcia.me/portfolio/InfectedRainPoster/Poster03_640.jpeg',
+        dateCreated: '2023-06-01',
+        url: 'https://raulgarcia.me/portfolio/infected-rain-poster'
+      })
+    });
   }
 }
 </script>
