@@ -90,13 +90,21 @@
 import NavbarComponent from '@/components/NavbarComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
 import ImageComponent from '@/components/ImageComponent.vue';
+import { useSeoMeta } from '@/composables/useSeoMeta';
 const emailRegExp = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 export default {
   components: {
     NavbarComponent,
     FooterComponent,
     ImageComponent
-  }, data() {
+  },
+  setup() {
+    useSeoMeta({
+      title: 'Contacto | Raúl García - Ponte en contacto conmigo',
+      description: 'Contacta con Raúl García para encargos, propuestas o simplemente para conversar. Disponible para trabajos de ilustración y diseño gráfico.'
+    });
+  },
+  data() {
     return {
       name: '',
       email: {

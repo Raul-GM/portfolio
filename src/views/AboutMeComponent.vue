@@ -49,12 +49,20 @@
 import NavbarComponent from '@/components/NavbarComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
 import ImageComponent from '@/components/ImageComponent.vue';
+import { useSeoMeta, getSchemaPersonProfile } from '@/composables/useSeoMeta';
 
 export default {
   components: {
     NavbarComponent,
     FooterComponent,
     ImageComponent
+  },
+  setup() {
+    useSeoMeta({
+      title: 'Sobre mí | Raúl García - Diseñador e Ilustrador',
+      description: 'Conoce a Raúl García: estudiante de Diseño Digital, ilustrador y desarrollador front-end apasionado por el arte y la creatividad.',
+      schema: getSchemaPersonProfile()
+    });
   }
 }
 </script>

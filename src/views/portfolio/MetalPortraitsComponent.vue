@@ -32,12 +32,28 @@
 import NavbarComponent from '@/components/NavbarComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
 import OptimizedImageComponent from '@/components/OptimizedImageComponent.vue';
+import { useSeoMeta, getSchemaCreativeWork } from '@/composables/useSeoMeta';
 
 export default {
   components: {
     NavbarComponent,
     FooterComponent,
     OptimizedImageComponent
+  },
+  setup() {
+    useSeoMeta({
+      title: 'Retratos de Música | Metal Portraits - Raúl García',
+      description: 'Serie de retratos digitales de artistas del rock y metal realizados por Raúl García. Ilustraciones detalladas y expresivas.',
+      ogImage: 'illustrations/MetalPortraits/Enrik_640.jpeg',
+      ogUrl: 'https://raulgarcia.me/portfolio/metal-portraits',
+      schema: getSchemaCreativeWork({
+        title: 'Retratos de Música',
+        description: 'Serie de retratos realizados en digital sobre artistas del rock y del metal.',
+        image: 'https://raulgarcia.me/illustrations/MetalPortraits/Enrik_640.jpeg',
+        dateCreated: '2023-01-01',
+        url: 'https://raulgarcia.me/portfolio/metal-portraits'
+      })
+    });
   }
 }
 </script>

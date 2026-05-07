@@ -25,13 +25,23 @@ import FooterComponent from '@/components/FooterComponent.vue';
 import ProjectCard from '@/components/ProjectCard.vue';
 import CategoryFilter from '@/components/CategoryFilter.vue';
 import { portfolioItems } from './data/portfolio';
+import { useSeoMeta, getSchemaPersonProfile } from '@/composables/useSeoMeta';
+
 export default {
   components: {
     NavbarComponent,
     FooterComponent,
     ProjectCard,
     CategoryFilter
-  }, data() {
+  },
+  setup() {
+    useSeoMeta({
+      title: 'Portfolio | Raúl García - Ilustración y Diseño Gráfico',
+      description: 'Portafolio profesional de Raul García. Ilustrador, diseñador gráfico y desarrollador front-end con proyectos destacados.',
+      schema: getSchemaPersonProfile()
+    });
+  },
+  data() {
     return {
       portfolioItems: portfolioItems,
       filteredPortfolioItems: portfolioItems

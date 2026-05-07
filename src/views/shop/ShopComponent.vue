@@ -33,12 +33,21 @@ import NavbarComponent from '@/components/NavbarComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
 import ImageComponent from '@/components/ImageComponent.vue';
 import { shopData } from './../data/shop';
+import { useSeoMeta } from '@/composables/useSeoMeta';
+
 export default {
   components: {
     NavbarComponent,
     FooterComponent,
     ImageComponent
-  }, data() {
+  },
+  setup() {
+    useSeoMeta({
+      title: 'Tienda | Raúl García - Compra mis obras',
+      description: 'Explora y compra las obras de arte y diseño de Raúl García. También disponibles comisiones y trabajos personalizados.'
+    });
+  },
+  data() {
     return {
       shopData
     }
