@@ -43,13 +43,13 @@ export default {
       title: 'Queen Elizabeth II | Comisión Ilustración - Raúl García',
       description: 'Ilustración de la Reina Isabel II como icono pop. Retrato con tatuajes simbólicos y colage de periódicos históricos.',
       ogImage: 'portfolio/ComisionQueenElizabethII/mockup1_640.jpg',
-      ogUrl: 'https://raulgarcia.me/portfolio/commission-queen-elizabeth-ii',
+      ogUrl: 'https://raulgarcia.me/portfolio/comision-queen-elizabeth-ii',
       schema: getSchemaCreativeWork({
         title: 'Ilustración de la Reina Isabel II de Inglaterra',
         description: 'Retrato conceptual de la Reina Isabel II como icono pop con tatuajes simbólicos sobre eventos importantes de su vida.',
         image: 'https://raulgarcia.me/portfolio/ComisionQueenElizabethII/mockup1_640.jpg',
         dateCreated: '2023-09-01',
-        url: 'https://raulgarcia.me/portfolio/commission-queen-elizabeth-ii'
+        url: 'https://raulgarcia.me/portfolio/comision-queen-elizabeth-ii'
       })
     });
   }

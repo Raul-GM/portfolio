@@ -41,13 +41,13 @@ export default {
       title: 'Nighty Summer Vibes | Comisión Ilustración - Raúl García',
       description: 'Ilustración personalizada que captura las noches de verano estrelladas. Comisión con cielo nocturno sin contaminación lumínica.',
       ogImage: 'portfolio/ComisiónNightySummerVibes/mockup1_640.jpg',
-      ogUrl: 'https://raulgarcia.me/portfolio/commission-nighty-summer-vibes',
+      ogUrl: 'https://raulgarcia.me/portfolio/comision-nighty-summer-vibes',
       schema: getSchemaCreativeWork({
         title: 'Nighty Summer Vibes',
         description: 'Ilustración que plasma las noches de verano en un pueblo madrileño con cielo nocturno despojado de contaminación lumínica.',
         image: 'https://raulgarcia.me/portfolio/ComisiónNightySummerVibes/mockup1_640.jpg',
         dateCreated: '2023-08-01',
-        url: 'https://raulgarcia.me/portfolio/commission-nighty-summer-vibes'
+        url: 'https://raulgarcia.me/portfolio/comision-nighty-summer-vibes'
       })
     });
   }

@@ -40,13 +40,13 @@ export default {
       title: 'Retratos Personalizados | Comisiones de Ilustración - Raúl García',
       description: 'Servicio de retratos personalizados. Ilustraciones únicas basadas en referencias fotográficas del cliente.',
       ogImage: 'portfolio/Portraits/comision2_640.png',
-      ogUrl: 'https://raulgarcia.me/portfolio/commision-retratos-personalizados',
+      ogUrl: 'https://raulgarcia.me/portfolio/comision-retratos-personalizados',
       schema: getSchemaCreativeWork({
         title: 'Retratos personalizados',
         description: 'Colección de retratos personalizados realizados según referencias y preferencias del cliente.',
         image: 'https://raulgarcia.me/portfolio/Portraits/comision2_640.png',
         dateCreated: '2023-10-01',
-        url: 'https://raulgarcia.me/portfolio/commision-retratos-personalizados'
+        url: 'https://raulgarcia.me/portfolio/comision-retratos-personalizados'
       })
     });
   }

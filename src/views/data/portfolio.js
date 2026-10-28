@@ -5,22 +5,22 @@ export const portfolioItems = [
     title: 'Retratos personalizados',
     imgSrc: 'portfolio/Portraits/comision2_640.png',
     resume: "Comisión .....................................................",
-    projectSrc: '/portfolio/commision-retratos-personalizados',
-    category: Categories.COMISION
+    projectSrc: '/portfolio/comision-retratos-personalizados',
+    category: Categories.COMMISSION
   },
   {
     title: 'Ilustración de la Reina Isabel II de Inglaterra',
     imgSrc: 'portfolio/ComisionQueenElizabethII/mockup1_640.jpg',
     resume: "Comisión .....................................................",
-    projectSrc: '/portfolio/commission-queen-elizabeth-ii',
-    category: Categories.COMISION
+    projectSrc: '/portfolio/comision-queen-elizabeth-ii',
+    category: Categories.COMMISSION
   },
   {
     title: 'Nighty summer vibes',
     imgSrc: 'portfolio/ComisiónNightySummerVibes/mockup1_640.jpg',
     resume: "Comisión .....................................................",
-    projectSrc: '/portfolio/commission-nighty-summer-vibes',
-    category: Categories.COMISION
+    projectSrc: '/portfolio/comision-nighty-summer-vibes',
+    category: Categories.COMMISSION
   },
   {
     title: 'Videoclip Nebula',

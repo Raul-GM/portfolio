@@ -33,12 +33,12 @@ const routes = [
     component: () => import('../views/portfolio/CrushComponent.vue')
   }, {
     path: '/portfolio/malas-mujeres',
-    name: 'DesignerMalasMujeres',
-    component: () => import('../views/portfolio/MalasMujeresComponent.vue')
+    name: 'DesignerBadWomen',
+    component: () => import('../views/portfolio/BadWomenComponent.vue')
   }, {
     path: '/portfolio/portadas-discos',
-    name: 'DesignerPortadasDiscos',
-    component: () => import('../views/portfolio/PortadasDiscosComponent.vue')
+    name: 'DesignerAlbumCovers',
+    component: () => import('../views/portfolio/AlbumCoversComponent.vue')
   }, {
     path: '/portfolio/villalbaria',
     name: 'DesignerVillalbaria',
@@ -68,17 +68,26 @@ const routes = [
     name: 'VideoclipNebula',
     component: () => import('../views/portfolio/VideoclipNebula.vue')
   }, {
-    path: '/portfolio/commission-nighty-summer-vibes',
-    name: 'ComisionNightySummerVibes',
-    component: () => import('../views/portfolio/ComisionNightySummerVibes.vue')
+    path: '/portfolio/comision-nighty-summer-vibes',
+    name: 'CommissionNightySummerVibes',
+    component: () => import('../views/portfolio/CommissionNightySummerVibes.vue')
   }, {
-    path: '/portfolio/commission-queen-elizabeth-ii',
-    name: 'ComisionQueenElizabethII',
-    component: () => import('../views/portfolio/ComisionQueenElizabethII.vue')
+    path: '/portfolio/comision-queen-elizabeth-ii',
+    name: 'CommissionQueenElizabethII',
+    component: () => import('../views/portfolio/CommissionQueenElizabethII.vue')
+  }, {
+    path: '/portfolio/comision-retratos-personalizados',
+    name: 'CustomPortraits',
+    component: () => import('../views/portfolio/CommissionCustomPortraits.vue')
   }, {
     path: '/portfolio/commision-retratos-personalizados',
-    name: 'RetratosPersonalizados',
-    component: () => import('../views/portfolio/ComisionRetratosPersonalizados.vue')
+    redirect: '/portfolio/comision-retratos-personalizados'
+  }, {
+    path: '/portfolio/commission-nighty-summer-vibes',
+    redirect: '/portfolio/comision-nighty-summer-vibes'
+  }, {
+    path: '/portfolio/commission-queen-elizabeth-ii',
+    redirect: '/portfolio/comision-queen-elizabeth-ii'
   }, {
     path: '/shop/:product',
     name: 'Shop Product',
