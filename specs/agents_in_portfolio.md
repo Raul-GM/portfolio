@@ -243,6 +243,27 @@ Ver aviso de propiedad intelectual en 2.1.
 
 ---
 
+## 6b. Backlog de la primera auditoría (2026-10-28)
+
+Informes completos en `docs/audits/*-2026-10-28-sitio.md`. La obra `retrato-isabel-ii` sale bien en los tres.
+
+**A. Fallos técnicos (independientes del contenido; antes de lanzar):**
+- [ ] Bindings rotos: `aria-label="… {{ shopItem.name }}"` (ShopComponent) y `aria-expanded="isOpened"` + etiqueta fija del menú (Navbar).
+- [ ] Contacto: el estado de envío nunca se muestra (`formStatus` sin declarar ni pintar); error de email sin `aria-invalid`/`role="alert"`; `outline: none` sin foco visible.
+- [ ] Una `<h1>` y `<title>` propio en Sobre mí, Contacto, Tienda, ficha de producto y 404.
+- [ ] Contraste `#FAFAFA` sobre `--secondary-color` = 4,42:1 (filtro activo, hovers, botón): oscurecer el azul.
+- [ ] SEO: `public/og-image.jpg` por defecto; `prerender-meta.js` también para `/about-me`, `/contact`, `/shop`; `og:url`/canonical por ruta; `/portfolio` duplica `/`; 404 reales (soft 404) en `_redirects`.
+- [ ] Rendimiento: `Bio 1.png` (6,1 MB) por `npm run images`; Roboto a WOFF2 con `font-display: swap`.
+- [ ] Foco al cambiar de ruta; `prefers-reduced-motion`; menú móvil (foco, Escape).
+
+**B. Contenido y mensaje (fase 3):**
+- [ ] Logo y su alt ("Ilustración × Diseño").
+- [ ] Home: titular visible + llamada a la acción "Pide tu encargo"; estado vacío por filtro.
+- [ ] Página de encargos: qué se encarga, proceso, plazos, precio orientativo; enlazada desde cada obra (CTA como botón primario).
+- [ ] Sobre mí y Contacto reescritos para el nicho; redes de la etapa de diseño.
+- [ ] Tienda: ocultarla del menú hasta la fase 4; alt reales en `shop.js`.
+- [ ] Ficha de obra: imagen antes del texto (hoy empieza a ~425 px).
+
 ## 7. Checklist
 
 - [ ] Responder P7–P10.

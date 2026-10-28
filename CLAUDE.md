@@ -26,7 +26,8 @@ Tras cualquier cambio: `npm run lint` y `npm run build` deben pasar. Un `require
 - **Layout**: cada vista renderiza ella misma `NavbarComponent` y `FooterComponent`. Cada vista aporta su propio `<main>`. [App.vue](src/App.vue) solo aporta `<router-view :key="$route.path">` (fuerza `setup()` y SEO al cambiar de obra) y el SCSS global de `src/assets/styles/`.
 - **Datos**: [src/views/data/works.js](src/views/data/works.js) (**única fuente de obras**; el formato está comentado en su cabecera), [categories.js](src/views/data/categories.js) (Cultura pop, Retratos) y [shop.js](src/views/data/shop.js).
 - **Netlify**: despliega cada push a `main`. [public/_redirects](public/_redirects) contiene los 301 de obras retiradas y el fallback de SPA (debe ir el último).
-- **Contacto**: EmailJS vía `VUE_APP_EMAILJS_*` en `.env` / `.env.production` (ambos versionados). No imprimas ni copies esos valores.
+- **Contacto**: el formulario envía a Formspree (endpoint en [ContactComponent.vue](src/views/ContactComponent.vue)). Las variables `VUE_APP_EMAILJS_*` de `.env` / `.env.production` son de una versión anterior y no se usan; no imprimas ni copies sus valores.
+- **Revisores** (`.claude/agents/`): `a11y-auditor`, `ux-reviewer`, `seo-auditor`, solo lectura, informes en `docs/audits/`. Compila antes de lanzarlos y diles que no compilen (comparten `dist/`). Herramientas: [scripts/render.js](scripts/render.js) (sirve `dist/` como Netlify y abre rutas en Chromium: resumen, `--raw`, `--requests`, `--screenshot`, `--tab`, `--click`) y [scripts/contrast.js](scripts/contrast.js).
 
 ## Gotchas
 
