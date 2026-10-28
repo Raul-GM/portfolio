@@ -50,6 +50,20 @@ p {
   }
 }
 
+.button-primary {
+  display: inline-block;
+  padding: .75rem 1.5rem;
+  border-radius: 5px;
+  background-color: var(--secondary-color);
+  color: var(--secondary-text-color);
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color .3s ease;
+  &:hover {
+    background-color: var(--dark-color);
+  }
+}
+
 .simple_link {
   text-decoration: underline;
   color: inherit;

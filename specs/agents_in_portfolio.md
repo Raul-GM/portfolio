@@ -258,11 +258,11 @@ Informes completos en `docs/audits/*-2026-10-28-sitio.md`. La obra `retrato-isab
 
 **B. Contenido y mensaje (fase 3):**
 - [ ] Logo y su alt ("Ilustración × Diseño").
-- [ ] Home: titular visible + llamada a la acción "Pide tu encargo"; estado vacío por filtro.
-- [ ] Página de encargos: qué se encarga, proceso, plazos, precio orientativo; enlazada desde cada obra (CTA como botón primario).
-- [ ] Sobre mí y Contacto reescritos para el nicho; redes de la etapa de diseño.
-- [ ] Tienda: ocultarla del menú hasta la fase 4; alt reales en `shop.js`.
-- [ ] Ficha de obra: imagen antes del texto (hoy empieza a ~425 px).
+- [x] Home: titular visible + llamada a la acción "Pide tu encargo"; estado vacío por filtro.
+- [x] Página de encargos: qué se encarga, proceso, plazos, precio orientativo; enlazada desde cada obra (CTA como botón primario).
+- [x] Sobre mí y Contacto reescritos para el nicho; redes de la etapa de diseño.
+- [x] Tienda: ocultarla del menú hasta la fase 4; alt reales en `shop.js`.
+- [x] Ficha de obra: imagen antes del texto (hoy empieza a ~425 px).
 
 ## 7. Checklist
 

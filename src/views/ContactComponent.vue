@@ -54,8 +54,8 @@
           <p class="form--status" :class="formStatusClass" role="status">{{ formStatus }}</p>
         </form>
         <div class="social">
-          <p>Si quieres contactar conmigo para realizarme algún encargo o propuesta, o si simplemente te apetece conversar o saber algo más 
-            de mí, puedes escribirme un mensaje directo en <a class="simple_link" target="_blank" href="https://www.instagram.com/direct/t/104585227603393/">Instagram</a> o rellenando el formulario que se encuentra en esta misma página. Me pondré en contacto contigo lo antes posible.</p>
+          <p>¿Tienes una idea para un encargo? Cuéntame qué quieres (un personaje, una escena, un retrato), para cuándo lo necesitas y, si es un retrato, si tienes fotos de referencia. Te contestaré lo antes posible con presupuesto y plazo, sin compromiso.</p>
+          <p>Si prefieres, escríbeme por mensaje directo en <a class="simple_link" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/direct/t/104585227603393/">Instagram</a>. Y si quieres saber cómo trabajo, mira la página de <router-link class="simple_link" to="/encargos">encargos</router-link>.</p>
           <ul class="social--list">
             <li>
               <a href="https://www.instagram.com/raulgarcia.design/"
@@ -69,7 +69,7 @@
               <a href="https://www.behance.net/raulgm2/projects"
                 target="_blank"
                 class="social--list--link"
-                aria-label="Visita mi página de Begance">
+                aria-label="Visita mi página de Behance">
                 <ImageComponent file="icons/behance.svg" altTitle="Logo Behance"></ImageComponent>
               </a>
             </li>

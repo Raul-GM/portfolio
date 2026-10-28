@@ -44,7 +44,8 @@ export default {
   setup() {
     useSeoMeta({
       title: pages.shop.title,
-      description: pages.shop.description
+      description: pages.shop.description,
+      noindex: pages.shop.noindex
     });
   },
   data() {

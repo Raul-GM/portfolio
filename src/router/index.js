@@ -22,6 +22,10 @@ const routes = [
     path: '/portfolio',
     redirect: '/'
   }, {
+    path: '/encargos',
+    name: 'Commissions',
+    component: () => import('../views/CommissionsComponent.vue')
+  }, {
     path: '/about-me',
     name: 'AboutMe',
     component: () => import('../views/AboutMeComponent.vue'),

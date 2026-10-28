@@ -1,13 +1,19 @@
 <template>
     <NavbarComponent/>
-    <CategoryFilter
-      v-if="works.length"
-      @update-filter="filterProjects"
-      aria-label="Filtrar proyectos"
-    />
-    <main class="main-container portfolio-container">
-        <h1 class="visually-hidden">Raúl García · Ilustración de cultura pop y retratos</h1>
+    <main class="main-container">
+      <section class="home-intro" aria-label="Presentación">
+        <h1 class="section-title home-intro__title">Ilustración de cultura pop y retratos por encargo</h1>
+        <p class="home-intro__text">Dibujo a tus personajes favoritos de series, películas y videojuegos, y retratos de las personas que te importan.</p>
+        <router-link class="button-primary" to="/encargos">Pide tu encargo</router-link>
+      </section>
+      <CategoryFilter
+        v-if="works.length"
+        @update-filter="filterProjects"
+        aria-label="Filtrar obras por categoría"
+      />
+      <div class="portfolio-container">
         <p v-if="!works.length" class="portfolio-container_empty">Nuevas obras muy pronto.</p>
+        <p v-else-if="!filteredPortfolioItems.length" class="portfolio-container_empty">Aún no hay obras en esta categoría.</p>
         <div v-for="work in filteredPortfolioItems" :key="work.slug"
         class="portfolio-container_card">
           <ProjectCard
@@ -17,6 +23,7 @@
                 :projectSrc="getWorkUrl(work)"
                 :category="getCategoryLabel(work)" />
         </div>
+      </div>
     </main>
     <FooterComponent />
 </template>
@@ -68,6 +75,18 @@ export default {
 
 <style lang="scss">
 @import './../assets/styles/_media-variables.scss';
+
+.home-intro {
+  max-width: 640px;
+  padding-bottom: 1.5rem;
+  &__title {
+    padding-bottom: .5rem;
+  }
+  &__text {
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+}
 
 .portfolio-container {
   display: grid;

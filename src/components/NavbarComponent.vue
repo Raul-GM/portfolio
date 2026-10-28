@@ -4,7 +4,7 @@
       <ImageComponent
         class="menu--ra--icon--mobile"
         file="RaulGarciaRowLogo.png"
-        altTitle="Logo de Raul García ilustración y diseño gráfico"
+        altTitle="Raúl García, ir al inicio"
         v-if="!isOpened">
       </ImageComponent>
     </router-link>
@@ -37,12 +37,11 @@
     <div class="nav--container">
       <span class="nav--home">
         <router-link to="/"
-            class="simple_link nav--side"
-            aria-label="Ir al portafolio">
+            class="simple_link nav--side">
           <ImageComponent
             class="menu--ra--icon"
             file="RaulGarciaRowLogo.png"
-            altTitle="Logo de Raul García ilustración y diseño gráfico"
+            altTitle="Raúl García, ir al inicio"
             v-if="!isOpened">
           </ImageComponent>
         </router-link>
@@ -54,13 +53,13 @@
           </router-link>
         </li>
         <li class="nav__menu__option">
-          <router-link :to="'/about-me'">
-            <span>Sobre mí</span>
+          <router-link :to="'/encargos'">
+            <span>Encargos</span>
           </router-link>
         </li>
-        <li class="nav__menu__option" :class="{ 'option-active': isShopActive }">
-          <router-link :to="'/shop'">
-            <span>Tienda</span>
+        <li class="nav__menu__option">
+          <router-link :to="'/about-me'">
+            <span>Sobre mí</span>
           </router-link>
         </li>
         <li class="nav__menu__option">
@@ -80,8 +79,7 @@ export default {
   data() {
     return {
       isOpened: false,
-      PORTFOLIO_PATH: 'portfolio',
-      SHOP_PATH: 'shop'
+      PORTFOLIO_PATH: 'portfolio'
     }
   },
   methods: {
@@ -103,9 +101,6 @@ export default {
   computed: {
     isPortfolioRoute() {
       return this.$route.path.includes(this.PORTFOLIO_PATH);
-    },
-    isShopActive() {
-      return this.$route.path.includes(this.SHOP_PATH);
     }
   }
 }

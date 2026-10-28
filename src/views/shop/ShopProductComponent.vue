@@ -41,7 +41,8 @@ export default {
     const shopItem = shopData.find(shopProduct => shopProduct.id === product);
     useSeoMeta({
       title: `${shopItem.name} | Tienda - Raúl García`,
-      description: `${shopItem.altImage}. ${shopItem.moreInfo}`
+      description: `${shopItem.altImage}. ${shopItem.moreInfo}`,
+      noindex: true
     });
     return {
       product,

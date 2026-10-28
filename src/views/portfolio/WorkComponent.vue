@@ -6,10 +6,8 @@
         <h1 :id="`work-title-${work.slug}`" class="section-title">{{ work.title }}</h1>
         <p class="work__meta">{{ meta }}</p>
       </header>
-      <div class="work__body">
-        <p v-for="(paragraph, index) in work.body" :key="index">{{ paragraph }}</p>
-      </div>
-      <section class="work__blocks" :aria-label="`Imágenes de ${work.title}`">
+      <!-- La primera imagen va antes del texto: la obra es lo primero que se ve -->
+      <div class="work__blocks">
         <template v-for="(block, index) in work.blocks" :key="index">
           <OptimizedImageComponent
             v-if="block.type === 'image'"
@@ -19,6 +17,9 @@
             :height="block.height"
             sizes="(min-width: 840px) 800px, 100vw"
             :eager="index === 0" />
+          <div v-if="index === 0" class="work__body">
+            <p v-for="(paragraph, paragraphIndex) in work.body" :key="paragraphIndex">{{ paragraph }}</p>
+          </div>
           <div v-else-if="block.type === 'video'" class="work__video">
             <iframe
               :src="`https://www.youtube-nocookie.com/embed/${block.youtubeId}`"
@@ -29,10 +30,10 @@
               allowfullscreen></iframe>
           </div>
         </template>
-      </section>
+      </div>
       <footer class="work__footer">
-        <router-link class="simple_link" to="/portfolio"><span aria-hidden="true">←</span> Volver al portfolio</router-link>
-        <router-link class="simple_link" to="/contact">¿Quieres un encargo así? Escríbeme</router-link>
+        <p class="work__cta">¿Quieres algo así? <router-link class="button-primary" to="/encargos">Pide tu encargo</router-link></p>
+        <router-link class="simple_link" to="/"><span aria-hidden="true">←</span> Volver al portfolio</router-link>
       </footer>
     </article>
   </main>
@@ -102,6 +103,9 @@ export default {
   &__body p {
     padding-bottom: 1rem;
     line-height: 1.5;
+    &:last-child {
+      padding-bottom: 0;
+    }
   }
   &__blocks {
     display: flex;
@@ -124,9 +128,18 @@ export default {
       border: 0;
     }
   }
+  &__cta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-bottom: 0;
+    font-size: 1.1rem;
+  }
   &__footer {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     flex-wrap: wrap;
     gap: 1rem;
     padding-bottom: 2rem;

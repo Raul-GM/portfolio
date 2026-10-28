@@ -24,7 +24,7 @@ const MANAGED_TAGS = [
   /<link rel="?canonical"?[^>]*>/g
 ]
 
-const renderHead = ({ title, description, url, image = DEFAULT_OG_IMAGE, type = 'website', schema }) => {
+const renderHead = ({ title, description, url, image = DEFAULT_OG_IMAGE, type = 'website', schema, noindex = false }) => {
   const meta = [
     ['name', 'description', description],
     ['property', 'og:title', title],
@@ -40,7 +40,7 @@ const renderHead = ({ title, description, url, image = DEFAULT_OG_IMAGE, type = 
   return [
     `<title>${escapeHtml(title)}</title>`,
     ...meta.map(([attribute, key, value]) => `<meta ${attribute}="${key}" content="${escapeHtml(value)}">`),
-    `<link rel="canonical" href="${url}">`,
+    noindex ? '<meta name="robots" content="noindex">' : `<link rel="canonical" href="${url}">`,
     schema ? `<script type="application/ld+json">${JSON.stringify(schema).replace(/</g, '\\u003c')}</script>` : ''
   ].join('')
 }

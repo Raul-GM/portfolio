@@ -5,7 +5,7 @@ const fs = require('fs')
 const path = require('path')
 const { ROOT, SITE_URL, publishedWorks, getWorkUrl, pages } = require('./lib/load-works')
 
-const STATIC_PAGES = Object.values(pages).map(page => page.path)
+const STATIC_PAGES = Object.values(pages).filter(page => !page.noindex).map(page => page.path)
 
 const urls = [
   ...STATIC_PAGES.map(page => ({ loc: `${SITE_URL}${page}` })),

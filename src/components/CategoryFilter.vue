@@ -1,5 +1,5 @@
 <template>
-    <section class="category-filter" aria-labelledby="category-filter-title">
+    <section class="category-filter">
       <button
         class="category-filter_button"
         v-for="category in allCategories"
@@ -63,10 +63,7 @@
     display: flex;
     gap: .5rem;
     flex-wrap: wrap;
-    padding: 0 1rem 1rem 1rem;
-    @media (min-width: $media-mobile) {
-      padding: 1rem var(--main-padding) 0;
-    }
+    padding-bottom: 1rem;
     &_button {
       background-color: var(--secondary-text-color);
       border: none;
