@@ -8,7 +8,7 @@ Portfolio SPA en español (ilustración de cultura pop y retratos + tienda de l�
 
 - `npm run serve` — dev server
 - `npm run build` — build de producción; es la verificación principal (no hay tests). `prebuild` valida `works.js` y regenera `public/sitemap.xml`; `postbuild` escribe `dist/portfolio/<slug>/index.html` con las metas de cada obra
-- `npm run images -- <origen> --slug <slug> [--folder <Carpeta>] [--og <fichero>]` — desde `inbox/…` genera `_320/_640/_1280.jpeg` en `src/assets/images/portfolio/<Carpeta>/` y `public/og/<slug>.jpg`; imprime JSON con rutas y dimensiones para `works.js`
+- `npm run images -- <origen> --slug <slug> [--folder <Carpeta>] [--og <fichero>]` — desde `inbox/…` genera `_320/_640/_960/_1280.jpeg` ([anchos](src/views/data/imageWidths.js)) en `src/assets/images/portfolio/<Carpeta>/` y `public/og/<slug>.jpg`; imprime JSON con rutas y dimensiones para `works.js`
 - `npm run check` — valida `works.js` (slugs, imágenes, alt, longitudes SEO)
 - `npm run lint` — ESLint, **auto-corrige** archivos; revisa `git diff` después
 
@@ -35,7 +35,7 @@ Tras cualquier cambio: `npm run lint` y `npm run build` deben pasar. Un `require
 - **Originales** en `inbox/` u `originals/` (ignorados por git). Nunca se modifican.
 - **`npm run serve` no ve carpetas de imágenes creadas después de arrancar** (webpack 4 cachea el `require` dinámico): da `Cannot find module './portfolio/…_1280.jpeg'` aunque el fichero exista. Reinicia el dev server tras `npm run images`.
 - **URLs retiradas**: se redirigen en `public/_redirects`, no en el router. No reutilices sus slugs.
-- **Imágenes**: [OptimizedImageComponent](src/components/OptimizedImageComponent.vue) recibe la ruta relativa a `src/assets/images/` **sin sufijo ni extensión** y hace `require` de `<nombre>_320`, `_640` y `_1280` (`format` por defecto `jpeg`) para el `srcset`. Los tres tamaños deben existir. Pasa `width`/`height` (de `works.js`) y `sizes`; `eager` solo en la imagen principal. Sin espacios en los nombres de fichero: rompen el `srcset`.
+- **Imágenes**: [OptimizedImageComponent](src/components/OptimizedImageComponent.vue) recibe la ruta relativa a `src/assets/images/` **sin sufijo ni extensión** y hace `require` de `<nombre>_<ancho>` para cada ancho de [imageWidths.js](src/views/data/imageWidths.js) (`format` por defecto `jpeg`) y construye el `srcset`. Todos los tamaños deben existir (`npm run check` lo valida). Pasa `width`/`height` (de `works.js`) y `sizes`; `eager` solo en la imagen principal. Sin espacios en los nombres de fichero: rompen el `srcset`.
 - **SEO**: toda vista llama a `useSeoMeta({ title, description, ogImage, ogUrl, schema })` ([src/composables/useSeoMeta.js](src/composables/useSeoMeta.js)) dentro de `setup()`, con `getSchemaCreativeWork` / `getSchemaPersonProfile`. `ogImage` es relativo a la raíz salvo que empiece por `http`. El título lo gestiona unhead, no `meta.title` del router. Las rutas fijas del sitemap están en [scripts/sitemap.js](scripts/sitemap.js); las metas de obra para redes, en [scripts/prerender-meta.js](scripts/prerender-meta.js).
 
 ## Conventions

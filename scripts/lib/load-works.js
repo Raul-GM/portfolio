@@ -29,5 +29,6 @@ module.exports = {
   ROOT,
   SITE_URL: 'https://raulgarcia.me',
   ...require(path.join(ROOT, 'src', 'views', 'data', 'works.js')),
-  ...require(path.join(ROOT, 'src', 'views', 'data', 'categories.js'))
+  ...require(path.join(ROOT, 'src', 'views', 'data', 'categories.js')),
+  ...require(path.join(ROOT, 'src', 'views', 'data', 'imageWidths.js'))
 }

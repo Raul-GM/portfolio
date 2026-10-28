@@ -1,6 +1,6 @@
 <template>
     <router-link class="project-card" :to="projectSrc" :aria-label="`Ir al proyecto ${title}`">
-        <div div class="project-card--background" :style="inlineStyle" :alt="`Imagen de proyecto: ${title}`"></div>
+        <div class="project-card--background" :style="inlineStyle"></div>
         <div class="project-card--info">
             <h2 class="section-title">{{ title }}</h2>
             <p>{{ category }}</p>
@@ -16,7 +16,8 @@ export default {
             type: String,
             default: ''
         },
-        imgSrc: {
+        // Ruta sin sufijo ni extensión, como en OptimizedImageComponent
+        image: {
             type: String,
             default: ''
         },
@@ -33,12 +34,12 @@ export default {
           default: ''
         }
     }, computed: {
-        backgroundImage() {
-            return require(`../assets/images/${this.imgSrc}`)
-        },
         inlineStyle () {
+            // El fondo se pinta a ~500px: 640 en pantallas 1x y 960 en alta densidad
+            const image = width => require(`@/assets/images/${this.image}_${width}.jpeg`)
             return {
-                backgroundImage: `url(${this.backgroundImage})` 
+                // Vue aplica el último valor que el navegador soporte: url() queda de respaldo
+                backgroundImage: [`url(${image(640)})`, `image-set(url(${image(640)}) 1x, url(${image(960)}) 2x)`]
             }
         }
     }

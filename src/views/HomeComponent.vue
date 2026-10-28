@@ -12,7 +12,7 @@
         class="portfolio-container_card">
           <ProjectCard
                 :title="work.title"
-                :imgSrc="`${work.cover}_640.jpeg`"
+                :image="work.cover"
                 :resume="work.summary"
                 :projectSrc="getWorkUrl(work)"
                 :category="getCategoryLabel(work)" />

@@ -13,7 +13,7 @@
 </template>
 
 <script>
-const WIDTHS = [320, 640, 1280];
+import { IMAGE_WIDTHS } from '@/views/data/imageWidths';
 
 export default {
   props: {
@@ -53,7 +53,7 @@ export default {
   },
   computed: {
     srcset() {
-      return WIDTHS.map(width => `${this.getImage(width)} ${width}w`).join(', ');
+      return IMAGE_WIDTHS.map(width => `${this.getImage(width)} ${width}w`).join(', ');
     }
   },
   methods: {

@@ -4,13 +4,12 @@
 
 const fs = require('fs')
 const path = require('path')
-const { ROOT, works, Categories } = require('./lib/load-works')
+const { ROOT, works, Categories, IMAGE_WIDTHS: WIDTHS } = require('./lib/load-works')
 
 const SLUG = /^[a-z0-9]+(-[a-z0-9]+)*$/
 const DATE = /^\d{4}-\d{2}-\d{2}$/
 const STATUSES = ['featured', 'visible', 'archived']
 const KINDS = ['commission', 'personal']
-const WIDTHS = [320, 640, 1280]
 const GENERIC_ALTS = ['', 'image', 'imagen', 'ilustración', 'ilustracion']
 const MAX_DESCRIPTION = 155
 

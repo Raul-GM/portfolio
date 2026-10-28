@@ -3,16 +3,16 @@
 //   npm run images -- <origen> --slug <slug> [--folder <Carpeta>] [--og <fichero>]
 //
 // <origen> es un fichero o una carpeta (p. ej. inbox/RetratoIsabelII). Por cada imagen escribe
-// src/assets/images/portfolio/<Carpeta>/<nombre>_{320,640,1280}.jpeg y, para la primera
+// src/assets/images/portfolio/<Carpeta>/<nombre>_<ancho>.jpeg (anchos en src/views/data/imageWidths.js) y, para la primera
 // (o la indicada con --og), public/og/<slug>.jpg. Nunca modifica el origen.
 // Imprime en stdout un JSON con las rutas y dimensiones listas para works.js.
 
 const fs = require('fs')
 const path = require('path')
 const sharp = require('sharp')
+const { IMAGE_WIDTHS: WIDTHS } = require('./lib/load-works')
 
 const ROOT = path.resolve(__dirname, '..')
-const WIDTHS = [320, 640, 1280]
 const SOURCE_EXTENSIONS = ['.png', '.jpg', '.jpeg', '.tif', '.tiff', '.webp']
 // Fondo de la web (--lightest-color): rellena transparencias y los márgenes de la imagen OG
 const BACKGROUND = '#FAFAFA'
