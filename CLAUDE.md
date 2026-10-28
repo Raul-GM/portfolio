@@ -31,7 +31,7 @@ Tras cualquier cambio: `npm run lint` y `npm run build` deben pasar. Un `require
 
 ## Gotchas
 
-- **Publicar una obra** = `npm run images` + una entrada en `works.js`. Nada más: ruta, tarjeta, sitemap, OG y HTML para redes salen de ahí. No crees componentes por obra ni edites `sitemap.xml`. El flujo guiado será el skill `/nueva-obra` (plan en [specs/agents_in_portfolio.md](specs/agents_in_portfolio.md)).
+- **Publicar una obra** = `npm run images` + una entrada en `works.js`. Nada más: ruta, tarjeta, sitemap, OG y HTML para redes salen de ahí. No crees componentes por obra ni edites `sitemap.xml`. El flujo guiado es el skill [`/nueva-obra`](.claude/skills/nueva-obra/SKILL.md); para mirar originales pesados sin abrirlos, `node scripts/preview.js <origen> <salida>`.
 - **Scripts de Node y `works.js`**: [scripts/lib/load-works.js](scripts/lib/load-works.js) carga los ficheros de `src/views/data/` transpilándolos con Babel. Esos ficheros solo pueden importar con rutas relativas (sin `@/`) y no pueden importar `.vue` ni assets.
 - **Originales** en `inbox/` u `originals/` (ignorados por git). Nunca se modifican.
 - **`npm run serve` no ve carpetas de imágenes creadas después de arrancar** (webpack 4 cachea el `require` dinámico): da `Cannot find module './portfolio/…_1280.jpeg'` aunque el fichero exista. Reinicia el dev server tras `npm run images`.

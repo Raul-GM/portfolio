@@ -36,7 +36,8 @@ const fail = (message) => {
 }
 
 // Los nombres conservan el de la obra, pero sin espacios: rompen srcset
-const toOutputName = (file) => path.parse(file).name.trim().replace(/\s+/g, '_')
+const toSafeName = (name) => name.trim().replace(/\s+/g, '_')
+const toOutputName = (file) => toSafeName(path.parse(file).name)
 
 const listSources = (source) => {
   const stat = fs.statSync(source)
@@ -92,7 +93,7 @@ const main = async () => {
   const sources = listSources(source)
   if (!sources.length) fail(`No hay imágenes (${SOURCE_EXTENSIONS.join(', ')}) en ${source}`)
 
-  const folder = args.folder || path.basename(fs.statSync(source).isDirectory() ? path.resolve(source) : path.dirname(path.resolve(source)))
+  const folder = toSafeName(args.folder || path.basename(fs.statSync(source).isDirectory() ? path.resolve(source) : path.dirname(path.resolve(source))))
   const outputDir = path.join(ROOT, 'src', 'assets', 'images', 'portfolio', folder)
   fs.mkdirSync(outputDir, { recursive: true })
 
