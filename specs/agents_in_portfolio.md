@@ -257,7 +257,7 @@ Informes completos en `docs/audits/*-2026-10-28-sitio.md`. La obra `retrato-isab
 - [x] Foco al cambiar de ruta; `prefers-reduced-motion`; menú móvil (foco, Escape).
 
 **B. Contenido y mensaje (fase 3):**
-- [ ] Logo y su alt ("Ilustración × Diseño").
+- [x] Logo: se mantiene tal cual, con "Ilustración × Diseño" (decisión del autor). Alt actualizado.
 - [x] Home: titular visible + llamada a la acción "Pide tu encargo"; estado vacío por filtro.
 - [x] Página de encargos: qué se encarga, proceso, plazos, precio orientativo; enlazada desde cada obra (CTA como botón primario).
 - [x] Sobre mí y Contacto reescritos para el nicho; redes de la etapa de diseño.
