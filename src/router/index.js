@@ -28,67 +28,6 @@ const routes = [
     component: () => import('../views/ContactComponent.vue'),
     meta: { title: 'Contacto' }
   }, {
-    path: '/portfolio/crush',
-    name: 'DesignerCrushIceCreams',
-    component: () => import('../views/portfolio/CrushComponent.vue')
-  }, {
-    path: '/portfolio/malas-mujeres',
-    name: 'DesignerBadWomen',
-    component: () => import('../views/portfolio/BadWomenComponent.vue')
-  }, {
-    path: '/portfolio/portadas-discos',
-    name: 'DesignerAlbumCovers',
-    component: () => import('../views/portfolio/AlbumCoversComponent.vue')
-  }, {
-    path: '/portfolio/villalbaria',
-    name: 'DesignerVillalbaria',
-    component: () => import('../views/portfolio/VillalbariaComponent.vue')
-  }, {
-    path: '/portfolio/metal-portraits',
-    name: 'MetalPortraits',
-    component: () => import('../views/portfolio/MetalPortraitsComponent.vue')
-  }, {
-    path: '/portfolio/harley-quinn',
-    name: 'HarleyQuinn',
-    component: () => import('../views/portfolio/HarleyQuinnComponent.vue')
-  }, {
-    path: '/portfolio/madrock-fest',
-    name: 'MadRockFest',
-    component: () => import('../views/portfolio/MadRockFestComponent.vue')
-  }, {
-    path: '/portfolio/kenya225',
-    name: 'Kenya225Logo',
-    component: () => import('../views/portfolio/Kenya225Component.vue')
-  }, {
-    path: '/portfolio/infected-rain-poster',
-    name: 'InfectedRainPoster',
-    component: () => import('../views/portfolio/InfectedRainPosterComponent.vue')
-  }, {
-    path: '/portfolio/videoclip-nebula',
-    name: 'VideoclipNebula',
-    component: () => import('../views/portfolio/VideoclipNebula.vue')
-  }, {
-    path: '/portfolio/comision-nighty-summer-vibes',
-    name: 'CommissionNightySummerVibes',
-    component: () => import('../views/portfolio/CommissionNightySummerVibes.vue')
-  }, {
-    path: '/portfolio/comision-queen-elizabeth-ii',
-    name: 'CommissionQueenElizabethII',
-    component: () => import('../views/portfolio/CommissionQueenElizabethII.vue')
-  }, {
-    path: '/portfolio/comision-retratos-personalizados',
-    name: 'CustomPortraits',
-    component: () => import('../views/portfolio/CommissionCustomPortraits.vue')
-  }, {
-    path: '/portfolio/commision-retratos-personalizados',
-    redirect: '/portfolio/comision-retratos-personalizados'
-  }, {
-    path: '/portfolio/commission-nighty-summer-vibes',
-    redirect: '/portfolio/comision-nighty-summer-vibes'
-  }, {
-    path: '/portfolio/commission-queen-elizabeth-ii',
-    redirect: '/portfolio/comision-queen-elizabeth-ii'
-  }, {
     path: '/shop/:product',
     name: 'Shop Product',
     component: () => import('../views/shop/ShopProductComponent.vue')

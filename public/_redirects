@@ -1,1 +1,20 @@
+# Obras retiradas en el portfolio v2
+/portfolio/crush                               /portfolio  301
+/portfolio/malas-mujeres                       /portfolio  301
+/portfolio/portadas-discos                     /portfolio  301
+/portfolio/villalbaria                         /portfolio  301
+/portfolio/metal-portraits                     /portfolio  301
+/portfolio/harley-quinn                        /portfolio  301
+/portfolio/madrock-fest                        /portfolio  301
+/portfolio/kenya225                            /portfolio  301
+/portfolio/infected-rain-poster                /portfolio  301
+/portfolio/videoclip-nebula                    /portfolio  301
+/portfolio/comision-nighty-summer-vibes        /portfolio  301
+/portfolio/comision-queen-elizabeth-ii         /portfolio  301
+/portfolio/comision-retratos-personalizados    /portfolio  301
+/portfolio/commision-retratos-personalizados   /portfolio  301
+/portfolio/commission-nighty-summer-vibes      /portfolio  301
+/portfolio/commission-queen-elizabeth-ii       /portfolio  301
+
+# SPA fallback: cualquier otra ruta la resuelve vue-router
 /*    /index.html    200

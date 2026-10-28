@@ -72,12 +72,6 @@ import ImageComponent from '@/components/ImageComponent';
 
 export default {
   components: { ImageComponent },
-  props: {
-    sideType: {
-      type: String,
-      default: 'developer',
-    }
-  },
   data() {
     return {
       isOpened: false,
