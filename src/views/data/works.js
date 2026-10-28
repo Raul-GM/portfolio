@@ -17,6 +17,46 @@ import { Categories } from './categories';
 
 export const works = [
   {
+    slug: 'fan-art-studio-ghibli',
+    title: 'Homenaje a Studio Ghibli',
+    category: 'POP_CULTURE',
+    franchise: 'Studio Ghibli',
+    status: 'featured',
+    order: 0,
+    kind: 'personal',
+    client: null,
+    series: null,
+    date: '2026-04-14',
+    summary: 'Fan art de las películas de Studio Ghibli, empezando por Mi vecino Totoro',
+    body: [
+      'Este es un proyecto personal y en marcha: mi homenaje, en forma de fan art, a las películas de Studio Ghibli.',
+      'De momento la protagonista es Mi vecino Totoro: Mei durmiendo sobre Totoro entre luciérnagas y los tres Totoros resguardándose de la lluvia bajo sus paraguas de hoja. Irán llegando ilustraciones de otras películas.'
+    ],
+    seo: {
+      title: 'Fan art de Studio Ghibli | Ilustración - Raúl García',
+      description: 'Fan art de Studio Ghibli: ilustraciones de Mi vecino Totoro con Totoro bajo la lluvia y Mei dormida entre luciérnagas. Proyecto personal en marcha.'
+    },
+    cover: 'portfolio/StudioGhibli/Totoro_2',
+    blocks: [
+      {
+        type: 'image',
+        image: 'portfolio/StudioGhibli/Totoro_2',
+        alt: 'Los tres Totoros, grande, mediano y pequeño, sentados en una rama bajo la lluvia nocturna, cada uno resguardado con una hoja a modo de paraguas, entre el follaje oscuro del bosque.',
+        width: 1280,
+        height: 1280,
+        altReviewed: true
+      },
+      {
+        type: 'image',
+        image: 'portfolio/StudioGhibli/Totoro',
+        alt: 'Mei, una niña con coletas, duerme tumbada sobre la barriga de Totoro, que también duerme boca arriba en un claro del bosque, de noche, rodeados de luciérnagas verdes; la escena está enmarcada con bordes irregulares, como de papel rasgado.',
+        width: 1280,
+        height: 905,
+        altReviewed: false
+      }
+    ]
+  },
+  {
     slug: 'retrato-isabel-ii',
     title: 'Isabel II, icono pop',
     category: 'PORTRAIT',

@@ -70,17 +70,25 @@ const processImage = async (file, outputDir) => {
   return { file, name, originalBytes: fs.statSync(file).size, ...largest, warnings }
 }
 
-const writeOgImage = (file, slug) => {
+// La obra entera centrada sobre un fondo hecho con ella misma, ampliada y desenfocada:
+// sin recortar la obra ni dejar franjas blancas cuando no es apaisada
+const writeOgImage = async (file, slug) => {
   const output = path.join(ROOT, 'public', 'og', `${slug}.jpg`)
   fs.mkdirSync(path.dirname(output), { recursive: true })
-  return sharp(file)
-    .rotate()
-    .flatten({ background: BACKGROUND })
-    .resize({ ...OG_SIZE, fit: 'contain', background: BACKGROUND })
-    .toColourspace('srgb')
+  const base = () => sharp(file).rotate().flatten({ background: BACKGROUND }).toColourspace('srgb')
+  const background = await base()
+    .resize({ ...OG_SIZE, fit: 'cover' })
+    .blur(30)
+    .modulate({ brightness: 0.8 })
+    .toBuffer()
+  const artwork = await base()
+    .resize({ ...OG_SIZE, fit: 'inside' })
+    .toBuffer()
+  await sharp(background)
+    .composite([{ input: artwork, gravity: 'center' }])
     .jpeg({ quality: 85, mozjpeg: true })
     .toFile(output)
-    .then(() => path.relative(path.join(ROOT, 'public'), output).replace(/\\/g, '/'))
+  return path.relative(path.join(ROOT, 'public'), output).replace(/\\/g, '/')
 }
 
 const main = async () => {

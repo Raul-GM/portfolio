@@ -31,7 +31,7 @@
         </template>
       </section>
       <footer class="work__footer">
-        <router-link class="simple_link" to="/portfolio">← Volver al portfolio</router-link>
+        <router-link class="simple_link" to="/portfolio"><span aria-hidden="true">←</span> Volver al portfolio</router-link>
         <router-link class="simple_link" to="/contact">¿Quieres un encargo así? Escríbeme</router-link>
       </footer>
     </article>

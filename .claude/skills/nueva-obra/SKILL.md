@@ -13,7 +13,8 @@ Lee `CLAUDE.md` si no lo tienes en contexto: explica `works.js`, los scripts y l
 
 ## Reglas
 - **No inventes datos.** Cliente, fecha, encargo, premios, técnica o contexto solo si salen del autor, de `nota.txt` o del historial de la web (ver paso 1). Si falta algo que importa, pregunta.
-- **No identifiques a personas reales por su cara.** El nombre de una persona retratada o de un personaje sale del título, del comentario, de la nota o del nombre de fichero, nunca de reconocerla en la imagen. Una franquicia solo se escribe si el autor la nombra o la confirma.
+- **No identifiques a personas reales por su cara.** El nombre de una persona retratada sale del título, del comentario, de la nota o del nombre de fichero, nunca de reconocerla en la imagen.
+- **Personajes de ficción y franquicias:** puedes proponerlos si la imagen o el nombre de fichero lo sugieren, pero en el borrador van marcados para que el autor los confirme. Nunca se publican sin esa confirmación.
 - **Nunca modifiques los originales** (`inbox/`, `originals/`).
 - Nada de push, merge ni despliegue sin que el autor lo pida.
 - Textos en español de España, primera persona, cercanos y concretos, sin superlativos ("increíble", "único") ni relleno. Tuteo.
@@ -43,8 +44,9 @@ Tipo / año:  Encargo · 2024              |  Personal · 2024
 Home:        destacada / visible · posición (por defecto, la primera)
 Resumen:     … (tarjeta de la home, ≤ 90 caracteres)
 Texto:       1–3 párrafos a partir del comentario
-SEO título:  … (≤ 60 caracteres; patrón "<Título> (<franquicia>) | Ilustración - Raúl García"
-              o "<Título> | Retrato por encargo - Raúl García")
+SEO título:  … (≤ 60 caracteres; patrones: "<Título> (<franquicia>) | Ilustración - Raúl García",
+              "Fan art de <franquicia> | Ilustración - Raúl García" o
+              "<Título> | Retrato por encargo - Raúl García")
 SEO desc.:   … (≤ 155 caracteres, con la búsqueda que encaje: fan art de <franquicia>,
               ilustración de <serie/peli/juego>, retrato ilustrado por encargo…)
 Imágenes:    1. <fichero> — alt: "…"   (principal: tarjeta, OG y primera en la página)
@@ -52,6 +54,7 @@ Imágenes:    1. <fichero> — alt: "…"   (principal: tarjeta, OG y primera en
 ```
 
 - **Alt:** describe la escena para quien no la ve (quién, qué hace, ambiente, técnica si se aprecia); con el nombre del personaje o persona si el autor lo ha dado. 1–2 frases.
+- **Proyectos vivos** (una serie que irá creciendo, como "fan art de Studio Ghibli"): slug y título genéricos para la serie, no para la primera pieza, y un texto que no caduque al añadir imágenes.
 - Termina preguntando si publica así o qué cambia. Aplica los cambios y, si son grandes, vuelve a enseñar solo lo que cambió.
 
 ## 3. Generar
