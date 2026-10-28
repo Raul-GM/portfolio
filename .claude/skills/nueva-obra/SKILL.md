@@ -1,6 +1,6 @@
 ---
 name: nueva-obra
-description: Publica una obra en el portfolio de raulgarcia.me a partir de sus imágenes (normalmente una carpeta de inbox/), un título y un comentario. Genera las imágenes optimizadas, la entrada de works.js (texto, SEO, alt), verifica el build, pasa los revisores de accesibilidad, UX y SEO, y deja un commit. Úsalo también para añadir imágenes a una obra, archivarla, destacarla o reordenarla. Ejemplo - /nueva-obra inbox/Totoro "Totoro bajo la lluvia" "fan art de Mi vecino Totoro, personal"
+description: Publica una obra en el portfolio de raulgarcia.me a partir de sus imágenes (normalmente una carpeta de inbox/), un título y un comentario. Genera las imágenes optimizadas, la entrada de works.js (texto, SEO, alt), verifica el build y deja un commit; los revisores de accesibilidad, UX y SEO solo si se piden ("con revisión"). Úsalo también para añadir imágenes a una obra, archivarla, destacarla o reordenarla. Ejemplo - /nueva-obra inbox/Totoro "Totoro bajo la lluvia" "fan art de Mi vecino Totoro, personal"
 ---
 
 # /nueva-obra
@@ -76,7 +76,12 @@ Imágenes:    1. <fichero> — alt: "…"   (principal: tarjeta, OG y primera en
 
 ## 5. Revisar
 
-Lanza **en paralelo** (un solo mensaje, tres llamadas) los agentes `a11y-auditor`, `ux-reviewer` y `seo-auditor` con este encargo:
+**Por defecto, revisión rápida sin agentes** (los revisores cuestan ~130k tokens por obra). Con las capturas del paso 4 y la entrada de `works.js` comprueba tú:
+- Alt: describe la escena y nombra al personaje o persona si el autor lo dio.
+- SEO: título ≤ 60 con la franquicia o "retrato por encargo"; description ≤ 155 con la búsqueda objetivo; texto de al menos ~80 palabras (si es menos, avisa).
+- Tarjeta y página: recorte de la tarjeta, primera imagen visible sin hacer scroll en móvil.
+
+Lanza los agentes **solo** si el autor pide "con revisión", si la obra estrena un tipo de contenido (vídeo, serie larga, primera de una categoría) o si en esta tarea cambiaste código fuera de `works.js`. Entonces lanza **en paralelo** (un solo mensaje, tres llamadas) los agentes `a11y-auditor`, `ux-reviewer` y `seo-auditor` con este encargo:
 
 > Ámbito: obra `<slug>`. Fecha: <AAAA-MM-DD>. `dist/` está compilado y al día: no ejecutes `npm run build` (los tres revisores lo compartís). Capturas en `<scratchpad>/<agente>/`. Revisa solo esta obra y su tarjeta en la home; los problemas globales ya conocidos están en `specs/agents_in_portfolio.md` (sección 6b): no los repitas.
 
