@@ -1,11 +1,11 @@
-// Regenera public/sitemap.xml a partir de las páginas fijas y de las obras publicadas.
+// Regenera public/sitemap.xml a partir de las páginas fijas (pages.js) y de las obras publicadas.
 // Se ejecuta en prebuild: no edites sitemap.xml a mano.
 
 const fs = require('fs')
 const path = require('path')
-const { ROOT, SITE_URL, publishedWorks, getWorkUrl } = require('./lib/load-works')
+const { ROOT, SITE_URL, publishedWorks, getWorkUrl, pages } = require('./lib/load-works')
 
-const STATIC_PAGES = ['/', '/about-me', '/contact', '/shop']
+const STATIC_PAGES = Object.values(pages).map(page => page.path)
 
 const urls = [
   ...STATIC_PAGES.map(page => ({ loc: `${SITE_URL}${page}` })),

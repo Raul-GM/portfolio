@@ -1,12 +1,16 @@
 import { useHead } from '@unhead/vue'
+import { useRoute } from 'vue-router'
+
+const SITE_URL = 'https://raulgarcia.me'
 
 export const useSeoMeta = (options) => {
   const {
     title = 'Raúl García | Ilustración de cultura pop y retratos por encargo',
     description = 'Portfolio de Raúl García: ilustraciones de series, películas y videojuegos, y retratos ilustrados por encargo.',
     ogImage = 'og-image.jpg',
-    ogUrl = 'https://raulgarcia.me',
-    schema = null
+    ogUrl = `${SITE_URL}${useRoute().path}`,
+    schema = null,
+    noindex = false
   } = options || {}
 
   const head = {
@@ -53,6 +57,13 @@ export const useSeoMeta = (options) => {
         content: ogImage.startsWith('http') ? ogImage : `https://raulgarcia.me/${ogImage}`
       }
     ]
+  }
+
+  // Una página no encontrada no se indexa ni declara canonical
+  if (noindex) {
+    head.meta.push({ name: 'robots', content: 'noindex' })
+  } else {
+    head.link = [{ rel: 'canonical', href: ogUrl }]
   }
 
   if (schema) {

@@ -248,13 +248,13 @@ Ver aviso de propiedad intelectual en 2.1.
 Informes completos en `docs/audits/*-2026-10-28-sitio.md`. La obra `retrato-isabel-ii` sale bien en los tres.
 
 **A. Fallos técnicos (independientes del contenido; antes de lanzar):**
-- [ ] Bindings rotos: `aria-label="… {{ shopItem.name }}"` (ShopComponent) y `aria-expanded="isOpened"` + etiqueta fija del menú (Navbar).
-- [ ] Contacto: el estado de envío nunca se muestra (`formStatus` sin declarar ni pintar); error de email sin `aria-invalid`/`role="alert"`; `outline: none` sin foco visible.
-- [ ] Una `<h1>` y `<title>` propio en Sobre mí, Contacto, Tienda, ficha de producto y 404.
-- [ ] Contraste `#FAFAFA` sobre `--secondary-color` = 4,42:1 (filtro activo, hovers, botón): oscurecer el azul.
-- [ ] SEO: `public/og-image.jpg` por defecto; `prerender-meta.js` también para `/about-me`, `/contact`, `/shop`; `og:url`/canonical por ruta; `/portfolio` duplica `/`; 404 reales (soft 404) en `_redirects`.
-- [ ] Rendimiento: `Bio 1.png` (6,1 MB) por `npm run images`; Roboto a WOFF2 con `font-display: swap`.
-- [ ] Foco al cambiar de ruta; `prefers-reduced-motion`; menú móvil (foco, Escape).
+- [x] Bindings rotos: `aria-label="… {{ shopItem.name }}"` (ShopComponent) y `aria-expanded="isOpened"` + etiqueta fija del menú (Navbar).
+- [x] Contacto: el estado de envío nunca se muestra (`formStatus` sin declarar ni pintar); error de email sin `aria-invalid`/`role="alert"`; `outline: none` sin foco visible.
+- [x] Una `<h1>` y `<title>` propio en Sobre mí, Contacto, Tienda, ficha de producto y 404.
+- [x] Contraste `#FAFAFA` sobre `--secondary-color` = 4,42:1 (filtro activo, hovers, botón): oscurecer el azul.
+- [x] SEO: `public/og-image.jpg` por defecto; `prerender-meta.js` también para `/about-me`, `/contact`, `/shop`; `og:url`/canonical por ruta; `/portfolio` duplica `/`; 404 reales (soft 404) en `_redirects`.
+- [x] Rendimiento: `Bio 1.png` (6,1 MB) por `npm run images`; Roboto a WOFF2 con `font-display: swap`.
+- [x] Foco al cambiar de ruta; `prefers-reduced-motion`; menú móvil (foco, Escape).
 
 **B. Contenido y mensaje (fase 3):**
 - [ ] Logo y su alt ("Ilustración × Diseño").

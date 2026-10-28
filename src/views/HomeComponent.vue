@@ -27,6 +27,7 @@ import FooterComponent from '@/components/FooterComponent.vue';
 import ProjectCard from '@/components/ProjectCard.vue';
 import CategoryFilter from '@/components/CategoryFilter.vue';
 import { publishedWorks, getCategoryLabel, getWorkUrl } from '@/views/data/works';
+import { pages } from '@/views/data/pages';
 import { useSeoMeta, getSchemaPersonProfile } from '@/composables/useSeoMeta';
 
 export default {
@@ -38,8 +39,8 @@ export default {
   },
   setup() {
     useSeoMeta({
-      title: 'Raúl García | Ilustración de cultura pop y retratos por encargo',
-      description: 'Portfolio de Raúl García: ilustraciones de series, películas y videojuegos, y retratos ilustrados por encargo.',
+      title: pages.home.title,
+      description: pages.home.description,
       schema: getSchemaPersonProfile()
     });
   },

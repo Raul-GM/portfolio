@@ -6,7 +6,7 @@
               @submit.prevent="onSubmit"
               class="form"
               aria-labelledby="contactForm">
-          <h2 id="contactForm">Contáctame</h2>
+          <h1 id="contactForm" class="section-title">Contáctame</h1>
           <div class="field-group">
             <label class="form--label" for="name">Nombre</label>
             <input
@@ -28,11 +28,13 @@
               id="email"
               required aria-required="true"
               class="form--field"
-              :class="{ email, error: !email.isValid }"
+              :class="{ error: !email.isValid }"
+              :aria-invalid="!email.isValid"
+              aria-describedby="email-error"
             />
           </div>
-          <div class="error-message">
-            <p v-show="!email.isValid">Ups! Este mail no es válido.</p>
+          <div class="error-message" id="email-error" role="alert">
+            <p v-if="!email.isValid">Ups! Este mail no es válido.</p>
           </div>
           <div class="field-group">
             <label class="form--label" for="textarea">Mensaje</label>
@@ -47,8 +49,9 @@
             <span class="counter">{{ message.text.length }} / {{ message.maxlength }}</span>
           </div>
           <div>
-            <input type="submit" class="form--submit" value="Enviar mensaje" />
+            <input type="submit" class="form--submit" value="Enviar mensaje" :disabled="isSending" />
           </div>
+          <p class="form--status" :class="formStatusClass" role="status">{{ formStatus }}</p>
         </form>
         <div class="social">
           <p>Si quieres contactar conmigo para realizarme algún encargo o propuesta, o si simplemente te apetece conversar o saber algo más 
@@ -90,6 +93,7 @@
 import NavbarComponent from '@/components/NavbarComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
 import ImageComponent from '@/components/ImageComponent.vue';
+import { pages } from '@/views/data/pages';
 import { useSeoMeta } from '@/composables/useSeoMeta';
 const emailRegExp = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 export default {
@@ -100,8 +104,8 @@ export default {
   },
   setup() {
     useSeoMeta({
-      title: 'Contacto | Raúl García - Ponte en contacto conmigo',
-      description: 'Contacta con Raúl García para encargos, propuestas o simplemente para conversar. Disponible para trabajos de ilustración y diseño gráfico.'
+      title: pages.contact.title,
+      description: pages.contact.description
     });
   },
   data() {
@@ -115,9 +119,17 @@ export default {
         text: '',
         maxlength: 255,
       },
+      isSending: false,
+      formStatus: '',
+      formStatusClass: ''
     }
   },  methods: {
     async onSubmit() {
+      this.validate('email', this.email.value);
+      if (!this.email.isValid) return;
+      this.isSending = true;
+      this.formStatus = 'Enviando…';
+      this.formStatusClass = '';
       const formData = {
         name: this.name,
         email: this.email.value,
@@ -128,7 +140,8 @@ export default {
         const response = await fetch("https://formspree.io/f/xqaazjwd", {
           method: "POST",
           headers: {
-            "Accept": "application/json"
+            "Accept": "application/json",
+            "Content-Type": "application/json"
           },
           body: JSON.stringify(formData)
         });
@@ -142,6 +155,8 @@ export default {
       } catch (error) {
         this.formStatus = 'Hubo un problema al enviar el correo. Inténtalo de nuevo.';
         this.formStatusClass = 'error';
+      } finally {
+        this.isSending = false;
       }
     },
     resetForm() {
@@ -163,9 +178,6 @@ export default {
 <style lang="scss">
 @import './../assets/styles/_media-variables.scss';
 
-:root {
-  --error-color: #e94b35;
-}
 .main-container {
   padding-top: 1rem;
 }
@@ -228,7 +240,6 @@ export default {
     border-radius: .25rem;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.08);
     &:focus {
-      outline: none;
       border-color: var(--primary-color);
       box-shadow: 0 0 5px rgba(44, 151, 222, 0.2);
     }
@@ -262,8 +273,9 @@ export default {
       border: 1px solid var(--primary-color);
       background-color: var(--secondary-color);
     }
-    &:focus {
-      outline: none;
+    &:disabled {
+      cursor: wait;
+      opacity: .7;
     }
     &:active {
       transform: scale(0.97);
@@ -280,6 +292,17 @@ export default {
       -moz-osx-font-smoothing: grayscale;
       border-radius: 0.25em;
       padding: .5rem;
+    }
+  }
+  &--status {
+    padding-bottom: 0;
+    &.success {
+      color: var(--primary-color);
+      font-weight: bold;
+    }
+    &.error {
+      color: var(--error-color);
+      font-weight: bold;
     }
   }
   .counter {

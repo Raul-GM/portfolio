@@ -1,20 +1,18 @@
 <template>
   <NavbarComponent />
   <main class="main-container">
-    <article class="shop-product-container"
-      role="region"
-      aria-label="Detalles del producto">
+    <article class="shop-product-container">
       <div >
         <ImageComponent
           class="shop-product-container-image"
           :file="`shop/${shopItem.imgName}_640.jpg`"
-          altTitle="Ilustración de Harley Quinn"
+          :altTitle="shopItem.altImage"
           format="jpg"/>
       </div>
       <div class="shop-product-container-info">
         <div class="shop-product-container-info-header">
-          <h2>{{ shopItem.name }}</h2><span>-</span>
-          <h4>{{ shopItem.price }}</h4>
+          <h1>{{ shopItem.name }}</h1><span>-</span>
+          <p class="shop-product-container-info-price">{{ shopItem.price }}</p>
         </div>
         <p v-if="shopItem.quantity > 1"><span>Quedan </span>{{ shopItem.quantity }} copias</p>
         <p v-if="shopItem.quantity === 1"><span>Queda </span>{{ shopItem.quantity }} copia</p>
@@ -33,13 +31,18 @@ import { useRoute } from 'vue-router'
 import NavbarComponent from '@/components/NavbarComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
 import ImageComponent from '@/components/ImageComponent.vue';
-import { shopData } from './../data/shop';
+import { shopData } from '@/views/data/shop';
+import { useSeoMeta } from '@/composables/useSeoMeta';
 
 export default {
   setup() {
     const router = useRoute();
     const product = router.params.product;
     const shopItem = shopData.find(shopProduct => shopProduct.id === product);
+    useSeoMeta({
+      title: `${shopItem.name} | Tienda - Raúl García`,
+      description: `${shopItem.altImage}. ${shopItem.moreInfo}`
+    });
     return {
       product,
       shopItem
@@ -86,6 +89,13 @@ export default {
       font-weight: bold;
       padding-bottom: 1rem;
       font-family: var(--font-title);
+      h1 {
+        font-size: 1.6rem;
+      }
+      p {
+        font-size: 1.2rem;
+        padding-bottom: 0;
+      }
     }
     &-disclaimer {
       border: 1px solid var(--primary-color);

@@ -1,19 +1,18 @@
 <template>
     <NavbarComponent />
     <main class="main-container">
-      <section class="shop-container" role="region" aria-label="Galería de productos">
+      <h1 class="section-title">Tienda</h1>
+      <section class="shop-container" aria-label="Galería de productos">
         <article v-for="(shopItem) in shopData"
             :key="shopItem.id"
-            role="article" 
-            aria-label="Detalles del producto"
             class="shop-card">
-          <router-link :to="`/shop/${shopItem.id}`" aria-label="Ver más sobre {{ shopItem.name }}">
+          <router-link :to="`/shop/${shopItem.id}`" :aria-label="`Ver más sobre ${shopItem.name}`">
             <div class="shop-card-info">
               <div class="shop-card-info-image">
                 <ImageComponent :file="`shop/${shopItem.imgName}_320.jpg`" :altTitle="shopItem.altImage" format="jpg"/>
               </div>
               <div class="shop-card-info-data">
-                <h3 class="shop-card-info-data-title">{{ shopItem.name }}</h3>
+                <h2 class="shop-card-info-data-title">{{ shopItem.name }}</h2>
                 <span class="shop-card-info-data-price">{{ shopItem.price }}</span>
               </div>
             </div>
@@ -32,7 +31,8 @@
 import NavbarComponent from '@/components/NavbarComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
 import ImageComponent from '@/components/ImageComponent.vue';
-import { shopData } from './../data/shop';
+import { shopData } from '@/views/data/shop';
+import { pages } from '@/views/data/pages';
 import { useSeoMeta } from '@/composables/useSeoMeta';
 
 export default {
@@ -43,8 +43,8 @@ export default {
   },
   setup() {
     useSeoMeta({
-      title: 'Tienda | Raúl García - Compra mis obras',
-      description: 'Explora y compra las obras de arte y diseño de Raúl García. También disponibles comisiones y trabajos personalizados.'
+      title: pages.shop.title,
+      description: pages.shop.description
     });
   },
   data() {
@@ -79,6 +79,7 @@ export default {
     gap: .3rem;
     &-title {
       font-family: var(--font-title);
+      font-size: 1.4rem;
     }
     &-price {
       font-size: 1.1rem;
