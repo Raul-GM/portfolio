@@ -17,6 +17,87 @@ import { Categories } from './categories';
 
 export const works = [
   {
+    slug: 'retratos-rock-metal',
+    title: 'Retratos de rock y metal',
+    category: 'PORTRAIT',
+    franchise: null,
+    status: 'featured',
+    order: -10,
+    kind: 'personal',
+    client: null,
+    series: null,
+    date: '2023-01-01',
+    summary: 'Retratos digitales de músicos de Lacuna Coil, Ankor y Dark Moor',
+    body: [
+      'Serie personal de retratos digitales de artistas del rock y del metal.',
+      'Cinco son los miembros de Ankor, con una composición común: un gran círculo rojo sobre un fondo de pintura blanca rascada. Completan la serie Cristina Scabbia, de Lacuna Coil, y Enrik García, de Dark Moor.',
+      'Si quieres un retrato así de tu músico favorito o de tu grupo, escríbeme.'
+    ],
+    seo: {
+      title: 'Retratos de rock y metal | Retrato ilustrado - Raúl García',
+      description: 'Retratos ilustrados digitales de músicos de rock y metal: Cristina Scabbia (Lacuna Coil), los miembros de Ankor y Enrik García (Dark Moor), serie personal.'
+    },
+    cover: 'portfolio/RetratosMusicales/Jesse_Williams',
+    blocks: [
+      {
+        type: 'image',
+        image: 'portfolio/RetratosMusicales/Jesse_Williams',
+        alt: 'Jesse Williams, de Ankor: melena pelirroja, ojos delineados y la cara salpicada de manchas oscuras, sobre un círculo rojo y un fondo de pintura blanca rascada.',
+        width: 1280,
+        height: 1280,
+        altReviewed: true
+      },
+      {
+        type: 'image',
+        image: 'portfolio/RetratosMusicales/David_Romeu',
+        alt: 'David Romeu, de Ankor, con tupé y barba corta, mirando hacia arriba, sobre un círculo rojo y un fondo de pintura blanca rascada.',
+        width: 1280,
+        height: 1280,
+        altReviewed: true
+      },
+      {
+        type: 'image',
+        image: 'portfolio/RetratosMusicales/Eleni_Nota',
+        alt: 'Eleni Nota, de Ankor, con flequillo y pelo largo oscuro, el rostro en penumbra y la mirada seria, sobre un círculo rojo.',
+        width: 1280,
+        height: 1280,
+        altReviewed: true
+      },
+      {
+        type: 'image',
+        image: 'portfolio/RetratosMusicales/Fito_Martinez',
+        alt: 'Fito Martínez, de Ankor, con cresta clara de punta y los ojos maquillados de oscuro, de tres cuartos sobre un círculo rojo.',
+        width: 1280,
+        height: 1280,
+        altReviewed: true
+      },
+      {
+        type: 'image',
+        image: 'portfolio/RetratosMusicales/Julio_Lopez',
+        alt: 'Julio López, de Ankor, con gorra y barba poblada, mirando al frente sobre un círculo rojo.',
+        width: 1280,
+        height: 1280,
+        altReviewed: true
+      },
+      {
+        type: 'image',
+        image: 'portfolio/RetratosMusicales/Cri',
+        alt: 'Retrato de Cristina Scabbia, de Lacuna Coil, en blanco y negro con toques rojos: melena oscura, labios rojos y una franja de maquillaje sobre un ojo, rodeada de salpicaduras de tinta.',
+        width: 1200,
+        height: 1200,
+        altReviewed: true
+      },
+      {
+        type: 'image',
+        image: 'portfolio/RetratosMusicales/Enrik',
+        alt: 'Enrik García, de Dark Moor, con pelo largo y barba, en tonos ocres sobre un círculo amarillo anaranjado.',
+        width: 1280,
+        height: 1280,
+        altReviewed: true
+      }
+    ]
+  },
+  {
     slug: 'fan-art-studio-ghibli',
     title: 'Homenaje a Studio Ghibli',
     category: 'POP_CULTURE',
