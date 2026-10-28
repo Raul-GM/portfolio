@@ -1,13 +1,21 @@
 <template>
-  <picture>
-    <source :srcset="getLargeImage" media="(min-width: 1024px)" />
-    <source :srcset="getMediumImage" media="(min-width: 640px)" />
-    <img class="image" :src="getSmallImage" :alt="altTitle" loading="lazy" @error="handleError">
-  </picture>
+  <img
+    class="image"
+    :src="getImage(640)"
+    :srcset="srcset"
+    :sizes="sizes"
+    :width="width"
+    :height="height"
+    :alt="altTitle"
+    :loading="eager ? 'eager' : 'lazy'"
+    :fetchpriority="eager ? 'high' : null"
+    @error="handleError">
 </template>
-  
+
 <script>
-  export default {
+const WIDTHS = [320, 640, 1280];
+
+export default {
   props: {
     image: {
       type: String
@@ -20,26 +28,42 @@
       type: String,
       default: 'jpeg'
     },
+    // Dimensiones intrínsecas de la variante mayor: reservan el hueco y evitan saltos de layout
+    width: {
+      type: Number,
+      default: null
+    },
+    height: {
+      type: Number,
+      default: null
+    },
+    sizes: {
+      type: String,
+      default: '100vw'
+    },
+    // true solo para la imagen principal visible al cargar (LCP)
+    eager: {
+      type: Boolean,
+      default: false
+    },
     fallbackImage: {
       type: String,
-      default: require('../assets/images/fallback.png')
+      default: require('@/assets/images/fallback.png')
     }
   },
   computed: {
-    getLargeImage() {
-      return require(`../assets/images/${this.image}_1280.${this.format}`)
-    },
-    getMediumImage() {
-      return require(`../assets/images/${this.image}_640.${this.format}`)
-    },
-    getSmallImage() {
-      return require(`../assets/images/${this.image}_320.${this.format}`)
+    srcset() {
+      return WIDTHS.map(width => `${this.getImage(width)} ${width}w`).join(', ');
     }
   },
-    methods: {
+  methods: {
+    getImage(width) {
+      return require(`@/assets/images/${this.image}_${width}.${this.format}`);
+    },
     handleError(event) {
+      event.target.srcset = '';
       event.target.src = this.fallbackImage;
     }
   }
 }
-  </script>
+</script>

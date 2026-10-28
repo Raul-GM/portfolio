@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeComponent from '../views/HomeComponent.vue'
+import { findWork } from '@/views/data/works'
 
 const routes = [
   {
@@ -28,11 +29,22 @@ const routes = [
     component: () => import('../views/ContactComponent.vue'),
     meta: { title: 'Contacto' }
   }, {
+    path: '/portfolio/:slug',
+    name: 'Work',
+    component: () => import('../views/portfolio/WorkComponent.vue'),
+    // Slug inexistente o archivado: muestra la 404 manteniendo la URL
+    beforeEnter: (to) => findWork(to.params.slug) ? true : {
+      name: 'NotFound',
+      params: { pathMatch: to.path.substring(1).split('/') },
+      query: to.query,
+      hash: to.hash
+    }
+  }, {
     path: '/shop/:product',
     name: 'Shop Product',
     component: () => import('../views/shop/ShopProductComponent.vue')
   }, {
-    path: '/:pathMatch(.*)',
+    path: '/:pathMatch(.*)*',
     name: 'NotFound',
     component: () => import('../views/NotFoundComponent.vue'),
     meta: { title: 'Página no encontrada' }

@@ -2,7 +2,7 @@
     <router-link class="project-card" :to="projectSrc" :aria-label="`Ir al proyecto ${title}`">
         <div div class="project-card--background" :style="inlineStyle" :alt="`Imagen de proyecto: ${title}`"></div>
         <div class="project-card--info">
-            <h3 class="section-title">{{ title }}</h3>
+            <h2 class="section-title">{{ title }}</h2>
             <p>{{ category }}</p>
         </div>
     </router-link>

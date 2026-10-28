@@ -2,8 +2,8 @@ import { useHead } from '@unhead/vue'
 
 export const useSeoMeta = (options) => {
   const {
-    title = 'Raúl García | Ilustración y diseño gráfico',
-    description = 'Portafolio profesional de Raul García. Ilustrador y diseñador gráfico, aparte de desarrollador front, con proyectos destacados.',
+    title = 'Raúl García | Ilustración de cultura pop y retratos por encargo',
+    description = 'Portfolio de Raúl García: ilustraciones de series, películas y videojuegos, y retratos ilustrados por encargo.',
     ogImage = 'og-image.jpg',
     ogUrl = 'https://raulgarcia.me',
     schema = null
@@ -74,14 +74,14 @@ export const getSchemaPersonProfile = () => {
     name: 'Raúl García',
     url: 'https://raulgarcia.me',
     email: 'raulgm83.art@gmail.com',
-    jobTitle: 'Ilustrador, Diseñador Gráfico y Desarrollador Front-end',
+    jobTitle: 'Ilustrador',
     image: 'https://raulgarcia.me/og-image.jpg',
     sameAs: [
       'https://www.instagram.com/raulgarcia.design/',
       'https://www.behance.net/raulgm2/projects',
       'https://youtube.com/@raulgarcia.design'
     ],
-    description: 'Estudiante de Grado de Diseño Digital y desarrollador front-end con experiencia en ilustración y diseño gráfico.'
+    description: 'Ilustrador especializado en cultura pop (series, películas y videojuegos) y retratos por encargo.'
   }
 }
 

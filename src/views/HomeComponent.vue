@@ -8,15 +8,14 @@
     <main class="main-container portfolio-container">
         <h1 class="visually-hidden">Raúl García · Ilustración de cultura pop y retratos</h1>
         <p v-if="!works.length" class="portfolio-container_empty">Nuevas obras muy pronto.</p>
-        <div v-for="(project, index) in filteredPortfolioItems" :key="index"
+        <div v-for="work in filteredPortfolioItems" :key="work.slug"
         class="portfolio-container_card">
-          <ProjectCard 
-                :title="project.title"
-                :imgSrc="project.imgSrc"
-                :resume="project.resume"
-                :projectSrc="project.projectSrc"
-                :category="project.category"
-                :aria-label="project.title + ' - ' + project.category" />
+          <ProjectCard
+                :title="work.title"
+                :imgSrc="`${work.cover}_640.jpeg`"
+                :resume="work.summary"
+                :projectSrc="getWorkUrl(work)"
+                :category="getCategoryLabel(work)" />
         </div>
     </main>
     <FooterComponent />
@@ -27,7 +26,7 @@ import NavbarComponent from '@/components/NavbarComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
 import ProjectCard from '@/components/ProjectCard.vue';
 import CategoryFilter from '@/components/CategoryFilter.vue';
-import { works } from '@/views/data/works';
+import { publishedWorks, getCategoryLabel, getWorkUrl } from '@/views/data/works';
 import { useSeoMeta, getSchemaPersonProfile } from '@/composables/useSeoMeta';
 
 export default {
@@ -46,17 +45,19 @@ export default {
   },
   data() {
     return {
-      works: works,
-      filteredPortfolioItems: works
+      works: publishedWorks,
+      filteredPortfolioItems: publishedWorks
     };
   },
   methods: {
+    getCategoryLabel,
+    getWorkUrl,
     filterProjects(selectedCategories) {
       if (selectedCategories.includes('Todos')) {
         this.filteredPortfolioItems = this.works;
       } else {
         this.filteredPortfolioItems = this.works.filter(project =>
-          selectedCategories.includes(project.category)
+          selectedCategories.includes(getCategoryLabel(project))
         );
       }
     },

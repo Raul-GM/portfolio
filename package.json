@@ -4,8 +4,12 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
+    "prebuild": "node scripts/check-works.js && node scripts/sitemap.js",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "postbuild": "node scripts/prerender-meta.js",
+    "lint": "vue-cli-service lint",
+    "images": "node scripts/images.js",
+    "check": "node scripts/check-works.js"
   },
   "dependencies": {
     "@unhead/vue": "^1.11.20",
@@ -23,7 +27,8 @@
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^7.0.0",
     "node-sass": "^6.0.1",
-    "sass-loader": "^10.0.0"
+    "sass-loader": "^10.0.0",
+    "sharp": "^0.32.6"
   },
   "eslintConfig": {
     "root": true,

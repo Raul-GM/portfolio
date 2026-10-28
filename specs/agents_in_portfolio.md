@@ -248,6 +248,8 @@ Ver aviso de propiedad intelectual en 2.1.
 - [ ] Responder P7–P10.
 - [ ] Hotfix `_redirects` + `netlify.toml` en `main`.
 - [ ] Fase 0: auditores + línea base · `inbox/` · curaduría.
-- [ ] Fase 1: reset → `works.js` + `WorkComponent` → scripts → SEO → `CLAUDE.md`.
+- [x] Fase 1: reset → `works.js` + `WorkComponent` → scripts → SEO → `CLAUDE.md`. Probado con `retrato-isabel-ii`.
+  - Decisión: **solo JPEG** (mozjpeg q80). Con ilustración texturizada, WebP y AVIF pesaban igual o más.
+  - Pendiente: `public/og-image.jpg` por defecto (no existe), verificar en Netlify que sirve `portfolio/<slug>/index.html`, `Bio 1.png` de 6 MB.
 - [ ] Fase 2: `/nueva-obra` probado con 3 obras.
 - [ ] Fase 3: ≥ 6 obras, comisiones, auditorías, lanzamiento.

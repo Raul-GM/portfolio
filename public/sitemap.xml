@@ -1,28 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Generado por scripts/sitemap.js desde works.js. No editar a mano. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Páginas principales -->
   <url>
     <loc>https://raulgarcia.me/</loc>
-    <lastmod>2026-05-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://raulgarcia.me/about-me</loc>
-    <lastmod>2026-05-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://raulgarcia.me/shop</loc>
-    <lastmod>2026-05-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://raulgarcia.me/contact</loc>
-    <lastmod>2026-05-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://raulgarcia.me/shop</loc>
+  </url>
+  <url>
+    <loc>https://raulgarcia.me/portfolio/retrato-isabel-ii</loc>
+    <lastmod>2023-09-01</lastmod>
   </url>
 </urlset>

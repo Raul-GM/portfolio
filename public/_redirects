@@ -10,11 +10,11 @@
 /portfolio/infected-rain-poster                /portfolio  301
 /portfolio/videoclip-nebula                    /portfolio  301
 /portfolio/comision-nighty-summer-vibes        /portfolio  301
-/portfolio/comision-queen-elizabeth-ii         /portfolio  301
+/portfolio/comision-queen-elizabeth-ii         /portfolio/retrato-isabel-ii  301
 /portfolio/comision-retratos-personalizados    /portfolio  301
 /portfolio/commision-retratos-personalizados   /portfolio  301
 /portfolio/commission-nighty-summer-vibes      /portfolio  301
-/portfolio/commission-queen-elizabeth-ii       /portfolio  301
+/portfolio/commission-queen-elizabeth-ii      /portfolio/retrato-isabel-ii  301
 
 # SPA fallback: cualquier otra ruta la resuelve vue-router
 /*    /index.html    200

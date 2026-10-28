@@ -1,9 +1,5 @@
 <template>
-  <div id="app" role="application">
-    <main role="main">
-      <router-view />
-    </main>
-  </div>
+  <router-view :key="$route.path" />
 </template>
 
 <style lang="scss">
