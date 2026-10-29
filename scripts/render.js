@@ -10,7 +10,6 @@
 //   --dom              HTML tras ejecutar el JS
 //   --raw              código HTTP y HTML que recibe un crawler sin JS (no abre el navegador)
 //   --requests         peticiones del navegador, internas y externas, con estado y KB
-//                      (Google Analytics/Tag Manager se bloquean siempre: no contamina las visitas)
 //   --screenshot <png> captura; con varias rutas añade el índice al nombre
 //   --full-page        captura la página entera, no solo el viewport
 //
@@ -52,8 +51,6 @@ const MIME = {
   '.woff': 'font/woff',
   '.woff2': 'font/woff2'
 }
-
-const ANALYTICS = ['*googletagmanager.com*', '*google-analytics.com*', '*doubleclick.net*']
 
 const FLAGS = ['summary', 'dom', 'raw', 'requests', 'full-page', 'reduced-motion']
 const REPEATABLE = ['click', 'tab']
@@ -257,7 +254,6 @@ const renderRoute = async (cdp, sessionId, baseUrl, route, args, index, total) =
     if (method === 'Network.requestWillBeSent') requests.set(params.requestId, { url: params.request.url, status: null, bytes: 0 })
     if (method === 'Network.responseReceived' && requests.has(params.requestId)) requests.get(params.requestId).status = params.response.status
     if (method === 'Network.loadingFinished' && requests.has(params.requestId)) requests.get(params.requestId).bytes = params.encodedDataLength
-    if (method === 'Network.loadingFailed' && requests.has(params.requestId) && params.blockedReason) requests.get(params.requestId).status = 'bloq.'
   }
   cdp.on(onEvent)
 
@@ -353,8 +349,6 @@ const main = async () => {
       await cdp.send('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-reduced-motion', value: 'reduce' }] }, sessionId)
     }
     await cdp.send('Network.enable', {}, sessionId)
-    // Sin analítica: las pruebas no deben contar como visitas reales (aparecen en --requests como "bloq.")
-    await cdp.send('Network.setBlockedURLs', { urls: ANALYTICS }, sessionId)
     await cdp.send('Page.enable', {}, sessionId)
 
     for (const [index, route] of routes.entries()) {

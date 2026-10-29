@@ -11,17 +11,14 @@
 /portfolio/videoclip-nebula                    /  301
 /portfolio/comision-nighty-summer-vibes        /  301
 /portfolio/comision-queen-elizabeth-ii         /portfolio/retrato-isabel-ii  301
-/portfolio/comision-retratos-personalizados    /  301
-/portfolio/commision-retratos-personalizados   /  301
+/portfolio/comision-retratos-personalizados    /portfolio/retratos-familiares-por-encargo  301
+/portfolio/commision-retratos-personalizados   /portfolio/retratos-familiares-por-encargo  301
 /portfolio/commission-nighty-summer-vibes      /  301
 /portfolio/commission-queen-elizabeth-ii      /portfolio/retrato-isabel-ii  301
 
 # /portfolio duplicaba la home
 /portfolio    /    301
 
-# Rutas de la SPA sin HTML propio. Las páginas fijas y las obras tienen el suyo en dist/
-# (scripts/prerender-meta.js) y Netlify lo sirve antes que estas reglas.
-/shop/*    /index.html    200
-
-# Todo lo demás: la SPA pinta la 404, con código 404 real
+# Las páginas fijas, las obras y las láminas tienen su HTML en dist/ (scripts/prerender-meta.js) y Netlify
+# lo sirve antes que esta regla. Todo lo demás: la SPA pinta la 404, con código 404 real
 /*    /index.html    404

@@ -31,6 +31,7 @@
           </div>
         </template>
       </div>
+      <p v-if="product" class="work__shop">Esta obra está disponible como lámina: <router-link class="simple_link" :to="getProductUrl(product)">ver «{{ product.name }}» en la tienda</router-link>.</p>
       <footer class="work__footer">
         <p class="work__cta">¿Quieres algo así? <router-link class="button-primary" to="/encargos">Pide tu encargo</router-link></p>
         <router-link class="simple_link" to="/"><span aria-hidden="true">←</span> Volver al portfolio</router-link>
@@ -47,6 +48,7 @@ import FooterComponent from '@/components/FooterComponent.vue';
 import OptimizedImageComponent from '@/components/OptimizedImageComponent.vue';
 import { useSeoMeta, getSchemaCreativeWork } from '@/composables/useSeoMeta';
 import { findWork, getCategoryLabel, getOgImage, getWorkUrl } from '@/views/data/works';
+import { findProductByWork, getProductUrl } from '@/views/data/shop';
 
 const SITE_URL = 'https://raulgarcia.me';
 
@@ -74,9 +76,15 @@ export default {
       })
     });
   },
+  methods: {
+    getProductUrl
+  },
   computed: {
     work() {
       return findWork(this.$route.params.slug);
+    },
+    product() {
+      return findProductByWork(this.work.slug);
     },
     meta() {
       return [
@@ -127,6 +135,10 @@ export default {
       height: 100%;
       border: 0;
     }
+  }
+  &__shop {
+    padding-bottom: 1.5rem;
+    line-height: 1.5;
   }
   &__cta {
     display: flex;

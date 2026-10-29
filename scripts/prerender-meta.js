@@ -6,7 +6,7 @@
 
 const fs = require('fs')
 const path = require('path')
-const { ROOT, SITE_URL, publishedWorks, getWorkUrl, getOgImage, pages } = require('./lib/load-works')
+const { ROOT, SITE_URL, publishedWorks, getWorkUrl, getOgImage, shopData, getProductUrl, getProductOgImage, pages } = require('./lib/load-works')
 
 const DIST = path.join(ROOT, 'dist')
 const template = fs.readFileSync(path.join(DIST, 'index.html'), 'utf8')
@@ -62,6 +62,31 @@ const renderWorkHead = (work) => {
   return renderHead({ title, description, url, image, type: 'article', schema })
 }
 
+// Mismos textos y schema que ShopProductComponent
+const renderProductHead = (product) => {
+  const url = `${SITE_URL}${getProductUrl(product)}`
+  const image = `${SITE_URL}/${getProductOgImage(product)}`
+  const title = `${product.name}, lámina ilustrada | Raúl García`
+  const description = `${product.description} Escríbeme para comprarla.`
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: `Lámina «${product.name}»`,
+    description: product.description,
+    image,
+    url,
+    brand: { '@type': 'Person', name: 'Raúl García' },
+    offers: {
+      '@type': 'Offer',
+      price: product.price.toFixed(2),
+      priceCurrency: 'EUR',
+      availability: product.available ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
+      url
+    }
+  }
+  return renderHead({ title, description, url, image, type: 'product', schema })
+}
+
 const base = MANAGED_TAGS.reduce((html, pattern) => html.replace(pattern, ''), template)
 if (!base.includes('</head>')) throw new Error('dist/index.html no tiene </head>')
 
@@ -75,4 +100,5 @@ const writePage = (route, head) => {
 const staticPages = Object.values(pages).filter(page => page.path !== '/')
 staticPages.forEach(page => writePage(page.path, renderHead({ ...page, url: `${SITE_URL}${page.path}` })))
 publishedWorks.forEach(work => writePage(getWorkUrl(work), renderWorkHead(work)))
-console.log(`✔ HTML con metas: ${staticPages.length} página(s) fijas y ${publishedWorks.length} obra(s)`)
+shopData.forEach(product => writePage(getProductUrl(product), renderProductHead(product)))
+console.log(`✔ HTML con metas: ${staticPages.length} página(s) fijas, ${publishedWorks.length} obra(s) y ${shopData.length} lámina(s)`)

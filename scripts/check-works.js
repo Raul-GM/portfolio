@@ -1,10 +1,10 @@
-// Valida src/views/data/works.js. Sale con código 1 si hay errores (bloquea el build).
+// Valida src/views/data/works.js y shop.js. Sale con código 1 si hay errores (bloquea el build).
 //
 //   npm run check
 
 const fs = require('fs')
 const path = require('path')
-const { ROOT, works, Categories, IMAGE_WIDTHS: WIDTHS } = require('./lib/load-works')
+const { ROOT, works, shopData, Categories, IMAGE_WIDTHS: WIDTHS } = require('./lib/load-works')
 
 const SLUG = /^[a-z0-9]+(-[a-z0-9]+)*$/
 const DATE = /^\d{4}-\d{2}-\d{2}$/
@@ -72,10 +72,30 @@ works.forEach((work, index) => {
   })
 })
 
+const productIds = new Set()
+shopData.forEach((product, index) => {
+  const id = `tienda/${product.id || `#${index}`}`
+
+  if (!SLUG.test(product.id || '')) errors.push(`${id}: id no válido (minúsculas, números y guiones)`)
+  if (productIds.has(product.id)) errors.push(`${id}: id duplicado`)
+  productIds.add(product.id)
+
+  if (!isText(product.name)) errors.push(`${id}: falta name`)
+  if (!isText(product.description)) errors.push(`${id}: falta description`)
+  if (typeof product.price !== 'number' || product.price <= 0) errors.push(`${id}: price debe ser un número en euros mayor que 0`)
+  if (typeof product.available !== 'boolean') errors.push(`${id}: available debe ser true o false`)
+  if (!isText(product.alt) || GENERIC_ALTS.includes(product.alt.trim().toLowerCase())) errors.push(`${id}: alt vacío o genérico`)
+  if (!Number.isInteger(product.width) || !Number.isInteger(product.height)) errors.push(`${id}: faltan width/height`)
+  if (!isText(product.image)) errors.push(`${id}: falta image`)
+  else checkImage(id, product.image)
+  if (!fs.existsSync(path.join(ROOT, 'public', 'og', `shop-${product.id}.jpg`))) errors.push(`${id}: falta public/og/shop-${product.id}.jpg (npm run images)`)
+  if (product.workSlug !== null && !works.some(work => work.slug === product.workSlug)) errors.push(`${id}: workSlug "${product.workSlug}" no existe en works.js`)
+})
+
 warnings.forEach(warning => console.warn(`⚠ ${warning}`))
 errors.forEach(error => console.error(`✖ ${error}`))
 if (errors.length) {
-  console.error(`\nworks.js: ${errors.length} error(es)`)
+  console.error(`\nworks.js / shop.js: ${errors.length} error(es)`)
   process.exit(1)
 }
-console.log(`✔ works.js: ${works.length} obra(s) válidas${warnings.length ? `, ${warnings.length} aviso(s)` : ''}`)
+console.log(`✔ works.js: ${works.length} obra(s) y shop.js: ${shopData.length} lámina(s) válidas${warnings.length ? `, ${warnings.length} aviso(s)` : ''}`)

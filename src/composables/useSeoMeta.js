@@ -5,8 +5,8 @@ const SITE_URL = 'https://raulgarcia.me'
 
 export const useSeoMeta = (options) => {
   const {
-    title = 'Raúl García | Ilustración de cultura pop y retratos por encargo',
-    description = 'Portfolio de Raúl García: ilustraciones de series, películas y videojuegos, y retratos ilustrados por encargo.',
+    title = 'Raúl García | Fan art por encargo y retratos ilustrados',
+    description = 'Portfolio de Raúl García: fan art por encargo de personajes de series, películas y videojuegos, y retratos ilustrados.',
     ogImage = 'og-image.jpg',
     ogUrl = `${SITE_URL}${useRoute().path}`,
     schema = null,
@@ -92,7 +92,31 @@ export const getSchemaPersonProfile = () => {
       'https://www.behance.net/raulgm2/projects',
       'https://youtube.com/@raulgarcia.design'
     ],
-    description: 'Ilustrador especializado en cultura pop (series, películas y videojuegos) y retratos por encargo.'
+    description: 'Ilustrador especializado en fan art de series, películas y videojuegos y en retratos por encargo.'
+  }
+}
+
+export const getSchemaProduct = (product) => {
+  const { name, description, image, price, available, url } = product
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name,
+    description,
+    image,
+    url,
+    brand: {
+      '@type': 'Person',
+      name: 'Raúl García'
+    },
+    offers: {
+      '@type': 'Offer',
+      price: price.toFixed(2),
+      priceCurrency: 'EUR',
+      availability: available ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
+      url
+    }
   }
 }
 

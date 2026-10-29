@@ -2,7 +2,7 @@
 // Se rellena con /nueva-obra y se valida con `npm run check`.
 //
 // slug         URL /portfolio/<slug>; estable, en minúsculas con guiones
-// category     clave de Categories (POP_CULTURE, PORTRAIT)
+// category     clave de Categories (FAN_ART, PORTRAIT)
 // franchise    serie, película o videojuego; null si no aplica
 // status       'featured' | 'visible' | 'archived' (archived no se publica)
 // order        orden en la home, de menor a mayor
@@ -100,7 +100,7 @@ export const works = [
   {
     slug: 'fan-art-studio-ghibli',
     title: 'Homenaje a Studio Ghibli',
-    category: 'POP_CULTURE',
+    category: 'FAN_ART',
     franchise: 'Studio Ghibli',
     status: 'featured',
     order: 0,
@@ -167,6 +167,79 @@ export const works = [
         width: 1280,
         height: 1600,
         altReviewed: false
+      }
+    ]
+  },
+  {
+    slug: 'retratos-familiares-por-encargo',
+    title: 'Retratos de familia, amigos y mascotas',
+    category: 'PORTRAIT',
+    franchise: null,
+    status: 'visible',
+    order: -20,
+    kind: 'commission',
+    client: null,
+    series: null,
+    date: '2025-04-25',
+    summary: 'Retratos de familias, amigos y mascotas a partir de tus fotos, para regalar o colgar',
+    body: [
+      'Serie de retratos por encargo de familias, parejas, amigos y mascotas. Para hacerlos te pido las fotos que tengas y me cuentas quién aparece, qué os gusta y qué estilo imaginas: ropa, expresiones, fondo, colores.',
+      'Lo hablamos hasta tener una idea en común, y de ahí sale una ilustración para regalar o para colgar en casa.',
+      'Si quieres un retrato así, escríbeme y te paso presupuesto y plazo.'
+    ],
+    seo: {
+      title: 'Retratos familiares por encargo | Raúl García',
+      description: 'Retratos ilustrados por encargo de familias, parejas, amigos y mascotas a partir de tus fotos. Un regalo para colgar en casa. Pide presupuesto.'
+    },
+    cover: 'portfolio/RetratosFamiliares/Clau',
+    blocks: [
+      {
+        type: 'image',
+        image: 'portfolio/RetratosFamiliares/Clau',
+        alt: 'Retrato de una mujer sonriente con el pelo recogido y sudadera azul, abrazando a dos perros: uno blanco con manchas canela y otro negro, sobre una mancha de acuarela verde.',
+        width: 1280,
+        height: 1810,
+        altReviewed: true
+      },
+      {
+        type: 'image',
+        image: 'portfolio/RetratosFamiliares/retrato',
+        alt: 'Retrato de una pareja con un perro negro de lengua fuera y un cachorro blanco y canela, dentro de un círculo beige.',
+        width: 1280,
+        height: 1811,
+        altReviewed: true
+      },
+      {
+        type: 'image',
+        image: 'portfolio/RetratosFamiliares/Retrato_2',
+        alt: 'Retrato de familia con una pareja y dos niñas, una haciendo la señal de la paz, y un perro pequeño blanco, dentro de un círculo amarillo.',
+        width: 1280,
+        height: 1811,
+        altReviewed: true
+      },
+      {
+        type: 'image',
+        image: 'portfolio/RetratosFamiliares/Con_amiga_pelo_castaño',
+        alt: 'Retrato de dos amigas de pelo castaño, sonriendo juntas dentro de un círculo naranja rodeado de tréboles verdes.',
+        width: 1280,
+        height: 1810,
+        altReviewed: true
+      },
+      {
+        type: 'image',
+        image: 'portfolio/RetratosFamiliares/Con_amiga_pelo_rubio',
+        alt: 'Retrato de dos amigas, una rubia y otra morena, dentro de un círculo naranja rodeado de tréboles verdes.',
+        width: 1280,
+        height: 1810,
+        altReviewed: true
+      },
+      {
+        type: 'image',
+        image: 'portfolio/RetratosFamiliares/Colgados_en_la_pared',
+        alt: 'Dos retratos de amigas enmarcados en blanco, colgados en la pared de un comedor con mesa de madera.',
+        width: 1280,
+        height: 1280,
+        altReviewed: true
       }
     ]
   }

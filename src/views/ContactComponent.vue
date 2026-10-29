@@ -48,6 +48,7 @@
             ></textarea>
             <span class="counter">{{ message.text.length }} / {{ message.maxlength }}</span>
           </div>
+          <p class="form--privacy">Uso tu nombre, tu correo y tu mensaje solo para responderte. Responsable: Raúl García Martín. Más información en la <router-link class="simple_link" to="/privacidad">política de privacidad</router-link>.</p>
           <div>
             <input type="submit" class="form--submit" value="Enviar mensaje" :disabled="isSending" />
           </div>
@@ -55,7 +56,7 @@
         </form>
         <div class="social">
           <p>¿Tienes una idea para un encargo? Cuéntame qué quieres (un personaje, una escena, un retrato), para cuándo lo necesitas y, si es un retrato, si tienes fotos de referencia. Te contestaré lo antes posible con presupuesto y plazo, sin compromiso.</p>
-          <p>Si prefieres, escríbeme por mensaje directo en <a class="simple_link" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/direct/t/104585227603393/">Instagram</a>. Y si quieres saber cómo trabajo, mira la página de <router-link class="simple_link" to="/encargos">encargos</router-link>.</p>
+          <p>Si prefieres, escríbeme por mensaje directo en <a class="simple_link" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/raulgarcia.design/">Instagram</a>. Y si quieres saber cómo trabajo, mira la página de <router-link class="simple_link" to="/encargos">encargos</router-link>.</p>
           <ul class="social--list">
             <li>
               <a href="https://www.instagram.com/raulgarcia.design/"
@@ -94,6 +95,7 @@ import NavbarComponent from '@/components/NavbarComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
 import ImageComponent from '@/components/ImageComponent.vue';
 import { pages } from '@/views/data/pages';
+import { findProduct, formatPrice } from '@/views/data/shop';
 import { useSeoMeta } from '@/composables/useSeoMeta';
 const emailRegExp = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 export default {
@@ -123,7 +125,15 @@ export default {
       formStatus: '',
       formStatusClass: ''
     }
-  },  methods: {
+  },
+  created() {
+    // Viene de la ficha de una lámina (/contact?lamina=<id>): deja el mensaje empezado
+    const product = findProduct(this.$route.query.lamina);
+    if (product) {
+      this.message.text = `Hola, me interesa la lámina «${product.name}» (${formatPrice(product.price)}). ¿Sigue disponible? Te escribo desde: `;
+    }
+  },
+  methods: {
     async onSubmit() {
       this.validate('email', this.email.value);
       if (!this.email.isValid) return;
@@ -293,6 +303,11 @@ export default {
       border-radius: 0.25em;
       padding: .5rem;
     }
+  }
+  &--privacy {
+    font-size: .9rem;
+    line-height: 1.4;
+    padding-bottom: .75rem;
   }
   &--status {
     padding-bottom: 0;

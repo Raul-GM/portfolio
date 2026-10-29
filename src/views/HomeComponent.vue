@@ -2,8 +2,8 @@
     <NavbarComponent/>
     <main class="main-container">
       <section class="home-intro" aria-label="Presentación">
-        <h1 class="section-title home-intro__title">Ilustración de cultura pop y retratos por encargo</h1>
-        <p class="home-intro__text">Dibujo a tus personajes favoritos de series, películas y videojuegos, y retratos de las personas que te importan.</p>
+        <h1 class="section-title home-intro__title">Ilustración de personajes de series, películas y videojuegos, y retratos por encargo</h1>
+        <p class="home-intro__text">Fan art por encargo de tus personajes favoritos y retratos de las personas que te importan.</p>
         <router-link class="button-primary" to="/encargos">Pide tu encargo</router-link>
       </section>
       <CategoryFilter

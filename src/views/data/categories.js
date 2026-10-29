@@ -1,4 +1,4 @@
 export const Categories = {
-  POP_CULTURE: 'Cultura pop',
+  FAN_ART: 'Fan art',
   PORTRAIT: 'Retratos',
 };

@@ -9,7 +9,7 @@
           <h2 id="commissions-what" class="section-title">Qué puedes encargarme</h2>
           <ul class="commissions__types">
             <li>
-              <h3>Cultura pop</h3>
+              <h3>Fan art</h3>
               <p>Tu personaje favorito de una serie, una película o un videojuego, o esa escena que te sabes de memoria.</p>
             </li>
             <li>

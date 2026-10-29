@@ -58,6 +58,11 @@
           </router-link>
         </li>
         <li class="nav__menu__option">
+          <router-link :to="'/shop'">
+            <span>Tienda</span>
+          </router-link>
+        </li>
+        <li class="nav__menu__option">
           <router-link :to="'/about-me'">
             <span>Sobre mí</span>
           </router-link>

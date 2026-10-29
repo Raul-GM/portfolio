@@ -1,28 +1,33 @@
 <template>
     <NavbarComponent />
     <main class="main-container">
-      <h1 class="section-title">Tienda</h1>
-      <section class="shop-container" aria-label="Galería de productos">
-        <article v-for="(shopItem) in shopData"
+      <h1 class="section-title">Tienda de láminas</h1>
+      <p class="shop-intro">Láminas impresas de mis ilustraciones. No hay carrito: elige la que te guste y escríbeme desde su ficha. Te confirmo disponibilidad, envío y plazo antes de que pagues nada.</p>
+      <section class="shop-container" aria-label="Láminas disponibles">
+        <article v-for="shopItem in shopData"
             :key="shopItem.id"
             class="shop-card">
-          <router-link :to="`/shop/${shopItem.id}`" :aria-label="`Ver más sobre ${shopItem.name}`">
+          <router-link :to="getProductUrl(shopItem)" :aria-label="`Ver la lámina ${shopItem.name}`">
             <div class="shop-card-info">
               <div class="shop-card-info-image">
-                <ImageComponent :file="`shop/${shopItem.imgName}_320.jpg`" :altTitle="shopItem.altImage" format="jpg"/>
+                <OptimizedImageComponent
+                  :image="shopItem.image"
+                  :altTitle="shopItem.alt"
+                  :width="shopItem.width"
+                  :height="shopItem.height"
+                  sizes="320px" />
               </div>
               <div class="shop-card-info-data">
                 <h2 class="shop-card-info-data-title">{{ shopItem.name }}</h2>
-                <span class="shop-card-info-data-price">{{ shopItem.price }}</span>
+                <span class="shop-card-info-data-price">{{ formatPrice(shopItem.price) }}</span>
+                <span v-if="!shopItem.available" class="shop-card-info-data-soldout">Agotada de momento</span>
               </div>
             </div>
           </router-link>
         </article>
       </section>
-      <section class="shop-info" aria-label="Información adicional sobre el proceso de compra">
-        <p><b>¿Te gusta lo que ves?</b> Aquí te muestro algunas de mis obras disponibles para llevarte a casa hoy mismo. Si por el contrario estás interesado o interesada en otras de mis obras, coméntamelo y lo arreglamos. Pero esto no es todo...</p>
-        <p><b>¿Sueñas con algo más especial?</b> ¡No hay problema! También puedo crear obras personalizadas a tu gusto. Contacta conmigo y hablemos de tus ideas.</p>
-    
+      <section class="shop-info" aria-label="Otras opciones">
+        <p><b>¿Prefieres algo a medida?</b> Mira cómo <router-link class="simple_link" to="/encargos">encargar una ilustración</router-link>.</p>
       </section>
     </main>
     <FooterComponent />
@@ -30,8 +35,8 @@
 <script>
 import NavbarComponent from '@/components/NavbarComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
-import ImageComponent from '@/components/ImageComponent.vue';
-import { shopData } from '@/views/data/shop';
+import OptimizedImageComponent from '@/components/OptimizedImageComponent.vue';
+import { shopData, formatPrice, getProductUrl } from '@/views/data/shop';
 import { pages } from '@/views/data/pages';
 import { useSeoMeta } from '@/composables/useSeoMeta';
 
@@ -39,28 +44,36 @@ export default {
   components: {
     NavbarComponent,
     FooterComponent,
-    ImageComponent
+    OptimizedImageComponent
   },
   setup() {
     useSeoMeta({
       title: pages.shop.title,
-      description: pages.shop.description,
-      noindex: pages.shop.noindex
+      description: pages.shop.description
     });
   },
   data() {
     return {
       shopData
     }
+  },
+  methods: {
+    formatPrice,
+    getProductUrl
   }
 }
 </script>
 <style lang="scss">
+.shop-intro {
+  max-width: 720px;
+  padding-bottom: 1.5rem;
+  line-height: 1.5;
+}
 .shop-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
   gap: 1rem;
-  padding-bottom: 2rem;;
+  padding-bottom: 2rem;
 }
 .shop-card-info {
   display: flex;
@@ -68,9 +81,14 @@ export default {
   align-items: center;
   gap: .5rem;
   &-image {
-    width: 320px;
-    height: 320px;
+    width: min(320px, 100%);
+    aspect-ratio: 1;
     overflow: hidden;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
   &-data {
     display: flex;
@@ -85,6 +103,10 @@ export default {
     &-price {
       font-size: 1.1rem;
       font-family: var(--font-title);
+    }
+    &-soldout {
+      font-size: .9rem;
+      color: var(--primary-color);
     }
   }
 }

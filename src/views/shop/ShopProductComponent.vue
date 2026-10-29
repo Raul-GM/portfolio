@@ -1,28 +1,33 @@
 <template>
   <NavbarComponent />
   <main class="main-container">
-    <article class="shop-product-container">
-      <div >
-        <ImageComponent
-          class="shop-product-container-image"
-          :file="`shop/${shopItem.imgName}_640.jpg`"
-          :altTitle="shopItem.altImage"
-          format="jpg"/>
-      </div>
-      <div class="shop-product-container-info">
-        <div class="shop-product-container-info-header">
-          <h1>{{ shopItem.name }}</h1><span>-</span>
-          <p class="shop-product-container-info-price">{{ shopItem.price }}</p>
-        </div>
-        <p v-if="shopItem.quantity > 1"><span>Quedan </span>{{ shopItem.quantity }} copias</p>
-        <p v-if="shopItem.quantity === 1"><span>Queda </span>{{ shopItem.quantity }} copia</p>
-        <p v-if="shopItem.quantity <= 0"><span>No existe stock de momento. Ponte en contacto conmigo si estás interesado y lo gestionamos.</span></p>
-        <p>{{ shopItem.moreInfo }}</p>
-        <section class="shop-product-container-info-disclaimer">
-          Si quieres algún print, puedes contactar conmigo por mensaje directo en <a class="simple_link" target="_blank" aria-label="Mensaje directo en Instagram" href="https://www.instagram.com/direct/t/104585227603393/">Instagram</a> o por correo electrónico (<a class="simple_link" aria-label="Enviar correo a Raúl García" href="mailto:raulgm83.art@gmail.com">raulgm83.art@gmail.com</a>) indicando el nombre de la obra que quieres y la cantidad de prints y te informaré de todo el proceso. Asímismo, si tienes alguna duda, no dudes en contactar conmigo también y estaré encantado de responderte.
+    <article class="shop-product" :aria-labelledby="`product-title-${shopItem.id}`">
+      <OptimizedImageComponent
+        class="shop-product__image"
+        :image="shopItem.image"
+        :altTitle="shopItem.alt"
+        :width="shopItem.width"
+        :height="shopItem.height"
+        sizes="(min-width: 750px) 50vw, 100vw"
+        eager />
+      <div class="shop-product__info">
+        <header class="shop-product__header">
+          <h1 :id="`product-title-${shopItem.id}`">{{ shopItem.name }}</h1>
+          <p class="shop-product__price">{{ formatPrice(shopItem.price) }}</p>
+        </header>
+        <p>{{ shopItem.available ? 'Disponible.' : 'Agotada de momento.' }} {{ shopItem.description }}</p>
+        <p class="shop-product__mockup">La foto es un mockup para que veas cómo quedaría enmarcada. El marco no está incluido.</p>
+        <p v-if="work">Es una obra de mi portfolio: <router-link class="simple_link" :to="`/portfolio/${work.slug}`">ver «{{ work.title }}»</router-link>.</p>
+        <section class="shop-product__buy" aria-label="Cómo comprarla">
+          <p v-if="shopItem.available">No hay carrito ni pago en la web. Escríbeme y te confirmo disponibilidad, gastos de envío y plazo de entrega antes de que pagues nada.</p>
+          <p v-else>Ahora mismo no tengo copias. Escríbeme si te interesa y vemos cómo conseguirla.</p>
+          <router-link class="button-primary" :to="{ path: '/contact', query: { lamina: shopItem.id } }">
+            {{ shopItem.available ? 'Quiero esta lámina' : 'Preguntar por esta lámina' }}
+          </router-link>
         </section>
       </div>
     </article>
+    <p class="shop-product__back"><router-link class="simple_link" to="/shop"><span aria-hidden="true">←</span> Volver a la tienda</router-link></p>
   </main>
   <FooterComponent />
 </template>
@@ -30,79 +35,101 @@
 import { useRoute } from 'vue-router'
 import NavbarComponent from '@/components/NavbarComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
-import ImageComponent from '@/components/ImageComponent.vue';
-import { shopData } from '@/views/data/shop';
-import { useSeoMeta } from '@/composables/useSeoMeta';
+import OptimizedImageComponent from '@/components/OptimizedImageComponent.vue';
+import { findProduct, formatPrice, getProductOgImage, getProductUrl } from '@/views/data/shop';
+import { findWork } from '@/views/data/works';
+import { useSeoMeta, getSchemaProduct } from '@/composables/useSeoMeta';
+
+const SITE_URL = 'https://raulgarcia.me';
 
 export default {
-  setup() {
-    const router = useRoute();
-    const product = router.params.product;
-    const shopItem = shopData.find(shopProduct => shopProduct.id === product);
-    useSeoMeta({
-      title: `${shopItem.name} | Tienda - Raúl García`,
-      description: `${shopItem.altImage}. ${shopItem.moreInfo}`,
-      noindex: true
-    });
-    return {
-      product,
-      shopItem
-    }
-  },
   components: {
     NavbarComponent,
     FooterComponent,
-    ImageComponent
-  }, data() {
+    OptimizedImageComponent
+  },
+  setup() {
+    // El router solo entra aquí con una lámina existente (ver beforeEnter)
+    const shopItem = findProduct(useRoute().params.product);
+    const url = `${SITE_URL}${getProductUrl(shopItem)}`;
+    // Mismos textos y schema que scripts/prerender-meta.js
+    useSeoMeta({
+      title: `${shopItem.name}, lámina ilustrada | Raúl García`,
+      description: `${shopItem.description} Escríbeme para comprarla.`,
+      ogImage: getProductOgImage(shopItem),
+      ogUrl: url,
+      schema: getSchemaProduct({
+        name: `Lámina «${shopItem.name}»`,
+        description: shopItem.description,
+        image: `${SITE_URL}/${getProductOgImage(shopItem)}`,
+        price: shopItem.price,
+        available: shopItem.available,
+        url
+      })
+    });
     return {
-      shopData,
-      name: '',
-      email: {
-        value: '',
-        isValid: true,
-      },
-      message: {
-        text: '',
-        maxlength: 255,
-      },
+      shopItem
     }
+  },
+  computed: {
+    work() {
+      return this.shopItem.workSlug ? findWork(this.shopItem.workSlug) : null;
+    }
+  },
+  methods: {
+    formatPrice
   }
 }
 </script>
 <style lang="scss">
 @use '@/assets/styles/media-variables' as *;
 
-.shop-product-container {
+.shop-product {
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 1fr 1fr;
   gap: 2rem;
+  padding-bottom: 1rem;
   @media (max-width: $media-mobile) {
     grid-template-columns: 1fr;
   }
-  &-image {
-    width: 100%;
+  p {
+    line-height: 1.5;
+    padding-bottom: 1rem;
   }
-  &-info {
-    &-header {
-      display: flex;
-      align-items: baseline;
-      gap: .3rem;
-      font-weight: bold;
-      padding-bottom: 1rem;
-      font-family: var(--font-title);
-      h1 {
-        font-size: 1.6rem;
-      }
-      p {
-        font-size: 1.2rem;
-        padding-bottom: 0;
-      }
+  &__image {
+    width: 100%;
+    height: auto;
+  }
+  &__header {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: .75rem;
+    padding-bottom: 1rem;
+    font-family: var(--font-title);
+    h1 {
+      font-size: 1.6rem;
     }
-    &-disclaimer {
-      border: 1px solid var(--primary-color);
-      padding: 1rem;
-      border-radius: 6px;
-    }
+  }
+  &__price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding-bottom: 0;
+  }
+  &__mockup {
+    font-size: .9rem;
+    color: var(--primary-color);
+  }
+  &__buy {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: 1px solid var(--primary-color);
+    padding: 1rem;
+    border-radius: 6px;
+  }
+  &__back {
+    padding-bottom: 2rem;
   }
 }
 </style>

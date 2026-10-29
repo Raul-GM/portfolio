@@ -28,7 +28,7 @@ Lee `CLAUDE.md` si no lo tienes en contexto: explica `works.js`, los scripts y l
    - `nota.txt` en la carpeta.
    - **Web anterior:** las obras retiradas están en el commit `2718226` (`git show 2718226:src/views/portfolio/<Componente>.vue`; lista con `git show 2718226 --stat -- src/views/portfolio` o busca con `git grep -i "<palabra>" 2718226 -- src/views`). Si la obra estuvo allí, propone reutilizar su texto y su `dateCreated`, y añade su URL antigua al 301 de `public/_redirects` hacia el slug nuevo.
    - Obras ya publicadas en `src/views/data/works.js`: ¿es otra pieza de una serie existente? ¿Repite algo?
-4. **Deduce** de título, comentario y nota: categoría (`POP_CULTURE` si es de una serie, película, videojuego, cómic o anime; `PORTRAIT` si es un retrato de personas reales), franquicia, encargo o personal, cliente, año.
+4. **Deduce** de título, comentario y nota: categoría (`FAN_ART` si es de una serie, película, videojuego, cómic o anime; `PORTRAIT` si es un retrato de personas reales), franquicia, encargo o personal, cliente, año.
 5. **Pregunta solo lo que falte**, como máximo 3 preguntas en un único turno (con `AskUserQuestion` si está disponible). Candidatas, por orden de importancia: categoría y franquicia si no están claras; encargo o personal (y si el cliente acepta aparecer); año (propón el de la fecha de modificación como opción, no lo des por hecho); destacada en la home o no; con varias imágenes, cuál es la principal.
 
 ## 2. Borrador (único punto de control)
@@ -39,7 +39,7 @@ Presenta **en un solo mensaje** y espera respuesta:
 Slug:        /portfolio/<slug>          (minúsculas con guiones, en español, ≤ 5 palabras;
                                          lleva la franquicia o el nombre si aporta búsquedas)
 Título:      …
-Categoría:   Cultura pop · <franquicia>   |  Retratos
+Categoría:   Fan art · <franquicia>   |  Retratos
 Tipo / año:  Encargo · 2024              |  Personal · 2024
 Home:        destacada / visible · posición (por defecto, la primera)
 Resumen:     … (tarjeta de la home, ≤ 90 caracteres)

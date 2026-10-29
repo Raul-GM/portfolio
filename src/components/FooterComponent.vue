@@ -3,6 +3,7 @@
         <div class="footer-container">
             <span>
                 &copy; {{ getYear() }} Raúl García Martín
+                <router-link class="footer-container__link" to="/privacidad">Privacidad</router-link>
             </span>
             <span class="footer-container__rrss">
                 <a href="https://www.instagram.com/raulgarcia.design/"
@@ -60,6 +61,10 @@ export default {
     height: 100%;
     padding: 0 5rem;
     margin: auto;
+    &__link {
+      margin-left: 1rem;
+      text-decoration: underline;
+    }
     &__rrss {
       display: flex;
       gap: .7rem;

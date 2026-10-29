@@ -1,10 +1,11 @@
 // Genera las variantes web de una obra a partir de sus originales.
 //
-//   npm run images -- <origen> --slug <slug> [--folder <Carpeta>] [--og <fichero>]
+//   npm run images -- <origen> --slug <slug> [--folder <Carpeta> | --dir <carpeta>] [--og <fichero>]
 //
 // <origen> es un fichero o una carpeta (p. ej. inbox/RetratoIsabelII). Por cada imagen escribe
 // src/assets/images/portfolio/<Carpeta>/<nombre>_<ancho>.jpeg (anchos en src/views/data/imageWidths.js) y, para la primera
-// (o la indicada con --og), public/og/<slug>.jpg. Nunca modifica el origen.
+// (o la indicada con --og), public/og/<slug>.jpg. Con --dir escribe en src/assets/images/<carpeta>/ (p. ej. shop)
+// en lugar de portfolio/<Carpeta>. Nunca modifica el origen.
 // Imprime en stdout un JSON con las rutas y dimensiones listas para works.js.
 
 const fs = require('fs')
@@ -94,7 +95,7 @@ const writeOgImage = async (file, slug) => {
 const main = async () => {
   const args = parseArgs(process.argv.slice(2))
   const source = args._[0]
-  if (!source || !args.slug) fail('Uso: npm run images -- <origen> --slug <slug> [--folder <Carpeta>] [--og <fichero>]')
+  if (!source || !args.slug) fail('Uso: npm run images -- <origen> --slug <slug> [--folder <Carpeta> | --dir <carpeta>] [--og <fichero>]')
   if (!fs.existsSync(source)) fail(`No existe ${source}`)
   if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(args.slug)) fail(`Slug no válido: ${args.slug}`)
 
@@ -102,7 +103,8 @@ const main = async () => {
   if (!sources.length) fail(`No hay imágenes (${SOURCE_EXTENSIONS.join(', ')}) en ${source}`)
 
   const folder = toSafeName(args.folder || path.basename(fs.statSync(source).isDirectory() ? path.resolve(source) : path.dirname(path.resolve(source))))
-  const outputDir = path.join(ROOT, 'src', 'assets', 'images', 'portfolio', folder)
+  const imageDir = args.dir ? args.dir.replace(/^[\/]+|[\/]+$/g, '') : `portfolio/${folder}`
+  const outputDir = path.join(ROOT, 'src', 'assets', 'images', ...imageDir.split('/'))
   fs.mkdirSync(outputDir, { recursive: true })
 
   const results = []
@@ -123,7 +125,7 @@ const main = async () => {
   console.log(JSON.stringify({
     ogImage,
     images: results.map(result => ({
-      image: `portfolio/${folder}/${result.name}`,
+      image: `${imageDir}/${result.name}`,
       width: result.width,
       height: result.height
     }))

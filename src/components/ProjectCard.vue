@@ -53,6 +53,8 @@ export default {
   display: block;
   height: 400px;
   overflow: hidden;
+  // Mismo blanco que el pie: al subir en hover deja un hueco y no debe asomar el fondo de la página
+  background: rgb(255,255,255);
   transition: box-shadow .3s ease-in-out;
   border: 2px solid var(--primary-color);
   &:hover {
