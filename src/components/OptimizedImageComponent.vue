@@ -14,6 +14,7 @@
 
 <script>
 import { IMAGE_WIDTHS } from '@/views/data/imageWidths';
+import { fallbackImage, getImageUrl } from '@/utils/getImageUrl';
 
 export default {
   props: {
@@ -48,7 +49,7 @@ export default {
     },
     fallbackImage: {
       type: String,
-      default: require('@/assets/images/fallback.png')
+      default: fallbackImage
     }
   },
   computed: {
@@ -58,7 +59,7 @@ export default {
   },
   methods: {
     getImage(width) {
-      return require(`@/assets/images/${this.image}_${width}.${this.format}`);
+      return getImageUrl(`${this.image}_${width}.${this.format}`);
     },
     handleError(event) {
       event.target.srcset = '';

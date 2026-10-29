@@ -76,7 +76,7 @@ export default {
 }
 </script>
 <style lang="scss">
-@import './../assets/styles/media-variables';
+@use '@/assets/styles/media-variables' as *;
 
 .about-me-detail-container {
   display: grid;

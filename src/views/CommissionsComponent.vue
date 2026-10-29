@@ -63,7 +63,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import './../assets/styles/media-variables';
+@use '@/assets/styles/media-variables' as *;
 
 .commissions {
   max-width: 720px;

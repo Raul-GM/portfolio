@@ -152,7 +152,7 @@ export default {
         } else {
           throw new Error('Error en el envío del correo.');
         }
-      } catch (error) {
+      } catch {
         this.formStatus = 'Hubo un problema al enviar el correo. Inténtalo de nuevo.';
         this.formStatusClass = 'error';
       } finally {
@@ -176,7 +176,7 @@ export default {
 }
 </script>
 <style lang="scss">
-@import './../assets/styles/_media-variables.scss';
+@use '@/assets/styles/media-variables' as *;
 
 .main-container {
   padding-top: 1rem;

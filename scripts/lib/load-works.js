@@ -1,9 +1,6 @@
 // Carga src/views/data/works.js (módulo ES) desde los scripts de Node (CommonJS).
-// Transpila al vuelo los ficheros de src/ con Babel, que ya viene con @vue/cli-plugin-babel.
-// Los ficheros de datos solo pueden usar imports relativos: el alias @/ no existe fuera de webpack.
-
-// caniuse-lite desactualizado no afecta a estos scripts: silencia el aviso de browserslist
-process.env.BROWSERSLIST_IGNORE_OLD_DATA = '1'
+// Transpila al vuelo los ficheros de src/ con Babel.
+// Los ficheros de datos solo pueden usar imports relativos: el alias @/ no existe fuera de Vite.
 
 const Module = require('module')
 const path = require('path')

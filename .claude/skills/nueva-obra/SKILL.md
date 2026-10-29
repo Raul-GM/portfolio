@@ -9,7 +9,7 @@ Convierte una obra en una página del portfolio siguiendo los estándares de la 
 
 Lee `CLAUDE.md` si no lo tienes en contexto: explica `works.js`, los scripts y las convenciones.
 
-**Node 16 en cada comando de Node o npm** (Bash): `export PATH="/c/Users/Raul/AppData/Roaming/nvm/v16.20.2:$PATH" && …`
+**Node 22 en cada comando de Node o npm** (Bash): `export PATH="/c/Users/Raul/AppData/Roaming/nvm/v22.22.3:$PATH" && …`
 
 ## Reglas
 - **No inventes datos.** Cliente, fecha, encargo, premios, técnica o contexto solo si salen del autor, de `nota.txt` o del historial de la web (ver paso 1). Si falta algo que importa, pregunta.
@@ -97,7 +97,7 @@ Con los resultados:
 1. **Commit.** Si la rama actual es `main`, crea antes `obra/<slug>`; si no, commitea en la rama actual. Incluye `src/assets/images/portfolio/<Carpeta>/`, `public/og/<slug>.jpg`, `works.js`, `public/sitemap.xml` y, si cambió, `public/_redirects`. Los informes de `docs/audits/` de la obra también. Mensaje: `Add work: <título>` + atribución.
 2. **Archiva el original:** mueve la carpeta de `inbox/` a `originals/<slug>/` (crea `originals/` si no existe). Solo si el commit salió bien.
 3. **Resumen al autor** (breve):
-   - URL local: `npm run serve` (con Node 16) → `http://localhost:8080/portfolio/<slug>`. Si el dev server ya estaba arrancado, **hay que reiniciarlo** (no ve carpetas de imágenes nuevas).
+   - URL local: `npm run serve` (con Node 22) → `http://localhost:5173/portfolio/<slug>`.
    - Peso: original → variante de 960 px.
    - Avisos de imagen (transparencia, tamaño, color) y si conviene revisarla a ojo (línea fina, tramas, degradados).
    - Lo que corrigieron los revisores y lo que queda pendiente fuera de la obra.

@@ -3,50 +3,37 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "vite",
     "prebuild": "node scripts/check-works.js && node scripts/sitemap.js",
-    "build": "vue-cli-service build",
+    "build": "vite build",
     "postbuild": "node scripts/prerender-meta.js",
-    "lint": "vue-cli-service lint",
+    "preview": "vite preview",
+    "lint": "eslint --fix src",
     "images": "node scripts/images.js",
     "check": "node scripts/check-works.js"
   },
   "dependencies": {
     "@unhead/vue": "^1.11.20",
-    "core-js": "^3.6.5",
-    "vue": "^3.0.0",
-    "vue-router": "^4.0.0-0"
+    "vue": "^3.5.44",
+    "vue-router": "^4.6.4"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-eslint": "~4.5.0",
-    "@vue/cli-plugin-router": "^4.5.14",
-    "@vue/cli-service": "~4.5.0",
-    "@vue/compiler-sfc": "^3.0.0",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^7.0.0",
-    "node-sass": "^6.0.1",
-    "sass-loader": "^10.0.0",
-    "sharp": "^0.32.6"
+    "@babel/core": "^8.0.9",
+    "@babel/plugin-transform-modules-commonjs": "^8.0.1",
+    "@eslint/js": "^10.0.1",
+    "@vitejs/plugin-vue": "^6.0.10",
+    "eslint": "^10.13.0",
+    "eslint-plugin-vue": "^10.12.0",
+    "globals": "^17.13.0",
+    "sass": "^1.107.0",
+    "sharp": "^0.32.6",
+    "vite": "^8.3.5",
+    "ws": "^8.22.0"
   },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/vue3-essential",
-      "eslint:recommended"
-    ],
-    "parserOptions": {
-      "parser": "babel-eslint"
-    },
-    "rules": {}
+  "engines": {
+    "node": ">=22.12"
   },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ]
+  "allowScripts": {
+    "sharp@0.32.6": true
+  }
 }

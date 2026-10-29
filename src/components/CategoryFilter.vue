@@ -57,7 +57,7 @@
   </script>
   
   <style lang="scss">
-  @import './../assets/styles/_media-variables.scss';
+  @use '@/assets/styles/media-variables' as *;
   
   .category-filter {
     display: flex;

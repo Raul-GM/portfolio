@@ -91,7 +91,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '~@/assets/styles/_media-variables.scss';
+@use '@/assets/styles/media-variables' as *;
 
 .work {
   max-width: 800px;

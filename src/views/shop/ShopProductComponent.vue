@@ -70,7 +70,7 @@ export default {
 }
 </script>
 <style lang="scss">
-@import './../../assets/styles/_media-variables.scss';
+@use '@/assets/styles/media-variables' as *;
 
 .shop-product-container {
   display: grid;

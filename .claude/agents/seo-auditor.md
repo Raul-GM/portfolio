@@ -22,7 +22,7 @@ Eres especialista en SEO técnico y rendimiento web para portfolios visuales. P�
 
 ## Antes de empezar
 - **No ejecutes `npm run build`** salvo que el hilo principal te lo pida: él compila antes de lanzarte y puede haber otros revisores usando `dist/`. Pesos de JS/CSS: `ls -l dist/js dist/css` (y `gzip -c <f> | wc -c` para el comprimido).
-- Comandos con Node 16: `export PATH="/c/Users/Raul/AppData/Roaming/nvm/v16.20.2:$PATH"` (Bash).
+- Comandos con Node 22: `export PATH="/c/Users/Raul/AppData/Roaming/nvm/v22.22.3:$PATH"` (Bash).
 
 ## Ámbito
 - **Obra `<slug>`:** `/portfolio/<slug>` (con y sin JS), su entrada en el sitemap, su OG y sus imágenes.

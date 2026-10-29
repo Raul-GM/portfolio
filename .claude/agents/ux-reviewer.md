@@ -22,7 +22,7 @@ Eres diseñador UX senior especializado en portfolios de ilustradores que viven 
 
 ## Antes de empezar
 - **No ejecutes `npm run build`** salvo que el hilo principal te lo pida: él compila antes de lanzarte y puede haber otros revisores usando `dist/`. Si `dist/index.html` no existe, para y dilo.
-- Comandos con Node 16: `export PATH="/c/Users/Raul/AppData/Roaming/nvm/v16.20.2:$PATH"` (Bash).
+- Comandos con Node 22: `export PATH="/c/Users/Raul/AppData/Roaming/nvm/v22.22.3:$PATH"` (Bash).
 
 ## Ámbito
 - **Obra `<slug>`:** `/portfolio/<slug>` y su tarjeta en `/`.

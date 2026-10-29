@@ -1,4 +1,4 @@
-@import './_media-variables.scss';
+@use 'media-variables' as *;
 
 body {
   height: 100vh;

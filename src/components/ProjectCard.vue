@@ -8,6 +8,8 @@
     </router-link>
 </template>
 <script>
+import { getImageUrl } from '@/utils/getImageUrl'
+
 export default {
     components: {
     },
@@ -36,7 +38,7 @@ export default {
     }, computed: {
         inlineStyle () {
             // El fondo se pinta a ~500px: 640 en pantallas 1x y 960 en alta densidad
-            const image = width => require(`@/assets/images/${this.image}_${width}.jpeg`)
+            const image = width => getImageUrl(`${this.image}_${width}.jpeg`)
             return {
                 // Vue aplica el último valor que el navegador soporte: url() queda de respaldo
                 backgroundImage: [`url(${image(640)})`, `image-set(url(${image(640)}) 1x, url(${image(960)}) 2x)`]

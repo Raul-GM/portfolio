@@ -72,7 +72,7 @@
 </template>
 
 <script>
-import ImageComponent from '@/components/ImageComponent';
+import ImageComponent from '@/components/ImageComponent.vue';
 
 export default {
   components: { ImageComponent },
@@ -107,7 +107,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import './../assets/styles/media-variables';
+@use '@/assets/styles/media-variables' as *;
 
 :root {
   --nav-border-color: var(--dark-color);

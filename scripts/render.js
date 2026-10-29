@@ -1,6 +1,6 @@
 // Abre rutas de dist/ en Chromium sin ventana, sirviendo dist/ como Netlify. Herramienta de los
 // revisores (.claude/agents/). Requiere `npm run build` antes. Usa el Chromium de Playwright y
-// el protocolo DevTools (paquete `ws`, ya presente vía @vue/cli-service).
+// el protocolo DevTools (paquete `ws`).
 //
 //   node scripts/render.js <ruta> [<ruta>…] [opciones]
 //
@@ -320,7 +320,7 @@ const main = async () => {
   const args = parseArgs(process.argv.slice(2))
   const routes = args.routes.map(normalizeRoute)
   if (!routes.length) throw new Error('Uso: node scripts/render.js <ruta> [<ruta>…] [--summary] [--dom] [--raw] [--requests] [--screenshot out.png] [--full-page] [--click sel] [--tab n] [--width] [--height] [--dpr] [--reduced-motion]')
-  if (!fs.existsSync(path.join(DIST, 'index.html'))) throw new Error('No hay dist/: ejecuta antes `npm run build` (con Node 16)')
+  if (!fs.existsSync(path.join(DIST, 'index.html'))) throw new Error('No hay dist/: ejecuta antes `npm run build` (con Node 22)')
 
   const server = await startServer()
   const { port } = server.address()

@@ -3,9 +3,9 @@
 </template>
 
 <style lang="scss">
-@import './assets/styles/reset';
-@import './assets/styles/fonts';
-@import './assets/styles/variables';
-@import './assets/styles/colors';
-@import './assets/styles/main';
+@use './assets/styles/reset';
+@use './assets/styles/fonts';
+@use './assets/styles/variables';
+@use './assets/styles/colors';
+@use './assets/styles/main';
 </style>

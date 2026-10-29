@@ -7,6 +7,8 @@
         loading="lazy" />
 </template>
 <script>
+import { fallbackImage, getImageUrl } from '@/utils/getImageUrl'
+
 export default {
   props: {
     file: {
@@ -19,12 +21,12 @@ export default {
     },
     fallbackSrc: {
       type: String,
-      default: require('../assets/images/fallback.png') // Reemplaza con una ruta válida
+      default: fallbackImage
     }
   },
   computed: {
     getImageSource() {
-      return require(`../assets/images/${this.file}`)
+      return getImageUrl(this.file)
     }
   },
   methods: {
