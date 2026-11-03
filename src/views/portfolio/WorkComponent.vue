@@ -47,7 +47,7 @@ import NavbarComponent from '@/components/NavbarComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
 import OptimizedImageComponent from '@/components/OptimizedImageComponent.vue';
 import { useSeoMeta, getSchemaCreativeWork } from '@/composables/useSeoMeta';
-import { findWork, getCategoryLabel, getOgImage, getWorkUrl } from '@/views/data/works';
+import { findWork, getCategoryLabel, getOgImage, getWorkDateCreated, getWorkUrl, getWorkYears } from '@/views/data/works';
 import { findProductByWork, getProductUrl } from '@/views/data/shop';
 
 const SITE_URL = 'https://raulgarcia.me';
@@ -71,7 +71,7 @@ export default {
         title: work.title,
         description: work.seo.description,
         image: `${SITE_URL}/${getOgImage(work)}`,
-        dateCreated: work.date,
+        dateCreated: getWorkDateCreated(work),
         url
       })
     });
@@ -91,7 +91,7 @@ export default {
         getCategoryLabel(this.work),
         this.work.franchise,
         this.work.kind === 'commission' ? 'Encargo' : null,
-        this.work.date.slice(0, 4)
+        getWorkYears(this.work)
       ].filter(Boolean).join(' · ');
     }
   }

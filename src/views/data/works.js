@@ -11,7 +11,9 @@
 //              Reservado: hoy no se muestra en ninguna parte
 // series       nombre de la serie o colección si la obra forma parte de una; null si no.
 //              Reservado: hoy no se usa en ninguna parte
-// date         'AAAA-MM-DD' (creación)
+// date         'AAAA-MM-DD' (creación; si la obra se extiende en el tiempo, el final o la última pieza)
+// dateStart    opcional, 'AAAA-MM-DD' (inicio, anterior a date): la página muestra "2025–2026" y el
+//              schema usa el inicio como fecha de creación
 // summary      frase corta para la tarjeta de la home
 // body         párrafos de la página
 // seo          title y description (≤ 155 caracteres); la imagen OG es public/og/<slug>.jpg
@@ -30,7 +32,8 @@ export const works = [
     kind: 'personal',
     client: null,
     series: null,
-    date: '',
+    date: '2025-04-14',
+    dateStart: '2024-03-01',
     summary: 'Retratos digitales de diferentes músicos de la escena del Rock & Roll y del Metal, como Cristina Scabbia (Lacuna Coil), los miembros de Ankor y Enrik García (Dark Moor).',
     body: [
       'Proyecto personal que trata de una serie de retratos digitales de artistas del mundo del rock y del metal.',
@@ -115,11 +118,11 @@ export const works = [
     summary: 'Fan art de las películas de Studio Ghibli',
     body: [
       'Este es un proyecto personal en el que trato de homenajear, en forma de fan art, a las películas de Studio Ghibli que tanto han marcado mi vida.',
-      'La tirada cuenta con dos ilustraciones de Mi vecino Totoro, una de La tumba de las luciérnagas y completa la colección, de momento, una mítica imagen de Porco Rosso.'
+      'La tirada cuenta con dos ilustraciones de Mi vecino Totoro, y vienen más en camino.'
     ],
     seo: {
       title: 'Fan art de Studio Ghibli | Ilustración - Raúl García',
-      description: 'Fan art de Studio Ghibli: ilustraciones de Mi vecino Totoro con Totoro bajo la lluvia y Mei dormida entre luciérnagas, La tumba de las luciérnagas y Porco Rosso. Proyecto personal en marcha.'
+      description: 'Fan art de Studio Ghibli: ilustraciones de Mi vecino Totoro con Totoro. Proyecto personal en marcha.'
     },
     cover: 'portfolio/StudioGhibli/Totoro_2',
     blocks: [
@@ -137,7 +140,7 @@ export const works = [
         alt: 'Mei, una niña con coletas, duerme tumbada sobre la barriga de Totoro, que también duerme boca arriba en un claro del bosque, de noche, rodeados de luciérnagas verdes; la escena está enmarcada con bordes irregulares, como de papel rasgado.',
         width: 1280,
         height: 905,
-        altReviewed: false
+        altReviewed: true
       }
     ]
   },
@@ -171,7 +174,7 @@ export const works = [
         alt: 'Retrato de perfil de la reina Isabel II con corona de diamantes, envuelta en la bandera británica y con el pecho y los hombros cubiertos de pequeños tatuajes (un corgi, un ancla, la palabra Lilibet), sobre un fondo de recortes de periódico.',
         width: 1280,
         height: 1600,
-        altReviewed: false
+        altReviewed: true
       },
       {
         type: 'image',
@@ -179,7 +182,7 @@ export const works = [
         alt: 'Dossier del retrato de Isabel II: la reina de perfil en el centro, y a los lados una columna de círculos con cada uno de sus tatuajes (la corona, un corgi, un ancla, un cisne negro, la rosa Tudor) junto a un texto que explica su significado.',
         width: 1280,
         height: 905,
-        altReviewed: false
+        altReviewed: true
       }
     ]
   },
@@ -266,6 +269,7 @@ export const works = [
     kind: 'commission',
     client: null,
     series: null,
+    dateStart: '2025-08-05',
     date: '2026-06-09',
     summary: 'Marcapáginas ilustrados y diseñados a medida, con sus dos caras',
     body: [
@@ -372,5 +376,15 @@ export const findWork = (slug) => publishedWorks.find(work => work.slug === slug
 export const getCategoryLabel = (work) => Categories[work.category];
 
 export const getWorkUrl = (work) => `/portfolio/${work.slug}`;
+
+// Fecha de creación para el schema: el inicio si la obra tiene rango
+export const getWorkDateCreated = (work) => work.dateStart || work.date;
+
+// "2025" o, si el rango abarca varios años, "2025–2026"
+export const getWorkYears = (work) => {
+  const end = work.date.slice(0, 4);
+  const start = (work.dateStart || work.date).slice(0, 4);
+  return start === end ? end : `${start}–${end}`;
+};
 
 export const getOgImage = (work) => `og/${work.slug}.jpg`;

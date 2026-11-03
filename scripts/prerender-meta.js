@@ -6,7 +6,7 @@
 
 const fs = require('fs')
 const path = require('path')
-const { ROOT, SITE_URL, publishedWorks, getWorkUrl, getOgImage, shopData, getProductUrl, getProductOgImage, pages } = require('./lib/load-works')
+const { ROOT, SITE_URL, publishedWorks, getWorkUrl, getWorkDateCreated, getOgImage, shopData, getProductUrl, getProductOgImage, pages } = require('./lib/load-works')
 
 const DIST = path.join(ROOT, 'dist')
 const template = fs.readFileSync(path.join(DIST, 'index.html'), 'utf8')
@@ -55,7 +55,7 @@ const renderWorkHead = (work) => {
     name: work.title,
     description,
     image,
-    dateCreated: work.date,
+    dateCreated: getWorkDateCreated(work),
     url,
     creator: { '@type': 'Person', name: 'Raúl García' }
   }

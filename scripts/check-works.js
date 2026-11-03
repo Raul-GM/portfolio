@@ -40,6 +40,10 @@ works.forEach((work, index) => {
   if (!KINDS.includes(work.kind)) errors.push(`${id}: kind debe ser ${KINDS.join(' | ')}`)
   if (typeof work.order !== 'number') errors.push(`${id}: order debe ser un número`)
   if (!DATE.test(work.date || '')) errors.push(`${id}: date debe ser AAAA-MM-DD`)
+  if (work.dateStart !== undefined) {
+    if (!DATE.test(work.dateStart)) errors.push(`${id}: dateStart debe ser AAAA-MM-DD`)
+    else if (DATE.test(work.date || '') && work.dateStart > work.date) errors.push(`${id}: dateStart (${work.dateStart}) es posterior a date (${work.date})`)
+  }
   if (!isText(work.summary)) errors.push(`${id}: falta summary`)
   if (!Array.isArray(work.body) || !work.body.length || !work.body.every(isText)) errors.push(`${id}: body debe ser una lista de párrafos no vacía`)
 
