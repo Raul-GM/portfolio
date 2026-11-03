@@ -18,13 +18,13 @@
 
         <section aria-labelledby="privacy-legal">
           <h2 id="privacy-legal" class="section-title">Por qué puedo usarlos</h2>
-          <p>Porque tú me los envías y consientes su uso al enviar el formulario (art. 6.1.a del RGPD). Si me pides un presupuesto, también porque lo necesito para atender tu petición (art. 6.1.b). Puedes retirar tu consentimiento cuando quieras escribiéndome; no afectará a lo que ya hubiera hecho con tus datos hasta entonces.</p>
+          <p>Porque tú me los envías y consientes su uso al enviar el formulario (art. 6.1.a del RGPD, que regula el consentimiento). Si me pides un presupuesto, también porque lo necesito para atender tu petición (art. 6.1.b del RGPD, que permite tratar datos para atender lo que tú me pides antes de un posible encargo o compra). Puedes retirar tu consentimiento cuando quieras escribiéndome; no afectará a lo que ya hubiera hecho con tus datos hasta entonces.</p>
         </section>
 
         <section aria-labelledby="privacy-recipients">
           <h2 id="privacy-recipients" class="section-title">Quién más accede a ellos</h2>
           <ul class="privacy__list">
-            <li><b>Formspree, Inc.</b> (EE. UU.): es el servicio que recibe el formulario y me lo reenvía. Actúa como encargado del tratamiento. Al estar fuera de la UE, la transferencia se apoya en las garantías que el RGPD prevé para estos casos, y puede tratar además datos técnicos asociados al envío.</li>
+            <li><b>Formspree, Inc.</b> (EE. UU.): es el servicio que recibe el formulario y me lo reenvía. Actúa como encargado del tratamiento, es decir, trata tus datos por mi cuenta y solo para ese fin. Al estar fuera de la UE, la transferencia se apoya en las garantías que el RGPD prevé para estos casos, y puede tratar además datos técnicos asociados al envío.</li>
             <li><b>Mi proveedor de correo</b> (Gmail, de Google): es donde recibo tus mensajes y mis respuestas.</li>
           </ul>
           <p>No cedo tus datos a nadie más, salvo que una ley me obligue.</p>
@@ -84,6 +84,9 @@ export default {
   }
   section {
     padding-bottom: .5rem;
+    & + section {
+      padding-top: 1rem;
+    }
     h2 {
       font-size: var(--heading-section);
       padding-bottom: .5rem;

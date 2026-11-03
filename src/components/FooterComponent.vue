@@ -9,21 +9,21 @@
                 <a href="https://www.instagram.com/raulgarcia.design/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label="Ir a Instagram de Raúl García"
+                    aria-label="Ir a Instagram de Raúl García (se abre en otra pestaña)"
                     class="social-icon">
                     <ImageComponent file="icons/instagram.svg" altTitle="Logo Instagram"></ImageComponent>
                 </a>
                 <a href="https://www.behance.net/raulgm2/projects"
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label="Ir a Behance de Raúl García"
+                    aria-label="Ir a Behance de Raúl García (se abre en otra pestaña)"
                     class="social-icon">
                     <ImageComponent file="icons/behance.svg" altTitle="Logo Behance"></ImageComponent>
                 </a>
                 <a href="https://youtube.com/@raulgarcia.design?si=vtGtOh9aZKiw1Kkk"
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label="Ir a canal de Youtube de Raúl García"
+                    aria-label="Ir a canal de Youtube de Raúl García (se abre en otra pestaña)"
                     class="social-icon">
                     <ImageComponent file="icons/youtube.svg" altTitle="Logo Youtube"></ImageComponent>
                 </a>
