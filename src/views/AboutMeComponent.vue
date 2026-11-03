@@ -2,15 +2,21 @@
     <NavbarComponent/>
     <main class="main-container">
         <section class="about-me-detail-container">
-          <ImageComponent file="aboutMe/Bio 1.png" alt="Raúl García - Foto de perfil"/>
+          <OptimizedImageComponent
+            class="about-me-photo"
+            image="aboutMe/Bio"
+            altTitle="Foto de perfil de Raúl García"
+            :width="1280"
+            :height="1280"
+            sizes="(min-width: 768px) 40vw, 100vw"
+            eager />
           <div>
-            <p><b>¡Hola!</b> Soy Raúl García, estudiante de Grado de Diseño Digital en la Universidad Internacional de La Rioja (UNIR) y desarrollador front.</p>
-            <p>Aunque mi carrera profesional comenzó como programador, siempre he tenido esa chispa artística y creativa latente. Trabajar en estrecha colaboración con grandes diseñadoras y diseñadores de UI/UX a lo largo de los años me inspiró a entender más profundamente las decisiones detrás de sus diseños. Cada vez que adquiría conocimientos desde sus perspectivas, mi curiosidad crecía y me sumergía en la exploración de este fascinante mundo del diseño.</p>
-            <p>En 2020, en medio la turbulenta pandemia, tomé una decisión arriesgada: dar rienda suelta a mi pasión y apuntarme en el Grado de Diseño Digital. Desde entonces, he estado disfrutando cada momento como nunca antes. Cada día aprendo nuevas habilidades que no puedo evitar aplicarlas cada vez que surge una oportunidad.</p>
-            <p>Por otro lado, decidí desempolvar también mis viejos lápices y empezar a dibujar de nuevo, una afición que había dejado a un lado desde la infancia. Aunque no es una habilidad fundamental para el diseño digital, descubrí que complementa maravillosamente mi enfoque creativo. Además, es una vía para liberar mi mente y encontrar un momento de relax.</p>
+            <h1 class="section-title">Sobre mí</h1>
+            <p><b>¡Hola!</b> Soy Raúl García, ilustrador. Dibujo personajes de series, películas y videojuegos, y retratos de personas reales, sobre todo por encargo.</p>
+            <p>Empecé como programador front-end. Trabajando junto a diseñadoras y diseñadores de UI/UX me fui metiendo en el diseño, y en 2020 me apunté al Grado de Diseño Digital de la UNIR. Al mismo tiempo desempolvé los lápices, que tenía olvidados desde niño, y volví a dibujar.</p>
+            <p>Hoy me centro en la ilustración de cultura pop y en los retratos.</p>
             <div class="social">
-              <p>Si quieres contactar conmigo para realizarme algún encargo o propuesta, o si simplemente te apetece conversar o saber algo más 
-                de mí, puedes enviarme un correo a <a class="simple_link" href="mailto:raulgm83.art@gmail.com">raulgm83.art@gmail.com</a>.</p>
+              <p>Si tienes una idea, mira <router-link class="simple_link" to="/encargos">cómo trabajo los encargos</router-link> o escríbeme a <a class="simple_link" href="mailto:raulgm83.art@gmail.com">raulgm83.art@gmail.com</a>.</p>
               <p>También me puedes encontrar en redes sociales en los siguientes enlaces:</p>
               <ul class="social--list">
                 <li>
@@ -49,32 +55,37 @@
 import NavbarComponent from '@/components/NavbarComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
 import ImageComponent from '@/components/ImageComponent.vue';
+import OptimizedImageComponent from '@/components/OptimizedImageComponent.vue';
+import { pages } from '@/views/data/pages';
 import { useSeoMeta, getSchemaPersonProfile } from '@/composables/useSeoMeta';
 
 export default {
   components: {
     NavbarComponent,
     FooterComponent,
-    ImageComponent
+    ImageComponent,
+    OptimizedImageComponent
   },
   setup() {
     useSeoMeta({
-      title: 'Sobre mí | Raúl García - Diseñador e Ilustrador',
-      description: 'Conoce a Raúl García: estudiante de Diseño Digital, ilustrador y desarrollador front-end apasionado por el arte y la creatividad.',
+      title: pages.aboutMe.title,
+      description: pages.aboutMe.description,
       schema: getSchemaPersonProfile()
     });
   }
 }
 </script>
 <style lang="scss">
-@import './../assets/styles/media-variables';
+@use '@/assets/styles/media-variables' as *;
 
 .about-me-detail-container {
   display: grid;
   grid-template-columns: .65fr 1fr;
   grid-gap: 2rem;
-  .image {
+  .about-me-photo {
     width: 100%;
+    height: auto;
+    align-self: start;
   }
   @media (max-width: $media-mobile) {
     grid-template-columns: 1fr;

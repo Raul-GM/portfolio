@@ -1,24 +1,7 @@
-# portfolio
+# raulgarcia.me
 
-## Project setup
-```
-npm install
-```
+Portfolio de ilustración de Raúl García (Vue 3 + Vite). Desplegado en Netlify desde `main`.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Requiere **Node 22** (`nvm use 22`, ver `.nvmrc`): `npm install`, `npm run serve`, `npm run build`, `npm run lint`.
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Convenciones, arquitectura y flujo de trabajo: ver [CLAUDE.md](CLAUDE.md).

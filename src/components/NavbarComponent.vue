@@ -4,61 +4,65 @@
       <ImageComponent
         class="menu--ra--icon--mobile"
         file="RaulGarciaRowLogo.png"
-        altTitle="Logo de Raul García ilustración y diseño gráfico"
+        altTitle="Raúl García, ir al inicio"
         v-if="!isOpened">
       </ImageComponent>
     </router-link>
     <button class="menu--icon"
+            ref="menuButton"
             v-on:click="onMenuIconClick"
-            aria-expanded="isOpened"
-            aria-label="Abrir menú">
+            v-on:keydown.esc="closeMenu"
+            :aria-expanded="isOpened"
+            aria-controls="main-navigation"
+            :aria-label="isOpened ? 'Cerrar menú' : 'Abrir menú'">
       <ImageComponent
         class="menu--icon--image"
         file="icons/menu.svg"
-        altTitle="Icono de menú"
+        altTitle=""
         v-if="!isOpened">
       </ImageComponent>
       <ImageComponent
         class="menu--icon--image"
         file="icons/cross.svg"
-        altTitle="Icono cerrar menú"
+        altTitle=""
         v-if="isOpened">
       </ImageComponent>
     </button>
   </header>
-  <nav class="nav" :class="{ 'nav--mobile': isMobile(), opened: isOpened }" aria-label="Navegación principal">
+  <nav id="main-navigation"
+       class="nav"
+       :class="{ 'nav--mobile': isMobile(), opened: isOpened }"
+       aria-label="Navegación principal"
+       v-on:keydown.esc="closeMenu">
     <div class="nav--container">
       <span class="nav--home">
         <router-link to="/"
-            class="simple_link nav--side"
-            aria-label="Ir al portafolio">
+            class="simple_link nav--side">
           <ImageComponent
             class="menu--ra--icon"
             file="RaulGarciaRowLogo.png"
-            altTitle="Logo de Raul García ilustración y diseño gráfico"
+            altTitle="Raúl García, ir al inicio"
             v-if="!isOpened">
           </ImageComponent>
         </router-link>
       </span>
       <ul class="nav__menu">
         <li class="nav__menu__option" :class="{ 'option-active': isPortfolioRoute }">
-          <router-link :to="'/'"
-              aria-label="Ir al portafolio">
+          <router-link :to="'/'" ref="firstLink">
             Portfolio
           </router-link>
         </li>
         <li class="nav__menu__option">
-          <router-link :to="'/about-me'"
-              aria-label="Ir a la sección Sobre mí">
+          <router-link :to="'/encargos'">
+            <span>Encargos</span>
+          </router-link>
+        </li>
+        <li class="nav__menu__option">
+          <router-link :to="'/about-me'">
             <span>Sobre mí</span>
           </router-link>
         </li>
-        <li class="nav__menu__option" :class="{ 'option-active': isShopActive }">
-          <router-link :to="'/shop'" aria-label="Ir a la sección Tienda">
-            <span>Tienda</span>
-          </router-link>
-        </li>
-        <li class="nav__menu__option" aria-label="Ir a la sección contacto">
+        <li class="nav__menu__option">
           <router-link :to="'/contact'">Contacto</router-link>
         </li>
       </ul>
@@ -68,21 +72,14 @@
 </template>
 
 <script>
-import ImageComponent from '@/components/ImageComponent';
+import ImageComponent from '@/components/ImageComponent.vue';
 
 export default {
   components: { ImageComponent },
-  props: {
-    sideType: {
-      type: String,
-      default: 'developer',
-    }
-  },
   data() {
     return {
       isOpened: false,
-      PORTFOLIO_PATH: 'portfolio',
-      SHOP_PATH: 'shop'
+      PORTFOLIO_PATH: 'portfolio'
     }
   },
   methods: {
@@ -91,21 +88,26 @@ export default {
     },
     onMenuIconClick() {
       this.isOpened = !this.isOpened;
+      if (this.isOpened) {
+        this.$nextTick(() => this.$refs.firstLink.$el.focus());
+      }
+    },
+    closeMenu() {
+      if (!this.isOpened) return;
+      this.isOpened = false;
+      this.$refs.menuButton.focus();
     }
   },
   computed: {
     isPortfolioRoute() {
       return this.$route.path.includes(this.PORTFOLIO_PATH);
-    },
-    isShopActive() {
-      return this.$route.path.includes(this.SHOP_PATH);
     }
   }
 }
 </script>
 
 <style lang="scss">
-@import './../assets/styles/media-variables';
+@use '@/assets/styles/media-variables' as *;
 
 :root {
   --nav-border-color: var(--dark-color);

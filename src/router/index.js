@@ -1,5 +1,15 @@
+import { nextTick } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeComponent from '../views/HomeComponent.vue'
+import { findWork } from '@/views/data/works'
+import { shopData } from '@/views/data/shop'
+
+const toNotFound = (to) => ({
+  name: 'NotFound',
+  params: { pathMatch: to.path.substring(1).split('/') },
+  query: to.query,
+  hash: to.hash
+})
 
 const routes = [
   {
@@ -8,10 +18,13 @@ const routes = [
     component: HomeComponent,
     meta: { title: 'Portfolio' }
   }, {
+    // Duplicaba la home; Netlify también lo redirige (public/_redirects)
     path: '/portfolio',
-    name: 'Portfolio',
-    component: HomeComponent,
-    meta: { title: 'Portfolio' }
+    redirect: '/'
+  }, {
+    path: '/encargos',
+    name: 'Commissions',
+    component: () => import('../views/CommissionsComponent.vue')
   }, {
     path: '/about-me',
     name: 'AboutMe',
@@ -28,63 +41,18 @@ const routes = [
     component: () => import('../views/ContactComponent.vue'),
     meta: { title: 'Contacto' }
   }, {
-    path: '/portfolio/crush',
-    name: 'DesignerCrushIceCreams',
-    component: () => import('../views/portfolio/CrushComponent.vue')
-  }, {
-    path: '/portfolio/malas-mujeres',
-    name: 'DesignerMalasMujeres',
-    component: () => import('../views/portfolio/MalasMujeresComponent.vue')
-  }, {
-    path: '/portfolio/portadas-discos',
-    name: 'DesignerPortadasDiscos',
-    component: () => import('../views/portfolio/PortadasDiscosComponent.vue')
-  }, {
-    path: '/portfolio/villalbaria',
-    name: 'DesignerVillalbaria',
-    component: () => import('../views/portfolio/VillalbariaComponent.vue')
-  }, {
-    path: '/portfolio/metal-portraits',
-    name: 'MetalPortraits',
-    component: () => import('../views/portfolio/MetalPortraitsComponent.vue')
-  }, {
-    path: '/portfolio/harley-quinn',
-    name: 'HarleyQuinn',
-    component: () => import('../views/portfolio/HarleyQuinnComponent.vue')
-  }, {
-    path: '/portfolio/madrock-fest',
-    name: 'MadRockFest',
-    component: () => import('../views/portfolio/MadRockFestComponent.vue')
-  }, {
-    path: '/portfolio/kenya225',
-    name: 'Kenya225Logo',
-    component: () => import('../views/portfolio/Kenya225Component.vue')
-  }, {
-    path: '/portfolio/infected-rain-poster',
-    name: 'InfectedRainPoster',
-    component: () => import('../views/portfolio/InfectedRainPosterComponent.vue')
-  }, {
-    path: '/portfolio/videoclip-nebula',
-    name: 'VideoclipNebula',
-    component: () => import('../views/portfolio/VideoclipNebula.vue')
-  }, {
-    path: '/portfolio/commission-nighty-summer-vibes',
-    name: 'ComisionNightySummerVibes',
-    component: () => import('../views/portfolio/ComisionNightySummerVibes.vue')
-  }, {
-    path: '/portfolio/commission-queen-elizabeth-ii',
-    name: 'ComisionQueenElizabethII',
-    component: () => import('../views/portfolio/ComisionQueenElizabethII.vue')
-  }, {
-    path: '/portfolio/commision-retratos-personalizados',
-    name: 'RetratosPersonalizados',
-    component: () => import('../views/portfolio/ComisionRetratosPersonalizados.vue')
+    path: '/portfolio/:slug',
+    name: 'Work',
+    component: () => import('../views/portfolio/WorkComponent.vue'),
+    // Slug inexistente o archivado: muestra la 404 manteniendo la URL
+    beforeEnter: (to) => findWork(to.params.slug) ? true : toNotFound(to)
   }, {
     path: '/shop/:product',
     name: 'Shop Product',
-    component: () => import('../views/shop/ShopProductComponent.vue')
+    component: () => import('../views/shop/ShopProductComponent.vue'),
+    beforeEnter: (to) => shopData.some(item => item.id === to.params.product) ? true : toNotFound(to)
   }, {
-    path: '/:pathMatch(.*)',
+    path: '/:pathMatch(.*)*',
     name: 'NotFound',
     component: () => import('../views/NotFoundComponent.vue'),
     meta: { title: 'Página no encontrada' }
@@ -92,7 +60,7 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes,
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
@@ -101,6 +69,17 @@ const router = createRouter({
       return { top: 0 };
     }
   }
+})
+
+// Al navegar, el foco pasa al título de la nueva página para que el lector de pantalla la anuncie
+router.afterEach((to, from) => {
+  if (!from.matched.length) return
+  nextTick(() => {
+    const target = document.querySelector('main h1') || document.querySelector('main')
+    if (!target) return
+    target.setAttribute('tabindex', '-1')
+    target.focus({ preventScroll: true })
+  })
 })
 
 export default router
