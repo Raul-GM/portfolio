@@ -77,7 +77,6 @@ export default {
 @use '@/assets/styles/media-variables' as *;
 
 .home-intro {
-  max-width: 640px;
   padding-bottom: 1.5rem;
   &__title {
     padding-bottom: .5rem;
@@ -85,6 +84,7 @@ export default {
   &__text {
     font-size: 1.1rem;
     line-height: 1.5;
+    max-width: var(--prose-max);
   }
 }
 
@@ -98,13 +98,13 @@ export default {
     text-align: center;
   }
   @media (min-width: $media-small-mobile) {
-    &_card {
-      &:first-of-type,
-      &:nth-of-type(6n) {
-        grid-column: span 2;
-        width: 100%;
-      }
-    }  
+    &_card:first-of-type {
+      grid-column: span 2;
+      width: 100%;
+    }
+  }
+  @media (min-width: $media-mid-screen) {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 </style>

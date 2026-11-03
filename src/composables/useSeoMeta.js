@@ -129,6 +129,7 @@ export const getSchemaCreativeWork = (project) => {
     name: title,
     description,
     image,
+    inLanguage: 'es',
     dateCreated,
     url,
     creator: {

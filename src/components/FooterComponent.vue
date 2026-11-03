@@ -59,7 +59,8 @@ export default {
     justify-content: space-between;
     align-items: center;
     height: 100%;
-    padding: 0 5rem;
+    max-width: var(--page-max);
+    padding: 0 var(--main-padding);
     margin: auto;
     &__link {
       margin-left: 1rem;

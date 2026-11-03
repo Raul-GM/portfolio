@@ -1,4 +1,5 @@
 <template>
+  <a href="#contenido" class="skip-link" v-on:click.prevent="skipToContent">Saltar al contenido</a>
   <header class="mobile-header">
     <router-link to="/" class="simple_link menu--ra--link--mobile" :aria-hidden="isOpened ? 'true' : null" :tabindex="isOpened ? -1 : null">
       <ImageComponent
@@ -90,7 +91,25 @@ export default {
       SHOP_PATH: '/shop'
     }
   },
+  watch: {
+    isOpened(opened) {
+      this.setPageInert(opened);
+    }
+  },
+  beforeUnmount() {
+    this.setPageInert(false);
+  },
   methods: {
+    // Con el menú móvil abierto tapa el contenido: main y footer (que pinta cada vista) no deben recibir foco
+    setPageInert(inert) {
+      document.querySelectorAll('main, footer').forEach(element => { element.inert = inert; });
+    },
+    skipToContent() {
+      const main = document.querySelector('main');
+      if (!main) return;
+      main.setAttribute('tabindex', '-1');
+      main.focus();
+    },
     isMobile() {
       return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     },
@@ -121,6 +140,21 @@ export default {
 <style lang="scss">
 @use '@/assets/styles/media-variables' as *;
 
+/* Enlace de salto: invisible hasta que recibe el foco con teclado */
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 20;
+  padding: .75rem 1.5rem;
+  border-radius: 5px;
+  background-color: var(--darkest-color);
+  color: var(--lightest-color);
+  font-weight: bold;
+  &:focus {
+    top: 1rem;
+  }
+}
 :root {
   --nav-border-color: var(--dark-color);
 }
@@ -160,7 +194,8 @@ export default {
       left: 0;
       right: 0;
       margin: auto;
-      padding: 0 5rem;
+      max-width: var(--page-max);
+      padding: 0 var(--main-padding);
       @media (max-width: $media-mobile) {
         .nav__menu {
           padding-top: 1rem;

@@ -3,6 +3,9 @@
     --footer-height: 60px;
     --footer-height-mobile: 120px;
     --main-padding: 80px;
+    --content-max: 1200px;
+    --prose-max: 720px;
+    --page-max: calc(var(--content-max) + 2 * var(--main-padding));
     --font-title: 'alternative', sans-serif;
     --font-text: 'main', sans-serif;
 }

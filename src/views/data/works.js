@@ -269,12 +269,13 @@ export const works = [
     kind: 'commission',
     client: null,
     series: null,
-    dateStart: '2025-08-05',
     date: '2026-06-09',
     summary: 'Marcapáginas ilustrados y diseñados a medida, con sus dos caras',
     body: [
       'Marcapáginas que ilustro y diseño por encargo: el concepto, la ilustración y la maquetación para imprimir, con una cara y otra pensadas juntas.',
-      'Aquí muestro un par de ejemplos. El primero de ellos se trata de un encargo para un grupo de opositores. A partir de una serie de conversaciones con la persona que realizó el encargo diseñé las dos caras y realicé las ilustraciones usando acuarelas digitales. El otro encargo se trataba de un regalo para las maestras de una escuela infantil. En este diseño aparece una serie de personas relacionadas con la evolución de la pedagogía moderna y una frase al reverso que resume la idea de que no hay límites para aprender y enseñar.',
+      'Aquí muestro un par de ejemplos.',
+      'El primero de ellos se trata de un encargo para un grupo de opositores. A partir de una serie de conversaciones con la persona que realizó el encargo diseñé las dos caras y realicé las ilustraciones usando acuarelas digitales.',
+      'El otro encargo se trataba de un regalo para las maestras de una escuela infantil. En este diseño aparece una serie de personas relacionadas con la evolución de la pedagogía moderna y una frase al reverso que resume la idea de que no hay límites para aprender y enseñar.',
       'Si quieres uno para un grupo, un evento o un regalo, escríbeme.'
     ],
     seo: {

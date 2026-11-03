@@ -44,8 +44,12 @@ p {
 
 .main-container {
   min-height: calc(100vh - var(--navbar-height) - var(--footer-height));
+  max-width: var(--page-max);
+  margin: 0 auto;
   padding: 2rem var(--main-padding);
   @media (max-width: $media-mobile) {
+    // El pie móvil es más alto y la cabecera móvil deja 1rem de margen
+    min-height: calc(100vh - var(--navbar-height) - var(--footer-height-mobile) - 1rem);
     padding: 0 1rem 1rem 1rem;
   }
 }

@@ -65,7 +65,7 @@ export default {
 </script>
 <style lang="scss">
 .shop-intro {
-  max-width: 720px;
+  max-width: var(--prose-max);
   padding-bottom: 1.5rem;
   line-height: 1.5;
 }

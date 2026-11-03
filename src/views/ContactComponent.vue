@@ -51,7 +51,7 @@
           </div>
           <p class="form--privacy">Uso tu nombre, tu correo y tu mensaje solo para responderte. Responsable: Raúl García Martín. Más información en la <router-link class="simple_link" to="/privacidad">política de privacidad</router-link>.</p>
           <div>
-            <input type="submit" class="form--submit" value="Enviar mensaje" :disabled="isSending" />
+            <input type="submit" class="button-primary form--submit" value="Enviar mensaje" :disabled="isSending" />
           </div>
           <p class="form--status" :class="formStatusClass" role="status">{{ formStatus }}</p>
         </form>
@@ -189,9 +189,6 @@ export default {
 <style lang="scss">
 @use '@/assets/styles/media-variables' as *;
 
-.main-container {
-  padding-top: 1rem;
-}
 .social--list {
   display: grid;
   grid-gap: 2rem;
@@ -225,7 +222,7 @@ export default {
 }
 .form {
   min-width: 30vw;
-  max-width: 50vw;
+  max-width: var(--prose-max);
   @media (max-width: $media-mobile) {
     max-width: unset;
   }
@@ -263,26 +260,16 @@ export default {
       border-color: var(--error-color);
     }
   }
+  // El aspecto lo da .button-primary; aquí solo lo propio del <input>
   &--submit {
-    border: 1px solid var(--secondary-color);
-    background-color: var(--primary-color);
-    padding: 12px 20px;
+    border: 0;
     margin: .5rem 0 1rem;
-    color: var(--lightest-color);
-    font-weight: bold;
+    font-family: inherit;
+    font-size: inherit;
     cursor: pointer;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
     appearance: none;
-    transition: all .2s ease-in-out;
-    
     @media (max-width: $media-mobile) {
       width: 100%;
-    }
-    &:hover,
-    &:focus {
-      border: 1px solid var(--primary-color);
-      background-color: var(--secondary-color);
     }
     &:disabled {
       cursor: wait;

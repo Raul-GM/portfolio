@@ -15,7 +15,7 @@
             :altTitle="block.alt"
             :width="block.width"
             :height="block.height"
-            sizes="(min-width: 840px) 800px, 100vw"
+            sizes="(min-width: 1120px) 960px, 100vw"
             :eager="index === 0" />
           <div v-if="index === 0" class="work__body">
             <p v-for="(paragraph, paragraphIndex) in work.body" :key="paragraphIndex">{{ paragraph }}</p>
@@ -104,8 +104,7 @@ export default {
 @use '@/assets/styles/media-variables' as *;
 
 .work {
-  max-width: 800px;
-  margin: 0 auto;
+  max-width: 960px;
   &__meta {
     color: var(--primary-color);
     padding-bottom: 1.5rem;

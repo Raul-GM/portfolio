@@ -21,17 +21,18 @@ const escapeHtml = value => String(value)
 const MANAGED_TAGS = [
   /<title>[\s\S]*?<\/title>/,
   /<meta (?:name|property)="?(?:description|og:[\w:]+|twitter:[\w:]+)"?[^>]*>/g,
-  /<link rel="?canonical"?[^>]*>/g
+  /<link rel="?canonical"?[^>]*>/g,
+  /<script type="application\/ld\+json">[\s\S]*?<\/script>/g
 ]
 
-const renderHead = ({ title, description, url, image = DEFAULT_OG_IMAGE, type = 'website', schema, noindex = false }) => {
+const renderHead = ({ title, description, url, image = DEFAULT_OG_IMAGE, schema, noindex = false }) => {
   const meta = [
     ['name', 'description', description],
     ['property', 'og:title', title],
     ['property', 'og:description', description],
     ['property', 'og:image', image],
     ['property', 'og:url', url],
-    ['property', 'og:type', type],
+    ['property', 'og:type', 'website'],
     ['name', 'twitter:card', 'summary_large_image'],
     ['name', 'twitter:title', title],
     ['name', 'twitter:description', description],
@@ -55,11 +56,12 @@ const renderWorkHead = (work) => {
     name: work.title,
     description,
     image,
+    inLanguage: 'es',
     dateCreated: getWorkDateCreated(work),
     url,
     creator: { '@type': 'Person', name: 'Raúl García' }
   }
-  return renderHead({ title, description, url, image, type: 'article', schema })
+  return renderHead({ title, description, url, image, schema })
 }
 
 // Mismos textos y schema que ShopProductComponent
@@ -84,7 +86,7 @@ const renderProductHead = (product) => {
       url
     }
   }
-  return renderHead({ title, description, url, image, type: 'product', schema })
+  return renderHead({ title, description, url, image, schema })
 }
 
 const base = MANAGED_TAGS.reduce((html, pattern) => html.replace(pattern, ''), template)
@@ -96,9 +98,28 @@ const writePage = (route, head) => {
   fs.writeFileSync(output, base.replace('</head>', `${head}</head>`))
 }
 
+// Mismo schema que getSchemaPersonProfile (src/composables/useSeoMeta.js), que no se puede cargar desde Node
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Raúl García',
+  url: SITE_URL,
+  email: 'raulgm83.art@gmail.com',
+  jobTitle: 'Ilustrador',
+  image: DEFAULT_OG_IMAGE,
+  sameAs: [
+    'https://www.instagram.com/raulgarcia.design/',
+    'https://www.behance.net/raulgm2/projects',
+    'https://youtube.com/@raulgarcia.design'
+  ],
+  description: 'Ilustrador especializado en fan art de series, películas y videojuegos y en retratos por encargo.'
+}
+
 // La home es dist/index.html, que también sirve de plantilla para el resto de rutas de la SPA
+// (por eso se reescribe la última, con la plantilla `base` ya limpia de metas)
 const staticPages = Object.values(pages).filter(page => page.path !== '/')
 staticPages.forEach(page => writePage(page.path, renderHead({ ...page, url: `${SITE_URL}${page.path}` })))
 publishedWorks.forEach(work => writePage(getWorkUrl(work), renderWorkHead(work)))
 shopData.forEach(product => writePage(getProductUrl(product), renderProductHead(product)))
-console.log(`✔ HTML con metas: ${staticPages.length} página(s) fijas, ${publishedWorks.length} obra(s) y ${shopData.length} lámina(s)`)
+fs.writeFileSync(path.join(DIST, 'index.html'), base.replace('</head>', `${renderHead({ ...pages.home, url: `${SITE_URL}/`, schema: personSchema })}</head>`))
+console.log(`✔ HTML con metas: home y ${staticPages.length} página(s) fijas, ${publishedWorks.length} obra(s) y ${shopData.length} lámina(s)`)

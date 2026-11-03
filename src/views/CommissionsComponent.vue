@@ -16,6 +16,10 @@
               <h3>Retratos</h3>
               <p>Un retrato ilustrado tuyo, de tu pareja, familia y amigos. Ah, aquí las mascotas también son bienvenidas.</p>
             </li>
+            <li>
+              <h3>Diseño</h3>
+              <p>Marcapáginas, carteles para grupos de música y otras piezas gráficas: yo me encargo del concepto, la ilustración y la maquetación lista para imprimir.</p>
+            </li>
           </ul>
         </section>
 
@@ -66,7 +70,6 @@ export default {
 @use '@/assets/styles/media-variables' as *;
 
 .commissions {
-  max-width: 720px;
   padding-bottom: 2rem;
   p,
   li {
@@ -75,9 +78,14 @@ export default {
   &__intro {
     font-size: 1.1rem;
     padding-bottom: 1.5rem;
+    max-width: var(--prose-max);
   }
   &__section {
     padding-bottom: 1rem;
+    > p,
+    ol {
+      max-width: var(--prose-max);
+    }
     h2 {
       font-size: 1.4rem;
       padding-bottom: .75rem;
@@ -85,10 +93,10 @@ export default {
   }
   &__types {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 1.5rem;
-    @media (max-width: $media-mobile) {
-      grid-template-columns: 1fr;
+    @media (min-width: $media-mid-screen) {
+      grid-template-columns: repeat(3, 1fr);
     }
     h3 {
       font-size: 1.1rem;
