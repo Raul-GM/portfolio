@@ -156,7 +156,6 @@ export default {
     flex-wrap: wrap;
     gap: 1rem;
     padding-bottom: 0;
-    font-size: 1.1rem;
   }
   &__footer {
     display: flex;

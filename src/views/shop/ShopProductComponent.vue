@@ -117,7 +117,7 @@ export default {
     padding-bottom: 0;
   }
   &__mockup {
-    font-size: .9rem;
+    font-size: var(--text-sm);
     color: var(--primary-color);
   }
   &__buy {

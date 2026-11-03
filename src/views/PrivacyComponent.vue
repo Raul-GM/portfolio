@@ -79,13 +79,13 @@ export default {
     padding-bottom: .75rem;
   }
   &__intro {
-    font-size: 1.1rem;
+    font-size: var(--text-lead);
     padding-bottom: 1.5rem;
   }
   section {
     padding-bottom: .5rem;
     h2 {
-      font-size: 1.3rem;
+      font-size: var(--heading-section);
       padding-bottom: .5rem;
     }
   }

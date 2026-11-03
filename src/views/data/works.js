@@ -118,7 +118,8 @@ export const works = [
     summary: 'Proyecto personal: escenas de Mi vecino Totoro, con más películas en camino',
     body: [
       'Este es un proyecto personal en el que trato de homenajear, en forma de fan art, a las películas de Studio Ghibli que tanto han marcado mi vida.',
-      'De momento hay dos ilustraciones de Mi vecino Totoro, y vendrán más.'
+      'De momento hay dos ilustraciones de Mi vecino Totoro, y vienen en camino una de La tumba de las luciérnagas y otra de Porco Rosso. La serie tendrá más ilustraciones con el paso del tiempo.',
+      'El estilo que he usado para estas ilustraciones es de lápices de colores digitales.'
     ],
     seo: {
       title: 'Fan art de Studio Ghibli | Ilustración - Raúl García',

@@ -5,12 +5,12 @@ body {
   font-family: var(--font-text);
   background-color: var(--lightest-color);
   color: var(--main-text-color);
-  font-size: 14px;
+  font-size: var(--text-base);
 }
 input,
 textarea {
   font-family: var(--font-text);
-  font-size: .9rem;
+  font-size: var(--text-base);
 }
 h1 {
   font-size: 1.8rem;

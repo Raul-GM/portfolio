@@ -1,12 +1,13 @@
 <template>
     <NavbarComponent />
     <main class="main-container">
+      <h1 id="contactForm" class="section-title">Contáctame</h1>
+      <p class="contact__intro">¿Tienes una idea para un encargo? Cuéntame qué quieres (un personaje, una escena, un retrato), para cuándo lo necesitas y si necesitas más información. Te contestaré lo antes posible con presupuesto y plazo, sin compromiso.</p>
       <div class="contact">
         <form action="https://formspree.io/f/xqaazjwd"
               @submit.prevent="onSubmit"
               class="form"
               aria-labelledby="contactForm">
-          <h1 id="contactForm" class="section-title">Contáctame</h1>
           <div class="field-group">
             <label class="form--label" for="name">Nombre</label>
             <input
@@ -55,8 +56,8 @@
           </div>
           <p class="form--status" :class="formStatusClass" role="status">{{ formStatus }}</p>
         </form>
-        <div class="social">
-          <p>¿Tienes una idea para un encargo? Cuéntame qué quieres (un personaje, una escena, un retrato), para cuándo lo necesitas y si necesitas más información. Te contestaré lo antes posible con presupuesto y plazo, sin compromiso.</p>
+        <aside class="social" aria-label="Otras formas de contactar">
+          <h2 class="section-title contact__aside-title">Otras formas de contactar</h2>
           <p>Si prefieres, escríbeme por mensaje directo en <a class="simple_link" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/raulgarcia.design/">Instagram</a>. Y si quieres saber cómo trabajo, mira la página de <router-link class="simple_link" to="/encargos">encargos</router-link>.</p>
           <ul class="social--list">
             <li>
@@ -84,7 +85,7 @@
               </a>
             </li>
           </ul>
-        </div>
+        </aside>
       </div>
     </main>
     
@@ -212,10 +213,19 @@ export default {
     }
   }
 }
+.contact__intro {
+  max-width: var(--prose-max);
+  font-size: var(--text-lead);
+  line-height: 1.5;
+  padding-bottom: 1.5rem;
+}
+.contact__aside-title {
+  font-size: var(--heading-section);
+}
 .contact {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 1rem;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  grid-gap: 3rem;
   @media (max-width: $media-mobile) {
     grid-template-columns: 1fr;
   }
@@ -293,7 +303,7 @@ export default {
     }
   }
   &--privacy {
-    font-size: .9rem;
+    font-size: var(--text-sm);
     line-height: 1.4;
     padding-bottom: .75rem;
   }
@@ -314,7 +324,7 @@ export default {
     position: absolute;
     right: 2px;
     bottom: .7rem;
-    font-size: .8rem;
+    font-size: var(--text-sm);
     padding: 4px;
   }
 }

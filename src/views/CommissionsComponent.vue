@@ -18,7 +18,7 @@
             </li>
             <li>
               <h3>Diseño</h3>
-              <p>Marcapáginas, carteles para grupos de música y otras piezas gráficas: yo me encargo del concepto, la ilustración y la maquetación lista para imprimir.</p>
+              <p>Marcapáginas, carteles y otras piezas gráficas: yo me encargo del concepto, la ilustración, la maquetación e impresión.</p>
             </li>
           </ul>
         </section>
@@ -76,7 +76,7 @@ export default {
     line-height: 1.5;
   }
   &__intro {
-    font-size: 1.1rem;
+    font-size: var(--text-lead);
     padding-bottom: 1.5rem;
     max-width: var(--prose-max);
   }
@@ -87,7 +87,7 @@ export default {
       max-width: var(--prose-max);
     }
     h2 {
-      font-size: 1.4rem;
+      font-size: var(--heading-section);
       padding-bottom: .75rem;
     }
   }
@@ -99,7 +99,7 @@ export default {
       grid-template-columns: repeat(3, 1fr);
     }
     h3 {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       padding-bottom: .25rem;
     }
   }

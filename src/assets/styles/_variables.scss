@@ -6,6 +6,12 @@
     --content-max: 1200px;
     --prose-max: 720px;
     --page-max: calc(var(--content-max) + 2 * var(--main-padding));
+    // Escala de texto: cuerpo, entradilla de página y texto pequeño (pies, notas, etiquetas)
+    --text-base: 1rem;
+    --text-lead: 1.125rem;
+    --text-sm: .875rem;
+    // Título de sección dentro de una página (h2 de Encargos y Privacidad)
+    --heading-section: 1.4rem;
     --font-title: 'alternative', sans-serif;
     --font-text: 'main', sans-serif;
 }

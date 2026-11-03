@@ -82,7 +82,7 @@ export default {
     padding-bottom: .5rem;
   }
   &__text {
-    font-size: 1.1rem;
+    font-size: var(--text-lead);
     line-height: 1.5;
     max-width: var(--prose-max);
   }

@@ -64,8 +64,11 @@ export default {
 }
 </script>
 <style lang="scss">
+@use '@/assets/styles/media-variables' as *;
+
 .shop-intro {
   max-width: var(--prose-max);
+  font-size: var(--text-lead);
   padding-bottom: 1.5rem;
   line-height: 1.5;
 }
@@ -75,6 +78,9 @@ export default {
   justify-content: start;
   gap: 1.5rem 1rem;
   padding-bottom: 2rem;
+  @media (max-width: $media-mobile) {
+    grid-template-columns: 1fr;
+  }
 }
 .shop-card-info {
   display: flex;
@@ -83,6 +89,9 @@ export default {
   gap: .5rem;
   &-image {
     width: min(320px, 100%);
+    @media (max-width: $media-mobile) {
+      width: 100%;
+    }
     aspect-ratio: 1;
     overflow: hidden;
     img {
@@ -102,11 +111,11 @@ export default {
       font-size: 1.4rem;
     }
     &-price {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       font-family: var(--font-title);
     }
     &-soldout {
-      font-size: .9rem;
+      font-size: var(--text-sm);
       color: var(--primary-color);
     }
   }

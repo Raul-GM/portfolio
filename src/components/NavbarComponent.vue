@@ -101,6 +101,8 @@ export default {
     // Con el menú móvil abierto tapa el contenido: main y footer (que pinta cada vista) no deben recibir foco
     setPageInert(inert) {
       document.querySelectorAll('main, footer').forEach(element => { element.inert = inert; });
+      // El fondo no debe desplazarse bajo el menú
+      document.body.style.overflow = inert ? 'hidden' : '';
     },
     skipToContent() {
       const main = document.querySelector('main');
@@ -162,7 +164,10 @@ export default {
     display: flex;
     height: var(--navbar-height);
     width: 100%;
-    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    background-color: var(--lightest-color);
     border-bottom: 1px solid var(--dark-color);
     margin-bottom: 1rem;
     justify-content: center;
@@ -212,7 +217,7 @@ export default {
           max-width: none;
           margin: 0;
           padding: 0;
-          height: 100vh;
+          height: auto;
       }
   }
   
@@ -251,11 +256,16 @@ export default {
       }
   }
   @media (max-width: $media-mobile) {
-      position: absolute;
-      top: 60px;
+      // Menú abierto: ocupa lo que queda bajo la cabecera fija y hace scroll por su cuenta
+      position: fixed;
+      top: var(--navbar-height);
+      bottom: 0;
       left: 0;
       right: 0;
-      height: 100%;
+      height: auto;
+      z-index: 20;
+      overflow-y: auto;
+      border-bottom: 0;
       flex-direction: column;
       padding: 0;
       &--home {
@@ -265,8 +275,7 @@ export default {
           flex-direction: column;
           height: unset;
           padding-top: 3rem;
-          width: 100vw;
-          position: fixed;
+          width: 100%;
           &__option {
               height: 3rem;
               width: 100%;

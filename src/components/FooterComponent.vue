@@ -53,7 +53,7 @@ export default {
   background-color: var(--darkest-color);
   color: var(--secondary-text-color);
   height: var(--footer-height);
-  font-size: .9rem;
+  font-size: var(--text-sm);
   &-container {
     display: flex;
     justify-content: space-between;
