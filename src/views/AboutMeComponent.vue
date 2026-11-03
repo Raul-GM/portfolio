@@ -12,7 +12,7 @@
             eager />
           <div>
             <h1 class="section-title">Sobre mí</h1>
-            <p><b>¡Hola!</b> Soy Raúl García, ilustrador y diseñador. Realizo ilustraciones de personajes de series, películas, libros, videojuegos y todo lo relacionado con la cultura popular. Además, realizo retratos de personas que quieran tener un recuerdo con sus parejasm, amistades, familias y/o mascotas.</p>
+            <p><b>¡Hola!</b> Soy Raúl García, ilustrador y diseñador. Realizo ilustraciones de personajes de series, películas, libros, videojuegos y todo lo relacionado con la cultura popular. Además, realizo retratos de personas que quieran tener un recuerdo con sus parejas, amistades, familias y/o mascotas.</p>
             <p>Trabajo también como programador front-end. Gracias a aprender de a diseñadoras y diseñadores de UI/UX me fui metiendo en el diseño, y en 2020 me apunté al Grado de Diseño Digital de la UNIR. Al mismo tiempo desempolvé los lápices, que tenía olvidados desde niño, y volví a dibujar.</p>
             <p>Hoy me centro en el fan art, los retratos y sus posibles aplicaciones dentro del diseño (carteles, marcapáginas, etc.).</p>
             <div class="social">

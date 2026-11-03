@@ -5,7 +5,7 @@ export const pages = {
   home: {
     path: '/',
     title: 'Raúl García | Fan art por encargo y retratos ilustrados',
-    description: 'Portfolio de Raúl García: fan art por encargo de personajes de series, películas, libros y videojuegos, y retratos ilustrados junto con sus posibles aplicaciones en el diseño.'
+    description: 'Portfolio de Raúl García: fan art por encargo de personajes de series, películas, libros y videojuegos, y retratos ilustrados con aplicaciones en diseño.'
   },
   commissions: {
     path: '/encargos',

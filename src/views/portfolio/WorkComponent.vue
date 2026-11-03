@@ -4,7 +4,7 @@
     <article class="work" :aria-labelledby="`work-title-${work.slug}`">
       <header class="work__header">
         <h1 :id="`work-title-${work.slug}`" class="section-title">{{ work.title }}</h1>
-        <p class="work__meta">{{ meta }}</p>
+        <p class="work__meta">{{ meta }} · <time v-for="(year, yearIndex) in years" :key="year" :datetime="year"><template v-if="yearIndex">–</template>{{ year }}</time></p>
       </header>
       <!-- La primera imagen va antes del texto: la obra es lo primero que se ve -->
       <div class="work__blocks">
@@ -90,9 +90,11 @@ export default {
       return [
         getCategoryLabel(this.work),
         this.work.franchise,
-        this.work.kind === 'commission' ? 'Encargo' : null,
-        getWorkYears(this.work)
+        this.work.kind === 'commission' ? 'Encargo' : null
       ].filter(Boolean).join(' · ');
+    },
+    years() {
+      return [...new Set(getWorkYears(this.work).split('–'))];
     }
   }
 }

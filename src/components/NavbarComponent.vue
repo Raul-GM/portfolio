@@ -1,6 +1,6 @@
 <template>
   <header class="mobile-header">
-    <router-link to="/" class="simple_link menu--ra--link--mobile">
+    <router-link to="/" class="simple_link menu--ra--link--mobile" :aria-hidden="isOpened ? 'true' : null" :tabindex="isOpened ? -1 : null">
       <ImageComponent
         class="menu--ra--icon--mobile"
         file="RaulGarciaRowLogo.png"
@@ -37,7 +37,9 @@
     <div class="nav--container">
       <span class="nav--home">
         <router-link to="/"
-            class="simple_link nav--side">
+            class="simple_link nav--side"
+            :aria-hidden="isOpened ? 'true' : null"
+            :tabindex="isOpened ? -1 : null">
           <ImageComponent
             class="menu--ra--icon"
             file="RaulGarciaRowLogo.png"

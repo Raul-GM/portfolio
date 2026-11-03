@@ -45,8 +45,9 @@
               required aria-required="true"
               v-model="message.text"
               :maxlength="message.maxlength"
+              aria-describedby="textarea-counter"
             ></textarea>
-            <span class="counter">{{ message.text.length }} / {{ message.maxlength }}</span>
+            <span class="counter" id="textarea-counter">{{ message.text.length }} / {{ message.maxlength }}</span>
           </div>
           <p class="form--privacy">Uso tu nombre, tu correo y tu mensaje solo para responderte. Responsable: Raúl García Martín. Más información en la <router-link class="simple_link" to="/privacidad">política de privacidad</router-link>.</p>
           <div>

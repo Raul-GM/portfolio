@@ -115,14 +115,14 @@ export const works = [
     client: null,
     series: null,
     date: '2026-04-14',
-    summary: 'Fan art de las películas de Studio Ghibli',
+    summary: 'Proyecto personal: escenas de Mi vecino Totoro, con más películas en camino',
     body: [
       'Este es un proyecto personal en el que trato de homenajear, en forma de fan art, a las películas de Studio Ghibli que tanto han marcado mi vida.',
-      'La tirada cuenta con dos ilustraciones de Mi vecino Totoro, y vienen más en camino.'
+      'De momento hay dos ilustraciones de Mi vecino Totoro, y vendrán más.'
     ],
     seo: {
       title: 'Fan art de Studio Ghibli | Ilustración - Raúl García',
-      description: 'Fan art de Studio Ghibli: ilustraciones de Mi vecino Totoro con Totoro. Proyecto personal en marcha.'
+      description: 'Fan art de Studio Ghibli: dos ilustraciones de Mi vecino Totoro dentro de un proyecto personal en marcha.'
     },
     cover: 'portfolio/StudioGhibli/Totoro_2',
     blocks: [
