@@ -71,14 +71,15 @@ export default {
 }
 .shop-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 320px));
+  justify-content: start;
+  gap: 1.5rem 1rem;
   padding-bottom: 2rem;
 }
 .shop-card-info {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: .5rem;
   &-image {
     width: min(320px, 100%);
@@ -94,7 +95,7 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     gap: .3rem;
     &-title {
       font-family: var(--font-title);

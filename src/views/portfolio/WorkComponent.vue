@@ -5,6 +5,7 @@
       <header class="work__header">
         <h1 :id="`work-title-${work.slug}`" class="section-title">{{ work.title }}</h1>
         <p class="work__meta">{{ meta }} · <time v-for="(year, yearIndex) in years" :key="year" :datetime="year"><template v-if="yearIndex">–</template>{{ year }}</time></p>
+        <p v-if="work.kind === 'commission'" class="work__cta-top">¿Quieres algo así? <router-link class="simple_link" to="/encargos">Pide tu encargo</router-link></p>
       </header>
       <!-- La primera imagen va antes del texto: la obra es lo primero que se ve -->
       <div class="work__blocks">
@@ -90,7 +91,7 @@ export default {
       return [
         getCategoryLabel(this.work),
         this.work.franchise,
-        this.work.kind === 'commission' ? 'Encargo' : null
+        this.work.kind === 'commission' ? 'Encargo' : 'Proyecto personal'
       ].filter(Boolean).join(' · ');
     },
     years() {
@@ -108,6 +109,14 @@ export default {
   &__meta {
     color: var(--primary-color);
     padding-bottom: 1.5rem;
+    // Con la CTA justo debajo, la separación la pone ella
+    &:has(+ .work__cta-top) {
+      padding-bottom: .5rem;
+    }
+  }
+  &__cta-top .simple_link {
+    display: inline-block;
+    padding: .25rem 0;
   }
   &__body p {
     padding-bottom: 1rem;
