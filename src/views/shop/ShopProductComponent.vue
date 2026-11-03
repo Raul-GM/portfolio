@@ -130,6 +130,10 @@ export default {
   }
   &__back {
     padding-bottom: 2rem;
+    .simple_link {
+      display: inline-block;
+      padding: .5rem 0;
+    }
   }
 }
 </style>

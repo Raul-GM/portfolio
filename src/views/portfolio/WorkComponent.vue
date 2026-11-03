@@ -156,6 +156,10 @@ export default {
     flex-wrap: wrap;
     gap: 1rem;
     padding-bottom: 2rem;
+    .simple_link {
+      display: inline-block;
+      padding: .5rem 0;
+    }
     @media (max-width: $media-mobile) {
       flex-direction: column;
     }

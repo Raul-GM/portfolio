@@ -20,5 +20,5 @@
 /portfolio    /    301
 
 # Las páginas fijas, las obras y las láminas tienen su HTML en dist/ (scripts/prerender-meta.js) y Netlify
-# lo sirve antes que esta regla. Todo lo demás: la SPA pinta la 404, con código 404 real
-/*    /index.html    404
+# lo sirve antes que esta regla. Todo lo demás: la SPA pinta la 404 sobre 404.html (noindex, con código 404 real)
+/*    /404.html    404

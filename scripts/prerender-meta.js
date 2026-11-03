@@ -6,7 +6,7 @@
 
 const fs = require('fs')
 const path = require('path')
-const { ROOT, SITE_URL, publishedWorks, getWorkUrl, getWorkDateCreated, getOgImage, shopData, getProductUrl, getProductOgImage, pages } = require('./lib/load-works')
+const { ROOT, SITE_URL, publishedWorks, getWorkUrl, getWorkDateCreated, getOgImage, shopData, getProductUrl, getProductOgImage, pages, notFoundPage } = require('./lib/load-works')
 
 const DIST = path.join(ROOT, 'dist')
 const template = fs.readFileSync(path.join(DIST, 'index.html'), 'utf8')
@@ -122,4 +122,6 @@ staticPages.forEach(page => writePage(page.path, renderHead({ ...page, url: `${S
 publishedWorks.forEach(work => writePage(getWorkUrl(work), renderWorkHead(work)))
 shopData.forEach(product => writePage(getProductUrl(product), renderProductHead(product)))
 fs.writeFileSync(path.join(DIST, 'index.html'), base.replace('</head>', `${renderHead({ ...pages.home, url: `${SITE_URL}/`, schema: personSchema })}</head>`))
+// Netlify sirve 404.html con código 404 para toda ruta sin HTML propio (public/_redirects); sin JS lleva noindex y no hereda las metas de la home
+fs.writeFileSync(path.join(DIST, '404.html'), base.replace('</head>', `${renderHead({ ...notFoundPage, url: `${SITE_URL}/`, noindex: true })}</head>`))
 console.log(`✔ HTML con metas: home y ${staticPages.length} página(s) fijas, ${publishedWorks.length} obra(s) y ${shopData.length} lámina(s)`)

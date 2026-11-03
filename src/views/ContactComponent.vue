@@ -314,7 +314,7 @@ export default {
     position: absolute;
     right: 2px;
     bottom: .7rem;
-    font-size: 10px;
+    font-size: .8rem;
     padding: 4px;
   }
 }

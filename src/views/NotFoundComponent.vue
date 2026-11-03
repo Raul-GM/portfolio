@@ -2,7 +2,7 @@
     <NavbarComponent />
     <main class="main-container">
         <h1 class="section-title">404 - Página no encontrada</h1>
-        <p>Lo sentimos, la página que buscas no existe. <router-link class="simple_link" to="/">Vuelve al portfolio</router-link>.</p>
+        <p>Lo sentimos, la página que buscas no existe. <router-link class="simple_link" to="/">Vuelve al portfolio</router-link> o mira cómo <router-link class="simple_link" to="/encargos">encargar una ilustración</router-link>.</p>
     </main>
     <FooterComponent />
 

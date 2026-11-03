@@ -63,6 +63,8 @@ export default {
     padding: 0 var(--main-padding);
     margin: auto;
     &__link {
+      display: inline-block;
+      padding: .5rem 0;
       margin-left: 1rem;
       text-decoration: underline;
     }

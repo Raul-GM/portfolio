@@ -1,12 +1,11 @@
 <template>
   <a href="#contenido" class="skip-link" v-on:click.prevent="skipToContent">Saltar al contenido</a>
   <header class="mobile-header">
-    <router-link to="/" class="simple_link menu--ra--link--mobile" :aria-hidden="isOpened ? 'true' : null" :tabindex="isOpened ? -1 : null">
+    <router-link to="/" class="simple_link menu--ra--link--mobile">
       <ImageComponent
         class="menu--ra--icon--mobile"
         file="RaulGarciaRowLogo.png"
-        altTitle="Raúl García, ir al inicio"
-        v-if="!isOpened">
+        altTitle="Raúl García, ir al inicio">
       </ImageComponent>
     </router-link>
     <button class="menu--icon"
@@ -38,14 +37,11 @@
     <div class="nav--container">
       <span class="nav--home">
         <router-link to="/"
-            class="simple_link nav--side"
-            :aria-hidden="isOpened ? 'true' : null"
-            :tabindex="isOpened ? -1 : null">
+            class="simple_link nav--side">
           <ImageComponent
             class="menu--ra--icon"
             file="RaulGarciaRowLogo.png"
-            altTitle="Raúl García, ir al inicio"
-            v-if="!isOpened">
+            altTitle="Raúl García, ir al inicio">
           </ImageComponent>
         </router-link>
       </span>
@@ -127,7 +123,7 @@ export default {
   },
   computed: {
     isPortfolioRoute() {
-      return this.$route.path.includes(this.PORTFOLIO_PATH);
+      return this.$route.name === 'Work';
     },
     // Las fichas de lámina (/shop/:product) son otra ruta, así que router-link-active no las cubre
     isShopRoute() {
@@ -206,10 +202,13 @@ export default {
       display: none;
       visibility: hidden;
       &.opened {
-          display: inherit;
+          display: flex;
           visibility: visible;
       }
       &--container {
+          width: 100%;
+          max-width: none;
+          margin: 0;
           padding: 0;
           height: 100vh;
       }
@@ -234,6 +233,9 @@ export default {
           &:last-child {
               padding-right: 0;
           }
+          a:focus-visible {
+              outline-offset: -2px;
+          }
           &:hover,
           &.--active {
               color: var(--secondary-color);
@@ -252,7 +254,6 @@ export default {
       left: 0;
       right: 0;
       height: 100%;
-      display: flex;
       flex-direction: column;
       padding: 0;
       &--home {
