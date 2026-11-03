@@ -5,7 +5,8 @@
       <ImageComponent
         class="menu--ra--icon--mobile"
         file="RaulGarciaRowLogo.png"
-        altTitle="Raúl García, ir al inicio">
+        altTitle="Raúl García, ir al inicio"
+        eager>
       </ImageComponent>
     </router-link>
     <button class="menu--icon"
@@ -41,7 +42,8 @@
           <ImageComponent
             class="menu--ra--icon"
             file="RaulGarciaRowLogo.png"
-            altTitle="Raúl García, ir al inicio">
+            altTitle="Raúl García, ir al inicio"
+            eager>
           </ImageComponent>
         </router-link>
       </span>

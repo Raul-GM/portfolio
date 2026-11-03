@@ -4,7 +4,7 @@
         :src="getImageSource"
         :alt="altTitle"
         @error="handleError"
-        loading="lazy" />
+        :loading="eager ? 'eager' : 'lazy'" />
 </template>
 <script>
 import { fallbackImage, getImageUrl } from '@/utils/getImageUrl'
@@ -18,6 +18,11 @@ export default {
     altTitle: {
       type: String,
       default: 'Imagen'
+    },
+    // true para imágenes visibles al cargar (el logo del menú)
+    eager: {
+      type: Boolean,
+      default: false
     },
     fallbackSrc: {
       type: String,
