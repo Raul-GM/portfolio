@@ -35,8 +35,29 @@ export default {
           type: String,
           default: ''
         }
-    }, computed: {
+    },
+    data() {
+        return { visible: false }
+    },
+    // El fondo solo se pide cuando la tarjeta está cerca del viewport: la home móvil no descarga las seis a la vez
+    mounted() {
+        if (!('IntersectionObserver' in window)) {
+            this.visible = true
+            return
+        }
+        this.observer = new IntersectionObserver(([entry]) => {
+            if (!entry.isIntersecting) return
+            this.visible = true
+            this.observer.disconnect()
+        }, { rootMargin: '200px' })
+        this.observer.observe(this.$el)
+    },
+    beforeUnmount() {
+        if (this.observer) this.observer.disconnect()
+    },
+    computed: {
         inlineStyle () {
+            if (!this.visible) return {}
             // El fondo se pinta a ~500px: 640 en pantallas 1x y 960 en alta densidad
             const image = width => getImageUrl(`${this.image}_${width}.jpeg`)
             return {
@@ -53,6 +74,8 @@ export default {
   display: block;
   height: 400px;
   overflow: hidden;
+  // Mismo blanco que el pie: al subir en hover deja un hueco y no debe asomar el fondo de la página
+  background: rgb(255,255,255);
   transition: box-shadow .3s ease-in-out;
   border: 2px solid var(--primary-color);
   &:hover {

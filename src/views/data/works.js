@@ -2,12 +2,18 @@
 // Se rellena con /nueva-obra y se valida con `npm run check`.
 //
 // slug         URL /portfolio/<slug>; estable, en minúsculas con guiones
-// category     clave de Categories (POP_CULTURE, PORTRAIT)
+// category     clave de Categories (FAN_ART, PORTRAIT, DESIGN)
 // franchise    serie, película o videojuego; null si no aplica
 // status       'featured' | 'visible' | 'archived' (archived no se publica)
 // order        orden en la home, de menor a mayor
 // kind         'commission' | 'personal'
-// date         'AAAA-MM-DD' (creación)
+// client       nombre del cliente del encargo; null si es personal o no se quiere nombrar.
+//              Reservado: hoy no se muestra en ninguna parte
+// series       nombre de la serie o colección si la obra forma parte de una; null si no.
+//              Reservado: hoy no se usa en ninguna parte
+// date         'AAAA-MM-DD' (creación; si la obra se extiende en el tiempo, el final o la última pieza)
+// dateStart    opcional, 'AAAA-MM-DD' (inicio, anterior a date): la página muestra "2025–2026" y el
+//              schema usa el inicio como fecha de creación
 // summary      frase corta para la tarjeta de la home
 // body         párrafos de la página
 // seo          title y description (≤ 155 caracteres); la imagen OG es public/og/<slug>.jpg
@@ -26,19 +32,28 @@ export const works = [
     kind: 'personal',
     client: null,
     series: null,
-    date: '2023-01-01',
-    summary: 'Retratos digitales de músicos de Lacuna Coil, Ankor y Dark Moor',
+    date: '2025-04-14',
+    dateStart: '2024-03-01',
+    summary: 'Retratos digitales de diferentes músicos de la escena del Rock & Roll y del Metal, como Cristina Scabbia (Lacuna Coil), los miembros de Ankor y Enrik García (Dark Moor).',
     body: [
-      'Serie personal de retratos digitales de artistas del rock y del metal.',
-      'Cinco son los miembros de Ankor, con una composición común: un gran círculo rojo sobre un fondo de pintura blanca rascada. Completan la serie Cristina Scabbia, de Lacuna Coil, y Enrik García, de Dark Moor.',
+      'Proyecto personal que trata de una serie de retratos digitales de artistas del mundo del rock y del metal.',
+      'En este proyecto aparece la banda al completo de Ankor, con una composición común: un gran círculo rojo sobre un fondo de pintura blanca rascada basados en su EP "Shoganai". Completan la serie una de los vocalistas de Lacuna Coil, Cristina Scabbia, y Enrik García, fundador, lider y guitarrista de Dark Moor.',
       'Si quieres un retrato así de tu músico favorito o de tu grupo, escríbeme.'
     ],
     seo: {
       title: 'Retratos de rock y metal | Retrato ilustrado - Raúl García',
       description: 'Retratos ilustrados digitales de músicos de rock y metal: Cristina Scabbia (Lacuna Coil), los miembros de Ankor y Enrik García (Dark Moor), serie personal.'
     },
-    cover: 'portfolio/RetratosMusicales/Jesse_Williams',
+    cover: 'portfolio/RetratosMusicales/Cri',
     blocks: [
+      {
+        type: 'image',
+        image: 'portfolio/RetratosMusicales/Cri',
+        alt: 'Retrato de Cristina Scabbia, de Lacuna Coil, en blanco y negro con toques rojos: melena oscura, labios rojos y una franja de maquillaje sobre un ojo, rodeada de salpicaduras de tinta.',
+        width: 1200,
+        height: 1200,
+        altReviewed: true
+      },
       {
         type: 'image',
         image: 'portfolio/RetratosMusicales/Jesse_Williams',
@@ -81,14 +96,6 @@ export const works = [
       },
       {
         type: 'image',
-        image: 'portfolio/RetratosMusicales/Cri',
-        alt: 'Retrato de Cristina Scabbia, de Lacuna Coil, en blanco y negro con toques rojos: melena oscura, labios rojos y una franja de maquillaje sobre un ojo, rodeada de salpicaduras de tinta.',
-        width: 1200,
-        height: 1200,
-        altReviewed: true
-      },
-      {
-        type: 'image',
         image: 'portfolio/RetratosMusicales/Enrik',
         alt: 'Enrik García, de Dark Moor, con pelo largo y barba, en tonos ocres sobre un círculo amarillo anaranjado.',
         width: 1280,
@@ -100,7 +107,7 @@ export const works = [
   {
     slug: 'fan-art-studio-ghibli',
     title: 'Homenaje a Studio Ghibli',
-    category: 'POP_CULTURE',
+    category: 'FAN_ART',
     franchise: 'Studio Ghibli',
     status: 'featured',
     order: 0,
@@ -108,14 +115,15 @@ export const works = [
     client: null,
     series: null,
     date: '2026-04-14',
-    summary: 'Fan art de las películas de Studio Ghibli, empezando por Mi vecino Totoro',
+    summary: 'Proyecto personal: escenas de Mi vecino Totoro, con más películas en camino',
     body: [
-      'Este es un proyecto personal y en marcha: mi homenaje, en forma de fan art, a las películas de Studio Ghibli.',
-      'De momento la protagonista es Mi vecino Totoro: Mei durmiendo sobre Totoro entre luciérnagas y los tres Totoros resguardándose de la lluvia bajo sus paraguas de hoja. Irán llegando ilustraciones de otras películas.'
+      'Este es un proyecto personal en el que trato de homenajear, en forma de fan art, a las películas de Studio Ghibli que tanto han marcado mi vida.',
+      'De momento hay dos ilustraciones de Mi vecino Totoro, y vienen en camino una de La tumba de las luciérnagas y otra de Porco Rosso. La serie tendrá más ilustraciones con el paso del tiempo.',
+      'El estilo que he usado para estas ilustraciones es de lápices de colores digitales.'
     ],
     seo: {
       title: 'Fan art de Studio Ghibli | Ilustración - Raúl García',
-      description: 'Fan art de Studio Ghibli: ilustraciones de Mi vecino Totoro con Totoro bajo la lluvia y Mei dormida entre luciérnagas. Proyecto personal en marcha.'
+      description: 'Fan art de Studio Ghibli: dos ilustraciones de Mi vecino Totoro dentro de un proyecto personal en marcha.'
     },
     cover: 'portfolio/StudioGhibli/Totoro_2',
     blocks: [
@@ -133,7 +141,7 @@ export const works = [
         alt: 'Mei, una niña con coletas, duerme tumbada sobre la barriga de Totoro, que también duerme boca arriba en un claro del bosque, de noche, rodeados de luciérnagas verdes; la escena está enmarcada con bordes irregulares, como de papel rasgado.',
         width: 1280,
         height: 905,
-        altReviewed: false
+        altReviewed: true
       }
     ]
   },
@@ -152,7 +160,8 @@ export const works = [
     body: [
       'Este retrato nació del encargo de una persona que quería una ilustración de la reina Isabel II de Inglaterra como el icono pop que fue. El resto lo dejó a mi elección.',
       'Lo primero fue empaparme de su vida: desde lo oficial hasta lo publicado por la prensa más amarilla británica, buscando los detalles que pudieran enriquecer la ilustración.',
-      'De esa investigación salió la idea: imaginar que, bajo la rectitud y la pompa que exige la corona, se escondía una vena irreverente que guardaba solo para sí misma. Por eso, debajo de la ropa, Isabel II lleva tatuados los eventos y las personas que marcaron su vida. La envuelve la bandera británica y, de fondo, un collage de noticias suyas de periódicos de todo el mundo, porque la prensa fue una constante en su vida.'
+      'De esa investigación salió la idea: imaginar que, bajo la rectitud y la pompa que exige la corona, se escondía una vena irreverente que guardaba solo para sí misma. Por eso, debajo de la ropa, Isabel II lleva tatuados los eventos y las personas que marcaron su vida. La envuelve la bandera británica y, de fondo, un collage de noticias suyas de periódicos de todo el mundo, porque la prensa fue una constante en su vida.',
+      'Junto con la ilustración, realicé un dossier que explica el significado de cada uno de los tatuajes que aparecen en el retrato, y que acompaña a la obra.'
     ],
     seo: {
       title: 'Isabel II, icono pop | Retrato por encargo - Raúl García',
@@ -166,7 +175,195 @@ export const works = [
         alt: 'Retrato de perfil de la reina Isabel II con corona de diamantes, envuelta en la bandera británica y con el pecho y los hombros cubiertos de pequeños tatuajes (un corgi, un ancla, la palabra Lilibet), sobre un fondo de recortes de periódico.',
         width: 1280,
         height: 1600,
-        altReviewed: false
+        altReviewed: true
+      },
+      {
+        type: 'image',
+        image: 'portfolio/RetratoIsabelII/Elizabetth_II_Dossier_copy',
+        alt: 'Dossier del retrato de Isabel II: la reina de perfil en el centro, y a los lados una columna de círculos con cada uno de sus tatuajes (la corona, un corgi, un ancla, un cisne negro, la rosa Tudor) junto a un texto que explica su significado.',
+        width: 1280,
+        height: 905,
+        altReviewed: true
+      }
+    ]
+  },
+  {
+    slug: 'retratos-familiares-por-encargo',
+    title: 'Retratos de familia, amigos y mascotas',
+    category: 'PORTRAIT',
+    franchise: null,
+    status: 'visible',
+    order: -20,
+    kind: 'commission',
+    client: null,
+    series: null,
+    date: '2025-04-25',
+    summary: 'Retratos de familias, amigos y mascotas a partir de tus fotos, para regalar o colgar',
+    body: [
+      'Serie de retratos por encargo de familias, parejas, amigos y mascotas. Para hacerlos necesito unas fotos de referencias y que me cuentes qué te gustaría ver, anécdotas, personalidad de las personas que aparecerán en la ilustración, gustos, etc. Cuanta más información mejor podré  reflejar la verdadera esencia de cada una.',
+      'Lo hablamos juntos hasta tener una idea en común, y de ahí sale una ilustración para regalar o para colgar en casa.',
+      'Si quieres un retrato así, escríbeme y te paso presupuesto y plazo.'
+    ],
+    seo: {
+      title: 'Retratos familiares por encargo | Raúl García',
+      description: 'Retratos ilustrados por encargo de familias, parejas, amigos y mascotas a partir de tus fotos. Un regalo para colgar en casa. Pide presupuesto.'
+    },
+    cover: 'portfolio/RetratosFamiliares/Clau',
+    blocks: [
+      {
+        type: 'image',
+        image: 'portfolio/RetratosFamiliares/Clau',
+        alt: 'Retrato de una mujer sonriente con el pelo recogido y sudadera azul, abrazando a dos perros: uno blanco con manchas canela y otro negro, sobre una mancha de acuarela verde.',
+        width: 1280,
+        height: 1810,
+        altReviewed: true
+      },
+      {
+        type: 'image',
+        image: 'portfolio/RetratosFamiliares/retrato',
+        alt: 'Retrato de una pareja con un perro negro de lengua fuera y un cachorro blanco y canela, dentro de un círculo beige.',
+        width: 1280,
+        height: 1811,
+        altReviewed: true
+      },
+      {
+        type: 'image',
+        image: 'portfolio/RetratosFamiliares/Retrato_2',
+        alt: 'Retrato de familia con una pareja y dos niñas, una haciendo la señal de la paz, y un perro pequeño blanco, dentro de un círculo amarillo.',
+        width: 1280,
+        height: 1811,
+        altReviewed: true
+      },
+      {
+        type: 'image',
+        image: 'portfolio/RetratosFamiliares/Con_amiga_pelo_castaño',
+        alt: 'Retrato de dos amigas de pelo castaño, sonriendo juntas dentro de un círculo naranja rodeado de tréboles verdes.',
+        width: 1280,
+        height: 1810,
+        altReviewed: true
+      },
+      {
+        type: 'image',
+        image: 'portfolio/RetratosFamiliares/Con_amiga_pelo_rubio',
+        alt: 'Retrato de dos amigas, una rubia y otra morena, dentro de un círculo naranja rodeado de tréboles verdes.',
+        width: 1280,
+        height: 1810,
+        altReviewed: true
+      },
+      {
+        type: 'image',
+        image: 'portfolio/RetratosFamiliares/Colgados_en_la_pared',
+        alt: 'Dos retratos de amigas enmarcados en blanco, colgados en la pared de un comedor con mesa de madera.',
+        width: 1280,
+        height: 1280,
+        altReviewed: true
+      }
+    ]
+  },
+  {
+    slug: 'marcapaginas-por-encargo',
+    title: 'Marcapáginas por encargo',
+    category: 'DESIGN',
+    franchise: null,
+    status: 'visible',
+    order: -15,
+    kind: 'commission',
+    client: null,
+    series: null,
+    date: '2026-06-09',
+    summary: 'Marcapáginas ilustrados y diseñados a medida, con sus dos caras',
+    body: [
+      'Marcapáginas que ilustro y diseño por encargo: el concepto, la ilustración y la maquetación para imprimir, con una cara y otra pensadas juntas.',
+      'Aquí muestro un par de ejemplos.',
+      'El primero de ellos se trata de un encargo para un grupo de opositores. A partir de una serie de conversaciones con la persona que realizó el encargo diseñé las dos caras y realicé las ilustraciones usando acuarelas digitales.',
+      'El otro encargo se trataba de un regalo para las maestras de una escuela infantil. En este diseño aparece una serie de personas relacionadas con la evolución de la pedagogía moderna y una frase al reverso que resume la idea de que no hay límites para aprender y enseñar.',
+      'Si quieres uno para un grupo, un evento o un regalo, escríbeme.'
+    ],
+    seo: {
+      title: 'Marcapáginas ilustrados por encargo | Raúl García',
+      description: 'Diseño e ilustración de marcapáginas por encargo para grupos, eventos y regalos: concepto, ilustración y maquetación lista para imprimir.'
+    },
+    cover: 'portfolio/Marcapaginas/Bookmark_Mockup_3',
+    blocks: [
+      {
+        type: 'image',
+        image: 'portfolio/Marcapaginas/Bookmark_Mockup_3',
+        alt: 'Marcapáginas con tortugas marinas nadando entre burbujas con objetos dentro, sobre un libro de tapa oscura.',
+        width: 1280,
+        height: 960,
+        altReviewed: true
+      },
+      {
+        type: 'image',
+        image: 'portfolio/Marcapaginas/Marcapáginas',
+        alt: 'Las dos caras de un marcapáginas: a la izquierda, tortugas nadando bajo el agua entre burbujas con objetos; a la derecha, crías de tortuga que van de la arena al mar.',
+        width: 1280,
+        height: 1280,
+        altReviewed: true
+      },
+      {
+        type: 'image',
+        image: 'portfolio/Marcapaginas/Bookmark_Mockup_2',
+        alt: 'Marcapáginas con tortugas en la orilla y crías avanzando por la arena desde los cascarones, sobre un libro oscuro.',
+        width: 1280,
+        height: 960,
+        altReviewed: true
+      },
+      {
+        type: 'image',
+        image: 'portfolio/Marcapaginas/Mockup01',
+        alt: 'Marcapáginas amarillo claro con retratos dibujados de siete personas de la pedagogía y su nombre bajo cada uno, entre ellos María Montessori y Emmi Pikler, sobre un libro negro.',
+        width: 1280,
+        height: 1280,
+        altReviewed: true
+      },
+      {
+        type: 'image',
+        image: 'portfolio/Marcapaginas/Mockup02',
+        alt: 'Reverso del marcapáginas: la frase «Que no te digan que el cielo es el límite cuando hay huellas en la luna» en caligrafía sobre una mancha de acuarela rosa.',
+        width: 1280,
+        height: 1280,
+        altReviewed: true
+      }
+    ]
+  },
+  {
+    slug: 'carteles-de-musica',
+    title: 'Carteles de música',
+    category: 'DESIGN',
+    franchise: null,
+    status: 'visible',
+    order: 20,
+    kind: 'personal',
+    client: null,
+    series: null,
+    date: '2023-06-01',
+    summary: 'Carteles para grupos de música, como el de la gira de Infected Rain en España',
+    body: [
+      'Diseño de carteles para grupos de música. En este caso presento un cartel que realicé por mi cuenta para celebrar el paso de la banda Infected Rain por España.',
+      'Si necesitas un cartel para tu banda o tu concierto, escríbeme.'
+    ],
+    seo: {
+      title: 'Carteles de música | Diseño de carteles - Raúl García',
+      description: 'Diseño de carteles para grupos de música y conciertos, como el de la gira española de Infected Rain. Ilustración y diseño por encargo.'
+    },
+    cover: 'portfolio/CartelesMusica/Poster_en_la_pared',
+    blocks: [
+      {
+        type: 'image',
+        image: 'portfolio/CartelesMusica/Poster_en_la_pared',
+        alt: 'Cartel de Infected Rain: la cantante gritando entre una bajista y un baterista dentro de un triángulo de neón naranja, sobre fondo oscuro con humo.',
+        width: 1280,
+        height: 960,
+        altReviewed: true
+      },
+      {
+        type: 'image',
+        image: 'portfolio/CartelesMusica/Muchos_posters',
+        alt: 'Muchos carteles de Infected Rain colocados en diagonal sobre un fondo naranja.',
+        width: 1280,
+        height: 960,
+        altReviewed: true
       }
     ]
   }
@@ -181,5 +378,15 @@ export const findWork = (slug) => publishedWorks.find(work => work.slug === slug
 export const getCategoryLabel = (work) => Categories[work.category];
 
 export const getWorkUrl = (work) => `/portfolio/${work.slug}`;
+
+// Fecha de creación para el schema: el inicio si la obra tiene rango
+export const getWorkDateCreated = (work) => work.dateStart || work.date;
+
+// "2025" o, si el rango abarca varios años, "2025–2026"
+export const getWorkYears = (work) => {
+  const end = work.date.slice(0, 4);
+  const start = (work.dateStart || work.date).slice(0, 4);
+  return start === end ? end : `${start}–${end}`;
+};
 
 export const getOgImage = (work) => `og/${work.slug}.jpg`;

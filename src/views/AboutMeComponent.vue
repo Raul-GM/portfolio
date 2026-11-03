@@ -12,11 +12,11 @@
             eager />
           <div>
             <h1 class="section-title">Sobre mí</h1>
-            <p><b>¡Hola!</b> Soy Raúl García, ilustrador. Dibujo personajes de series, películas y videojuegos, y retratos de personas reales, sobre todo por encargo.</p>
-            <p>Empecé como programador front-end. Trabajando junto a diseñadoras y diseñadores de UI/UX me fui metiendo en el diseño, y en 2020 me apunté al Grado de Diseño Digital de la UNIR. Al mismo tiempo desempolvé los lápices, que tenía olvidados desde niño, y volví a dibujar.</p>
-            <p>Hoy me centro en la ilustración de cultura pop y en los retratos.</p>
+            <p><b>¡Hola!</b> Soy Raúl García, ilustrador y diseñador. Realizo ilustraciones de personajes de series, películas, libros, videojuegos y todo lo relacionado con la cultura popular. Además, realizo retratos de personas que quieran tener un recuerdo con sus parejas, amistades, familias y/o mascotas.</p>
+            <p>Trabajo también como programador front-end. Gracias a aprender de a diseñadoras y diseñadores de UI/UX me fui metiendo en el diseño, y en 2020 me apunté al Grado de Diseño Digital de la UNIR. Al mismo tiempo desempolvé los lápices, que tenía olvidados desde niño, y volví a dibujar.</p>
+            <p>Hoy me centro en el fan art, los retratos y sus posibles aplicaciones dentro del diseño (carteles, marcapáginas, etc.).</p>
             <div class="social">
-              <p>Si tienes una idea, mira <router-link class="simple_link" to="/encargos">cómo trabajo los encargos</router-link> o escríbeme a <a class="simple_link" href="mailto:raulgm83.art@gmail.com">raulgm83.art@gmail.com</a>.</p>
+              <p>Si tienes una idea, mira <router-link class="simple_link" to="/encargos">cómo trabajo los encargos</router-link> o escríbeme a <a class="simple_link" href="mailto:raulgm83.art@gmail.com">raulgm83.art@gmail.com</a> si tienes alguna duda o si quieres saber más de cómo trabajo.</p>
               <p>También me puedes encontrar en redes sociales en los siguientes enlaces:</p>
               <ul class="social--list">
                 <li>

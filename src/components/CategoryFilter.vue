@@ -67,7 +67,7 @@
     &_button {
       background-color: var(--secondary-text-color);
       border: none;
-      padding: .25rem .5rem;
+      padding: .5rem .75rem;
       @media (min-width: $media-mobile) {
         padding: .5rem 1rem;
       }

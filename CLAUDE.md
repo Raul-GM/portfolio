@@ -2,13 +2,13 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-Portfolio SPA en español (ilustración de cultura pop y retratos + tienda de láminas), desplegada en `https://raulgarcia.me`. Vite, Vue 3 Options API, vue-router 4, SCSS, `@unhead/vue`. Todo el texto de cara al usuario va en español.
+Portfolio SPA en español (fan art y retratos por encargo + tienda de láminas), desplegada en `https://raulgarcia.me`. Vite, Vue 3 Options API, vue-router 4, SCSS, `@unhead/vue`. Todo el texto de cara al usuario va en español.
 
 ## Commands
 
 - `npm run serve` — dev server de Vite (`http://localhost:5173`)
 - `npm run build` — build de producción; es la verificación principal (no hay tests). `prebuild` valida `works.js` y regenera `public/sitemap.xml`; `postbuild` escribe `dist/portfolio/<slug>/index.html` con las metas de cada obra
-- `npm run images -- <origen> --slug <slug> [--folder <Carpeta>] [--og <fichero>]` — desde `inbox/…` genera `_320/_640/_960/_1280.jpeg` ([anchos](src/views/data/imageWidths.js)) en `src/assets/images/portfolio/<Carpeta>/` y `public/og/<slug>.jpg`; imprime JSON con rutas y dimensiones para `works.js`
+- `npm run images -- <origen> --slug <slug> [--folder <Carpeta> | --dir <carpeta>] [--og <fichero>]` — desde `inbox/…` genera `_320/_640/_960/_1280.jpeg` ([anchos](src/views/data/imageWidths.js)) en `src/assets/images/portfolio/<Carpeta>/` (o `src/assets/images/<carpeta>/` con `--dir`, que usa la tienda: `--dir shop --slug shop-<id>`) y `public/og/<slug>.jpg`; imprime JSON con rutas y dimensiones para `works.js`
 - `npm run check` — valida `works.js` (slugs, imágenes, alt, longitudes SEO)
 - `npm run lint` — ESLint, **auto-corrige** archivos; revisa `git diff` después
 
@@ -24,11 +24,12 @@ Tras cualquier cambio: `npm run lint` y `npm run build` deben pasar. Una imagen 
 
 ## Architecture
 
-- **Rutas** ([src/router/index.js](src/router/index.js)): todo salvo Home es lazy-loaded. Las obras comparten `/portfolio/:slug` ([WorkComponent](src/views/portfolio/WorkComponent.vue)); un slug inexistente o archivado muestra la 404 sin cambiar la URL. La tienda comparte `/shop/:product` y está fuera del menú y con `noindex` hasta la fase 4. `/encargos` explica cómo encargar; las llamadas a la acción de la home y de cada obra apuntan ahí. `/` y `/portfolio` renderizan Home.
+- **Rutas** ([src/router/index.js](src/router/index.js)): todo salvo Home es lazy-loaded. Las obras comparten `/portfolio/:slug` ([WorkComponent](src/views/portfolio/WorkComponent.vue)); un slug inexistente o archivado muestra la 404 sin cambiar la URL. La tienda (`/shop`, láminas en `/shop/:product`, [ShopProductComponent](src/views/shop/ShopProductComponent.vue)) está en el menú y no tiene carrito ni cobro: quien quiere una lámina va a `/contact?lamina=<id>`, que deja el mensaje empezado. `/privacidad` es la política de privacidad del formulario (`noindex`, enlazada desde el pie). `/encargos` explica cómo encargar; las llamadas a la acción de la home y de cada obra apuntan ahí. `/` y `/portfolio` renderizan Home.
 - **Layout**: cada vista renderiza ella misma `NavbarComponent` y `FooterComponent`. Cada vista aporta su propio `<main>`. [App.vue](src/App.vue) solo aporta `<router-view :key="$route.path">` (fuerza `setup()` y SEO al cambiar de obra) y el SCSS global de `src/assets/styles/`.
-- **Datos**: [src/views/data/works.js](src/views/data/works.js) (**única fuente de obras**; el formato está comentado en su cabecera), [categories.js](src/views/data/categories.js) (Cultura pop, Retratos), [pages.js](src/views/data/pages.js) (título y description de las páginas fijas) y [shop.js](src/views/data/shop.js).
-- **Netlify**: despliega cada push a `main`. [public/_redirects](public/_redirects) contiene los 301 de obras retiradas, `/shop/*` → SPA con 200 y, la última, `/*` → SPA con **404** (las páginas fijas y las obras tienen HTML propio en `dist/`; una ruta nueva de la SPA sin HTML propio necesita su regla 200).
-- **Contacto**: el formulario envía a Formspree (endpoint en [ContactComponent.vue](src/views/ContactComponent.vue)). Las variables `VUE_APP_EMAILJS_*` de `.env` / `.env.production` son de una versión anterior y no se usan; no imprimas ni copies sus valores.
+- **Datos**: [src/views/data/works.js](src/views/data/works.js) (**única fuente de obras**; el formato está comentado en su cabecera), [categories.js](src/views/data/categories.js) (Fan art, Retratos), [pages.js](src/views/data/pages.js) (título y description de las páginas fijas) y [shop.js](src/views/data/shop.js) (**única fuente de láminas**; formato comentado en su cabecera; lo valida `npm run check`).
+- **Netlify**: despliega cada push a `main`. [public/_redirects](public/_redirects) contiene los 301 de obras retiradas, y, la última, `/*` → SPA con **404** (las páginas fijas, las obras y las láminas tienen HTML propio en `dist/`; una ruta nueva de la SPA sin HTML propio necesita su regla 200).
+- **Contacto**: el formulario envía a Formspree (endpoint en [ContactComponent.vue](src/views/ContactComponent.vue)). No hay `.env`: el proyecto no usa variables de entorno.
+- **Sin analítica ni cookies** (decisión de valores): no añadas Google Analytics, píxeles ni scripts de terceros que guarden datos; así no hace falta banner de cookies.
 - **Revisores** (`.claude/agents/`): `a11y-auditor`, `ux-reviewer`, `seo-auditor`, solo lectura, informes en `docs/audits/`. Compila antes de lanzarlos y diles que no compilen (comparten `dist/`). Herramientas: [scripts/render.js](scripts/render.js) (sirve `dist/` como Netlify y abre rutas en Chromium: resumen, `--raw`, `--requests`, `--screenshot`, `--tab`, `--click`) y [scripts/contrast.js](scripts/contrast.js).
 
 ## Gotchas

@@ -28,5 +28,6 @@ module.exports = {
   ...require(path.join(ROOT, 'src', 'views', 'data', 'works.js')),
   ...require(path.join(ROOT, 'src', 'views', 'data', 'categories.js')),
   ...require(path.join(ROOT, 'src', 'views', 'data', 'imageWidths.js')),
-  ...require(path.join(ROOT, 'src', 'views', 'data', 'pages.js'))
+  ...require(path.join(ROOT, 'src', 'views', 'data', 'pages.js')),
+  ...require(path.join(ROOT, 'src', 'views', 'data', 'shop.js'))
 }

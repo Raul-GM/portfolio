@@ -1,15 +1,16 @@
-// Regenera public/sitemap.xml a partir de las páginas fijas (pages.js) y de las obras publicadas.
+// Regenera public/sitemap.xml a partir de las páginas fijas (pages.js), las obras publicadas y las láminas de la tienda.
 // Se ejecuta en prebuild: no edites sitemap.xml a mano.
 
 const fs = require('fs')
 const path = require('path')
-const { ROOT, SITE_URL, publishedWorks, getWorkUrl, pages } = require('./lib/load-works')
+const { ROOT, SITE_URL, publishedWorks, getWorkUrl, shopData, getProductUrl, pages } = require('./lib/load-works')
 
 const STATIC_PAGES = Object.values(pages).filter(page => !page.noindex).map(page => page.path)
 
 const urls = [
   ...STATIC_PAGES.map(page => ({ loc: `${SITE_URL}${page}` })),
-  ...publishedWorks.map(work => ({ loc: `${SITE_URL}${getWorkUrl(work)}`, lastmod: work.date }))
+  ...publishedWorks.map(work => ({ loc: `${SITE_URL}${getWorkUrl(work)}`, lastmod: work.date })),
+  ...shopData.map(product => ({ loc: `${SITE_URL}${getProductUrl(product)}` }))
 ]
 
 const xml = [

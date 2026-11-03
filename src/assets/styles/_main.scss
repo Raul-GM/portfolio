@@ -5,12 +5,12 @@ body {
   font-family: var(--font-text);
   background-color: var(--lightest-color);
   color: var(--main-text-color);
-  font-size: 14px;
+  font-size: var(--text-base);
 }
 input,
 textarea {
   font-family: var(--font-text);
-  font-size: .9rem;
+  font-size: var(--text-base);
 }
 h1 {
   font-size: 1.8rem;
@@ -44,8 +44,12 @@ p {
 
 .main-container {
   min-height: calc(100vh - var(--navbar-height) - var(--footer-height));
+  max-width: var(--page-max);
+  margin: 0 auto;
   padding: 2rem var(--main-padding);
   @media (max-width: $media-mobile) {
+    // El pie móvil es más alto y la cabecera móvil deja 1rem de margen
+    min-height: calc(100vh - var(--navbar-height) - var(--footer-height-mobile) - 1rem);
     padding: 0 1rem 1rem 1rem;
   }
 }
@@ -72,87 +76,6 @@ p {
   &:hover {
     color: var(--secondary-color);
   }
-}
-
-.portfolio-project-container {
-  display: flex;
-  flex-direction: column;
-  p {
-    padding-bottom: 2rem;
-  }
-  &__images {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    img {
-      max-width: 70vw;
-      padding-bottom: 1rem;
-      width: 100%;
-      &.vertical {
-        max-width: 40vw;
-      }
-    }
-    &.full {
-      max-width: 100%;
-      img {
-        max-width: 800px;
-        @media (max-width: $media-mobile) {
-          max-width: unset;
-          width: 100%;
-        }
-      }
-    }
-  }
-}
-
-.aboutme-container {
-  display: grid;
-  grid-template-columns: 220px 1fr;
-  grid-template-rows: repeat(2, min-content);
-  justify-items: center;
-  padding: 0;
-  &__title {
-    grid-column: 1/3;
-  }
-  &__part {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    padding: 1rem 0;
-    &.image .image{
-      max-width: 220px;
-      height: auto;
-      padding-right: 2rem;
-    }
-    @media (max-width: $media-mobile) {
-      &.image {
-        display: none;
-      }
-    }
-  }
-
-  @media (max-width: $media-mobile) {
-    grid-template-columns: 1fr;
-  }
-}
-
-
-.portfolio-more-projects-button {
-  display: flex;
-  justify-content: center;
-  padding-bottom: 2rem;
-}
-
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
 }
 
 // Foco visible solo con teclado; el contenedor que recibe el foco al cambiar de ruta no lo pinta

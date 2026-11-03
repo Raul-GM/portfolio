@@ -1,12 +1,13 @@
 <template>
     <NavbarComponent />
     <main class="main-container">
+      <h1 id="contactForm" class="section-title">Contáctame</h1>
+      <p class="contact__intro">¿Tienes una idea para un encargo? Cuéntame qué quieres (un personaje, una escena, un retrato), para cuándo lo necesitas y si necesitas más información. Te contestaré lo antes posible con presupuesto y plazo, sin compromiso.</p>
       <div class="contact">
         <form action="https://formspree.io/f/xqaazjwd"
               @submit.prevent="onSubmit"
               class="form"
               aria-labelledby="contactForm">
-          <h1 id="contactForm" class="section-title">Contáctame</h1>
           <div class="field-group">
             <label class="form--label" for="name">Nombre</label>
             <input
@@ -45,17 +46,19 @@
               required aria-required="true"
               v-model="message.text"
               :maxlength="message.maxlength"
+              aria-describedby="textarea-counter"
             ></textarea>
-            <span class="counter">{{ message.text.length }} / {{ message.maxlength }}</span>
+            <span class="counter" id="textarea-counter">{{ message.text.length }} / {{ message.maxlength }}</span>
           </div>
+          <p class="form--privacy">Uso tu nombre, tu correo y tu mensaje solo para responderte. Responsable: Raúl García Martín. Más información en la <router-link class="simple_link" to="/privacidad">política de privacidad</router-link>.</p>
           <div>
-            <input type="submit" class="form--submit" value="Enviar mensaje" :disabled="isSending" />
+            <input type="submit" class="button-primary form--submit" value="Enviar mensaje" :disabled="isSending" />
           </div>
           <p class="form--status" :class="formStatusClass" role="status">{{ formStatus }}</p>
         </form>
-        <div class="social">
-          <p>¿Tienes una idea para un encargo? Cuéntame qué quieres (un personaje, una escena, un retrato), para cuándo lo necesitas y, si es un retrato, si tienes fotos de referencia. Te contestaré lo antes posible con presupuesto y plazo, sin compromiso.</p>
-          <p>Si prefieres, escríbeme por mensaje directo en <a class="simple_link" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/direct/t/104585227603393/">Instagram</a>. Y si quieres saber cómo trabajo, mira la página de <router-link class="simple_link" to="/encargos">encargos</router-link>.</p>
+        <aside class="social" aria-label="Otras formas de contactar">
+          <h2 class="section-title contact__aside-title">Otras formas de contactar</h2>
+          <p>Si prefieres, escríbeme por mensaje directo en <a class="simple_link" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/raulgarcia.design/">Instagram</a>. Y si quieres saber cómo trabajo, mira la página de <router-link class="simple_link" to="/encargos">encargos</router-link>.</p>
           <ul class="social--list">
             <li>
               <a href="https://www.instagram.com/raulgarcia.design/"
@@ -82,7 +85,7 @@
               </a>
             </li>
           </ul>
-        </div>
+        </aside>
       </div>
     </main>
     
@@ -94,6 +97,7 @@ import NavbarComponent from '@/components/NavbarComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
 import ImageComponent from '@/components/ImageComponent.vue';
 import { pages } from '@/views/data/pages';
+import { findProduct, formatPrice } from '@/views/data/shop';
 import { useSeoMeta } from '@/composables/useSeoMeta';
 const emailRegExp = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 export default {
@@ -123,7 +127,15 @@ export default {
       formStatus: '',
       formStatusClass: ''
     }
-  },  methods: {
+  },
+  created() {
+    // Viene de la ficha de una lámina (/contact?lamina=<id>): deja el mensaje empezado
+    const product = findProduct(this.$route.query.lamina);
+    if (product) {
+      this.message.text = `Hola, me interesa la lámina «${product.name}» (${formatPrice(product.price)}). ¿Sigue disponible? Te escribo desde: `;
+    }
+  },
+  methods: {
     async onSubmit() {
       this.validate('email', this.email.value);
       if (!this.email.isValid) return;
@@ -178,9 +190,6 @@ export default {
 <style lang="scss">
 @use '@/assets/styles/media-variables' as *;
 
-.main-container {
-  padding-top: 1rem;
-}
 .social--list {
   display: grid;
   grid-gap: 2rem;
@@ -204,17 +213,26 @@ export default {
     }
   }
 }
+.contact__intro {
+  max-width: var(--prose-max);
+  font-size: var(--text-lead);
+  line-height: 1.5;
+  padding-bottom: 1.5rem;
+}
+.contact__aside-title {
+  font-size: var(--heading-section);
+}
 .contact {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 1rem;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  grid-gap: 3rem;
   @media (max-width: $media-mobile) {
     grid-template-columns: 1fr;
   }
 }
 .form {
   min-width: 30vw;
-  max-width: 50vw;
+  max-width: var(--prose-max);
   @media (max-width: $media-mobile) {
     max-width: unset;
   }
@@ -252,26 +270,16 @@ export default {
       border-color: var(--error-color);
     }
   }
+  // El aspecto lo da .button-primary; aquí solo lo propio del <input>
   &--submit {
-    border: 1px solid var(--secondary-color);
-    background-color: var(--primary-color);
-    padding: 12px 20px;
+    border: 0;
     margin: .5rem 0 1rem;
-    color: var(--lightest-color);
-    font-weight: bold;
+    font-family: inherit;
+    font-size: inherit;
     cursor: pointer;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
     appearance: none;
-    transition: all .2s ease-in-out;
-    
     @media (max-width: $media-mobile) {
       width: 100%;
-    }
-    &:hover,
-    &:focus {
-      border: 1px solid var(--primary-color);
-      background-color: var(--secondary-color);
     }
     &:disabled {
       cursor: wait;
@@ -294,6 +302,11 @@ export default {
       padding: .5rem;
     }
   }
+  &--privacy {
+    font-size: var(--text-sm);
+    line-height: 1.4;
+    padding-bottom: .75rem;
+  }
   &--status {
     padding-bottom: 0;
     &.success {
@@ -311,7 +324,7 @@ export default {
     position: absolute;
     right: 2px;
     bottom: .7rem;
-    font-size: 10px;
+    font-size: var(--text-sm);
     padding: 4px;
   }
 }

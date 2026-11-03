@@ -15,8 +15,7 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: HomeComponent,
-    meta: { title: 'Portfolio' }
+    component: HomeComponent
   }, {
     // Duplicaba la home; Netlify también lo redirige (public/_redirects)
     path: '/portfolio',
@@ -28,18 +27,19 @@ const routes = [
   }, {
     path: '/about-me',
     name: 'AboutMe',
-    component: () => import('../views/AboutMeComponent.vue'),
-    meta: { title: 'Sobre mí' }
+    component: () => import('../views/AboutMeComponent.vue')
   }, {
     path: '/shop',
     name: 'Shop',
-    component: () => import('../views/shop/ShopComponent.vue'),
-    meta: { title: 'Tienda' }
+    component: () => import('../views/shop/ShopComponent.vue')
+  }, {
+    path: '/privacidad',
+    name: 'Privacy',
+    component: () => import('../views/PrivacyComponent.vue')
   }, {
     path: '/contact',
     name: 'Contact',
-    component: () => import('../views/ContactComponent.vue'),
-    meta: { title: 'Contacto' }
+    component: () => import('../views/ContactComponent.vue')
   }, {
     path: '/portfolio/:slug',
     name: 'Work',
@@ -54,8 +54,7 @@ const routes = [
   }, {
     path: '/:pathMatch(.*)*',
     name: 'NotFound',
-    component: () => import('../views/NotFoundComponent.vue'),
-    meta: { title: 'Página no encontrada' }
+    component: () => import('../views/NotFoundComponent.vue')
   },
 ];
 

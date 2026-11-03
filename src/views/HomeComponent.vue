@@ -2,8 +2,8 @@
     <NavbarComponent/>
     <main class="main-container">
       <section class="home-intro" aria-label="Presentación">
-        <h1 class="section-title home-intro__title">Ilustración de cultura pop y retratos por encargo</h1>
-        <p class="home-intro__text">Dibujo a tus personajes favoritos de series, películas y videojuegos, y retratos de las personas que te importan.</p>
+        <h1 class="section-title home-intro__title">Ilustración de personajes de series, películas, libros y videojuegos, y retratos por encargo</h1>
+        <p class="home-intro__text">Fan art por encargo de tus personajes favoritos y retratos de las personas y/o mascotas más importantes para ti.</p>
         <router-link class="button-primary" to="/encargos">Pide tu encargo</router-link>
       </section>
       <CategoryFilter
@@ -77,14 +77,14 @@ export default {
 @use '@/assets/styles/media-variables' as *;
 
 .home-intro {
-  max-width: 640px;
   padding-bottom: 1.5rem;
   &__title {
     padding-bottom: .5rem;
   }
   &__text {
-    font-size: 1.1rem;
+    font-size: var(--text-lead);
     line-height: 1.5;
+    max-width: var(--prose-max);
   }
 }
 
@@ -98,13 +98,13 @@ export default {
     text-align: center;
   }
   @media (min-width: $media-small-mobile) {
-    &_card {
-      &:first-of-type,
-      &:nth-of-type(6n) {
-        grid-column: span 2;
-        width: 100%;
-      }
-    }  
+    &_card:first-of-type {
+      grid-column: span 2;
+      width: 100%;
+    }
+  }
+  @media (min-width: $media-mid-screen) {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 </style>
