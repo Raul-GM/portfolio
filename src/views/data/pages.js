@@ -5,17 +5,17 @@ export const pages = {
   home: {
     path: '/',
     title: 'Raúl García | Fan art por encargo y retratos ilustrados',
-    description: 'Portfolio de Raúl García: fan art por encargo de personajes de series, películas y videojuegos, y retratos ilustrados.'
+    description: 'Portfolio de Raúl García: fan art por encargo de personajes de series, películas, libros y videojuegos, y retratos ilustrados junto con sus posibles aplicaciones en el diseño.'
   },
   commissions: {
     path: '/encargos',
     title: 'Encargos de ilustración y retratos | Raúl García',
-    description: 'Encarga una ilustración de tu personaje favorito de series, películas o videojuegos, o un retrato ilustrado. Proceso, plazos y presupuesto sin compromiso.'
+    description: 'Encarga una ilustración de tu personaje favorito de series, películas, libro o videojuegos, o un retrato ilustrado. Proceso, plazos y presupuesto sin compromiso.'
   },
   aboutMe: {
     path: '/about-me',
     title: 'Sobre mí | Raúl García - Ilustrador',
-    description: 'Soy Raúl García, ilustrador de fan art y retratos por encargo. De programador front-end a la ilustración: quién soy y dónde encontrarme.'
+    description: 'Soy Raúl García, ilustrador de fan art y retratos por encargo. De programador front-end a la ilustración y el diseño: quién soy y dónde encontrarme.'
   },
   contact: {
     path: '/contact',

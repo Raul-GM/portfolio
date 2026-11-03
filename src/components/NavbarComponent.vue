@@ -57,7 +57,7 @@
             <span>Encargos</span>
           </router-link>
         </li>
-        <li class="nav__menu__option">
+        <li class="nav__menu__option" :class="{ 'option-active': isShopRoute }">
           <router-link :to="'/shop'">
             <span>Tienda</span>
           </router-link>
@@ -84,7 +84,8 @@ export default {
   data() {
     return {
       isOpened: false,
-      PORTFOLIO_PATH: 'portfolio'
+      PORTFOLIO_PATH: 'portfolio',
+      SHOP_PATH: '/shop'
     }
   },
   methods: {
@@ -106,6 +107,10 @@ export default {
   computed: {
     isPortfolioRoute() {
       return this.$route.path.includes(this.PORTFOLIO_PATH);
+    },
+    // Las fichas de lámina (/shop/:product) son otra ruta, así que router-link-active no las cubre
+    isShopRoute() {
+      return this.$route.path.startsWith(this.SHOP_PATH);
     }
   }
 }

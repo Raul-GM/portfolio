@@ -19,7 +19,7 @@ export const shopData = [
         width: 1280,
         height: 1280,
         alt: 'Lámina «Cuero» enmarcada sobre un escritorio: ilustración en blanco y negro de una persona de espaldas con una chaqueta de cuero con una calavera.',
-        price: 14,
+        price: 10,
         available: true,
         description: 'Impresión digital en A3 (29,7 x 42 cm) sobre papel couché de 250 g. Se entrega sin marco.',
         workSlug: null

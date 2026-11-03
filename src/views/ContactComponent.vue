@@ -55,7 +55,7 @@
           <p class="form--status" :class="formStatusClass" role="status">{{ formStatus }}</p>
         </form>
         <div class="social">
-          <p>¿Tienes una idea para un encargo? Cuéntame qué quieres (un personaje, una escena, un retrato), para cuándo lo necesitas y, si es un retrato, si tienes fotos de referencia. Te contestaré lo antes posible con presupuesto y plazo, sin compromiso.</p>
+          <p>¿Tienes una idea para un encargo? Cuéntame qué quieres (un personaje, una escena, un retrato), para cuándo lo necesitas y si necesitas más información. Te contestaré lo antes posible con presupuesto y plazo, sin compromiso.</p>
           <p>Si prefieres, escríbeme por mensaje directo en <a class="simple_link" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/raulgarcia.design/">Instagram</a>. Y si quieres saber cómo trabajo, mira la página de <router-link class="simple_link" to="/encargos">encargos</router-link>.</p>
           <ul class="social--list">
             <li>
