@@ -244,14 +244,6 @@ export const works = [
       },
       {
         type: 'image',
-        image: 'portfolio/RetratosFamiliares/Con_amiga_pelo_rubio',
-        alt: 'Retrato de dos amigas, una rubia y otra morena, dentro de un círculo naranja rodeado de tréboles verdes.',
-        width: 1280,
-        height: 1810,
-        altReviewed: true
-      },
-      {
-        type: 'image',
         image: 'portfolio/RetratosFamiliares/Colgados_en_la_pared',
         alt: 'Dos retratos de amigas enmarcados en blanco, colgados en la pared de un comedor con mesa de madera.',
         width: 1280,
